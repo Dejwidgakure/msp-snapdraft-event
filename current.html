@@ -22,7 +22,7 @@ nav{
     align-items:center;
     padding:20px 60px;
     backdrop-filter:blur(10px);
-    background:rgba(5,10,25,0.7);
+    background:rgba(5,10,25,0.75);
 }
 
 nav img{
@@ -55,14 +55,14 @@ nav a{
 
 h1{
     font-family:'Orbitron', sans-serif;
-    font-size:50px;
+    font-size:48px;
     text-shadow:0 0 20px #00f0ff;
 }
 
 table{
     margin:50px auto;
     border-collapse:collapse;
-    background:rgba(0,0,30,0.6);
+    background:rgba(0,0,30,0.7);
     backdrop-filter:blur(10px);
     min-width:900px;
 }
@@ -78,9 +78,10 @@ th{
 }
 
 .leader{
-    background:rgba(0,255,255,0.15);
+    background:rgba(0,255,255,0.2);
     font-weight:700;
 }
+
 .results{
     margin-top:80px;
     background:rgba(0,0,40,0.8);
@@ -125,8 +126,10 @@ th{
     </div>
 </div>
 
+<!-- NAJPIERW DANE -->
 <script src="draft18-data.js"></script>
 
+<!-- POTEM SILNIK -->
 <script>
 const tableBody = document.querySelector("#rankingTable tbody");
 const resultsBox = document.getElementById("resultsBox");
@@ -149,25 +152,21 @@ matches.forEach(m=>{
     if(pts1 > pts2){
         stats[p1].wins++;
         stats[p2].losses++;
+        stats[p1].winPts += pts1;
+        stats[p2].lossPts += pts2;
     } else {
         stats[p2].wins++;
         stats[p1].losses++;
+        stats[p2].winPts += pts2;
+        stats[p1].lossPts += pts1;
     }
 
     stats[p1].total += pts1;
     stats[p2].total += pts2;
 
-    if(pts1 > pts2){
-        stats[p1].winPts += pts1;
-        stats[p2].lossPts += pts2;
-    } else {
-        stats[p2].winPts += pts2;
-        stats[p1].lossPts += pts1;
-    }
-
-    const p = document.createElement("p");
-    p.textContent = `${p1} ${pts1} – ${pts2} ${p2}`;
-    resultsBox.appendChild(p);
+    const resultLine = document.createElement("p");
+    resultLine.textContent = `${p1} ${pts1} – ${pts2} ${p2}`;
+    resultsBox.appendChild(resultLine);
 });
 
 let ranking = Object.keys(stats).map(name=>({
@@ -179,7 +178,10 @@ ranking.sort((a,b)=>b.total - a.total);
 
 ranking.forEach((player,i)=>{
     const row = document.createElement("tr");
-    if(i===0) row.classList.add("leader");
+
+    if(i===0 && player.total > 0){
+        row.classList.add("leader");
+    }
 
     row.innerHTML = `
         <td>${player.name}</td>
