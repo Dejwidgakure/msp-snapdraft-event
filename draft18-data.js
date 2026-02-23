@@ -9,7 +9,7 @@ const players = [
   },
   {
     name: "Budiso",
-    deck: ["Clea","Bruce Bunner","Merlin","Master Mold","Doctor STrange","Bishop","Silver Surfer First Steps","Gwenpool","MoonGirl","Silver Samurai","Profesor X","Doctor Doom"]
+    deck: ["Clea","Bruce Bunner","Merlin","Master Mold","Doctor Strange","Bishop","Silver Surfer First Steps","Gwenpool","MoonGirl","Silver Samurai","Profesor X","Doctor Doom"]
   },
   {
     name: "Pluton",
@@ -25,7 +25,7 @@ const players = [
   },
   {
     name: "Weregesu",
-    deck: []
+    deck: ["Arana","Nico Minoru","Squirrel Girl","Hydra Bob","Mister Sinister","Scarlet Witch","Colossus","Marvel Boy","Copycat","Redwing","Sword Master","Giganto"]
   },
   {
     name: "Matixmgg",
