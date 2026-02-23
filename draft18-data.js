@@ -13,6 +13,5 @@ const players = [
 ];
 
 const matches = [
-  // PRZYKŁAD:
-  // { p1: "Dejwid", p2: "Maniek", pts1: 21, pts2: 4 },
+  { p1: "Dejwid", p2: "Maniek", pts1: 21, pts2: 4 }
 ];
