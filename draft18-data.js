@@ -1,15 +1,58 @@
 const players = [
-  "Dejwid",
-  "Dawid ak. Void",
-  "Budiso",
-  "Pluton",
-  "Raciatek",
-  "Supcio",
-  "Weregesu",
-  "Matixmgg",
-  "Fizjoradek",
-  "Kmythic",
-  "Maniek",
+  {
+    name: "Dejwid",
+    deck: [
+      "Sunspot",
+      "Shang-Chi",
+      "Doctor Doom",
+      "America Chavez"
+    ]
+  },
+  {
+    name: "Dawid ak. Void",
+    deck: [
+      "Magneto",
+      "Wave",
+      "Death",
+      "She-Hulk"
+    ]
+  },
+  {
+    name: "Budiso",
+    deck: []
+  },
+  {
+    name: "Pluton",
+    deck: []
+  },
+  {
+    name: "Raciatek",
+    deck: []
+  },
+  {
+    name: "Supcio",
+    deck: []
+  },
+  {
+    name: "Weregesu",
+    deck: []
+  },
+  {
+    name: "Matixmgg",
+    deck: []
+  },
+  {
+    name: "Fizjoradek",
+    deck: []
+  },
+  {
+    name: "Kmythic",
+    deck: []
+  },
+  {
+    name: "Maniek",
+    deck: []
+  }
 ];
 
 const matches = [
