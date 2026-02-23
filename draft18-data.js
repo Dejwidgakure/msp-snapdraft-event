@@ -9,7 +9,7 @@ const players = [
   },
   {
     name: "Budiso",
-    deck: []
+    deck: ["Clea","Bruce Bunner","Merlin","Master Mold","Doctor STrange","Bishop","Silver Surfer First Steps","Gwenpool","MoonGirl","Silver Samurai","Profesor X","Doctor Doom"]
   },
   {
     name: "Pluton",
