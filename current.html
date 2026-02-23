@@ -16,20 +16,6 @@ body{
     color:white;
 }
 
-nav{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 60px;
-    backdrop-filter:blur(10px);
-    background:rgba(5,10,25,0.75);
-}
-
-nav img{
-    height:60px;
-    filter:drop-shadow(0 0 15px #00f0ff);
-}
-
 .section{
     padding:80px 40px;
     text-align:center;
@@ -42,14 +28,13 @@ h1{
 }
 
 button{
-    padding:12px 30px;
+    padding:10px 25px;
     border:none;
-    border-radius:30px;
+    border-radius:25px;
     background:linear-gradient(45deg,#00f0ff,#8a2be2);
     color:black;
     font-weight:700;
     cursor:pointer;
-    margin-top:20px;
     box-shadow:0 0 20px #00f0ff;
 }
 
@@ -68,7 +53,6 @@ table{
     margin:40px auto;
     border-collapse:collapse;
     background:rgba(0,0,30,0.7);
-    backdrop-filter:blur(10px);
     min-width:1000px;
     box-shadow:0 0 40px rgba(0,255,255,0.4);
 }
@@ -97,41 +81,11 @@ th{
     margin-left:auto;
     margin-right:auto;
 }
-
-.decks{
-    margin-top:80px;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:30px;
-}
-
-.deck-card{
-    background:rgba(0,0,40,0.8);
-    padding:20px;
-    border-radius:20px;
-    box-shadow:0 0 25px #00f0ff;
-    transition:0.3s;
-}
-
-.deck-card:hover{
-    transform:scale(1.05);
-    box-shadow:0 0 40px #8a2be2;
-}
-
-.deck-card h3{
-    margin-top:0;
-    text-shadow:0 0 10px #00f0ff;
-}
 </style>
 </head>
 <body>
 
-<nav>
-    <img src="assets/msp-logo.png">
-</nav>
-
 <div class="section">
-    <img src="assets/draft-logo.png" style="height:100px;">
     <h1>Draft 18</h1>
 
     <button onclick="toggleForm()">Dodaj mecz</button>
@@ -161,26 +115,29 @@ th{
     <div class="results" id="resultsBox">
         <h2>Wyniki</h2>
     </div>
-
-    <div class="decks" id="decksBox">
-        <h2 style="grid-column:1/-1;">Decki graczy</h2>
-    </div>
 </div>
 
 <script src="./draft18-data.js"></script>
 
 <script>
-let matchesData = [...matches];
+document.addEventListener("DOMContentLoaded", ()=>{
 
+let matchesData = [...matches];
 const tableBody = document.querySelector("#rankingTable tbody");
 const resultsBox = document.getElementById("resultsBox");
-const decksBox = document.getElementById("decksBox");
+const p1Select = document.getElementById("p1");
+const p2Select = document.getElementById("p2");
+
+players.forEach(p=>{
+    p1Select.innerHTML+=`<option value="${p}">${p}</option>`;
+    p2Select.innerHTML+=`<option value="${p}">${p}</option>`;
+});
 
 function render(){
     tableBody.innerHTML="";
     resultsBox.innerHTML="<h2>Wyniki</h2>";
 
-    let stats = {};
+    let stats={};
     players.forEach(p=>{
         stats[p]={wins:0,losses:0,winPts:0,lossPts:0,total:0};
     });
@@ -223,18 +180,19 @@ function render(){
             <td>${player.winPts}</td>
             <td>${player.lossPts}</td>
         `;
+
         tableBody.appendChild(row);
     });
 }
 
-function toggleForm(){
+window.toggleForm=function(){
     const f=document.getElementById("matchForm");
     f.style.display=f.style.display==="none"?"block":"none";
 }
 
-function addMatch(){
-    const p1=document.getElementById("p1").value;
-    const p2=document.getElementById("p2").value;
+window.addMatch=function(){
+    const p1=p1Select.value;
+    const p2=p2Select.value;
     const pts1=parseInt(document.getElementById("pts1").value);
     const pts2=parseInt(document.getElementById("pts2").value);
 
@@ -245,24 +203,8 @@ function addMatch(){
     render();
 }
 
-function init(){
-    const p1Select=document.getElementById("p1");
-    const p2Select=document.getElementById("p2");
-
-    players.forEach(p=>{
-        p1Select.innerHTML+=`<option value="${p}">${p}</option>`;
-        p2Select.innerHTML+=`<option value="${p}">${p}</option>`;
-
-        const card=document.createElement("div");
-        card.className="deck-card";
-        card.innerHTML=`<h3>${p}</h3><p>Deck do uzupełnienia...</p>`;
-        decksBox.appendChild(card);
-    });
-
-    render();
-}
-
-init();
+render();
+});
 </script>
 
 </body>
