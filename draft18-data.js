@@ -13,5 +13,6 @@ const players = [
 ];
 
 const matches = [
-  { p1: "Dejwid", p2: "Maniek", pts1: 21, pts2: 4 }
+  { p1: "Dejwid", p2: "Maniek", pts1: 22, pts2: 3 }
+  { p1: "Dejwid", p2: "Void", pts1: 6, pts2: 19 }
 ];
