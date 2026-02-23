@@ -77,34 +77,18 @@ th{
     color:black;
 }
 
-tr:hover{
-    background:rgba(0,255,255,0.1);
+.leader{
+    background:rgba(0,255,255,0.15);
+    font-weight:700;
 }
-
-.decks{
-    margin-top:100px;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:30px;
-}
-
-.deck{
-    background:rgba(0,0,40,0.7);
-    padding:20px;
-    border-radius:20px;
-    box-shadow:0 0 20px rgba(0,255,255,0.3);
-}
-
-.deck h3{
-    font-family:'Orbitron', sans-serif;
-    color:#00f0ff;
-}
-
 .results{
-    margin-top:120px;
+    margin-top:80px;
     background:rgba(0,0,40,0.8);
     padding:40px;
     border-radius:20px;
+    max-width:900px;
+    margin-left:auto;
+    margin-right:auto;
 }
 </style>
 </head>
@@ -123,60 +107,91 @@ tr:hover{
     <img src="assets/draft-logo.png">
     <h1>Draft 18</h1>
 
-    <!-- TABELA -->
-    <table>
-        <tr>
-            <th>Gracz</th>
-            <th>Bilans</th>
-            <th>Punkty łączne</th>
-            <th>Pkt za porażki</th>
-            <th>Pkt za zwycięstwa</th>
-        </tr>
-
-        <tr>
-            <td>Dejwid</td>
-            <td>0-0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-        </tr>
-
-        <tr>
-            <td>Void</td>
-            <td>0-0</td>
-            <td>0</td>
-            <td>0</td>
-            <td>0</td>
-        </tr>
-
-        <!-- DODASZ RESZTĘ 11 GRACZY -->
+    <table id="rankingTable">
+        <thead>
+            <tr>
+                <th>Gracz</th>
+                <th>Bilans</th>
+                <th>Punkty łączne</th>
+                <th>Pkt za zwycięstwa</th>
+                <th>Pkt za porażki</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
     </table>
 
-    <!-- DECKI -->
-    <div class="decks">
-        <div class="deck">
-            <h3>DEJWID</h3>
-            <p>Thanos</p>
-            <p>Mockingbird</p>
-            <p>Black Knight</p>
-        </div>
-
-        <div class="deck">
-            <h3>VOID</h3>
-            <p>Blob</p>
-            <p>Destroyer</p>
-            <p>Venom</p>
-        </div>
-    </div>
-
-    <!-- WYNIKI -->
-    <div class="results">
+    <div class="results" id="resultsBox">
         <h2>Wyniki</h2>
-        <p>Dejwid pokonał Maniek 21–4</p>
-        <p>Void pokonał Pluton 18–9</p>
     </div>
-
 </div>
+
+<script src="draft18-data.js"></script>
+
+<script>
+const tableBody = document.querySelector("#rankingTable tbody");
+const resultsBox = document.getElementById("resultsBox");
+
+let stats = {};
+
+players.forEach(p=>{
+    stats[p] = {
+        wins:0,
+        losses:0,
+        winPts:0,
+        lossPts:0,
+        total:0
+    };
+});
+
+matches.forEach(m=>{
+    const {p1,p2,pts1,pts2} = m;
+
+    if(pts1 > pts2){
+        stats[p1].wins++;
+        stats[p2].losses++;
+    } else {
+        stats[p2].wins++;
+        stats[p1].losses++;
+    }
+
+    stats[p1].total += pts1;
+    stats[p2].total += pts2;
+
+    if(pts1 > pts2){
+        stats[p1].winPts += pts1;
+        stats[p2].lossPts += pts2;
+    } else {
+        stats[p2].winPts += pts2;
+        stats[p1].lossPts += pts1;
+    }
+
+    const p = document.createElement("p");
+    p.textContent = `${p1} ${pts1} – ${pts2} ${p2}`;
+    resultsBox.appendChild(p);
+});
+
+let ranking = Object.keys(stats).map(name=>({
+    name,
+    ...stats[name]
+}));
+
+ranking.sort((a,b)=>b.total - a.total);
+
+ranking.forEach((player,i)=>{
+    const row = document.createElement("tr");
+    if(i===0) row.classList.add("leader");
+
+    row.innerHTML = `
+        <td>${player.name}</td>
+        <td>${player.wins}-${player.losses}</td>
+        <td>${player.total}</td>
+        <td>${player.winPts}</td>
+        <td>${player.lossPts}</td>
+    `;
+
+    tableBody.appendChild(row);
+});
+</script>
 
 </body>
 </html>
