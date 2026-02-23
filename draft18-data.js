@@ -1,21 +1,11 @@
 const players = [
   {
     name: "Dejwid",
-    deck: [
-      "Sunspot",
-      "Shang-Chi",
-      "Doctor Doom",
-      "America Chavez"
-    ]
+    deck: ["Sunspot","Shang-Chi","Doctor Doom","America Chavez"]
   },
   {
     name: "Dawid ak. Void",
-    deck: [
-      "Magneto",
-      "Wave",
-      "Death",
-      "She-Hulk"
-    ]
+    deck: ["Magneto","Wave","Death","She-Hulk"]
   },
   {
     name: "Budiso",
@@ -52,7 +42,7 @@ const players = [
   {
     name: "Maniek",
     deck: []
-  }
+  },
 ];
 
 const matches = [
@@ -72,4 +62,6 @@ const matches = [
   { p1: "Fizjoradek", p2: "Kmythic", pts1: 21, pts2: 4 },
   { p1: "Fizjoradek", p2: "Weregesu", pts1: 22, pts2: 3 },
   { p1: "Kmythic", p2: "Raciatek", pts1: 18, pts2: 7 },
+  { p1: "Dejwid", p2: "Kmythic", pts1: 22, pts2: 3 },
+  { p1: "Weregesu", p2: "Budiso", pts1: 23, pts2: 2 },
 ];
