@@ -2,7 +2,7 @@
 <html lang="pl">
 <head>
 <meta charset="UTF-8">
-<title>MSP SnapDraft Event</title>
+<title>Draft 18 | MSP SnapDraft Event</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
@@ -25,14 +25,8 @@ nav{
     background:rgba(5,10,25,0.7);
 }
 
-nav .left{
-    display:flex;
-    align-items:center;
-    gap:20px;
-}
-
 nav img{
-    height:65px;
+    height:60px;
     filter:drop-shadow(0 0 15px #00f0ff);
 }
 
@@ -46,73 +40,142 @@ nav a{
     text-decoration:none;
     color:white;
     font-weight:600;
-    transition:0.3s;
 }
 
-nav a:hover{
-    color:#00f0ff;
-}
-
-.hero{
+.section{
+    padding:100px 40px;
     text-align:center;
-    padding:140px 20px;
 }
 
-.hero img{
-    height:140px;
+.section img{
+    height:120px;
     margin-bottom:20px;
     filter:drop-shadow(0 0 30px #00f0ff);
 }
 
-.hero h1{
+h1{
     font-family:'Orbitron', sans-serif;
-    font-size:64px;
-    margin:0;
-    text-shadow:0 0 25px #00f0ff;
+    font-size:50px;
+    text-shadow:0 0 20px #00f0ff;
 }
 
-.hero p{
-    margin-top:20px;
-    font-size:20px;
-    opacity:0.85;
+table{
+    margin:50px auto;
+    border-collapse:collapse;
+    background:rgba(0,0,30,0.6);
+    backdrop-filter:blur(10px);
+    min-width:900px;
 }
 
-.btn{
-    margin-top:40px;
-    display:inline-block;
-    padding:15px 40px;
-    border-radius:40px;
+th, td{
+    padding:14px 20px;
+    border:1px solid rgba(0,255,255,0.3);
+}
+
+th{
     background:linear-gradient(45deg,#00f0ff,#8a2be2);
     color:black;
-    font-weight:700;
-    text-decoration:none;
-    transition:0.3s;
 }
 
-.btn:hover{
-    transform:scale(1.05);
+tr:hover{
+    background:rgba(0,255,255,0.1);
+}
+
+.decks{
+    margin-top:100px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.deck{
+    background:rgba(0,0,40,0.7);
+    padding:20px;
+    border-radius:20px;
+    box-shadow:0 0 20px rgba(0,255,255,0.3);
+}
+
+.deck h3{
+    font-family:'Orbitron', sans-serif;
+    color:#00f0ff;
+}
+
+.results{
+    margin-top:120px;
+    background:rgba(0,0,40,0.8);
+    padding:40px;
+    border-radius:20px;
 }
 </style>
 </head>
 <body>
 
 <nav>
-    <div class="left">
-        <img src="assets/msp-logo.png">
-    </div>
-
+    <img src="assets/msp-logo.png">
     <ul>
-        <li><a href="current.html">Aktualny Draft</a></li>
+        <li><a href="index.html">Strona Główna</a></li>
         <li><a href="history.html">Historia</a></li>
         <li><a href="stats.html">Statystyki</a></li>
     </ul>
 </nav>
 
-<div class="hero">
+<div class="section">
     <img src="assets/draft-logo.png">
-    <h1>MSP SnapDraft Event</h1>
-    <p>Oficjalna Liga Draftowa Marvel Snap Polska</p>
-    <a class="btn" href="current.html">Zobacz Aktualny Draft</a>
+    <h1>Draft 18</h1>
+
+    <!-- TABELA -->
+    <table>
+        <tr>
+            <th>Gracz</th>
+            <th>Bilans</th>
+            <th>Punkty łączne</th>
+            <th>Pkt za porażki</th>
+            <th>Pkt za zwycięstwa</th>
+        </tr>
+
+        <tr>
+            <td>Dejwid</td>
+            <td>0-0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+
+        <tr>
+            <td>Void</td>
+            <td>0-0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+
+        <!-- DODASZ RESZTĘ 11 GRACZY -->
+    </table>
+
+    <!-- DECKI -->
+    <div class="decks">
+        <div class="deck">
+            <h3>DEJWID</h3>
+            <p>Thanos</p>
+            <p>Mockingbird</p>
+            <p>Black Knight</p>
+        </div>
+
+        <div class="deck">
+            <h3>VOID</h3>
+            <p>Blob</p>
+            <p>Destroyer</p>
+            <p>Venom</p>
+        </div>
+    </div>
+
+    <!-- WYNIKI -->
+    <div class="results">
+        <h2>Wyniki</h2>
+        <p>Dejwid pokonał Maniek 21–4</p>
+        <p>Void pokonał Pluton 18–9</p>
+    </div>
+
 </div>
 
 </body>
