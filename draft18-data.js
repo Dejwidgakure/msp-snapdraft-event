@@ -37,7 +37,7 @@ const players = [
   },
   {
     name: "Kmythic",
-    deck: []
+    deck: ["Agatha Harkness"]
   },
   {
     name: "Maniek",
