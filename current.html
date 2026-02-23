@@ -22,19 +22,16 @@ nav{
     justify-content:space-between;
     align-items:center;
     padding:20px 60px;
-    background:rgba(5,10,25,0.8);
+    background:rgba(5,10,25,0.85);
     backdrop-filter:blur(10px);
 }
 
-nav img{
-    height:70px;
-}
+nav img{ height:70px; }
 
 nav a{
     color:white;
     text-decoration:none;
     font-weight:600;
-    font-size:18px;
 }
 
 /* HEADER */
@@ -64,12 +61,12 @@ nav a{
 /* LAYOUT */
 .layout{
     display:flex;
-    gap:40px;
+    gap:30px;
     padding:40px 60px;
 }
 
-.table-box, .results-box{
-    flex:1;
+.table-box{
+    flex:2;
     background:rgba(0,0,40,0.8);
     padding:30px;
     border-radius:20px;
@@ -77,6 +74,11 @@ nav a{
 }
 
 .results-box{
+    flex:1;
+    background:rgba(0,0,40,0.8);
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 0 30px rgba(138,43,226,0.6);
     max-height:600px;
     overflow-y:auto;
 }
@@ -88,8 +90,9 @@ table{
 }
 
 th, td{
-    padding:12px;
+    padding:10px;
     border:1px solid rgba(0,255,255,0.3);
+    text-align:center;
 }
 
 th{
@@ -131,13 +134,26 @@ th{
     font-family:'Orbitron', sans-serif;
 }
 
-.deck-card table{
+.cards-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:8px;
     margin-top:15px;
+}
+
+.card-tile{
+    background:rgba(0,0,80,0.9);
+    padding:6px;
+    border-radius:8px;
+    font-size:12px;
+    text-align:center;
+    box-shadow:0 0 8px #00f0ff;
+    word-wrap:break-word;
 }
 
 .deck-card img{
     width:50%;
-    max-width:400px;
+    max-width:350px;
     display:block;
     margin:20px auto 0;
     border-radius:15px;
@@ -203,6 +219,8 @@ textarea{
                     <th>Gracz</th>
                     <th>Bilans</th>
                     <th>Punkty</th>
+                    <th>Pkt za wygrane</th>
+                    <th>Pkt za porażki</th>
                 </tr>
             </thead>
             <tbody></tbody>
@@ -222,21 +240,6 @@ textarea{
 
 <div class="admin-panel">
     <h2>Panel organizatora</h2>
-
-    <button onclick="toggleForm()">Dodaj mecz</button>
-
-    <div id="matchForm" style="display:none;">
-        <br>
-        <select id="p1"></select>
-        <input type="number" id="pts1" placeholder="Pkt 1">
-        <select id="p2"></select>
-        <input type="number" id="pts2" placeholder="Pkt 2">
-        <button onclick="addMatch()">Zapisz</button>
-    </div>
-
-    <br>
-    <button onclick="exportData()">Eksportuj do draft18-data.js</button>
-    <textarea id="exportBox"></textarea>
 </div>
 
 <script src="./draft18-data.js"></script>
@@ -249,13 +252,6 @@ let matchesData=[...matches];
 const tableBody=document.querySelector("#rankingTable tbody");
 const resultsBox=document.getElementById("resultsBox");
 const decksGrid=document.getElementById("decksGrid");
-const p1Select=document.getElementById("p1");
-const p2Select=document.getElementById("p2");
-
-players.forEach(p=>{
-    p1Select.innerHTML+=`<option value="${p.name}">${p.name}</option>`;
-    p2Select.innerHTML+=`<option value="${p.name}">${p.name}</option>`;
-});
 
 function renderTable(){
     tableBody.innerHTML="";
@@ -263,7 +259,7 @@ function renderTable(){
 
     let stats={};
     players.forEach(p=>{
-        stats[p.name]={wins:0,losses:0,total:0};
+        stats[p.name]={wins:0,losses:0,total:0,winPts:0,lossPts:0};
     });
 
     matchesData.forEach(m=>{
@@ -272,9 +268,13 @@ function renderTable(){
         if(pts1>pts2){
             stats[p1].wins++;
             stats[p2].losses++;
+            stats[p1].winPts+=pts1;
+            stats[p2].lossPts+=pts2;
         } else {
             stats[p2].wins++;
             stats[p1].losses++;
+            stats[p2].winPts+=pts2;
+            stats[p1].lossPts+=pts1;
         }
 
         stats[p1].total+=pts1;
@@ -297,6 +297,8 @@ function renderTable(){
             <td>${player.name}</td>
             <td>${player.wins}-${player.losses}</td>
             <td>${player.total}</td>
+            <td>${player.winPts}</td>
+            <td>${player.lossPts}</td>
         `;
         tableBody.appendChild(row);
     });
@@ -309,53 +311,18 @@ function renderDecks(){
 
         let cards="";
         p.deck.forEach(c=>{
-            cards+=`<tr><td>${c}</td></tr>`;
+            cards+=`<div class="card-tile">${c}</div>`;
         });
 
         const card=document.createElement("div");
         card.className="deck-card";
         card.innerHTML=`
             <h3>${p.name}</h3>
-            <table>${cards}</table>
+            <div class="cards-grid">${cards}</div>
             <img src="assets/decks/${clean}_18.jpg">
         `;
         decksGrid.appendChild(card);
     });
-}
-
-window.toggleForm=function(){
-    const f=document.getElementById("matchForm");
-    f.style.display=f.style.display==="none"?"block":"none";
-}
-
-window.addMatch=function(){
-    const p1=p1Select.value;
-    const p2=p2Select.value;
-    const pts1=parseInt(document.getElementById("pts1").value);
-    const pts2=parseInt(document.getElementById("pts2").value);
-
-    if(p1===p2) return alert("Gracze muszą być różni!");
-    if(isNaN(pts1)||isNaN(pts2)) return alert("Podaj punkty!");
-
-    matchesData.push({p1,p2,pts1,pts2});
-    renderTable();
-}
-
-window.exportData=function(){
-    const box=document.getElementById("exportBox");
-    box.style.display="block";
-
-    let code="const players = [\n";
-    players.forEach(p=>{
-        code+=`  {\n    name: "${p.name}",\n    deck: ${JSON.stringify(p.deck)}\n  },\n`;
-    });
-    code+="];\n\nconst matches = [\n";
-    matchesData.forEach(m=>{
-        code+=`  { p1: "${m.p1}", p2: "${m.p2}", pts1: ${m.pts1}, pts2: ${m.pts2} },\n`;
-    });
-    code+="];";
-
-    box.value=code;
 }
 
 renderTable();
