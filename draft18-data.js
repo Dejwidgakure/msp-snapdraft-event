@@ -28,4 +28,5 @@ const matches = [
   { p1: "Kmythic", p2: "Dawid ak. Void", pts1: 21, pts2: 4 },
   { p1: "Fizjoradek", p2: "Kmythic", pts1: 21, pts2: 4 },
   { p1: "Fizjoradek", p2: "Weregesu", pts1: 22, pts2: 3 },
+  { p1: "Kmythic", p2: "Raciatek", pts1: 18, pts2: 7 },
 ];
