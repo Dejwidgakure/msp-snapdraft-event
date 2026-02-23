@@ -16,81 +16,84 @@ body{
     color:white;
 }
 
-/* NAV */
+/* ===== NAV ===== */
 nav{
     display:flex;
     justify-content:space-between;
     align-items:center;
     padding:20px 60px;
-    background:rgba(5,10,25,0.85);
     backdrop-filter:blur(10px);
+    background:rgba(5,10,25,0.75);
 }
 
-nav img{ height:70px; }
+nav img{
+    height:60px;
+    filter:drop-shadow(0 0 15px #00f0ff);
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:40px;
+}
 
 nav a{
-    color:white;
     text-decoration:none;
+    color:white;
     font-weight:600;
 }
 
-/* HEADER */
+/* ===== HEADER ===== */
 .header{
     text-align:center;
-    padding:70px 20px;
+    padding-top:60px;
 }
 
 .header img{
-    height:160px;
+    height:180px;
     display:block;
-    margin:0 auto 25px;
+    margin:0 auto 20px;
     filter:drop-shadow(0 0 40px #00f0ff);
 }
 
 .header h1{
     font-family:'Orbitron', sans-serif;
-    font-size:72px;
+    font-size:64px;
     margin:0;
-    color:#00f0ff;
-    text-shadow:
-        0 0 10px #00f0ff,
-        0 0 30px #00f0ff,
-        0 0 60px #8a2be2;
+    text-shadow:0 0 20px #00f0ff,0 0 40px #8a2be2;
 }
 
-/* LAYOUT */
-.layout{
+/* ===== LAYOUT ===== */
+.main-row{
     display:flex;
-    gap:30px;
-    padding:40px 60px;
+    justify-content:center;
+    gap:60px;
+    padding:60px;
+    align-items:flex-start;
 }
 
-.table-box{
-    flex:2;
-    background:rgba(0,0,40,0.8);
+.panel{
+    background:rgba(0,0,40,0.75);
+    backdrop-filter:blur(12px);
+    border-radius:20px;
     padding:30px;
-    border-radius:20px;
-    box-shadow:0 0 40px rgba(0,255,255,0.4);
+    box-shadow:0 0 30px rgba(0,240,255,0.3);
 }
 
-.results-box{
-    flex:1;
-    background:rgba(0,0,40,0.8);
-    padding:25px;
-    border-radius:20px;
-    box-shadow:0 0 30px rgba(138,43,226,0.6);
-    max-height:600px;
-    overflow-y:auto;
+.panel h2{
+    font-family:'Orbitron', sans-serif;
+    margin-top:0;
+    text-align:center;
 }
 
-/* TABLE */
+/* ===== TABELA ===== */
 table{
-    width:100%;
     border-collapse:collapse;
+    min-width:650px;
 }
 
 th, td{
-    padding:10px;
+    padding:12px 18px;
     border:1px solid rgba(0,255,255,0.3);
     text-align:center;
 }
@@ -101,19 +104,30 @@ th{
 }
 
 .leader{
-    background:rgba(0,255,255,0.2);
+    background:rgba(255,215,0,0.15);
 }
 
-/* DECKS */
+/* ===== WYNIKI ===== */
+.results{
+    max-height:420px;
+    overflow-y:auto;
+    width:320px;
+}
+
+.results p{
+    margin:8px 0;
+}
+
+/* ===== DECKI ===== */
 .decks-section{
     padding:80px 60px;
 }
 
 .decks-section h2{
     text-align:center;
+    font-size:48px;
     font-family:'Orbitron', sans-serif;
-    font-size:42px;
-    margin-bottom:50px;
+    margin-bottom:60px;
 }
 
 .decks-grid{
@@ -123,85 +137,45 @@ th{
 }
 
 .deck-card{
-    background:rgba(0,0,50,0.85);
-    padding:25px;
+    padding:30px;
     border-radius:20px;
-    box-shadow:0 0 35px #00f0ff;
+    background:rgba(0,0,30,0.8);
+    transition:0.3s;
 }
 
-.deck-card h3{
-    margin-top:0;
-    font-family:'Orbitron', sans-serif;
+.deck-card img{
+    width:50%;
+    max-width:400px;
+    display:block;
+    margin:20px auto 0;
+    border-radius:15px;
 }
 
 .cards-grid{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:8px;
-    margin-top:15px;
+    gap:10px;
+    margin-top:20px;
 }
 
 .card-tile{
-    background:rgba(0,0,80,0.9);
-    padding:6px;
+    padding:6px 8px;
+    font-size:14px;
     border-radius:8px;
-    font-size:12px;
     text-align:center;
-    box-shadow:0 0 8px #00f0ff;
-    word-wrap:break-word;
-}
-
-.deck-card img{
-    width:50%;
-    max-width:350px;
-    display:block;
-    margin:20px auto 0;
-    border-radius:15px;
-    box-shadow:0 0 25px #8a2be2;
-}
-
-/* ADMIN */
-.admin-panel{
-    margin-top:120px;
-    padding:40px 60px;
-    background:rgba(0,0,20,0.9);
-    border-top:2px solid #00f0ff;
-}
-
-button{
-    padding:10px 25px;
-    border:none;
-    border-radius:25px;
-    background:linear-gradient(45deg,#00f0ff,#8a2be2);
-    color:black;
-    font-weight:700;
-    cursor:pointer;
-    margin-top:15px;
-}
-
-input, select{
-    padding:8px;
-    margin:5px;
-    border-radius:8px;
-    border:none;
-}
-
-textarea{
-    width:100%;
-    height:250px;
-    margin-top:20px;
-    display:none;
-    background:black;
-    color:#00f0ff;
-    padding:15px;
 }
 </style>
 </head>
+
 <body>
 
 <nav>
     <img src="assets/msp-logo.png">
-    <a href="index.html">← Powrót</a>
+    <ul>
+        <li><a href="index.html">Strona Główna</a></li>
+        <li><a href="history.html">Historia</a></li>
+        <li><a href="stats.html">Statystyki</a></li>
+    </ul>
 </nav>
 
 <div class="header">
@@ -209,125 +183,149 @@ textarea{
     <h1>DRAFT 18</h1>
 </div>
 
-<div class="layout">
-    <div class="table-box">
+<div class="main-row">
+
+    <div class="panel">
         <h2>AKTUALNA TABELA</h2>
         <table id="rankingTable">
             <thead>
                 <tr>
-                    <th>Miejsce</th>
+                    <th>#</th>
                     <th>Gracz</th>
                     <th>Bilans</th>
-                    <th>Punkty</th>
-                    <th>Pkt za wygrane</th>
-                    <th>Pkt za porażki</th>
+                    <th>Pkt łączne</th>
+                    <th>Pkt za wygr.</th>
+                    <th>Pkt za przegr.</th>
                 </tr>
             </thead>
             <tbody></tbody>
         </table>
     </div>
 
-    <div class="results-box">
+    <div class="panel results" id="resultsBox">
         <h2>WYNIKI</h2>
-        <div id="resultsBox"></div>
     </div>
+
 </div>
 
 <div class="decks-section">
     <h2>DECKI GRACZY</h2>
-    <div class="decks-grid" id="decksGrid"></div>
+    <div class="decks-grid" id="decksContainer"></div>
 </div>
 
-<div class="admin-panel">
-    <h2>Panel organizatora</h2>
-</div>
-
-<script src="./draft18-data.js"></script>
+<script src="draft18-data.js"></script>
 
 <script>
-document.addEventListener("DOMContentLoaded", function(){
+/* ===== KOLORY Z DRAFTU ===== */
+const playerColors = [
+  "#00f0ff", "#ff00ff", "#00ff88", "#ffd700",
+  "#ff4d4d", "#7d5cff", "#00ffcc", "#ff8800",
+  "#ffffff", "#66ccff", "#ff66cc", "#aaff00"
+];
 
-let matchesData=[...matches];
+const tableBody = document.querySelector("#rankingTable tbody");
+const resultsBox = document.getElementById("resultsBox");
+const decksContainer = document.getElementById("decksContainer");
 
-const tableBody=document.querySelector("#rankingTable tbody");
-const resultsBox=document.getElementById("resultsBox");
-const decksGrid=document.getElementById("decksGrid");
+let stats = {};
 
-function renderTable(){
-    tableBody.innerHTML="";
-    resultsBox.innerHTML="";
+players.forEach((p,i)=>{
+    stats[p.name] = {
+        wins:0,
+        losses:0,
+        winPts:0,
+        lossPts:0,
+        total:0,
+        color: playerColors[i % playerColors.length]
+    };
+});
 
-    let stats={};
-    players.forEach(p=>{
-        stats[p.name]={wins:0,losses:0,total:0,winPts:0,lossPts:0};
+/* ===== MECZE ===== */
+matches.forEach(m=>{
+    const {p1,p2,pts1,pts2} = m;
+
+    if(pts1 > pts2){
+        stats[p1].wins++;
+        stats[p2].losses++;
+        stats[p1].winPts += pts1;
+        stats[p2].lossPts += pts2;
+    } else {
+        stats[p2].wins++;
+        stats[p1].losses++;
+        stats[p2].winPts += pts2;
+        stats[p1].lossPts += pts1;
+    }
+
+    stats[p1].total += pts1;
+    stats[p2].total += pts2;
+
+    const resultLine = document.createElement("p");
+    resultLine.textContent = `${p1} ${pts1} – ${pts2} ${p2}`;
+    resultsBox.appendChild(resultLine);
+});
+
+/* ===== SORTOWANIE ===== */
+let ranking = Object.keys(stats).map(name=>({
+    name,
+    ...stats[name]
+}));
+
+ranking.sort((a,b)=>b.total - a.total);
+
+/* ===== TABELA ===== */
+ranking.forEach((player,i)=>{
+    const row = document.createElement("tr");
+    if(i===0 && player.total>0) row.classList.add("leader");
+
+    row.innerHTML = `
+        <td>${i+1}</td>
+        <td style="color:${player.color}; text-shadow:0 0 12px ${player.color}">
+            ${player.name}
+        </td>
+        <td>${player.wins}-${player.losses}</td>
+        <td>${player.total}</td>
+        <td>${player.winPts}</td>
+        <td>${player.lossPts}</td>
+    `;
+    tableBody.appendChild(row);
+});
+
+/* ===== DECKI ===== */
+players.forEach((p,i)=>{
+    const color = playerColors[i % playerColors.length];
+
+    const card = document.createElement("div");
+    card.className="deck-card";
+    card.style.border=`2px solid ${color}`;
+    card.style.boxShadow=`0 0 30px ${color}`;
+
+    card.innerHTML = `
+        <h3 style="color:${color}; text-shadow:0 0 15px ${color}; text-align:center;">
+            ${p.name}
+        </h3>
+    `;
+
+    const cardsGrid = document.createElement("div");
+    cardsGrid.className="cards-grid";
+
+    p.deck.forEach(cardName=>{
+        const tile = document.createElement("div");
+        tile.className="card-tile";
+        tile.textContent = cardName;
+        tile.style.color=color;
+        tile.style.border=`1px solid ${color}`;
+        tile.style.boxShadow=`0 0 8px ${color}`;
+        cardsGrid.appendChild(tile);
     });
 
-    matchesData.forEach(m=>{
-        const {p1,p2,pts1,pts2}=m;
+    card.appendChild(cardsGrid);
 
-        if(pts1>pts2){
-            stats[p1].wins++;
-            stats[p2].losses++;
-            stats[p1].winPts+=pts1;
-            stats[p2].lossPts+=pts2;
-        } else {
-            stats[p2].wins++;
-            stats[p1].losses++;
-            stats[p2].winPts+=pts2;
-            stats[p1].lossPts+=pts1;
-        }
+    const clean = p.name.toLowerCase().replace(/[^a-z0-9]/g,"");
+    const img = document.createElement("img");
+    img.src = `assets/decks/${clean}_18.jpg`;
+    card.appendChild(img);
 
-        stats[p1].total+=pts1;
-        stats[p2].total+=pts2;
-
-        const line=document.createElement("p");
-        line.textContent=`${p1} ${pts1} – ${pts2} ${p2}`;
-        resultsBox.appendChild(line);
-    });
-
-    let ranking=Object.keys(stats).map(name=>({name,...stats[name]}));
-    ranking.sort((a,b)=>b.total-a.total);
-
-    ranking.forEach((player,i)=>{
-        const row=document.createElement("tr");
-        if(i===0 && player.total>0) row.classList.add("leader");
-
-        row.innerHTML=`
-            <td>${i+1}</td>
-            <td>${player.name}</td>
-            <td>${player.wins}-${player.losses}</td>
-            <td>${player.total}</td>
-            <td>${player.winPts}</td>
-            <td>${player.lossPts}</td>
-        `;
-        tableBody.appendChild(row);
-    });
-}
-
-function renderDecks(){
-    decksGrid.innerHTML="";
-    players.forEach(p=>{
-        const clean=p.name.toLowerCase().replace(/[^a-z0-9]/g,"");
-
-        let cards="";
-        p.deck.forEach(c=>{
-            cards+=`<div class="card-tile">${c}</div>`;
-        });
-
-        const card=document.createElement("div");
-        card.className="deck-card";
-        card.innerHTML=`
-            <h3>${p.name}</h3>
-            <div class="cards-grid">${cards}</div>
-            <img src="assets/decks/${clean}_18.jpg">
-        `;
-        decksGrid.appendChild(card);
-    });
-}
-
-renderTable();
-renderDecks();
-
+    decksContainer.appendChild(card);
 });
 </script>
 
