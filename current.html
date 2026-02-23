@@ -16,34 +16,64 @@ body{
     color:white;
 }
 
-h1,h2{
-    font-family:'Orbitron', sans-serif;
+/* NAV */
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 60px;
+    background:rgba(5,10,25,0.8);
+    backdrop-filter:blur(10px);
 }
 
+nav img{
+    height:70px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    font-size:18px;
+}
+
+/* HEADER */
 .header{
     text-align:center;
-    padding:60px 20px;
+    padding:70px 20px;
 }
 
 .header img{
-    height:120px;
+    height:160px;
     display:block;
-    margin:0 auto 20px;
-    filter:drop-shadow(0 0 30px #00f0ff);
+    margin:0 auto 25px;
+    filter:drop-shadow(0 0 40px #00f0ff);
 }
 
+.header h1{
+    font-family:'Orbitron', sans-serif;
+    font-size:72px;
+    margin:0;
+    color:#00f0ff;
+    text-shadow:
+        0 0 10px #00f0ff,
+        0 0 30px #00f0ff,
+        0 0 60px #8a2be2;
+}
+
+/* LAYOUT */
 .layout{
     display:flex;
     gap:40px;
-    padding:40px;
+    padding:40px 60px;
 }
 
 .table-box, .results-box{
     flex:1;
-    background:rgba(0,0,30,0.7);
+    background:rgba(0,0,40,0.8);
     padding:30px;
     border-radius:20px;
-    box-shadow:0 0 40px rgba(0,255,255,0.3);
+    box-shadow:0 0 40px rgba(0,255,255,0.4);
 }
 
 .results-box{
@@ -51,13 +81,14 @@ h1,h2{
     overflow-y:auto;
 }
 
+/* TABLE */
 table{
     width:100%;
     border-collapse:collapse;
 }
 
-th,td{
-    padding:10px;
+th, td{
+    padding:12px;
     border:1px solid rgba(0,255,255,0.3);
 }
 
@@ -70,8 +101,16 @@ th{
     background:rgba(0,255,255,0.2);
 }
 
+/* DECKS */
 .decks-section{
-    padding:80px 40px;
+    padding:80px 60px;
+}
+
+.decks-section h2{
+    text-align:center;
+    font-family:'Orbitron', sans-serif;
+    font-size:42px;
+    margin-bottom:50px;
 }
 
 .decks-grid{
@@ -81,10 +120,19 @@ th{
 }
 
 .deck-card{
-    background:rgba(0,0,40,0.85);
+    background:rgba(0,0,50,0.85);
     padding:25px;
     border-radius:20px;
     box-shadow:0 0 35px #00f0ff;
+}
+
+.deck-card h3{
+    margin-top:0;
+    font-family:'Orbitron', sans-serif;
+}
+
+.deck-card table{
+    margin-top:15px;
 }
 
 .deck-card img{
@@ -94,18 +142,49 @@ th{
     box-shadow:0 0 25px #8a2be2;
 }
 
-.deck-card table{
+/* ADMIN */
+.admin-panel{
+    margin-top:120px;
+    padding:40px 60px;
+    background:rgba(0,0,20,0.9);
+    border-top:2px solid #00f0ff;
+}
+
+button{
+    padding:10px 25px;
+    border:none;
+    border-radius:25px;
+    background:linear-gradient(45deg,#00f0ff,#8a2be2);
+    color:black;
+    font-weight:700;
+    cursor:pointer;
     margin-top:15px;
 }
 
-.admin-panel{
-    margin-top:120px;
-    padding:40px;
-    background:rgba(0,0,20,0.85);
+input, select{
+    padding:8px;
+    margin:5px;
+    border-radius:8px;
+    border:none;
+}
+
+textarea{
+    width:100%;
+    height:250px;
+    margin-top:20px;
+    display:none;
+    background:black;
+    color:#00f0ff;
+    padding:15px;
 }
 </style>
 </head>
 <body>
+
+<nav>
+    <img src="assets/msp-logo.png">
+    <a href="index.html">← Powrót</a>
+</nav>
 
 <div class="header">
     <img src="assets/draft-logo.png">
@@ -135,12 +214,27 @@ th{
 </div>
 
 <div class="decks-section">
-    <h1 style="text-align:center;">DECKI GRACZY</h1>
+    <h2>DECKI GRACZY</h2>
     <div class="decks-grid" id="decksGrid"></div>
 </div>
 
 <div class="admin-panel">
     <h2>Panel organizatora</h2>
+
+    <button onclick="toggleForm()">Dodaj mecz</button>
+
+    <div id="matchForm" style="display:none;">
+        <br>
+        <select id="p1"></select>
+        <input type="number" id="pts1" placeholder="Pkt 1">
+        <select id="p2"></select>
+        <input type="number" id="pts2" placeholder="Pkt 2">
+        <button onclick="addMatch()">Zapisz</button>
+    </div>
+
+    <br>
+    <button onclick="exportData()">Eksportuj do draft18-data.js</button>
+    <textarea id="exportBox"></textarea>
 </div>
 
 <script src="./draft18-data.js"></script>
@@ -148,18 +242,24 @@ th{
 <script>
 document.addEventListener("DOMContentLoaded", function(){
 
-let matchesData = [...matches];
+let matchesData=[...matches];
 
-const tableBody = document.querySelector("#rankingTable tbody");
-const resultsBox = document.getElementById("resultsBox");
-const decksGrid = document.getElementById("decksGrid");
+const tableBody=document.querySelector("#rankingTable tbody");
+const resultsBox=document.getElementById("resultsBox");
+const decksGrid=document.getElementById("decksGrid");
+const p1Select=document.getElementById("p1");
+const p2Select=document.getElementById("p2");
+
+players.forEach(p=>{
+    p1Select.innerHTML+=`<option value="${p.name}">${p.name}</option>`;
+    p2Select.innerHTML+=`<option value="${p.name}">${p.name}</option>`;
+});
 
 function renderTable(){
     tableBody.innerHTML="";
     resultsBox.innerHTML="";
 
     let stats={};
-
     players.forEach(p=>{
         stats[p.name]={wins:0,losses:0,total:0};
     });
@@ -202,27 +302,58 @@ function renderTable(){
 
 function renderDecks(){
     decksGrid.innerHTML="";
-
     players.forEach(p=>{
+        const clean=p.name.toLowerCase().replace(/[^a-z0-9]/g,"");
+
+        let cards="";
+        p.deck.forEach(c=>{
+            cards+=`<tr><td>${c}</td></tr>`;
+        });
+
         const card=document.createElement("div");
         card.className="deck-card";
-
-        let deckTable="<table>";
-        p.deck.forEach(cardName=>{
-            deckTable+=`<tr><td>${cardName}</td></tr>`;
-        });
-        deckTable+="</table>";
-
-        const cleanName=p.name.toLowerCase().replace(/[^a-z0-9]/g,"");
-
         card.innerHTML=`
-            <h2>${p.name}</h2>
-            ${deckTable}
-            <img src="assets/decks/${cleanName}_18.jpg" alt="${p.name}">
+            <h3>${p.name}</h3>
+            <table>${cards}</table>
+            <img src="assets/decks/${clean}_18.jpg">
         `;
-
         decksGrid.appendChild(card);
     });
+}
+
+window.toggleForm=function(){
+    const f=document.getElementById("matchForm");
+    f.style.display=f.style.display==="none"?"block":"none";
+}
+
+window.addMatch=function(){
+    const p1=p1Select.value;
+    const p2=p2Select.value;
+    const pts1=parseInt(document.getElementById("pts1").value);
+    const pts2=parseInt(document.getElementById("pts2").value);
+
+    if(p1===p2) return alert("Gracze muszą być różni!");
+    if(isNaN(pts1)||isNaN(pts2)) return alert("Podaj punkty!");
+
+    matchesData.push({p1,p2,pts1,pts2});
+    renderTable();
+}
+
+window.exportData=function(){
+    const box=document.getElementById("exportBox");
+    box.style.display="block";
+
+    let code="const players = [\n";
+    players.forEach(p=>{
+        code+=`  {\n    name: "${p.name}",\n    deck: ${JSON.stringify(p.deck)}\n  },\n`;
+    });
+    code+="];\n\nconst matches = [\n";
+    matchesData.forEach(m=>{
+        code+=`  { p1: "${m.p1}", p2: "${m.p2}", pts1: ${m.pts1}, pts2: ${m.pts2} },\n`;
+    });
+    code+="];";
+
+    box.value=code;
 }
 
 renderTable();
