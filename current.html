@@ -25,10 +25,6 @@ nav{
     background:rgba(5,10,25,0.75);
 }
 
-nav img{
-    height:60px;
-}
-
 nav a{
     color:white;
     text-decoration:none;
@@ -68,6 +64,24 @@ th{
     background:rgba(0,255,255,0.2);
 }
 
+.results{
+    margin-top:60px;
+    background:rgba(0,0,40,0.8);
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 0 30px #8a2be2;
+    max-width:900px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.admin-panel{
+    margin-top:120px;
+    padding:40px;
+    background:rgba(0,0,20,0.85);
+    border-top:2px solid #00f0ff;
+}
+
 button{
     padding:10px 25px;
     border:none;
@@ -80,10 +94,6 @@ button{
     margin-top:20px;
 }
 
-form{
-    margin-top:20px;
-}
-
 input, select{
     padding:8px;
     margin:5px;
@@ -91,22 +101,20 @@ input, select{
     border:none;
 }
 
-.results{
-    margin-top:60px;
-    background:rgba(0,0,40,0.8);
-    padding:30px;
-    border-radius:20px;
-    box-shadow:0 0 30px #8a2be2;
-    max-width:900px;
-    margin-left:auto;
-    margin-right:auto;
+textarea{
+    width:100%;
+    height:250px;
+    margin-top:20px;
+    display:none;
+    background:black;
+    color:#00f0ff;
+    padding:15px;
 }
 </style>
 </head>
 <body>
 
 <nav>
-    <img src="assets/msp-logo.png">
     <a href="index.html">← Powrót do strony głównej</a>
 </nav>
 
@@ -127,19 +135,29 @@ input, select{
         <tbody></tbody>
     </table>
 
+    <div class="results" id="resultsBox">
+        <h2>Wyniki</h2>
+    </div>
+</div>
+
+<!-- PANEL ORGANIZATORA -->
+<div class="admin-panel">
+    <h2>Panel organizatora</h2>
+
     <button onclick="toggleForm()">Dodaj mecz</button>
 
-    <form id="matchForm" style="display:none;">
+    <div id="matchForm" style="display:none;">
+        <br>
         <select id="p1"></select>
         <input type="number" id="pts1" placeholder="Pkt 1">
         <select id="p2"></select>
         <input type="number" id="pts2" placeholder="Pkt 2">
-        <button type="button" onclick="addMatch()">Zapisz</button>
-    </form>
-
-    <div class="results" id="resultsBox">
-        <h2>Wyniki</h2>
+        <button onclick="addMatch()">Zapisz</button>
     </div>
+
+    <br>
+    <button onclick="exportData()">Eksportuj do draft18-data.js</button>
+    <textarea id="exportBox"></textarea>
 </div>
 
 <script src="./draft18-data.js"></script>
@@ -148,7 +166,7 @@ input, select{
 document.addEventListener("DOMContentLoaded", function(){
 
 if(typeof players === "undefined" || typeof matches === "undefined"){
-    alert("Błąd w draft18-data.js (sprawdź przecinki!)");
+    alert("Błąd w draft18-data.js");
     return;
 }
 
@@ -175,8 +193,6 @@ function render(){
 
     matchesData.forEach(m=>{
         const {p1,p2,pts1,pts2}=m;
-
-        if(!stats[p1] || !stats[p2]) return;
 
         if(pts1>pts2){
             stats[p1].wins++;
@@ -213,7 +229,6 @@ function render(){
             <td>${player.winPts}</td>
             <td>${player.lossPts}</td>
         `;
-
         tableBody.appendChild(row);
     });
 }
@@ -234,6 +249,25 @@ window.addMatch=function(){
 
     matchesData.push({p1,p2,pts1,pts2});
     render();
+}
+
+window.exportData=function(){
+    const box=document.getElementById("exportBox");
+    box.style.display="block";
+
+    let code="const players = [\n";
+    players.forEach(p=>{
+        code+=`  "${p}",\n`;
+    });
+    code+="];\n\nconst matches = [\n";
+
+    matchesData.forEach(m=>{
+        code+=`  { p1: "${m.p1}", p2: "${m.p2}", pts1: ${m.pts1}, pts2: ${m.pts2} },\n`;
+    });
+
+    code+="];";
+
+    box.value=code;
 }
 
 render();
