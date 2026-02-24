@@ -1,5 +1,79 @@
 const database = {
   drafts: [
+
+    {
+      id: 1,
+      startDate: "2024-06-02",
+      endDate: "2024-06-08",
+      mode: "Classic (Stary System punktów)",
+      presetCard: null,
+      playersCount: 6,
+      winner: "Hahke",
+      bans: ["Kang"],
+
+      players: [
+    { name: "Dawid ak. Void", deck: [] },
+    { name: "Budiso", deck: [] },
+    { name: "Hardkor", deck: [] },
+    { name: "Dejwidgakure", deck: [] },
+    { name: "Marek", deck: [] },
+    { name: "Hahke", deck: [] } 
+        
+      ],
+
+      matches: [
+
+    // Void vs Budiso
+    { p1: "Dawid ak. Void", p2: "Budiso", pts1: 20, pts2: 0 },
+
+    // Void vs Hardkor
+    { p1: "Hardkor", p2: "Dawid ak. Void", pts1: 20, pts2: 0 },
+
+    // Void vs Dejwidgakure
+    { p1: "Dejwidgakure", p2: "Dawid ak. Void", pts1: 18, pts2: 0 },
+
+    // Void vs Marek
+    { p1: "Marek", p2: "Dawid ak. Void", pts1: 15, pts2: 0 },
+
+    // Void vs Hahke
+    { p1: "Hahke", p2: "Dawid ak. Void", pts1: 14, pts2: 0 },
+
+
+    // Budiso vs Hardkor
+    { p1: "Hardkor", p2: "Budiso", pts1: 14, pts2: 0 },
+
+    // Budiso vs Dejwidgakure
+    { p1: "Dejwidgakure", p2: "Budiso", pts1: 16, pts2: 0 },
+
+    // Budiso vs Marek
+    { p1: "Budiso", p2: "Marek", pts1: 14, pts2: 0 },
+
+    // Budiso vs Hahke
+    { p1: "Hahke", p2: "Budiso", pts1: 16, pts2: 0 },
+
+
+    // Hardkor vs Dejwidgakure
+    { p1: "Hardkor", p2: "Dejwidgakure", pts1: 17, pts2: 0 },
+
+    // Hardkor vs Marek
+    { p1: "Marek", p2: "Hardkor", pts1: 18, pts2: 0 },
+
+    // Hardkor vs Hahke
+    { p1: "Hahke", p2: "Hardkor", pts1: 20, pts2: 0 },
+
+
+    // Dejwidgakure vs Marek
+    { p1: "Dejwidgakure", p2: "Marek", pts1: 18, pts2: 0 },
+
+    // Dejwidgakure vs Hahke
+    { p1: "Dejwidgakure", p2: "Hahke", pts1: 14, pts2: 0 },
+
+    // Marek vs Hahke
+    { p1: "Hahke", p2: "Marek", pts1: 20, pts2: 0 }
+
+  ]
+},
+
     {
       id: 18,
       startDate: "2026-02-21",
@@ -8,10 +82,10 @@ const database = {
       presetCard: null,
       playersCount: 11,
       winner: null,
-       bans: [
-    "Arishem",
-    "Shang-Chi"
-  ],
+      bans: [
+        "Arishem",
+        "Shang-Chi"
+      ],
 
       players: [
         { name: "Dejwidgakure", deck: ["Black Knight","Uatu the Watcher","Nova Frankie Raye","Nocturne","Prodigy","Omega Sentinel","Miles Morales Spider-Man","Doctor Octopus","Crossbones","Cosmic Ghost Rider","Mockingbird","Thanos"] },
@@ -28,29 +102,30 @@ const database = {
       ],
 
       matches: [
-  { p1: "Dejwidgakure", p2: "Maniek", pts1: 22, pts2: 3 },
-  { p1: "Dejwidgakure", p2: "Dawid ak. Void", pts1: 6, pts2: 19 },
-  { p1: "Dawid ak. Void", p2: "Budiso", pts1: 24, pts2: 1 },
-  { p1: "Raciatek", p2: "Budiso", pts1: 18, pts2: 7 },
-  { p1: "Dawid ak. Void", p2: "Maniek", pts1: 21, pts2: 4 },
-  { p1: "Raciatek", p2: "Fizjoradek", pts1: 21, pts2: 4 },
-  { p1: "Kmythic", p2: "Weregesu", pts1: 25, pts2: 0 },
-  { p1: "Fizjoradek", p2: "Maniek", pts1: 17, pts2: 8 },
-  { p1: "Weregesu", p2: "Maniek", pts1: 24, pts2: 1 },
-  { p1: "Fizjoradek", p2: "Dawid ak. Void", pts1: 21, pts2: 4 },
-  { p1: "Kmythic", p2: "Maniek", pts1: 23, pts2: 2 },
-  { p1: "Weregesu", p2: "Raciatek", pts1: 21, pts2: 4 },
-  { p1: "Kmythic", p2: "Dawid ak. Void", pts1: 21, pts2: 4 },
-  { p1: "Fizjoradek", p2: "Kmythic", pts1: 21, pts2: 4 },
-  { p1: "Fizjoradek", p2: "Weregesu", pts1: 22, pts2: 3 },
-  { p1: "Kmythic", p2: "Raciatek", pts1: 18, pts2: 7 },
-  { p1: "Dejwidgakure", p2: "Kmythic", pts1: 22, pts2: 3 },
-  { p1: "Weregesu", p2: "Budiso", pts1: 23, pts2: 2 },
-  { p1: "Kmythic", p2: "Budiso", pts1: 25, pts2: 0 },
-  { p1: "Kmythic", p2: "Pluton32", pts1: 25, pts2: 0 },
-  { p1: "Budiso", p2: "Maniek", pts1: 20, pts2: 5 }, 
-  { p1: "Pluton32", p2: "Maniek", pts1: 17, pts2: 8 } 
-        ]
-      }
-    ]
+        { p1: "Dejwidgakure", p2: "Maniek", pts1: 22, pts2: 3 },
+        { p1: "Dejwidgakure", p2: "Dawid ak. Void", pts1: 6, pts2: 19 },
+        { p1: "Dawid ak. Void", p2: "Budiso", pts1: 24, pts2: 1 },
+        { p1: "Raciatek", p2: "Budiso", pts1: 18, pts2: 7 },
+        { p1: "Dawid ak. Void", p2: "Maniek", pts1: 21, pts2: 4 },
+        { p1: "Raciatek", p2: "Fizjoradek", pts1: 21, pts2: 4 },
+        { p1: "Kmythic", p2: "Weregesu", pts1: 25, pts2: 0 },
+        { p1: "Fizjoradek", p2: "Maniek", pts1: 17, pts2: 8 },
+        { p1: "Weregesu", p2: "Maniek", pts1: 24, pts2: 1 },
+        { p1: "Fizjoradek", p2: "Dawid ak. Void", pts1: 21, pts2: 4 },
+        { p1: "Kmythic", p2: "Maniek", pts1: 23, pts2: 2 },
+        { p1: "Weregesu", p2: "Raciatek", pts1: 21, pts2: 4 },
+        { p1: "Kmythic", p2: "Dawid ak. Void", pts1: 21, pts2: 4 },
+        { p1: "Fizjoradek", p2: "Kmythic", pts1: 21, pts2: 4 },
+        { p1: "Fizjoradek", p2: "Weregesu", pts1: 22, pts2: 3 },
+        { p1: "Kmythic", p2: "Raciatek", pts1: 18, pts2: 7 },
+        { p1: "Dejwidgakure", p2: "Kmythic", pts1: 22, pts2: 3 },
+        { p1: "Weregesu", p2: "Budiso", pts1: 23, pts2: 2 },
+        { p1: "Kmythic", p2: "Budiso", pts1: 25, pts2: 0 },
+        { p1: "Kmythic", p2: "Pluton32", pts1: 25, pts2: 0 },
+        { p1: "Budiso", p2: "Maniek", pts1: 20, pts2: 5 },
+        { p1: "Pluton32", p2: "Maniek", pts1: 17, pts2: 8 }
+      ]
+    }
+
+  ]
 };
