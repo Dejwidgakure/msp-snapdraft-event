@@ -14,7 +14,7 @@ const database = {
   ],
 
       players: [
-        { name: "Dejwidgakure", deck: ["Black Knight","Uatu the Watcher","Nova Frankie Raye","Nocturne","Prodigy","Omega Sentinel","Miles Morales Spider-Man","Doctor Octopus","Crossbones","osmic Ghost Rider","Mockingbird","Thanos"] },
+        { name: "Dejwidgakure", deck: ["Black Knight","Uatu the Watcher","Nova Frankie Raye","Nocturne","Prodigy","Omega Sentinel","Miles Morales Spider-Man","Doctor Octopus","Crossbones","Cosmic Ghost Rider","Mockingbird","Thanos"] },
         { name: "Dawid ak. Void", deck: ["Nova","X-23","Carnage","Weapon X Wolverine","Ironheart","Venom","Adamantium Infiusion","Danger","Nimrod","Blob","Destroyer","Death"] },
         { name: "Budiso", deck: ["Clea","Bruce Bunner","Merlin","Master Mold","Doctor Strange","Bishop","Silver Surfer First Steps","Gwenpool","MoonGirl","Silver Samurai","Profesor X","Doctor Doom"] },
         { name: "Pluton32", deck: ["Sauron","Ghost-Spider","Vulture","Merlin","U.S. Agent","Brood","Nocturne","Prodigy","Dracula","Misery","Galactus","The Infinaut"] },
@@ -28,8 +28,8 @@ const database = {
       ],
 
       matches: [
-  { p1: "Dejwid", p2: "Maniek", pts1: 22, pts2: 3 },
-  { p1: "Dejwid", p2: "Dawid ak. Void", pts1: 6, pts2: 19 },
+  { p1: "Dejwidgakure", p2: "Maniek", pts1: 22, pts2: 3 },
+  { p1: "Dejwidgakure", p2: "Dawid ak. Void", pts1: 6, pts2: 19 },
   { p1: "Dawid ak. Void", p2: "Budiso", pts1: 24, pts2: 1 },
   { p1: "Raciatek", p2: "Budiso", pts1: 18, pts2: 7 },
   { p1: "Dawid ak. Void", p2: "Maniek", pts1: 21, pts2: 4 },
@@ -44,7 +44,7 @@ const database = {
   { p1: "Fizjoradek", p2: "Kmythic", pts1: 21, pts2: 4 },
   { p1: "Fizjoradek", p2: "Weregesu", pts1: 22, pts2: 3 },
   { p1: "Kmythic", p2: "Raciatek", pts1: 18, pts2: 7 },
-  { p1: "Dejwid", p2: "Kmythic", pts1: 22, pts2: 3 },
+  { p1: "Dejwidgakure", p2: "Kmythic", pts1: 22, pts2: 3 },
   { p1: "Weregesu", p2: "Budiso", pts1: 23, pts2: 2 },
   { p1: "Kmythic", p2: "Budiso", pts1: 25, pts2: 0 }
         ]
