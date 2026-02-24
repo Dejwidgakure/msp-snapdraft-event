@@ -149,26 +149,88 @@ th{
 }
 
 /* STATS – FIX */
+/* ========================= */
+/* ===== STATYSTYKI ======== */
+/* ========================= */
+
 .draft-stats{
-    margin:60px auto;
+    margin:80px auto;
     max-width:1100px;
-}
-.stats-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:25px;
-    justify-content:center;
-    max-width:1100px;
-    margin:0 auto;
-}
-.stat-box{
-    width:100%;
-    padding:20px;
-    border-radius:18px;
-    background:rgba(0,0,50,0.7);
-    box-shadow:0 0 25px rgba(0,240,255,0.4);
+    padding:0 40px;
 }
 
+/* Główny układ 3 + 2 */
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:30px;
+    max-width:1100px;
+    margin:40px auto 0 auto;
+}
+
+/* Wycentrowanie dolnego rzędu (4 i 5 kafelek) */
+.stats-grid .stat-box:nth-child(4){
+    grid-column:1 / 2;
+}
+
+.stats-grid .stat-box:nth-child(5){
+    grid-column:2 / 3;
+}
+
+/* Kafelek */
+.stat-box{
+    min-height:130px;
+    padding:25px;
+    border-radius:20px;
+    background:rgba(0,0,60,0.75);
+    backdrop-filter:blur(12px);
+    box-shadow:
+        0 0 20px rgba(0,240,255,0.4),
+        0 0 40px rgba(138,43,226,0.3);
+    transition:all 0.25s ease;
+    text-align:center;
+}
+
+/* Hover efekt */
+.stat-box:hover{
+    transform:translateY(-6px);
+    box-shadow:
+        0 0 25px rgba(0,240,255,0.8),
+        0 0 50px rgba(138,43,226,0.6);
+}
+
+/* Tytuł */
+.stat-box strong{
+    display:block;
+    font-size:18px;
+    margin-bottom:12px;
+    font-family:'Orbitron';
+    text-shadow:0 0 10px #8a2be2, 0 0 20px #8a2be2;
+}
+
+/* Wartość */
+.stat-box div{
+    font-size:17px;
+    font-weight:600;
+}
+
+/* Responsive */
+@media (max-width:1000px){
+    .stats-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .stats-grid .stat-box:nth-child(4),
+    .stats-grid .stat-box:nth-child(5){
+        grid-column:auto;
+    }
+}
+
+@media (max-width:650px){
+    .stats-grid{
+        grid-template-columns:1fr;
+    }
+}
 /* DECKS */
 .decks-section{ padding:60px; }
 .decks-grid{
