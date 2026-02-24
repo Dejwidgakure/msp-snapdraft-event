@@ -9,7 +9,7 @@ const database = {
       playersCount: 11,
       winner: null,
        bans: [
-    "Alioth",
+    "Arishem",
     "Shang-Chi"
   ],
 
@@ -47,6 +47,7 @@ const database = {
   { p1: "Dejwidgakure", p2: "Kmythic", pts1: 22, pts2: 3 },
   { p1: "Weregesu", p2: "Budiso", pts1: 23, pts2: 2 },
   { p1: "Kmythic", p2: "Budiso", pts1: 25, pts2: 0 }
+  { p1: "Kmythic", p2: "Pluton32", pts1: 25, pts2: 0 }
         ]
       }
     ]
