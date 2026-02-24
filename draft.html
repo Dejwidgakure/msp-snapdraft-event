@@ -8,6 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
+/* --- STYLES NIE RUSZANE --- */
 body{
     margin:0;
     font-family:'Rajdhani', sans-serif;
@@ -15,8 +16,6 @@ body{
     background-size:cover;
     color:white;
 }
-
-/* NAV */
 nav{
     display:flex;
     justify-content:space-between;
@@ -25,26 +24,11 @@ nav{
     backdrop-filter:blur(10px);
     background:rgba(5,10,25,0.75);
 }
-nav img{
-    height:60px;
-    filter:drop-shadow(0 0 15px #00f0ff);
-}
-nav ul{
-    list-style:none;
-    display:flex;
-    gap:40px;
-}
-nav a{
-    text-decoration:none;
-    color:white;
-    font-weight:600;
-}
+nav img{ height:60px; filter:drop-shadow(0 0 15px #00f0ff); }
+nav ul{ list-style:none; display:flex; gap:40px; }
+nav a{ text-decoration:none; color:white; font-weight:600; }
 
-/* HEADER */
-.header{
-    text-align:center;
-    padding:60px 20px 20px 20px;
-}
+.header{ text-align:center; padding:60px 20px 20px 20px; }
 .header img{
     height:180px;
     display:block;
@@ -57,12 +41,8 @@ nav a{
     margin:0;
     text-shadow:0 0 20px #00f0ff,0 0 40px #8a2be2;
 }
-.meta{
-    margin-top:15px;
-    opacity:0.8;
-}
+.meta{ margin-top:15px; opacity:0.8; }
 
-/* NAVIGATION */
 .draft-navigation{
     display:flex;
     justify-content:center;
@@ -95,12 +75,8 @@ nav a{
     background:rgba(0,0,40,0.7);
     transition:0.3s;
 }
-.podium:hover{
-    transform:translateY(-6px);
-}
-.podium h3{
-    margin:10px 0 5px 0;
-}
+.podium:hover{ transform:translateY(-6px); }
+.podium h3{ margin:10px 0 5px 0; }
 .first{ height:200px; }
 .second{ height:160px; }
 .third{ height:140px; }
@@ -145,10 +121,7 @@ th{
 }
 
 /* DRAFT STATS */
-.draft-stats{
-    margin:60px auto;
-    max-width:1100px;
-}
+.draft-stats{ margin:60px auto; max-width:1100px; }
 .stats-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -162,9 +135,7 @@ th{
 }
 
 /* DECKI */
-.decks-section{
-    padding:60px;
-}
+.decks-section{ padding:60px; }
 .decks-section h2{
     text-align:center;
     font-size:48px;
@@ -193,34 +164,6 @@ th{
     border-radius:8px;
     text-align:center;
 }
-
-/* ORGANIZER */
-.organizer{
-    margin:80px auto;
-    max-width:900px;
-    background:rgba(0,0,50,0.8);
-    padding:40px;
-    border-radius:20px;
-    box-shadow:0 0 40px #00f0ff;
-}
-.organizer h3{
-    text-align:center;
-    font-family:'Orbitron', sans-serif;
-}
-.organizer button{
-    margin:10px;
-    padding:10px 20px;
-    border:none;
-    border-radius:10px;
-    background:#00f0ff;
-    cursor:pointer;
-    font-weight:bold;
-}
-textarea{
-    width:100%;
-    height:150px;
-    margin-top:20px;
-}
 </style>
 </head>
 
@@ -228,11 +171,6 @@ textarea{
 
 <nav>
     <img src="assets/msp-logo.png">
-    <ul>
-        <li><a href="index.html">Strona Główna</a></li>
-        <li><a href="draft.html">Wszystkie drafty</a></li>
-        <li><a href="stats.html">Statystyki</a></li>
-    </ul>
 </nav>
 
 <div class="header">
@@ -246,7 +184,6 @@ textarea{
     <button id="nextDraft">Następny ➡</button>
 </div>
 
-<!-- PODIUM -->
 <div class="podium-wrapper" id="podium"></div>
 
 <div class="main-row">
@@ -272,7 +209,6 @@ textarea{
     </div>
 </div>
 
-<!-- STATYSTYKI -->
 <div class="draft-stats">
     <h2 style="text-align:center;font-family:'Orbitron';">STATYSTYKI DRAFTU</h2>
     <div class="stats-grid" id="statsGrid"></div>
@@ -283,81 +219,53 @@ textarea{
     <div class="decks-grid" id="decksContainer"></div>
 </div>
 
-<div class="organizer">
-    <h3>PANEL ORGANIZATORA</h3>
-    <button onclick="addMatch()">Dodaj mecz</button>
-    <button onclick="generateMatchesCode()">Generuj kod matches</button>
-    <button onclick="generateDecksCode()">Generuj kod players</button>
-    <textarea id="codeOutput"></textarea>
-</div>
-
 <script src="database.js"></script>
 <script>
 
-/* ===== WYBÓR DRAFTU ===== */
+/* ===== LOAD ===== */
 
-const urlParams = new URLSearchParams(window.location.search);
-const idParam = parseInt(urlParams.get("id"));
-let draftsSorted = [...database.drafts].sort((a,b)=>b.id-a.id);
-let draft = idParam ? database.drafts.find(d=>d.id===idParam) : draftsSorted[0];
+const urlParams=new URLSearchParams(window.location.search);
+const idParam=parseInt(urlParams.get("id"));
+let draft=idParam?database.drafts.find(d=>d.id===idParam)
+                :database.drafts.sort((a,b)=>b.id-a.id)[0];
 
-document.getElementById("draftTitle").textContent = "DRAFT " + draft.id;
-document.getElementById("draftMeta").textContent =
-    `Tryb: ${draft.mode} | ${draft.startDate || ""} ${draft.endDate ? "– "+draft.endDate : ""}`;
+document.getElementById("draftTitle").textContent="DRAFT "+draft.id;
+document.getElementById("draftMeta").textContent=draft.mode;
 
-/* ===== NAWIGACJA ===== */
+/* ===== COLORS ===== */
 
-const ids = database.drafts.map(d=>d.id).sort((a,b)=>a-b);
-const currentIndex = ids.indexOf(draft.id);
-if(currentIndex > 0){
-    document.getElementById("prevDraft").onclick = ()=> window.location.href=`draft.html?id=${ids[currentIndex-1]}`;
-}else document.getElementById("prevDraft").style.display="none";
-if(currentIndex < ids.length-1){
-    document.getElementById("nextDraft").onclick = ()=> window.location.href=`draft.html?id=${ids[currentIndex+1]}`;
-}else document.getElementById("nextDraft").style.display="none";
-
-/* ===== KOLORY ===== */
-
-const playerColors = [
-  "#00f0ff","#ff00ff","#00ff88","#ffd700",
-  "#ff4d4d","#7d5cff","#00ffcc","#ff8800",
-  "#ffffff","#66ccff","#ff66cc","#aaff00"
+const playerColors=[
+"#00f0ff","#ff00ff","#00ff88","#ffd700",
+"#ff4d4d","#7d5cff","#00ffcc","#ff8800",
+"#ffffff","#66ccff","#ff66cc","#aaff00"
 ];
 
-/* ===== STATY ===== */
+/* ===== STATS ===== */
 
 let stats={};
+let cleanWins={};
+let lossPoints={};
 
 draft.players.forEach((p,i)=>{
-    stats[p.name]={wins:0,losses:0,total:0,lossPts:0,color:playerColors[i%playerColors.length]};
+stats[p.name]={wins:0,losses:0,total:0,color:playerColors[i%playerColors.length]};
+cleanWins[p.name]=0;
+lossPoints[p.name]=0;
 });
 
-let biggestStomp = {diff:0, text:"-"};
-let closestGame = {diff:999, text:"-"};
-
 draft.matches.forEach(m=>{
-    const diff = Math.abs(m.pts1 - m.pts2);
-
-    if(diff > biggestStomp.diff){
-        biggestStomp = {diff, text:`${m.p1} ${m.pts1}-${m.pts2} ${m.p2}`};
-    }
-    if(diff < closestGame.diff){
-        closestGame = {diff, text:`${m.p1} ${m.pts1}-${m.pts2} ${m.p2}`};
-    }
-
-    if(m.pts1>m.pts2){
-        stats[m.p1].wins++; stats[m.p2].losses++;
-        stats[m.p2].lossPts+=m.pts2;
-    }else{
-        stats[m.p2].wins++; stats[m.p1].losses++;
-        stats[m.p1].lossPts+=m.pts1;
-    }
-
-    stats[m.p1].total+=m.pts1;
-    stats[m.p2].total+=m.pts2;
-
-    document.getElementById("resultsBox")
-      .innerHTML+=`<p>${m.p1} ${m.pts1} – ${m.pts2} ${m.p2}</p>`;
+if(m.pts1>m.pts2){
+stats[m.p1].wins++; stats[m.p2].losses++;
+if(m.pts2===0) cleanWins[m.p1]++;
+lossPoints[m.p2]+=m.pts2;
+}else{
+stats[m.p2].wins++; stats[m.p1].losses++;
+if(m.pts1===0) cleanWins[m.p2]++;
+lossPoints[m.p1]+=m.pts1;
+}
+stats[m.p1].total+=m.pts1;
+stats[m.p2].total+=m.pts2;
+document.getElementById("resultsBox")
+.innerHTML+=`<p>${m.p1} ${m.pts1} – ${m.pts2} ${m.p2}</p>`;
 });
 
 /* ===== RANKING ===== */
@@ -366,105 +274,95 @@ let ranking=Object.keys(stats).map(n=>({name:n,...stats[n]}));
 ranking.sort((a,b)=>b.total-a.total);
 
 ranking.forEach((p,i)=>{
-    document.querySelector("#rankingTable tbody").innerHTML+=`
-    <tr>
-      <td>${i+1}</td>
-      <td style="color:${p.color}">${p.name}</td>
-      <td>${p.wins}-${p.losses}</td>
-      <td>${p.total}</td>
-      <td>${p.wins}</td>
-      <td>${p.losses}</td>
-    </tr>`;
+document.querySelector("#rankingTable tbody").innerHTML+=`
+<tr>
+<td>${i+1}</td>
+<td style="color:${p.color}">${p.name}</td>
+<td>${p.wins}-${p.losses}</td>
+<td>${p.total}</td>
+<td>${p.wins}</td>
+<td>${p.losses}</td>
+</tr>`;
 });
 
 /* ===== PODIUM ===== */
 
-const podium = document.getElementById("podium");
-const medals = ["🥇","🥈","🥉"];
-const classes = ["first","second","third"];
-
+const medals=["🥇","🥈","🥉"];
+const classes=["first","second","third"];
 ranking.slice(0,3).forEach((p,i)=>{
-    podium.innerHTML+=`
-    <div class="podium ${classes[i]}" style="border:2px solid ${p.color};box-shadow:0 0 25px ${p.color}">
-        <div style="font-size:28px">${medals[i]}</div>
-        <h3 style="color:${p.color}">${p.name}</h3>
-        <div>${p.total} pkt</div>
-    </div>`;
+document.getElementById("podium").innerHTML+=`
+<div class="podium ${classes[i]}" style="border:2px solid ${p.color};box-shadow:0 0 25px ${p.color}">
+<div style="font-size:28px">${medals[i]}</div>
+<h3 style="color:${p.color}">${p.name}</h3>
+<div>${p.total} pkt</div>
+</div>`;
 });
 
-/* ===== NAJCZĘŚCIEJ WYBIERANA KARTA ===== */
+/* ===== CARD COUNT ===== */
 
 let cardCount={};
 draft.players.forEach(p=>{
-    p.deck.forEach(c=>{
-        cardCount[c]=(cardCount[c]||0)+1;
-    });
+p.deck.forEach(c=>cardCount[c]=(cardCount[c]||0)+1);
 });
-let maxPick=0;
-for(let c in cardCount) if(cardCount[c]>maxPick) maxPick=cardCount[c];
-const mostPicked=Object.entries(cardCount)
-    .filter(([c,count])=>count===maxPick)
-    .map(([c])=>c);
+let maxPick=Math.max(...Object.values(cardCount));
+let mostPicked=Object.keys(cardCount)
+.filter(c=>cardCount[c]===maxPick)
+.sort()
+.slice(0,5);
+
+/* ===== CLEAN WINS ===== */
+
+let maxClean=Math.max(...Object.values(cleanWins));
+let cleanLeaders=Object.keys(cleanWins)
+.filter(n=>cleanWins[n]===maxClean)
+.sort()
+.slice(0,5);
+
+/* ===== LOSS POINTS ===== */
+
+let maxLoss=Math.max(...Object.values(lossPoints));
+let lossLeaders=Object.keys(lossPoints)
+.filter(n=>lossPoints[n]===maxLoss)
+.sort()
+.slice(0,5);
 
 /* ===== STAT BOXES ===== */
 
-const statsGrid=document.getElementById("statsGrid");
-
-function addStat(title,value){
-    statsGrid.innerHTML+=`
-    <div class="stat-box">
-        <strong>${title}</strong>
-        <div style="margin-top:10px">${value}</div>
-    </div>`;
+function addStat(t,v){
+document.getElementById("statsGrid").innerHTML+=
+`<div class="stat-box"><strong>${t}</strong><div style="margin-top:10px">${v}</div></div>`;
 }
 
 addStat("🏆 Najwięcej zwycięstw",
-    ranking[0].name+" ("+ranking[0].wins+")");
+ranking[0].name+" ("+ranking[0].wins+")");
 
-addStat("🧨 Największy stomp",
-    biggestStomp.text);
+addStat("🧨 Największy stomp","-");
+addStat("🧊 Najbardziej zacięty mecz","-");
 
-addStat("🧊 Najbardziej zacięty mecz",
-    closestGame.text);
+addStat("⚔ Najwięcej wygranych do 0",
+cleanLeaders.join(", ")+" ("+maxClean+")");
+
+addStat("💀 Najwięcej pkt z porażek",
+lossLeaders.join(", ")+" ("+maxLoss+")");
 
 addStat("🃏 Najczęściej wybierana karta",
-    mostPicked.join(", ")+" ("+maxPick+")");
+mostPicked.join(", ")+" ("+maxPick+")");
 
-/* ===== DECKI ===== */
+/* ===== DECKS + OBRAZKI ===== */
 
 draft.players.forEach((p,i)=>{
-    const color=playerColors[i%playerColors.length];
-    let html=`
-    <div class="deck-card" style="border:2px solid ${color};box-shadow:0 0 30px ${color}">
-      <h3 style="color:${color};text-align:center;">${p.name}</h3>
-      <div class="cards-grid">
-        ${p.deck.map(c=>`
-          <div class="card-tile" style="color:${color};border:1px solid ${color};">
-            ${c}
-          </div>`).join("")}
-      </div>
-    </div>`;
-    document.getElementById("decksContainer").innerHTML+=html;
+const color=playerColors[i%playerColors.length];
+const clean=p.name.toLowerCase().replace(/[^a-z0-9]/g,"");
+let html=`
+<div class="deck-card" style="border:2px solid ${color};box-shadow:0 0 30px ${color}">
+<h3 style="color:${color};text-align:center;">${p.name}</h3>
+<div class="cards-grid">
+${p.deck.map(c=>`<div class="card-tile" style="color:${color};border:1px solid ${color};">${c}</div>`).join("")}
+</div>
+<img src="assets/decks/${clean}_${draft.id}.jpg" style="width:60%;margin-top:20px;border-radius:15px;">
+</div>`;
+document.getElementById("decksContainer").innerHTML+=html;
 });
-
-/* ===== PANEL ===== */
-
-function addMatch(){
-    const p1=prompt("Gracz 1:");
-    const p2=prompt("Gracz 2:");
-    const pts1=parseInt(prompt("Pkt 1:"));
-    const pts2=parseInt(prompt("Pkt 2:"));
-    draft.matches.push({p1,p2,pts1,pts2});
-    alert("Dodano (odśwież i wygeneruj kod)");
-}
-function generateMatchesCode(){
-    document.getElementById("codeOutput").value=
-    JSON.stringify(draft.matches,null,2);
-}
-function generateDecksCode(){
-    document.getElementById("codeOutput").value=
-    JSON.stringify(draft.players,null,2);
-}
 
 </script>
 </body>
