@@ -387,6 +387,102 @@ ranking.slice(0,3).forEach((p,i)=>{
   </div>`;
 });
 
+    /* STATYSTYKI DRAFTU */
+
+function addStat(title, value){
+  document.getElementById("statsGrid").innerHTML += `
+    <div class="stat-box">
+      <strong>${title}</strong>
+      <div style="margin-top:10px">${value}</div>
+    </div>
+  `;
+}
+
+/* Najwięcej zwycięstw */
+let maxWins = Math.max(...ranking.map(p=>p.wins));
+let winLeaders = ranking
+  .filter(p=>p.wins===maxWins)
+  .map(p=>p.name)
+  .sort()
+  .slice(0,5);
+
+addStat("🏆 Najwięcej zwycięstw",
+  winLeaders.join(", ") + ` (${maxWins})`
+);
+
+/* Wygrane do 0 */
+let cleanWins = {};
+draft.players.forEach(p=>cleanWins[p.name]=0);
+
+draft.matches.forEach(m=>{
+  if(m.pts1>m.pts2 && m.pts2===0) cleanWins[m.p1]++;
+  if(m.pts2>m.pts1 && m.pts1===0) cleanWins[m.p2]++;
+});
+
+let maxClean = Math.max(...Object.values(cleanWins));
+let cleanLeaders = Object.keys(cleanWins)
+  .filter(n=>cleanWins[n]===maxClean)
+  .sort()
+  .slice(0,5);
+
+addStat("🔥 Najwięcej wygranych do 0",
+  cleanLeaders.join(", ") + ` (${maxClean})`
+);
+
+/* Najwięcej pkt z porażek */
+let lossPoints = {};
+draft.players.forEach(p=>lossPoints[p.name]=0);
+
+draft.matches.forEach(m=>{
+  if(m.pts1>m.pts2){
+    lossPoints[m.p2]+=m.pts2;
+  }else{
+    lossPoints[m.p1]+=m.pts1;
+  }
+});
+
+let maxLoss = Math.max(...Object.values(lossPoints));
+let lossLeaders = Object.keys(lossPoints)
+  .filter(n=>lossPoints[n]===maxLoss)
+  .sort()
+  .slice(0,5);
+
+addStat("💀 Najwięcej pkt z porażek",
+  lossLeaders.join(", ") + ` (${maxLoss})`
+);
+
+/* Najmniej porażek */
+let minLoss = Math.min(...ranking.map(p=>p.losses));
+let leastLoss = ranking
+  .filter(p=>p.losses===minLoss)
+  .map(p=>p.name)
+  .sort()
+  .slice(0,5);
+
+addStat("🛡 Najmniej porażek",
+  leastLoss.join(", ") + ` (${minLoss})`
+);
+
+/* Najczęściej wybierana karta */
+let cardCount = {};
+draft.players.forEach(p=>{
+  p.deck.forEach(c=>{
+    cardCount[c] = (cardCount[c]||0)+1;
+  });
+});
+
+if(Object.keys(cardCount).length>0){
+  let maxPick = Math.max(...Object.values(cardCount));
+  let mostPicked = Object.keys(cardCount)
+    .filter(c=>cardCount[c]===maxPick)
+    .sort()
+    .slice(0,5);
+
+  addStat("🃏 Najczęściej wybierana karta",
+    mostPicked.join(", ") + ` (${maxPick})`
+  );
+}
+
 /* DECKI */
 draft.players.forEach((p,i)=>{
   const color=playerColors[i%playerColors.length];
