@@ -2,10 +2,8 @@ const database = {
   drafts: [
     {
       id: 18,
-
       startDate: "2026-02-20",
       endDate: "2026-02-20",
-
       mode: "Poker",
       presetCard: null,
       playersCount: 11,
