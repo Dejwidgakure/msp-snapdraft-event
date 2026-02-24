@@ -290,7 +290,139 @@ textarea{
 
 <script src="database.js"></script>
 <script>
-/* JS bez zmian */
+<script src="database.js"></script>
+<script>
+
+const urlParams = new URLSearchParams(window.location.search);
+const idParam = parseInt(urlParams.get("id"));
+
+let draftsSorted = [...database.drafts].sort((a,b)=>b.id-a.id);
+let draft = idParam 
+  ? database.drafts.find(d=>d.id===idParam) 
+  : draftsSorted[0];
+
+if(!draft){
+  document.getElementById("draftTitle").textContent = "Brak draftu";
+  throw new Error("Draft not found");
+}
+
+/* META */
+document.getElementById("draftTitle").textContent = "DRAFT " + draft.id;
+
+let metaText = `Tryb: ${draft.mode}<br>`;
+if(draft.startDate) metaText += `${draft.startDate}`;
+if(draft.endDate) metaText += ` – ${draft.endDate}`;
+metaText += `<br>Gracze: ${draft.players.length}`;
+if(draft.bans && draft.bans.length>0)
+  metaText += `<br>Bany: ${draft.bans.join(", ")}`;
+
+document.getElementById("draftMeta").innerHTML = metaText;
+
+/* NAV */
+const ids = database.drafts.map(d=>d.id).sort((a,b)=>a-b);
+const currentIndex = ids.indexOf(draft.id);
+
+if(currentIndex>0)
+  document.getElementById("prevDraft").onclick =
+    ()=>window.location.href=`draft.html?id=${ids[currentIndex-1]}`;
+else document.getElementById("prevDraft").style.display="none";
+
+if(currentIndex<ids.length-1)
+  document.getElementById("nextDraft").onclick =
+    ()=>window.location.href=`draft.html?id=${ids[currentIndex+1]}`;
+else document.getElementById("nextDraft").style.display="none";
+
+/* KOLORY */
+const playerColors=[
+"#00f0ff","#ff00ff","#00ff88","#ffd700",
+"#ff4d4d","#7d5cff","#00ffcc","#ff8800",
+"#ffffff","#66ccff","#ff66cc","#aaff00"
+];
+
+/* STATY */
+let stats={};
+draft.players.forEach((p,i)=>{
+  stats[p.name]={wins:0,losses:0,total:0,color:playerColors[i%playerColors.length]};
+});
+
+draft.matches.forEach(m=>{
+  if(m.pts1>m.pts2){
+    stats[m.p1].wins++;
+    stats[m.p2].losses++;
+  }else{
+    stats[m.p2].wins++;
+    stats[m.p1].losses++;
+  }
+  stats[m.p1].total+=m.pts1;
+  stats[m.p2].total+=m.pts2;
+
+  document.getElementById("resultsBox")
+    .innerHTML+=`<p>${m.p1} ${m.pts1} – ${m.pts2} ${m.p2}</p>`;
+});
+
+/* RANKING */
+let ranking=Object.keys(stats).map(n=>({name:n,...stats[n]}));
+ranking.sort((a,b)=>b.total-a.total);
+
+ranking.forEach((p,i)=>{
+  document.querySelector("#rankingTable tbody").innerHTML+=`
+  <tr>
+    <td>${i+1}</td>
+    <td style="color:${p.color};font-weight:bold;">${p.name}</td>
+    <td>${p.wins}-${p.losses}</td>
+    <td>${p.total}</td>
+    <td>${p.wins}</td>
+    <td>${p.losses}</td>
+  </tr>`;
+});
+
+/* PODIUM */
+const medals=["🥇","🥈","🥉"];
+const classes=["first","second","third"];
+
+ranking.slice(0,3).forEach((p,i)=>{
+  document.getElementById("podium").innerHTML+=`
+  <div class="podium ${classes[i]}" style="border:2px solid ${p.color};box-shadow:0 0 25px ${p.color}">
+    <div style="font-size:28px">${medals[i]}</div>
+    <h3 style="color:${p.color}">${p.name}</h3>
+    <div>${p.total} pkt</div>
+  </div>`;
+});
+
+/* DECKI */
+draft.players.forEach((p,i)=>{
+  const color=playerColors[i%playerColors.length];
+  let html=`
+  <div class="deck-card" style="border:2px solid ${color};box-shadow:0 0 30px ${color}">
+    <h3 style="color:${color};text-align:center;">${p.name}</h3>
+    <div class="cards-grid">
+      ${p.deck.map(c=>`
+        <div class="card-tile" style="color:${color};border:1px solid ${color};">
+          ${c}
+        </div>`).join("")}
+    </div>
+  </div>`;
+  document.getElementById("decksContainer").innerHTML+=html;
+});
+
+function addMatch(){
+  const p1=prompt("Gracz 1:");
+  const p2=prompt("Gracz 2:");
+  const pts1=parseInt(prompt("Pkt 1:"));
+  const pts2=parseInt(prompt("Pkt 2:"));
+  draft.matches.push({p1,p2,pts1,pts2});
+  alert("Dodano (odśwież i wygeneruj kod)");
+}
+function generateMatchesCode(){
+  document.getElementById("codeOutput").value=
+  JSON.stringify(draft.matches,null,2);
+}
+function generateDecksCode(){
+  document.getElementById("codeOutput").value=
+  JSON.stringify(draft.players,null,2);
+}
+
+</script>
 </script>
 
 </body>
