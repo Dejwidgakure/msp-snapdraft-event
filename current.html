@@ -63,7 +63,7 @@ nav a{
     text-shadow:0 0 20px #00f0ff,0 0 40px #8a2be2;
 }
 
-/* ===== LAYOUT ===== */
+/* ===== MAIN LAYOUT ===== */
 .main-row{
     display:flex;
     justify-content:center;
@@ -89,7 +89,7 @@ nav a{
 /* ===== TABELA ===== */
 table{
     border-collapse:collapse;
-    min-width:650px;
+    min-width:700px;
 }
 
 th, td{
@@ -111,11 +111,7 @@ th{
 .results{
     max-height:420px;
     overflow-y:auto;
-    width:320px;
-}
-
-.results p{
-    margin:8px 0;
+    width:280px;
 }
 
 /* ===== DECKI ===== */
@@ -140,12 +136,11 @@ th{
     padding:30px;
     border-radius:20px;
     background:rgba(0,0,30,0.8);
-    transition:0.3s;
 }
 
 .deck-card img{
     width:50%;
-    max-width:400px;
+    max-width:350px;
     display:block;
     margin:20px auto 0;
     border-radius:15px;
@@ -154,15 +149,46 @@ th{
 .cards-grid{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:10px;
+    gap:8px;
     margin-top:20px;
 }
 
 .card-tile{
-    padding:6px 8px;
-    font-size:14px;
+    padding:6px 6px;
+    font-size:13px;
     border-radius:8px;
     text-align:center;
+}
+
+/* ===== PANEL ORGANIZATORA ===== */
+.organizer{
+    margin:80px auto;
+    max-width:900px;
+    background:rgba(0,0,50,0.8);
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 0 40px #00f0ff;
+}
+
+.organizer h3{
+    text-align:center;
+    font-family:'Orbitron', sans-serif;
+}
+
+.organizer button{
+    margin:10px;
+    padding:10px 20px;
+    border:none;
+    border-radius:10px;
+    background:#00f0ff;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+textarea{
+    width:100%;
+    height:150px;
+    margin-top:20px;
 }
 </style>
 </head>
@@ -194,8 +220,8 @@ th{
                     <th>Gracz</th>
                     <th>Bilans</th>
                     <th>Pkt łączne</th>
-                    <th>Pkt za wygr.</th>
-                    <th>Pkt za przegr.</th>
+                    <th>Pkt wygr.</th>
+                    <th>Pkt przegr.</th>
                 </tr>
             </thead>
             <tbody></tbody>
@@ -213,120 +239,103 @@ th{
     <div class="decks-grid" id="decksContainer"></div>
 </div>
 
+<div class="organizer">
+    <h3>PANEL ORGANIZATORA</h3>
+    <button onclick="addMatch()">Dodaj mecz</button>
+    <button onclick="generateMatchesCode()">Generuj kod matches</button>
+    <button onclick="generateDecksCode()">Dodaj / Edytuj decki</button>
+    <textarea id="codeOutput"></textarea>
+</div>
+
 <script src="draft18-data.js"></script>
+<script src="cards.js"></script>
 
 <script>
-/* ===== KOLORY Z DRAFTU ===== */
 const playerColors = [
-  "#00f0ff", "#ff00ff", "#00ff88", "#ffd700",
-  "#ff4d4d", "#7d5cff", "#00ffcc", "#ff8800",
-  "#ffffff", "#66ccff", "#ff66cc", "#aaff00"
+  "#00f0ff","#ff00ff","#00ff88","#ffd700",
+  "#ff4d4d","#7d5cff","#00ffcc","#ff8800",
+  "#ffffff","#66ccff","#ff66cc","#aaff00"
 ];
 
-const tableBody = document.querySelector("#rankingTable tbody");
-const resultsBox = document.getElementById("resultsBox");
-const decksContainer = document.getElementById("decksContainer");
-
-let stats = {};
-
+let stats={};
 players.forEach((p,i)=>{
-    stats[p.name] = {
-        wins:0,
-        losses:0,
-        winPts:0,
-        lossPts:0,
-        total:0,
-        color: playerColors[i % playerColors.length]
-    };
+    stats[p.name]={wins:0,losses:0,winPts:0,lossPts:0,total:0,color:playerColors[i]};
 });
 
-/* ===== MECZE ===== */
 matches.forEach(m=>{
-    const {p1,p2,pts1,pts2} = m;
-
-    if(pts1 > pts2){
-        stats[p1].wins++;
-        stats[p2].losses++;
-        stats[p1].winPts += pts1;
-        stats[p2].lossPts += pts2;
-    } else {
-        stats[p2].wins++;
-        stats[p1].losses++;
-        stats[p2].winPts += pts2;
-        stats[p1].lossPts += pts1;
+    if(m.pts1>m.pts2){
+        stats[m.p1].wins++; stats[m.p2].losses++;
+        stats[m.p1].winPts+=m.pts1; stats[m.p2].lossPts+=m.pts2;
+    }else{
+        stats[m.p2].wins++; stats[m.p1].losses++;
+        stats[m.p2].winPts+=m.pts2; stats[m.p1].lossPts+=m.pts1;
     }
+    stats[m.p1].total+=m.pts1;
+    stats[m.p2].total+=m.pts2;
 
-    stats[p1].total += pts1;
-    stats[p2].total += pts2;
-
-    const resultLine = document.createElement("p");
-    resultLine.textContent = `${p1} ${pts1} – ${pts2} ${p2}`;
-    resultsBox.appendChild(resultLine);
+    document.getElementById("resultsBox")
+      .innerHTML+=`<p>${m.p1} ${m.pts1} – ${m.pts2} ${m.p2}</p>`;
 });
 
-/* ===== SORTOWANIE ===== */
-let ranking = Object.keys(stats).map(name=>({
-    name,
-    ...stats[name]
-}));
+let ranking=Object.keys(stats).map(n=>({name:n,...stats[n]}));
+ranking.sort((a,b)=>b.total-a.total);
 
-ranking.sort((a,b)=>b.total - a.total);
-
-/* ===== TABELA ===== */
-ranking.forEach((player,i)=>{
-    const row = document.createElement("tr");
-    if(i===0 && player.total>0) row.classList.add("leader");
-
-    row.innerHTML = `
-        <td>${i+1}</td>
-        <td style="color:${player.color}; text-shadow:0 0 12px ${player.color}">
-            ${player.name}
-        </td>
-        <td>${player.wins}-${player.losses}</td>
-        <td>${player.total}</td>
-        <td>${player.winPts}</td>
-        <td>${player.lossPts}</td>
-    `;
-    tableBody.appendChild(row);
+ranking.forEach((p,i)=>{
+    document.querySelector("#rankingTable tbody")
+    .innerHTML+=`
+    <tr>
+      <td>${i+1}</td>
+      <td style="color:${p.color};text-shadow:0 0 10px ${p.color}">
+        ${p.name}
+      </td>
+      <td>${p.wins}-${p.losses}</td>
+      <td>${p.total}</td>
+      <td>${p.winPts}</td>
+      <td>${p.lossPts}</td>
+    </tr>`;
 });
 
-/* ===== DECKI ===== */
 players.forEach((p,i)=>{
-    const color = playerColors[i % playerColors.length];
+    const color=playerColors[i];
+    const clean=p.name.toLowerCase().replace(/[^a-z0-9]/g,"");
 
-    const card = document.createElement("div");
-    card.className="deck-card";
-    card.style.border=`2px solid ${color}`;
-    card.style.boxShadow=`0 0 30px ${color}`;
-
-    card.innerHTML = `
-        <h3 style="color:${color}; text-shadow:0 0 15px ${color}; text-align:center;">
-            ${p.name}
-        </h3>
-    `;
-
-    const cardsGrid = document.createElement("div");
-    cardsGrid.className="cards-grid";
-
-    p.deck.forEach(cardName=>{
-        const tile = document.createElement("div");
-        tile.className="card-tile";
-        tile.textContent = cardName;
-        tile.style.color=color;
-        tile.style.border=`1px solid ${color}`;
-        tile.style.boxShadow=`0 0 8px ${color}`;
-        cardsGrid.appendChild(tile);
-    });
-
-    card.appendChild(cardsGrid);
-
-    const clean = p.name.toLowerCase().replace(/[^a-z0-9]/g,"");
-    const img = document.createElement("img");
-    img.src = `assets/decks/${clean}_18.jpg`;
-    card.appendChild(img);
-
-    decksContainer.appendChild(card);
+    let html=`
+    <div class="deck-card" style="border:2px solid ${color};box-shadow:0 0 30px ${color}">
+      <h3 style="color:${color};text-shadow:0 0 15px ${color};text-align:center;">
+        ${p.name}
+      </h3>
+      <div class="cards-grid">
+        ${p.deck.map(c=>`
+          <div class="card-tile" style="
+            color:${color};
+            border:1px solid ${color};
+            box-shadow:0 0 8px ${color};
+          ">${c}</div>`).join("")}
+      </div>
+      <img src="assets/decks/${clean}_18.jpg">
+    </div>`;
+    document.getElementById("decksContainer").innerHTML+=html;
 });
+
+/* ===== PANEL ===== */
+function addMatch(){
+    const p1=prompt("Gracz 1:");
+    const p2=prompt("Gracz 2:");
+    const pts1=parseInt(prompt("Pkt 1:"));
+    const pts2=parseInt(prompt("Pkt 2:"));
+    matches.push({p1,p2,pts1,pts2});
+    alert("Dodano (odśwież i wygeneruj kod)");
+}
+
+function generateMatchesCode(){
+    document.getElementById("codeOutput").value=
+    "const matches = "+JSON.stringify(matches,null,2)+";";
+}
+
+function generateDecksCode(){
+    document.getElementById("codeOutput").value=
+    "const players = "+JSON.stringify(players,null,2)+";";
+}
 </script>
 
 </body>
