@@ -14,25 +14,21 @@ body{
     background:url("assets/cosmic-bg.png") no-repeat center center fixed;
     background-size:cover;
     color:white;
+    overflow-x:hidden;
 }
 
+/* NAV */
 nav{
     display:flex;
     justify-content:space-between;
     align-items:center;
     padding:20px 60px;
     backdrop-filter:blur(10px);
-    background:rgba(5,10,25,0.7);
-}
-
-nav .left{
-    display:flex;
-    align-items:center;
-    gap:20px;
+    background:rgba(5,10,25,0.75);
 }
 
 nav img{
-    height:65px;
+    height:60px;
     filter:drop-shadow(0 0 15px #00f0ff);
 }
 
@@ -46,73 +42,108 @@ nav a{
     text-decoration:none;
     color:white;
     font-weight:600;
-    transition:0.3s;
 }
 
-nav a:hover{
-    color:#00f0ff;
-}
-
+/* HERO */
 .hero{
+    position:relative;
     text-align:center;
-    padding:140px 20px;
+    padding:100px 20px 80px 20px;
 }
 
-.hero img{
-    height:140px;
-    margin-bottom:20px;
-    filter:drop-shadow(0 0 30px #00f0ff);
+/* Cosmic overlay graphic */
+.hero-bg{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:90%;
+    max-width:1400px;
+    opacity:0.35;
+    pointer-events:none;
+    z-index:0;
 }
 
-.hero h1{
+/* Logo */
+.hero-logo{
+    position:relative;
+    z-index:2;
+    height:260px;
+    filter:drop-shadow(0 0 60px #00f0ff);
+    margin-bottom:40px;
+}
+
+/* Big Title */
+.hero-title{
+    position:relative;
+    z-index:2;
     font-family:'Orbitron', sans-serif;
     font-size:64px;
-    margin:0;
-    text-shadow:0 0 25px #00f0ff;
+    text-align:center;
+    text-shadow:
+        0 0 20px #00f0ff,
+        0 0 40px #8a2be2,
+        0 0 80px #00f0ff;
+    margin-bottom:60px;
 }
 
-.hero p{
-    margin-top:20px;
-    font-size:20px;
-    opacity:0.85;
+/* Buttons */
+.buttons{
+    position:relative;
+    z-index:2;
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    flex-wrap:wrap;
 }
 
-.btn{
-    margin-top:40px;
-    display:inline-block;
-    padding:15px 40px;
-    border-radius:40px;
+.buttons a{
+    padding:18px 40px;
+    border-radius:15px;
+    font-weight:bold;
+    text-decoration:none;
     background:linear-gradient(45deg,#00f0ff,#8a2be2);
     color:black;
-    font-weight:700;
-    text-decoration:none;
+    box-shadow:0 0 25px #00f0ff;
     transition:0.3s;
 }
 
-.btn:hover{
+.buttons a:hover{
     transform:scale(1.05);
+    box-shadow:0 0 50px #8a2be2;
 }
 </style>
 </head>
+
 <body>
 
 <nav>
-    <div class="left">
-        <img src="assets/msp-logo.png">
-    </div>
-
+    <img src="assets/msp-logo.png">
     <ul>
-        <li><a href="current.html">Aktualny Draft</a></li>
-        <li><a href="history.html">Historia</a></li>
+        <li><a href="draft.html">Wszystkie drafty</a></li>
         <li><a href="stats.html">Statystyki</a></li>
     </ul>
 </nav>
 
 <div class="hero">
-    <img src="assets/draft-logo.png">
-    <h1>MSP SnapDraft Event</h1>
-    <p>Oficjalna Liga Draftowa Marvel Snap Polska</p>
-    <a class="btn" href="current.html">Zobacz Aktualny Draft</a>
+
+    <!-- Półprzezroczysta grafika -->
+    <img src="assets/hero-draft.png" class="hero-bg">
+
+    <!-- Duże logo eventu -->
+    <img src="assets/draft-logo.png" class="hero-logo">
+
+    <!-- Wielki napis -->
+    <div class="hero-title">
+        Oficjalna Strona Eventów Draftowych MSP
+    </div>
+
+    <div class="buttons">
+        <a href="draft.html">Zobacz aktualny draft</a>
+        <a href="draft.html">Wszystkie drafty</a>
+        <a href="stats.html">Sala Chwały</a>
+    </div>
+
 </div>
 
 </body>
