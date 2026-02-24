@@ -25,46 +25,57 @@ nav{
     backdrop-filter:blur(10px);
     background:rgba(5,10,25,0.75);
 }
-nav img{ height:60px; }
+nav img{
+    height:60px;
+    filter:drop-shadow(0 0 15px #00f0ff);
+}
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:40px;
+}
+nav a{
+    text-decoration:none;
+    color:white;
+    font-weight:600;
+}
 
 /* HEADER */
 .header{
     text-align:center;
     padding:60px 20px 20px 20px;
 }
+.header img{
+    height:180px;
+    display:block;
+    margin:0 auto 20px;
+    filter:drop-shadow(0 0 40px #00f0ff);
+}
 .header h1{
     font-family:'Orbitron', sans-serif;
     font-size:64px;
     margin:0;
+    text-shadow:0 0 20px #00f0ff,0 0 40px #8a2be2;
 }
-.meta{ opacity:0.8; }
+.meta{
+    margin-top:15px;
+    opacity:0.8;
+}
 
-/* MAIN */
-.main-row{
+/* NAVIGATION */
+.draft-navigation{
     display:flex;
     justify-content:center;
     gap:40px;
-    padding:40px;
+    margin:30px 0;
 }
-
-.panel{
-    background:rgba(0,0,40,0.8);
-    padding:30px;
-    border-radius:20px;
-}
-
-table{
-    border-collapse:collapse;
-    min-width:650px;
-}
-th,td{
-    padding:10px;
-    border:1px solid rgba(0,255,255,0.3);
-    text-align:center;
-}
-th{
-    background:linear-gradient(45deg,#00f0ff,#8a2be2);
-    color:black;
+.draft-navigation button{
+    padding:10px 20px;
+    border:none;
+    border-radius:10px;
+    background:#00f0ff;
+    font-weight:bold;
+    cursor:pointer;
 }
 
 /* PODIUM */
@@ -73,64 +84,137 @@ th{
     justify-content:center;
     align-items:flex-end;
     gap:40px;
-    margin:30px 0;
+    margin:40px 0 20px 0;
 }
 .podium{
     width:160px;
     text-align:center;
-    padding:20px;
     border-radius:20px;
-    background:rgba(0,0,60,0.8);
+    padding:20px;
+    backdrop-filter:blur(10px);
+    background:rgba(0,0,40,0.7);
+    transition:0.3s;
 }
-.first{height:200px;}
-.second{height:160px;}
-.third{height:140px;}
+.podium:hover{
+    transform:translateY(-6px);
+}
+.podium h3{
+    margin:10px 0 5px 0;
+}
+.first{ height:200px; }
+.second{ height:160px; }
+.third{ height:140px; }
 
-/* STATS */
+/* MAIN */
+.main-row{
+    display:flex;
+    justify-content:center;
+    gap:60px;
+    padding:40px;
+    align-items:flex-start;
+}
+.panel{
+    background:rgba(0,0,40,0.75);
+    backdrop-filter:blur(12px);
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 0 30px rgba(0,240,255,0.3);
+}
+.panel h2{
+    font-family:'Orbitron', sans-serif;
+    margin-top:0;
+    text-align:center;
+}
+table{
+    border-collapse:collapse;
+    min-width:700px;
+}
+th, td{
+    padding:12px 18px;
+    border:1px solid rgba(0,255,255,0.3);
+    text-align:center;
+}
+th{
+    background:linear-gradient(45deg,#00f0ff,#8a2be2);
+    color:black;
+}
+.results{
+    max-height:420px;
+    overflow-y:auto;
+    width:280px;
+}
+
+/* DRAFT STATS */
+.draft-stats{
+    margin:60px auto;
+    max-width:1100px;
+}
 .stats-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
-    padding:40px;
+    gap:25px;
 }
 .stat-box{
     padding:20px;
-    background:rgba(0,0,60,0.7);
     border-radius:18px;
+    background:rgba(0,0,50,0.7);
+    box-shadow:0 0 25px rgba(0,240,255,0.4);
 }
 
 /* DECKI */
-.decks-section{ padding:60px; }
+.decks-section{
+    padding:60px;
+}
+.decks-section h2{
+    text-align:center;
+    font-size:48px;
+    font-family:'Orbitron', sans-serif;
+    margin-bottom:60px;
+}
 .decks-grid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
     gap:40px;
 }
 .deck-card{
-    padding:20px;
+    padding:30px;
     border-radius:20px;
     background:rgba(0,0,30,0.8);
 }
 .cards-grid{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:6px;
+    gap:8px;
+    margin-top:20px;
 }
 .card-tile{
-    font-size:12px;
-    padding:4px;
-    border-radius:6px;
+    padding:6px;
+    font-size:13px;
+    border-radius:8px;
+    text-align:center;
 }
 
-/* DEV TOOL */
-.dev-panel{
-    margin:60px;
-    padding:30px;
-    background:rgba(0,0,50,0.9);
+/* ORGANIZER */
+.organizer{
+    margin:80px auto;
+    max-width:900px;
+    background:rgba(0,0,50,0.8);
+    padding:40px;
     border-radius:20px;
+    box-shadow:0 0 40px #00f0ff;
 }
-select,input,button{
-    margin:5px;
+.organizer h3{
+    text-align:center;
+    font-family:'Orbitron', sans-serif;
+}
+.organizer button{
+    margin:10px;
+    padding:10px 20px;
+    border:none;
+    border-radius:10px;
+    background:#00f0ff;
+    cursor:pointer;
+    font-weight:bold;
 }
 textarea{
     width:100%;
@@ -144,222 +228,242 @@ textarea{
 
 <nav>
     <img src="assets/msp-logo.png">
+    <ul>
+        <li><a href="index.html">Strona Główna</a></li>
+        <li><a href="draft.html">Wszystkie drafty</a></li>
+        <li><a href="stats.html">Statystyki</a></li>
+    </ul>
 </nav>
 
 <div class="header">
+    <img src="assets/draft-logo.png">
     <h1 id="draftTitle"></h1>
     <div class="meta" id="draftMeta"></div>
 </div>
 
+<div class="draft-navigation">
+    <button id="prevDraft">⬅ Poprzedni</button>
+    <button id="nextDraft">Następny ➡</button>
+</div>
+
+<!-- PODIUM -->
 <div class="podium-wrapper" id="podium"></div>
 
 <div class="main-row">
     <div class="panel">
-        <h2>TABELA</h2>
+        <h2>AKTUALNA TABELA</h2>
         <table id="rankingTable">
             <thead>
                 <tr>
                     <th>#</th>
                     <th>Gracz</th>
-                    <th>W-L</th>
+                    <th>Bilans</th>
                     <th>Pkt</th>
+                    <th>Wygr.</th>
+                    <th>Przegr.</th>
                 </tr>
             </thead>
             <tbody></tbody>
         </table>
     </div>
+
+    <div class="panel results" id="resultsBox">
+        <h2>WYNIKI</h2>
+    </div>
 </div>
 
-<div class="stats-grid" id="statsGrid"></div>
+<!-- STATYSTYKI -->
+<div class="draft-stats">
+    <h2 style="text-align:center;font-family:'Orbitron';">STATYSTYKI DRAFTU</h2>
+    <div class="stats-grid" id="statsGrid"></div>
+</div>
 
 <div class="decks-section">
-    <h2>DECKI</h2>
+    <h2>DECKI GRACZY</h2>
     <div class="decks-grid" id="decksContainer"></div>
 </div>
 
-<div class="dev-panel">
-    <h2>DEV TOOL</h2>
-
-    <h3>Buduj Deck</h3>
-    <select id="playerSelect"></select>
-    <select id="cardSelect"></select>
-    <button onclick="addCardToDeck()">Dodaj kartę</button>
-
-    <h3>Dodaj Mecz</h3>
-    <select id="mP1"></select>
-    <select id="mP2"></select>
-    <input type="number" id="pts1" placeholder="Pkt 1">
-    <input type="number" id="pts2" placeholder="Pkt 2">
-    <button onclick="addMatchClick()">Dodaj mecz</button>
-
-    <button onclick="generatePlayersJSON()">Generuj players JSON</button>
-    <button onclick="generateMatchesJSON()">Generuj matches JSON</button>
-
-    <textarea id="devOutput"></textarea>
+<div class="organizer">
+    <h3>PANEL ORGANIZATORA</h3>
+    <button onclick="addMatch()">Dodaj mecz</button>
+    <button onclick="generateMatchesCode()">Generuj kod matches</button>
+    <button onclick="generateDecksCode()">Generuj kod players</button>
+    <textarea id="codeOutput"></textarea>
 </div>
 
 <script src="database.js"></script>
-<script src="cards.js"></script>
-
 <script>
 
-/* LOAD DRAFT */
-const urlParams=new URLSearchParams(window.location.search);
-const idParam=parseInt(urlParams.get("id"));
-let draft=idParam?database.drafts.find(d=>d.id===idParam)
-                :database.drafts.sort((a,b)=>b.id-a.id)[0];
+/* ===== WYBÓR DRAFTU ===== */
 
-document.getElementById("draftTitle").textContent="DRAFT "+draft.id;
-document.getElementById("draftMeta").textContent=draft.mode;
+const urlParams = new URLSearchParams(window.location.search);
+const idParam = parseInt(urlParams.get("id"));
+let draftsSorted = [...database.drafts].sort((a,b)=>b.id-a.id);
+let draft = idParam ? database.drafts.find(d=>d.id===idParam) : draftsSorted[0];
 
-/* STATS */
+document.getElementById("draftTitle").textContent = "DRAFT " + draft.id;
+document.getElementById("draftMeta").textContent =
+    `Tryb: ${draft.mode} | ${draft.startDate || ""} ${draft.endDate ? "– "+draft.endDate : ""}`;
+
+/* ===== NAWIGACJA ===== */
+
+const ids = database.drafts.map(d=>d.id).sort((a,b)=>a-b);
+const currentIndex = ids.indexOf(draft.id);
+if(currentIndex > 0){
+    document.getElementById("prevDraft").onclick = ()=> window.location.href=`draft.html?id=${ids[currentIndex-1]}`;
+}else document.getElementById("prevDraft").style.display="none";
+if(currentIndex < ids.length-1){
+    document.getElementById("nextDraft").onclick = ()=> window.location.href=`draft.html?id=${ids[currentIndex+1]}`;
+}else document.getElementById("nextDraft").style.display="none";
+
+/* ===== KOLORY ===== */
+
+const playerColors = [
+  "#00f0ff","#ff00ff","#00ff88","#ffd700",
+  "#ff4d4d","#7d5cff","#00ffcc","#ff8800",
+  "#ffffff","#66ccff","#ff66cc","#aaff00"
+];
+
+/* ===== STATY ===== */
+
 let stats={};
-let cleanWins={};
-let lossPoints={};
 
-draft.players.forEach(p=>{
-    stats[p.name]={wins:0,losses:0,total:0};
-    cleanWins[p.name]=0;
-    lossPoints[p.name]=0;
+draft.players.forEach((p,i)=>{
+    stats[p.name]={wins:0,losses:0,total:0,lossPts:0,color:playerColors[i%playerColors.length]};
 });
+
+let biggestStomp = {diff:0, text:"-"};
+let closestGame = {diff:999, text:"-"};
 
 draft.matches.forEach(m=>{
-    let diff=Math.abs(m.pts1-m.pts2);
+    const diff = Math.abs(m.pts1 - m.pts2);
+
+    if(diff > biggestStomp.diff){
+        biggestStomp = {diff, text:`${m.p1} ${m.pts1}-${m.pts2} ${m.p2}`};
+    }
+    if(diff < closestGame.diff){
+        closestGame = {diff, text:`${m.p1} ${m.pts1}-${m.pts2} ${m.p2}`};
+    }
+
     if(m.pts1>m.pts2){
         stats[m.p1].wins++; stats[m.p2].losses++;
-        if(m.pts2===0) cleanWins[m.p1]++;
-        lossPoints[m.p2]+=m.pts2;
+        stats[m.p2].lossPts+=m.pts2;
     }else{
         stats[m.p2].wins++; stats[m.p1].losses++;
-        if(m.pts1===0) cleanWins[m.p2]++;
-        lossPoints[m.p1]+=m.pts1;
+        stats[m.p1].lossPts+=m.pts1;
     }
+
     stats[m.p1].total+=m.pts1;
     stats[m.p2].total+=m.pts2;
+
+    document.getElementById("resultsBox")
+      .innerHTML+=`<p>${m.p1} ${m.pts1} – ${m.pts2} ${m.p2}</p>`;
 });
 
-/* RANKING */
+/* ===== RANKING ===== */
+
 let ranking=Object.keys(stats).map(n=>({name:n,...stats[n]}));
 ranking.sort((a,b)=>b.total-a.total);
 
-/* TABLE */
 ranking.forEach((p,i)=>{
-document.querySelector("#rankingTable tbody").innerHTML+=
-`<tr>
-<td>${i+1}</td>
-<td>${p.name}</td>
-<td>${p.wins}-${p.losses}</td>
-<td>${p.total}</td>
-</tr>`;
+    document.querySelector("#rankingTable tbody").innerHTML+=`
+    <tr>
+      <td>${i+1}</td>
+      <td style="color:${p.color}">${p.name}</td>
+      <td>${p.wins}-${p.losses}</td>
+      <td>${p.total}</td>
+      <td>${p.wins}</td>
+      <td>${p.losses}</td>
+    </tr>`;
 });
 
-/* PODIUM */
-const medals=["🥇","🥈","🥉"];
+/* ===== PODIUM ===== */
+
+const podium = document.getElementById("podium");
+const medals = ["🥇","🥈","🥉"];
+const classes = ["first","second","third"];
+
 ranking.slice(0,3).forEach((p,i)=>{
-document.getElementById("podium").innerHTML+=
-`<div class="podium ${["first","second","third"][i]}">
-<div style="font-size:26px">${medals[i]}</div>
-<h3>${p.name}</h3>
-<div>${p.total} pkt</div>
-</div>`;
+    podium.innerHTML+=`
+    <div class="podium ${classes[i]}" style="border:2px solid ${p.color};box-shadow:0 0 25px ${p.color}">
+        <div style="font-size:28px">${medals[i]}</div>
+        <h3 style="color:${p.color}">${p.name}</h3>
+        <div>${p.total} pkt</div>
+    </div>`;
 });
 
-/* MOST CLEAN WINS */
-let maxClean=Math.max(...Object.values(cleanWins));
-let cleanLeaders=Object.keys(cleanWins)
-.filter(n=>cleanWins[n]===maxClean)
-.sort()
-.slice(0,5);
+/* ===== NAJCZĘŚCIEJ WYBIERANA KARTA ===== */
 
-addStat("Najwięcej wygranych 0",
-cleanLeaders.join(", ")+" ("+maxClean+")");
-
-/* MOST LOSS PTS */
-let maxLossPts=Math.max(...Object.values(lossPoints));
-let lossLeaders=Object.keys(lossPoints)
-.filter(n=>lossPoints[n]===maxLossPts)
-.sort()
-.slice(0,5);
-
-addStat("Najwięcej pkt z porażek",
-lossLeaders.join(", ")+" ("+maxLossPts+")");
-
-/* MOST PICKED CARD */
 let cardCount={};
 draft.players.forEach(p=>{
-p.deck.forEach(c=>cardCount[c]=(cardCount[c]||0)+1);
+    p.deck.forEach(c=>{
+        cardCount[c]=(cardCount[c]||0)+1;
+    });
 });
-let maxPick=Math.max(...Object.values(cardCount));
-let cardLeaders=Object.keys(cardCount)
-.filter(c=>cardCount[c]===maxPick)
-.sort()
-.slice(0,5);
+let maxPick=0;
+for(let c in cardCount) if(cardCount[c]>maxPick) maxPick=cardCount[c];
+const mostPicked=Object.entries(cardCount)
+    .filter(([c,count])=>count===maxPick)
+    .map(([c])=>c);
 
-addStat("Najczęściej wybierana karta",
-cardLeaders.join(", ")+" ("+maxPick+")");
+/* ===== STAT BOXES ===== */
 
-function addStat(title,val){
-document.getElementById("statsGrid").innerHTML+=
-`<div class="stat-box"><strong>${title}</strong><div>${val}</div></div>`;
+const statsGrid=document.getElementById("statsGrid");
+
+function addStat(title,value){
+    statsGrid.innerHTML+=`
+    <div class="stat-box">
+        <strong>${title}</strong>
+        <div style="margin-top:10px">${value}</div>
+    </div>`;
 }
 
-/* DECKS */
-draft.players.forEach(p=>{
-let clean=p.name.toLowerCase().replace(/[^a-z0-9]/g,"");
-let html=`<div class="deck-card">
-<h3>${p.name}</h3>
-<div class="cards-grid">`;
-p.deck.forEach(c=>html+=`<div class="card-tile">${c}</div>`);
-html+=`</div>
-<img src="assets/decks/${clean}_${draft.id}.jpg" style="width:60%;margin-top:10px;">
-</div>`;
-document.getElementById("decksContainer").innerHTML+=html;
+addStat("🏆 Najwięcej zwycięstw",
+    ranking[0].name+" ("+ranking[0].wins+")");
+
+addStat("🧨 Największy stomp",
+    biggestStomp.text);
+
+addStat("🧊 Najbardziej zacięty mecz",
+    closestGame.text);
+
+addStat("🃏 Najczęściej wybierana karta",
+    mostPicked.join(", ")+" ("+maxPick+")");
+
+/* ===== DECKI ===== */
+
+draft.players.forEach((p,i)=>{
+    const color=playerColors[i%playerColors.length];
+    let html=`
+    <div class="deck-card" style="border:2px solid ${color};box-shadow:0 0 30px ${color}">
+      <h3 style="color:${color};text-align:center;">${p.name}</h3>
+      <div class="cards-grid">
+        ${p.deck.map(c=>`
+          <div class="card-tile" style="color:${color};border:1px solid ${color};">
+            ${c}
+          </div>`).join("")}
+      </div>
+    </div>`;
+    document.getElementById("decksContainer").innerHTML+=html;
 });
 
-/* DEV TOOL INIT */
-const playerSelect=document.getElementById("playerSelect");
-const cardSelect=document.getElementById("cardSelect");
-const mP1=document.getElementById("mP1");
-const mP2=document.getElementById("mP2");
+/* ===== PANEL ===== */
 
-draft.players.forEach(p=>{
-[playerSelect,mP1,mP2].forEach(sel=>{
-let o=document.createElement("option");
-o.value=p.name; o.text=p.name;
-sel.appendChild(o);
-});
-});
-
-cards.forEach(c=>{
-let o=document.createElement("option");
-o.value=c.name; o.text=c.name;
-cardSelect.appendChild(o);
-});
-
-function addCardToDeck(){
-let player=playerSelect.value;
-let card=cardSelect.value;
-draft.players.find(p=>p.name===player).deck.push(card);
-alert("Dodano kartę");
+function addMatch(){
+    const p1=prompt("Gracz 1:");
+    const p2=prompt("Gracz 2:");
+    const pts1=parseInt(prompt("Pkt 1:"));
+    const pts2=parseInt(prompt("Pkt 2:"));
+    draft.matches.push({p1,p2,pts1,pts2});
+    alert("Dodano (odśwież i wygeneruj kod)");
 }
-
-function addMatchClick(){
-let p1=mP1.value;
-let p2=mP2.value;
-let pts1=parseInt(document.getElementById("pts1").value);
-let pts2=parseInt(document.getElementById("pts2").value);
-draft.matches.push({p1,p2,pts1,pts2});
-alert("Dodano mecz");
+function generateMatchesCode(){
+    document.getElementById("codeOutput").value=
+    JSON.stringify(draft.matches,null,2);
 }
-
-function generatePlayersJSON(){
-document.getElementById("devOutput").value=
-JSON.stringify(draft.players,null,2);
-}
-
-function generateMatchesJSON(){
-document.getElementById("devOutput").value=
-JSON.stringify(draft.matches,null,2);
+function generateDecksCode(){
+    document.getElementById("codeOutput").value=
+    JSON.stringify(draft.players,null,2);
 }
 
 </script>
