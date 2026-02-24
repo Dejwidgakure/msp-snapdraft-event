@@ -46,8 +46,9 @@ const database = {
   { p1: "Kmythic", p2: "Raciatek", pts1: 18, pts2: 7 },
   { p1: "Dejwidgakure", p2: "Kmythic", pts1: 22, pts2: 3 },
   { p1: "Weregesu", p2: "Budiso", pts1: 23, pts2: 2 },
-  { p1: "Kmythic", p2: "Budiso", pts1: 25, pts2: 0 }
-  { p1: "Kmythic", p2: "Pluton32", pts1: 25, pts2: 0 }
+  { p1: "Kmythic", p2: "Budiso", pts1: 25, pts2: 0 },
+  { p1: "Kmythic", p2: "Pluton32", pts1: 25, pts2: 0 },
+  { p1: "Budiso", p2: "Maniek", pts1: 20, pts2: 5 }    
         ]
       }
     ]
