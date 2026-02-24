@@ -8,7 +8,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-/* --- STYLES NIE RUSZANE --- */
 body{
     margin:0;
     font-family:'Rajdhani', sans-serif;
@@ -16,6 +15,8 @@ body{
     background-size:cover;
     color:white;
 }
+
+/* NAV */
 nav{
     display:flex;
     justify-content:space-between;
@@ -24,11 +25,26 @@ nav{
     backdrop-filter:blur(10px);
     background:rgba(5,10,25,0.75);
 }
-nav img{ height:60px; filter:drop-shadow(0 0 15px #00f0ff); }
-nav ul{ list-style:none; display:flex; gap:40px; }
-nav a{ text-decoration:none; color:white; font-weight:600; }
+nav img{
+    height:60px;
+    filter:drop-shadow(0 0 15px #00f0ff);
+}
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:40px;
+}
+nav a{
+    text-decoration:none;
+    color:white;
+    font-weight:600;
+}
 
-.header{ text-align:center; padding:60px 20px 20px 20px; }
+/* HEADER */
+.header{
+    text-align:center;
+    padding:60px 20px 20px 20px;
+}
 .header img{
     height:180px;
     display:block;
@@ -41,8 +57,13 @@ nav a{ text-decoration:none; color:white; font-weight:600; }
     margin:0;
     text-shadow:0 0 20px #00f0ff,0 0 40px #8a2be2;
 }
-.meta{ margin-top:15px; opacity:0.8; }
+.meta{
+    margin-top:15px;
+    opacity:0.9;
+    line-height:1.6;
+}
 
+/* NAVIGATION */
 .draft-navigation{
     display:flex;
     justify-content:center;
@@ -121,11 +142,15 @@ th{
 }
 
 /* DRAFT STATS */
-.draft-stats{ margin:60px auto; max-width:1100px; }
+.draft-stats{
+    margin:60px auto;
+    max-width:1100px;
+}
 .stats-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
     gap:25px;
+    justify-content:center;
 }
 .stat-box{
     padding:20px;
@@ -171,6 +196,11 @@ th{
 
 <nav>
     <img src="assets/msp-logo.png">
+    <ul>
+        <li><a href="index.html">Strona Główna</a></li>
+        <li><a href="draft.html">Wszystkie drafty</a></li>
+        <li><a href="stats.html">Statystyki</a></li>
+    </ul>
 </nav>
 
 <div class="header">
@@ -222,17 +252,21 @@ th{
 <script src="database.js"></script>
 <script>
 
-/* ===== LOAD ===== */
-
 const urlParams=new URLSearchParams(window.location.search);
 const idParam=parseInt(urlParams.get("id"));
 let draft=idParam?database.drafts.find(d=>d.id===idParam)
                 :database.drafts.sort((a,b)=>b.id-a.id)[0];
 
 document.getElementById("draftTitle").textContent="DRAFT "+draft.id;
-document.getElementById("draftMeta").textContent=draft.mode;
 
-/* ===== COLORS ===== */
+/* META INFO */
+let metaText=`Tryb: ${draft.mode}<br>`;
+if(draft.startDate) metaText+=`${draft.startDate}`;
+if(draft.endDate) metaText+=` – ${draft.endDate}`;
+metaText+=`<br>Gracze: ${draft.players.length}`;
+if(draft.bans && draft.bans.length>0)
+metaText+=`<br>Bany: ${draft.bans.join(", ")}`;
+document.getElementById("draftMeta").innerHTML=metaText;
 
 const playerColors=[
 "#00f0ff","#ff00ff","#00ff88","#ffd700",
@@ -240,11 +274,7 @@ const playerColors=[
 "#ffffff","#66ccff","#ff66cc","#aaff00"
 ];
 
-/* ===== STATS ===== */
-
-let stats={};
-let cleanWins={};
-let lossPoints={};
+let stats={},cleanWins={},lossPoints={};
 
 draft.players.forEach((p,i)=>{
 stats[p.name]={wins:0,losses:0,total:0,color:playerColors[i%playerColors.length]};
@@ -268,8 +298,6 @@ document.getElementById("resultsBox")
 .innerHTML+=`<p>${m.p1} ${m.pts1} – ${m.pts2} ${m.p2}</p>`;
 });
 
-/* ===== RANKING ===== */
-
 let ranking=Object.keys(stats).map(n=>({name:n,...stats[n]}));
 ranking.sort((a,b)=>b.total-a.total);
 
@@ -277,15 +305,13 @@ ranking.forEach((p,i)=>{
 document.querySelector("#rankingTable tbody").innerHTML+=`
 <tr>
 <td>${i+1}</td>
-<td style="color:${p.color}">${p.name}</td>
+<td style="color:${p.color};font-weight:bold;">${p.name}</td>
 <td>${p.wins}-${p.losses}</td>
 <td>${p.total}</td>
 <td>${p.wins}</td>
 <td>${p.losses}</td>
 </tr>`;
 });
-
-/* ===== PODIUM ===== */
 
 const medals=["🥇","🥈","🥉"];
 const classes=["first","second","third"];
@@ -298,7 +324,24 @@ document.getElementById("podium").innerHTML+=`
 </div>`;
 });
 
-/* ===== CARD COUNT ===== */
+/* STATS */
+
+function addStat(t,v){
+document.getElementById("statsGrid").innerHTML+=
+`<div class="stat-box"><strong>${t}</strong><div style="margin-top:10px">${v}</div></div>`;
+}
+
+let maxClean=Math.max(...Object.values(cleanWins));
+let cleanLeaders=Object.keys(cleanWins)
+.filter(n=>cleanWins[n]===maxClean).sort().slice(0,5);
+
+let maxLoss=Math.max(...Object.values(lossPoints));
+let lossLeaders=Object.keys(lossPoints)
+.filter(n=>lossPoints[n]===maxLoss).sort().slice(0,5);
+
+let minLoss=Math.min(...Object.values(stats).map(s=>s.losses));
+let leastLoss=Object.keys(stats)
+.filter(n=>stats[n].losses===minLoss).sort().slice(0,5);
 
 let cardCount={};
 draft.players.forEach(p=>{
@@ -306,38 +349,10 @@ p.deck.forEach(c=>cardCount[c]=(cardCount[c]||0)+1);
 });
 let maxPick=Math.max(...Object.values(cardCount));
 let mostPicked=Object.keys(cardCount)
-.filter(c=>cardCount[c]===maxPick)
-.sort()
-.slice(0,5);
-
-/* ===== CLEAN WINS ===== */
-
-let maxClean=Math.max(...Object.values(cleanWins));
-let cleanLeaders=Object.keys(cleanWins)
-.filter(n=>cleanWins[n]===maxClean)
-.sort()
-.slice(0,5);
-
-/* ===== LOSS POINTS ===== */
-
-let maxLoss=Math.max(...Object.values(lossPoints));
-let lossLeaders=Object.keys(lossPoints)
-.filter(n=>lossPoints[n]===maxLoss)
-.sort()
-.slice(0,5);
-
-/* ===== STAT BOXES ===== */
-
-function addStat(t,v){
-document.getElementById("statsGrid").innerHTML+=
-`<div class="stat-box"><strong>${t}</strong><div style="margin-top:10px">${v}</div></div>`;
-}
+.filter(c=>cardCount[c]===maxPick).sort().slice(0,5);
 
 addStat("🏆 Najwięcej zwycięstw",
 ranking[0].name+" ("+ranking[0].wins+")");
-
-addStat("🧨 Największy stomp","-");
-addStat("🧊 Najbardziej zacięty mecz","-");
 
 addStat("⚔ Najwięcej wygranych do 0",
 cleanLeaders.join(", ")+" ("+maxClean+")");
@@ -345,10 +360,13 @@ cleanLeaders.join(", ")+" ("+maxClean+")");
 addStat("💀 Najwięcej pkt z porażek",
 lossLeaders.join(", ")+" ("+maxLoss+")");
 
+addStat("🛡 Najmniej porażek",
+leastLoss.join(", ")+" ("+minLoss+")");
+
 addStat("🃏 Najczęściej wybierana karta",
 mostPicked.join(", ")+" ("+maxPick+")");
 
-/* ===== DECKS + OBRAZKI ===== */
+/* DECKS */
 
 draft.players.forEach((p,i)=>{
 const color=playerColors[i%playerColors.length];
