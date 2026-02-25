@@ -384,7 +384,7 @@ border-radius:10px;
 
 <button onclick="generateDeckCode()">Generuj kod decku</button>
 </div>
-
+<script src="database.js"></script>
 <script src="database.js"></script>
 <script>
 
@@ -657,6 +657,117 @@ function generateDecksCode(){
   document.getElementById("codeOutput").value=
   JSON.stringify(draft.players,null,2);
 }
+    function initDeckBuilder(){
+
+const creatorPanel = document.querySelector(".creator-panel");
+
+creatorPanel.insertAdjacentHTML("beforeend",`
+
+<h3>Dodaj Deck</h3>
+
+<select id="deckPlayerSelect"></select>
+
+<br><br>
+
+<select id="cardSelect"></select>
+<button onclick="addCardToDeck()">Dodaj kartę</button>
+
+<br><br>
+
+<div id="deckPreview"
+style="
+margin-top:10px;
+padding:10px;
+background:rgba(0,0,40,0.6);
+border-radius:10px;
+min-height:40px;
+">
+</div>
+
+<button onclick="saveDeckToPlayer()">
+Zapisz deck do gracza
+</button>
+
+`);
+    
+
+/* lista graczy */
+
+const playerSelect=document.getElementById("deckPlayerSelect");
+
+draft.players.forEach(p=>{
+playerSelect.innerHTML+=`
+<option value="${p.name}">
+${p.name}
+</option>`;
+});
+
+
+/* lista kart */
+
+const cardSelect=document.getElementById("cardSelect");
+
+cards.forEach(c=>{
+cardSelect.innerHTML+=`
+<option value="${c}">
+${c}
+</option>`;
+});
+
+
+}
+
+
+
+let tempDeck=[];
+
+
+
+function addCardToDeck(){
+
+const card=document.getElementById("cardSelect").value;
+
+if(tempDeck.length>=12){
+alert("Deck ma max 12 kart");
+return;
+}
+
+tempDeck.push(card);
+
+renderDeckPreview();
+
+}
+
+
+
+function renderDeckPreview(){
+
+document.getElementById("deckPreview").innerHTML=
+tempDeck.join(", ");
+
+}
+
+
+
+function saveDeckToPlayer(){
+
+const playerName=
+document.getElementById("deckPlayerSelect").value;
+
+const player=
+draft.players.find(p=>p.name===playerName);
+
+player.deck=[...tempDeck];
+
+tempDeck=[];
+
+renderDeckPreview();
+
+alert("Deck zapisany");
+
+}
+
+initDeckBuilder();
 
 </script>
 
