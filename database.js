@@ -469,7 +469,7 @@ matches:[
 
 {p1:"Killjoy",p2:"kolo313",pts1:23,pts2:0},
 {p1:"LukeTrustsGod",p2:"Killjoy",pts1:23,pts2:0},
-{p1:"Killjoy",p2:"Dejwidgakure",pts1:17,pts2:0},
+{p1:"Dejwidgakure",p2:"Killjoy",pts1:17,pts2:0}
 {p1:"Killjoy",p2:"FizjoRadek",pts1:21,pts2:0},
 
 {p1:"LukeTrustsGod",p2:"kolo313",pts1:18,pts2:0},
