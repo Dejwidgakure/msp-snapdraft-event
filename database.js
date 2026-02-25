@@ -132,13 +132,9 @@ const database = {
         { p1: "Kmythic", p2: "Pluton32", pts1: 25, pts2: 0 },
         { p1: "Budiso", p2: "Maniek", pts1: 20, pts2: 5 },
         { p1: "Pluton32", p2: "Maniek", pts1: 17, pts2: 8 },
-        {
-    "p1": "FizjoRadek",
-    "p2": "Budiso",
-    "pts1": 25,
-    "pts2": 0
-  }
-      ]
+        { p1: "FizjoRadek", p2: "Budiso", pts1: 25, pts2: 0 },
+        { p1: "Dejwidgakure", p2: "FizjoRadek", pts1: 24, pts2: 1 }
+]
     }
 
   ]
