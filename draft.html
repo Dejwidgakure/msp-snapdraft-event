@@ -530,14 +530,15 @@ draft.players.forEach(p=>lossPointsStat[p.name]=0);
 
 draft.matches.forEach(m=>{
   if(m.pts1>m.pts2){
-    lossPoints[m.p2]+=m.pts2;
+    lossPointsStat[m.p2]+=m.pts2;
   }else{
-    lossPoints[m.p1]+=m.pts1;
+    lossPointsStat[m.p1]+=m.pts1;
   }
 });
 
-let maxLoss = Math.max(...Object.values(lossPoints));
-let lossLeaders = Object.keys(lossPoints)
+let maxLoss = Math.max(...Object.values(lossPointsStat));
+
+let lossLeaders = Object.keys(lossPointsStat)
   .filter(n=>lossPointsStat[n]===maxLoss)
   .sort()
   .slice(0,5);
