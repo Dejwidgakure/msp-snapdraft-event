@@ -436,3 +436,5 @@ const cardDatabase = [
   { name: "Zombie Sentry", image: "Zombie Sentry.jpg" }
 
 ];
+
+const cards = cardDatabase.map(c => c.name);
