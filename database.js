@@ -399,6 +399,89 @@ matches: [
 
 ]
 },
+
+    {
+id: 3,
+startDate:"",
+endDate:"",
+mode:"Classic",
+presetCard:null,
+winner:null,
+bans:["Arishem","Kang","Loki"],
+
+players:[
+
+{name:"Marek",deck:[]},
+{name:"Dawid ak. Void",deck:[]},
+{name:"99iant",deck:[]},
+{name:"Budiso",deck:[]},
+{name:"kb",deck:[]},
+{name:"Killjoy",deck:[]},
+{name:"kolo",deck:[]},
+{name:"LukeTrustsGod",deck:[]},
+{name:"Dejwidgakure",deck:[]},
+{name:"FizjoRadek",deck:[]}
+
+],
+
+matches:[
+
+{p1:"Dawid ak. Void",p2:"Marek",pts1:22,pts2:0},
+{p1:"Marek",p2:"99iant",pts1:24,pts2:0},
+{p1:"Marek",p2:"Budiso",pts1:25,pts2:0},
+{p1:"kb",p2:"Marek",pts1:17,pts2:0},
+{p1:"Killjoy",p2:"Marek",pts1:20,pts2:0},
+{p1:"Marek",p2:"kolo",pts1:25,pts2:0},
+{p1:"Marek",p2:"LukeTrustsGod",pts1:19,pts2:0},
+{p1:"Marek",p2:"Dejwidgakure",pts1:18,pts2:0},
+{p1:"Marek",p2:"FizjoRadek",pts1:16,pts2:0},
+
+{p1:"Dawid ak. Void",p2:"99iant",pts1:21,pts2:0},
+{p1:"Dawid ak. Void",p2:"Budiso",pts1:24,pts2:0},
+{p1:"kb",p2:"Dawid ak. Void",pts1:16,pts2:0},
+{p1:"Killjoy",p2:"Dawid ak. Void",pts1:21,pts2:0},
+{p1:"kolo",p2:"Dawid ak. Void",pts1:18,pts2:0},
+{p1:"LukeTrustsGod",p2:"Dawid ak. Void",pts1:18,pts2:0},
+{p1:"Dejwidgakure",p2:"Dawid ak. Void",pts1:22,pts2:0},
+{p1:"Dawid ak. Void",p2:"FizjoRadek",pts1:21,pts2:0},
+
+{p1:"Budiso",p2:"99iant",pts1:24,pts2:0},
+{p1:"kb",p2:"99iant",pts1:23,pts2:0},
+{p1:"Killjoy",p2:"99iant",pts1:20,pts2:0},
+{p1:"kolo",p2:"99iant",pts1:23,pts2:0},
+{p1:"LukeTrustsGod",p2:"99iant",pts1:19,pts2:0},
+{p1:"Dejwidgakure",p2:"99iant",pts1:17,pts2:0},
+{p1:"99iant",p2:"FizjoRadek",pts1:24,pts2:0},
+
+{p1:"kb",p2:"Budiso",pts1:22,pts2:0},
+{p1:"Killjoy",p2:"Budiso",pts1:25,pts2:0},
+{p1:"Budiso",p2:"kolo",pts1:25,pts2:0},
+{p1:"LukeTrustsGod",p2:"Budiso",pts1:23,pts2:0},
+{p1:"Budiso",p2:"Dejwidgakure",pts1:25,pts2:0},
+{p1:"FizjoRadek",p2:"Budiso",pts1:23,pts2:0},
+
+{p1:"kb",p2:"Killjoy",pts1:25,pts2:0},
+{p1:"kb",p2:"kolo",pts1:24,pts2:0},
+{p1:"kb",p2:"LukeTrustsGod",pts1:22,pts2:0},
+{p1:"kb",p2:"Dejwidgakure",pts1:23,pts2:0},
+{p1:"kb",p2:"FizjoRadek",pts1:25,pts2:0},
+
+{p1:"Killjoy",p2:"kolo",pts1:23,pts2:0},
+{p1:"LukeTrustsGod",p2:"Killjoy",pts1:23,pts2:0},
+{p1:"Killjoy",p2:"Dejwidgakure",pts1:17,pts2:0},
+{p1:"Killjoy",p2:"FizjoRadek",pts1:21,pts2:0},
+
+{p1:"LukeTrustsGod",p2:"kolo",pts1:18,pts2:0},
+{p1:"Dejwidgakure",p2:"kolo",pts1:19,pts2:0},
+{p1:"FizjoRadek",p2:"kolo",pts1:19,pts2:0},
+
+{p1:"Dejwidgakure",p2:"LukeTrustsGod",pts1:23,pts2:0},
+{p1:"LukeTrustsGod",p2:"FizjoRadek",pts1:19,pts2:0},
+
+{p1:"FizjoRadek",p2:"Dejwidgakure",pts1:25,pts2:0}
+
+]
+},
     {
       id: 18,
       startDate: "2026-02-21",
