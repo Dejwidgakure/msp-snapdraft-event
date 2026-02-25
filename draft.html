@@ -8,549 +8,353 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
+
 body{
-    margin:0;
-    font-family:'Rajdhani', sans-serif;
-    background:url("assets/cosmic-bg.png") no-repeat center center fixed;
-    background-size:cover;
-    color:white;
+margin:0;
+font-family:'Rajdhani', sans-serif;
+background:url("assets/cosmic-bg.png") no-repeat center center fixed;
+background-size:cover;
+color:white;
 }
 
 /* NAV */
+
 nav{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 60px;
-    backdrop-filter:blur(10px);
-    background:rgba(5,10,25,0.75);
-}
-nav img{
-    height:60px;
-    filter:drop-shadow(0 0 15px #00f0ff);
-}
-nav ul{
-    list-style:none;
-    display:flex;
-    gap:40px;
-}
-nav a{
-    text-decoration:none;
-    color:white;
-    font-weight:600;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 60px;
+backdrop-filter:blur(10px);
+background:rgba(5,10,25,0.75);
 }
 
-/* TOP NAV BUTTONS – FIX */
+nav img{
+height:60px;
+filter:drop-shadow(0 0 15px #00f0ff);
+}
+
+nav ul{
+list-style:none;
+display:flex;
+gap:40px;
+}
+
+nav a{
+text-decoration:none;
+color:white;
+font-weight:600;
+}
+
+/* TOP NAV */
+
 .top-draft-nav{
-    position:relative;
-    height:0;
+position:relative;
+height:0;
 }
+
 .top-draft-nav button{
-    position:absolute;
-    top:10px;
-    padding:10px 18px;
-    border:none;
-    border-radius:10px;
-    background:#00f0ff;
-    font-weight:bold;
-    cursor:pointer;
-    z-index:100;
-    box-shadow:0 0 15px #00f0ff;
+position:absolute;
+top:10px;
+padding:10px 18px;
+border:none;
+border-radius:10px;
+background:#00f0ff;
+font-weight:bold;
+cursor:pointer;
+z-index:100;
+box-shadow:0 0 15px #00f0ff;
 }
+
 #prevDraft{ left:20px; }
 #nextDraft{ right:20px; }
 
 /* HEADER */
+
 .header{
-    text-align:center;
-    padding:30px 20px 10px 20px;
-}
-.header img{
-    height:180px;
-    display:block;
-    margin:0 auto 20px;
-    filter:drop-shadow(0 0 40px #00f0ff);
-}
-.header h1{
-    font-family:'Orbitron', sans-serif;
-    font-size:64px;
-    margin:0;
-    text-shadow:0 0 20px #00f0ff,0 0 40px #8a2be2;
-}
-.meta{
-    margin-top:15px;
-    opacity:0.9;
-    line-height:1.6;
+text-align:center;
+padding:30px 20px 10px 20px;
 }
 
-/* PURPLE HEADER GLOW */
+.header img{
+height:180px;
+display:block;
+margin:0 auto 20px;
+filter:drop-shadow(0 0 40px #00f0ff);
+}
+
+.header h1{
+font-family:'Orbitron';
+font-size:64px;
+margin:0;
+text-shadow:0 0 20px #00f0ff,0 0 40px #8a2be2;
+}
+
+.meta{
+margin-top:15px;
+opacity:0.9;
+line-height:1.6;
+}
+
 .section-title{
-    text-align:center;
-    font-family:'Orbitron';
-    text-shadow:0 0 15px #8a2be2,0 0 30px #8a2be2;
+text-align:center;
+font-family:'Orbitron';
+text-shadow:0 0 15px #8a2be2;
 }
 
 /* PODIUM */
-.podium-wrapper{
-    display:flex;
-    justify-content:center;
-    align-items:flex-end;
-    gap:40px;
-    margin:40px 0 20px 0;
-}
-.podium{
-    width:160px;
-    text-align:center;
-    border-radius:20px;
-    padding:20px;
-    backdrop-filter:blur(10px);
-    background:rgba(0,0,40,0.7);
-    transition:0.3s;
-}
-.podium:hover{ transform:translateY(-6px); }
-.first{ height:200px; }
-.second{ height:160px; }
-.third{ height:140px; }
 
-/* MAIN */
+.podium-wrapper{
+display:flex;
+justify-content:center;
+align-items:flex-end;
+gap:40px;
+margin:40px 0 20px 0;
+}
+
+.podium{
+width:160px;
+text-align:center;
+border-radius:20px;
+padding:20px;
+backdrop-filter:blur(10px);
+background:rgba(0,0,40,0.7);
+}
+
+.first{height:200px;}
+.second{height:160px;}
+.third{height:140px;}
+
+/* TABLE */
+
 .main-row{
-    display:flex;
-    justify-content:center;
-    gap:60px;
-    padding:40px;
-    align-items:flex-start;
+display:flex;
+justify-content:center;
+gap:60px;
+padding:40px;
+align-items:flex-start;
 }
+
 .panel{
-    background:rgba(0,0,40,0.75);
-    backdrop-filter:blur(12px);
-    border-radius:20px;
-    padding:30px;
-    box-shadow:0 0 30px rgba(0,240,255,0.3);
+background:rgba(0,0,40,0.75);
+backdrop-filter:blur(12px);
+border-radius:20px;
+padding:30px;
+box-shadow:0 0 30px rgba(0,240,255,0.3);
 }
-.panel h2{ margin-top:0; }
 
 table{
-    border-collapse:collapse;
-    min-width:700px;
-}
-th, td{
-    padding:12px 18px;
-    border:1px solid rgba(0,255,255,0.3);
-    text-align:center;
-}
-th{
-    background:linear-gradient(45deg,#00f0ff,#8a2be2);
-    color:black;
-}
-.results{
-    max-height:420px;
-    overflow-y:auto;
-    width:280px;
+border-collapse:collapse;
+min-width:700px;
 }
 
-/* STATS – FIX */
-/* ========================= */
-/* ===== STATYSTYKI ======== */
-/* ========================= */
+th,td{
+padding:12px 18px;
+border:1px solid rgba(0,255,255,0.3);
+text-align:center;
+}
+
+th{
+background:linear-gradient(45deg,#00f0ff,#8a2be2);
+color:black;
+}
+
+.results{
+max-height:420px;
+overflow-y:auto;
+width:280px;
+}
+
+/* STATYSTYKI — tylko układ poprawiony */
 
 .draft-stats{
-    margin:80px auto;
-    max-width:1100px;
-    padding:0 40px;
+margin:60px auto;
+max-width:1100px;
 }
 
-/* Główny układ 3 + 2 */
 .stats-grid{
-    display:grid;
-    grid-template-columns:repeat(6,1fr);
-    gap:25px;
-    max-width:1100px;
-    margin:0 auto;
+display:grid;
+grid-template-columns:repeat(6,1fr);
+gap:25px;
+max-width:1100px;
+margin:0 auto;
 }
 
-/* Górny rząd */
-.stats-grid .stat-box:nth-child(1){
-    grid-column:1 / 3;
-}
-.stats-grid .stat-box:nth-child(2){
-    grid-column:3 / 5;
-}
-.stats-grid .stat-box:nth-child(3){
-    grid-column:5 / 7;
+.stats-grid .stat-box:nth-child(1){grid-column:1/3;}
+.stats-grid .stat-box:nth-child(2){grid-column:3/5;}
+.stats-grid .stat-box:nth-child(3){grid-column:5/7;}
+
+.stats-grid .stat-box:nth-child(4){grid-column:2/4;}
+.stats-grid .stat-box:nth-child(5){grid-column:4/6;}
+
+.stat-box{
+padding:20px;
+border-radius:18px;
+background:rgba(0,0,50,0.7);
+box-shadow:0 0 25px rgba(0,240,255,0.4);
 }
 
-/* Dolny rząd – idealnie między nimi */
-.stats-grid .stat-box:nth-child(4){
-    grid-column:2 / 4;
-}
-.stats-grid .stat-box:nth-child(5){
-    grid-column:4 / 6;
-}
-
-/* Responsywność */
-@media (max-width:1000px){
-    .stats-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .stats-grid .stat-box{
-        grid-column:auto !important;
-    }
-}
-
-@media (max-width:650px){
-    .stats-grid{
-        grid-template-columns:1fr;
-    }
-}
 /* DECKS */
-.decks-section{ padding:60px; }
-.decks-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:40px;
-}
-.deck-card{
-    padding:30px;
-    border-radius:20px;
-    background:rgba(0,0,30,0.8);
-}
-.cards-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:8px;
-    margin-top:20px;
-}
-.card-tile{
-    padding:6px;
-    font-size:13px;
-    border-radius:8px;
-    text-align:center;
+
+.decks-section{
+padding:60px;
 }
 
-/* CREATOR PANEL */
+.decks-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:40px;
+}
+
+.deck-card{
+padding:30px;
+border-radius:20px;
+background:rgba(0,0,30,0.8);
+}
+
+.cards-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:8px;
+margin-top:20px;
+}
+
+.card-tile{
+padding:6px;
+font-size:13px;
+border-radius:8px;
+text-align:center;
+}
+
+/* DECK IMAGE BACK */
+
+.deck-card img{
+width:60%;
+max-width:350px;
+display:block;
+margin:20px auto 0;
+border-radius:15px;
+}
+
+/* CREATOR */
+
 .creator-panel{
-    margin-top:80px;
-    padding:30px 60px;
-    background:rgba(5,10,25,0.75);
-    backdrop-filter:blur(10px);
-    border-top:2px solid #00f0ff;
+margin-top:80px;
+padding:30px 60px;
+background:rgba(5,10,25,0.75);
+backdrop-filter:blur(10px);
+border-top:2px solid #00f0ff;
 }
-.creator-panel h3{
-    text-align:center;
-    font-family:'Orbitron';
-}
-.creator-panel button{
-    margin:10px;
-    padding:10px 20px;
-    border:none;
-    border-radius:8px;
-    background:#00f0ff;
-    font-weight:bold;
-    cursor:pointer;
-}
+
 textarea{
-    width:100%;
-    height:150px;
-    margin-top:20px;
+width:100%;
+height:150px;
+margin-top:20px;
 }
+
 </style>
 </head>
 
 <body>
 
 <nav>
-    <img src="assets/msp-logo.png">
-    <ul>
-        <li><a href="index.html">Strona Główna</a></li>
-        <li><a href="draft.html">Wszystkie drafty</a></li>
-        <li><a href="stats.html">Statystyki</a></li>
-    </ul>
+<img src="assets/msp-logo.png">
+<ul>
+<li><a href="index.html">Strona Główna</a></li>
+<li><a href="draft.html">Wszystkie drafty</a></li>
+<li><a href="stats.html">Statystyki</a></li>
+</ul>
 </nav>
 
 <div class="top-draft-nav">
-    <button id="prevDraft">⬅ Poprzedni</button>
-    <button id="nextDraft">Następny ➡</button>
+<button id="prevDraft">⬅ Poprzedni</button>
+<button id="nextDraft">Następny ➡</button>
 </div>
 
 <div class="header">
-    <img src="assets/draft-logo.png">
-    <h1 id="draftTitle"></h1>
-    <div class="meta" id="draftMeta"></div>
+<img src="assets/draft-logo.png">
+<h1 id="draftTitle"></h1>
+<div id="draftMeta" class="meta"></div>
 </div>
 
-<div class="podium-wrapper" id="podium"></div>
+<div id="podium" class="podium-wrapper"></div>
 
 <div class="main-row">
-    <div class="panel">
-        <h2 class="section-title">AKTUALNA TABELA</h2>
-        <table id="rankingTable">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Gracz</th>
-                    <th>Bilans</th>
-                    <th>Pkt</th>
-                    <th>Wygr.</th>
-                    <th>Przegr.</th>
-                </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
-    </div>
 
-    <div class="panel results" id="resultsBox">
-        <h2 class="section-title">WYNIKI</h2>
-    </div>
+<div class="panel">
+
+<h2 class="section-title">AKTUALNA TABELA</h2>
+
+<table id="rankingTable">
+
+<thead>
+
+<tr>
+
+<th>#</th>
+
+<th>Gracz</th>
+
+<th>Bilans</th>
+
+<th>Pkt</th>
+
+<th>Wygr.</th>
+
+<th>Przegr.</th>
+
+</tr>
+
+</thead>
+
+<tbody></tbody>
+
+</table>
+
+</div>
+
+<div class="panel results" id="resultsBox">
+
+<h2 class="section-title">WYNIKI</h2>
+
+</div>
+
 </div>
 
 <div class="draft-stats">
-    <h2 class="section-title">STATYSTYKI DRAFTU</h2>
-    <div class="stats-grid" id="statsGrid"></div>
+
+<h2 class="section-title">STATYSTYKI DRAFTU</h2>
+
+<div id="statsGrid" class="stats-grid"></div>
+
 </div>
 
 <div class="decks-section">
-    <h2 class="section-title">DECKI GRACZY</h2>
-    <div class="decks-grid" id="decksContainer"></div>
+
+<h2 class="section-title">DECKI GRACZY</h2>
+
+<div id="decksContainer" class="decks-grid"></div>
+
 </div>
 
 <div class="creator-panel">
-    <h3>PANEL TWÓRCY</h3>
-    <button onclick="addMatch()">Dodaj mecz</button>
-    <button onclick="generateMatchesCode()">Generuj kod matches</button>
-    <button onclick="generateDecksCode()">Generuj kod players</button>
-    <textarea id="codeOutput"></textarea>
+
+<h3>PANEL TWÓRCY</h3>
+
+<button onclick="addMatch()">Dodaj mecz</button>
+
+<button onclick="generateMatchesCode()">Generuj kod matches</button>
+
+<button onclick="generateDecksCode()">Generuj kod players</button>
+
+<textarea id="codeOutput"></textarea>
+
 </div>
 
 <script src="database.js"></script>
-<script>
 
-const urlParams = new URLSearchParams(window.location.search);
-const idParam = parseInt(urlParams.get("id"));
+<script src="cards.js"></script>
 
-let draftsSorted = [...database.drafts].sort((a,b)=>b.id-a.id);
-let draft = idParam 
-  ? database.drafts.find(d=>d.id===idParam) 
-  : draftsSorted[0];
-
-if(!draft){
-  document.getElementById("draftTitle").textContent = "Brak draftu";
-  throw new Error("Draft not found");
-}
-
-/* META */
-document.getElementById("draftTitle").textContent = "DRAFT " + draft.id;
-
-let metaText = `Tryb: ${draft.mode}<br>`;
-if(draft.startDate) metaText += `${draft.startDate}`;
-if(draft.endDate) metaText += ` – ${draft.endDate}`;
-metaText += `<br>Gracze: ${draft.players.length}`;
-if(draft.bans && draft.bans.length>0)
-  metaText += `<br>Bany: ${draft.bans.join(", ")}`;
-
-document.getElementById("draftMeta").innerHTML = metaText;
-
-/* NAV */
-const ids = database.drafts.map(d=>d.id).sort((a,b)=>a-b);
-const currentIndex = ids.indexOf(draft.id);
-
-if(currentIndex>0)
-  document.getElementById("prevDraft").onclick =
-    ()=>window.location.href=`draft.html?id=${ids[currentIndex-1]}`;
-else document.getElementById("prevDraft").style.display="none";
-
-if(currentIndex<ids.length-1)
-  document.getElementById("nextDraft").onclick =
-    ()=>window.location.href=`draft.html?id=${ids[currentIndex+1]}`;
-else document.getElementById("nextDraft").style.display="none";
-
-/* KOLORY */
-const playerColors=[
-"#00f0ff","#ff00ff","#00ff88","#ffd700",
-"#ff4d4d","#7d5cff","#00ffcc","#ff8800",
-"#ffffff","#66ccff","#ff66cc","#aaff00"
-];
-
-/* STATY */
-let stats={};
-draft.players.forEach((p,i)=>{
-  stats[p.name]={wins:0,losses:0,total:0,color:playerColors[i%playerColors.length]};
-});
-
-draft.matches.forEach(m=>{
-  if(m.pts1>m.pts2){
-    stats[m.p1].wins++;
-    stats[m.p2].losses++;
-  }else{
-    stats[m.p2].wins++;
-    stats[m.p1].losses++;
-  }
-  stats[m.p1].total+=m.pts1;
-  stats[m.p2].total+=m.pts2;
-
-  document.getElementById("resultsBox")
-    .innerHTML+=`<p>${m.p1} ${m.pts1} – ${m.pts2} ${m.p2}</p>`;
-});
-
-/* RANKING */
-let ranking=Object.keys(stats).map(n=>({name:n,...stats[n]}));
-ranking.sort((a,b)=>b.total-a.total);
-
-ranking.forEach((p,i)=>{
-  document.querySelector("#rankingTable tbody").innerHTML+=`
-  <tr>
-    <td>${i+1}</td>
-    <td style="color:${p.color};font-weight:bold;">${p.name}</td>
-    <td>${p.wins}-${p.losses}</td>
-    <td>${p.total}</td>
-    <td>${p.wins}</td>
-    <td>${p.losses}</td>
-  </tr>`;
-});
-
-/* PODIUM */
-const medals=["🥇","🥈","🥉"];
-const classes=["first","second","third"];
-
-ranking.slice(0,3).forEach((p,i)=>{
-  document.getElementById("podium").innerHTML+=`
-  <div class="podium ${classes[i]}" style="border:2px solid ${p.color};box-shadow:0 0 25px ${p.color}">
-    <div style="font-size:28px">${medals[i]}</div>
-    <h3 style="color:${p.color}">${p.name}</h3>
-    <div>${p.total} pkt</div>
-  </div>`;
-});
-
-    /* STATYSTYKI DRAFTU */
-
-function addStat(title, value){
-  document.getElementById("statsGrid").innerHTML += `
-    <div class="stat-box">
-      <strong>${title}</strong>
-      <div style="margin-top:10px">${value}</div>
-    </div>
-  `;
-}
-
-/* Najwięcej zwycięstw */
-let maxWins = Math.max(...ranking.map(p=>p.wins));
-let winLeaders = ranking
-  .filter(p=>p.wins===maxWins)
-  .map(p=>p.name)
-  .sort()
-  .slice(0,5);
-
-addStat("🏆 Najwięcej zwycięstw",
-  winLeaders.join(", ") + ` (${maxWins})`
-);
-
-/* Wygrane do 0 */
-let cleanWins = {};
-draft.players.forEach(p=>cleanWins[p.name]=0);
-
-draft.matches.forEach(m=>{
-  if(m.pts1>m.pts2 && m.pts2===0) cleanWins[m.p1]++;
-  if(m.pts2>m.pts1 && m.pts1===0) cleanWins[m.p2]++;
-});
-
-let maxClean = Math.max(...Object.values(cleanWins));
-let cleanLeaders = Object.keys(cleanWins)
-  .filter(n=>cleanWins[n]===maxClean)
-  .sort()
-  .slice(0,5);
-
-addStat("🔥 Najwięcej wygranych do 0",
-  cleanLeaders.join(", ") + ` (${maxClean})`
-);
-
-/* Najwięcej pkt z porażek */
-let lossPoints = {};
-draft.players.forEach(p=>lossPoints[p.name]=0);
-
-draft.matches.forEach(m=>{
-  if(m.pts1>m.pts2){
-    lossPoints[m.p2]+=m.pts2;
-  }else{
-    lossPoints[m.p1]+=m.pts1;
-  }
-});
-
-let maxLoss = Math.max(...Object.values(lossPoints));
-let lossLeaders = Object.keys(lossPoints)
-  .filter(n=>lossPoints[n]===maxLoss)
-  .sort()
-  .slice(0,5);
-
-addStat("💀 Najwięcej pkt z porażek",
-  lossLeaders.join(", ") + ` (${maxLoss})`
-);
-
-/* Najmniej porażek */
-let minLoss = Math.min(...ranking.map(p=>p.losses));
-let leastLoss = ranking
-  .filter(p=>p.losses===minLoss)
-  .map(p=>p.name)
-  .sort()
-  .slice(0,5);
-
-addStat("🛡 Najmniej porażek",
-  leastLoss.join(", ") + ` (${minLoss})`
-);
-
-/* Najczęściej wybierana karta */
-let cardCount = {};
-draft.players.forEach(p=>{
-  p.deck.forEach(c=>{
-    cardCount[c] = (cardCount[c]||0)+1;
-  });
-});
-
-if(Object.keys(cardCount).length>0){
-  let maxPick = Math.max(...Object.values(cardCount));
-  let mostPicked = Object.keys(cardCount)
-    .filter(c=>cardCount[c]===maxPick)
-    .sort()
-    .slice(0,5);
-
-  addStat("🃏 Najczęściej wybierana karta",
-    mostPicked.join(", ") + ` (${maxPick})`
-  );
-}
-
-/* DECKI */
-draft.players.forEach((p,i)=>{
-  const color=playerColors[i%playerColors.length];
-  let html=`
-  <div class="deck-card" style="border:2px solid ${color};box-shadow:0 0 30px ${color}">
-    <h3 style="color:${color};text-align:center;">${p.name}</h3>
-    <div class="cards-grid">
-      ${p.deck.map(c=>`
-        <div class="card-tile" style="color:${color};border:1px solid ${color};">
-          ${c}
-        </div>`).join("")}
-    </div>
-  </div>`;
-  document.getElementById("decksContainer").innerHTML+=html;
-});
-
-function addMatch(){
-  const p1=prompt("Gracz 1:");
-  const p2=prompt("Gracz 2:");
-  const pts1=parseInt(prompt("Pkt 1:"));
-  const pts2=parseInt(prompt("Pkt 2:"));
-  draft.matches.push({p1,p2,pts1,pts2});
-  alert("Dodano (odśwież i wygeneruj kod)");
-}
-function generateMatchesCode(){
-  document.getElementById("codeOutput").value=
-  JSON.stringify(draft.matches,null,2);
-}
-function generateDecksCode(){
-  document.getElementById("codeOutput").value=
-  JSON.stringify(draft.players,null,2);
-}
-
-</script>
+<script src="draftEngine.js"></script>
 
 </body>
 </html>
