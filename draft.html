@@ -360,6 +360,29 @@ textarea{
     <button onclick="generateMatchesCode()">Generuj kod matches</button>
     <button onclick="generateDecksCode()">Generuj kod players</button>
     <textarea id="codeOutput"></textarea>
+    <hr style="margin:30px 0">
+
+<h3>DECK BUILDER</h3>
+
+<select id="deckPlayerSelect"></select>
+
+<br><br>
+
+<select id="cardSelect"></select>
+<button onclick="addCardToDeck()">Dodaj kartę</button>
+
+<br><br>
+
+<div id="deckPreview" style="
+min-height:80px;
+padding:10px;
+border:1px solid #00f0ff;
+border-radius:10px;
+"></div>
+
+<br>
+
+<button onclick="generateDeckCode()">Generuj kod decku</button>
 </div>
 
 <script src="database.js"></script>
