@@ -423,7 +423,7 @@ matches: [
       players: [
         { name: "Dejwidgakure", deck: ["Black Knight","Uatu the Watcher","Nova Frankie Raye","Nocturne","Prodigy","Omega Sentinel","Miles Morales Spider-Man","Doctor Octopus","Crossbones","Cosmic Ghost Rider","Mockingbird","Thanos"] },
         { name: "Dawid ak. Void", deck: ["Nova","X-23","Carnage","Weapon X Wolverine","Ironheart","Venom","Adamantium Infiusion","Danger","Nimrod","Blob","Destroyer","Death"] },
-        { name: "Budiso", deck: ["Clea","Bruce Bunner","Merlin","Master Mold","Doctor Strange","Bishop","Silver Surfer First Steps","Gwenpool","MoonGirl","Silver Samurai","Profesor X","Doctor Doom"] },
+        { name: "Budiso", deck: ["Clea","Bruce Bunner","Merlin","Master Mold","Doctor Strange","Bishop","Silver Surfer First Steps","Gwenpool","MoonGirl","Silver Samurai","Professor X","Doctor Doom"] },
         { name: "Pluton32", deck: ["Sauron","Ghost-Spider","Vulture","Merlin","U.S. Agent","Brood","Nocturne","Prodigy","Dracula","Misery","Galactus","The Infinaut"] },
         { name: "Raciatek", deck: ["Agony","Fastball Special","Morbius","Lasher","The First Ghost Rider","Human Torch","Gambit","Silver Surfer First Steps","Cull Obsidian","Legion","Blob","Hulk"] },
         { name: "Supcio", deck: ["Martyr","Domino","Toxin","Air-Walker","Debrii","Phastos","Sword Master","Anti-Venom","Crossbones","Black Bolt","Hobgoblin","Thanos"] },
