@@ -331,8 +331,8 @@ textarea{
                     <th>Gracz</th>
                     <th>Bilans</th>
                     <th>Pkt</th>
-                    <th>Wygr.</th>
-                    <th>Przegr.</th>
+                   <th>Pkt W.</th>
+                   <th>Pkt P.</th>
                 </tr>
             </thead>
             <tbody></tbody>
@@ -413,20 +413,41 @@ const playerColors=[
 
 /* STATY */
 let stats={};
+
 draft.players.forEach((p,i)=>{
-  stats[p.name]={wins:0,losses:0,total:0,color:playerColors[i%playerColors.length]};
+
+stats[p.name]={
+wins:0,
+losses:0,
+total:0,
+winPoints:0,
+lossPoints:0,
+color:playerColors[i%playerColors.length]
+};
+
 });
 
 draft.matches.forEach(m=>{
   if(m.pts1>m.pts2){
-    stats[m.p1].wins++;
-    stats[m.p2].losses++;
-  }else{
-    stats[m.p2].wins++;
-    stats[m.p1].losses++;
-  }
-  stats[m.p1].total+=m.pts1;
-  stats[m.p2].total+=m.pts2;
+
+stats[m.p1].wins++;
+stats[m.p2].losses++;
+
+stats[m.p1].winPoints+=m.pts1;
+stats[m.p2].lossPoints+=m.pts2;
+
+}else{
+
+stats[m.p2].wins++;
+stats[m.p1].losses++;
+
+stats[m.p2].winPoints+=m.pts2;
+stats[m.p1].lossPoints+=m.pts1;
+
+}
+
+stats[m.p1].total+=m.pts1;
+stats[m.p2].total+=m.pts2;
 
   document.getElementById("resultsBox")
     .innerHTML+=`<p>${m.p1} ${m.pts1} – ${m.pts2} ${m.p2}</p>`;
@@ -443,8 +464,8 @@ ranking.forEach((p,i)=>{
     <td style="color:${p.color};font-weight:bold;">${p.name}</td>
     <td>${p.wins}-${p.losses}</td>
     <td>${p.total}</td>
-    <td>${p.wins}</td>
-    <td>${p.losses}</td>
+    <td>${p.winPoints}</td>
+    <td>${p.lossPoints}</td>
   </tr>`;
 });
 
