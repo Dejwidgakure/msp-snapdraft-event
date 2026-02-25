@@ -525,8 +525,8 @@ addStat("🔥 Najwięcej wygranych do 0",
 );
 
 /* Najwięcej pkt z porażek */
-let lossPoints = {};
-draft.players.forEach(p=>lossPoints[p.name]=0);
+let lossPointsStat = {};
+draft.players.forEach(p=>lossPointsStat[p.name]=0);
 
 draft.matches.forEach(m=>{
   if(m.pts1>m.pts2){
