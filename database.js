@@ -176,6 +176,185 @@ deck: [
 },
 
     {
+id: 3,
+startDate: "",
+endDate: "",
+mode: "Classic",
+presetCard: null,
+playersCount: 9,
+winner: "",
+bans: [],
+
+players: [
+
+{
+name: "kb",
+deck: [
+"Silver Samurai",
+"Mantis",
+"Red Guardian",
+"Galactus",
+"Warpath",
+"Korg",
+"White Queen",
+"Heimdall",
+"Wolverine",
+"Black Cat",
+"Blink",
+"Martyr"
+]
+},
+
+{
+name: "Xevo",
+deck: [
+"Lady Deathstrike",
+"M'baku",
+"Sentinel",
+"Knull",
+"Hope Summers",
+"Arnim Zola",
+"Mister Negative",
+"Strong Guy",
+"Corvus Glaive",
+"Mister Negative",
+"Ravonna Renslayer",
+"Howard the Duck"
+]
+},
+
+{
+name: "Budiso",
+deck: [
+"Leader",
+"Apocalypse",
+"Echo",
+"Misty Knight",
+"Mobius M. Mobius",
+"Wolverine",
+"Multiple Man",
+"Nakia",
+"Black Cat",
+"White Queen",
+"Baron Mordo",
+"Leech"
+]
+},
+
+{
+name: "Dawid ak. Void",
+deck: [
+"Professor X",
+"Spectrum",
+"Psylocke",
+"Sandman",
+"Juggernaut",
+"Black Swann",
+"Quinjet",
+"Namora",
+"Armor",
+"Namor",
+"Thor",
+"Quicksilver"
+]
+},
+
+{
+name: "Hahke",
+deck: [
+"Grand Master",
+"Rocket Raccoon",
+"Captain Marvel",
+"Aero",
+"Star-Lord",
+"Spectrum",
+"Ms. Marvel",
+"Proxima Midnight",
+"Blade",
+"Spectrum",
+"Brood",
+"Alioth"
+]
+},
+
+{
+name: "FizjoRadek",
+deck: [
+"Beta Ray Bill",
+"Havok",
+"Jane Foster",
+"Invisible Woman",
+"Rogue",
+"Jubilee",
+"Debrii",
+"Spectrum",
+"Lockjaw",
+"Cerebro",
+"Quinjet",
+"Silver Surfer"
+]
+},
+
+{
+name: "LukeTrustsGod",
+deck: [
+"Korg",
+"Shocker",
+"Juggernaut",
+"Mantis",
+"Absorbing Man",
+"Forge",
+"Jane Foster",
+"Hulk",
+"Beta Ray Bill",
+"Apocalypse",
+"Enchantress",
+"Vulture"
+]
+},
+
+{
+name: "Dejwidgakure",
+deck: [
+"Shuri",
+"The Infinaut",
+"Sasquatch",
+"Titania",
+"Angela",
+"Cull Obsidian",
+"Spider-Man",
+"Multiple Man",
+"Rocket Raccoon",
+"Goose",
+"Zero",
+"Deadpool"
+]
+},
+
+{
+name: "99iant",
+deck: [
+"Namora",
+"The Living Tribunal",
+"Gilgamesh",
+"The Hood",
+"Valkyrie",
+"Scorpion",
+"Attuma",
+"Yellowjacket",
+"Shang-Chi",
+"Selene",
+"Odin",
+"Okoye"
+]
+}
+
+],
+
+matches: []
+
+},
+    {
       id: 18,
       startDate: "2026-02-21",
       endDate: "2026-03-06",
