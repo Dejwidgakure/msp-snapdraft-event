@@ -538,7 +538,7 @@ draft.matches.forEach(m=>{
 
 let maxLoss = Math.max(...Object.values(lossPoints));
 let lossLeaders = Object.keys(lossPoints)
-  .filter(n=>lossPoints[n]===maxLoss)
+  .filter(n=>lossPointsStat[n]===maxLoss)
   .sort()
   .slice(0,5);
 
