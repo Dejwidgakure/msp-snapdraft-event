@@ -212,7 +212,7 @@ const cardDatabase = [
   { name: "Loki", image: "Loki.jpg" },
   { name: "Luke Cage", image: "Luke Cage.jpg" },
   { name: "Luna Snow", image: "Luna Snow.jpg" },
-  { name: "M'baku", image: "Mbaku.jpg" },
+  { name: "M'Baku", image: "MBaku.jpg" },
   { name: "M.O.D.O.K.", image: "M.O.D.O.K..jpg" },
   { name: "Mad Thinker", image: "Mad Thinker.jpg" },
   { name: "Madame Web", image: "Madame Web.jpg" },
