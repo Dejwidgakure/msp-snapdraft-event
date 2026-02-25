@@ -84,7 +84,15 @@ const database = {
       winner: null,
       bans: [
         "Arishem",
-        "Shang-Chi"
+        "Shang-Chi",
+        "Cosmo",
+        "Echo",
+        "Fin Fang Foom",
+        "Hela",
+        "Klaw",
+        "Shadow King",
+        "Shou-Lao the Undying",
+        "Star-Lord, Master of the Sun"
       ],
 
       players: [
