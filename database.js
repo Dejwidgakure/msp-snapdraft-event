@@ -9,7 +9,7 @@ const database = {
       presetCard: null,
       playersCount: 6,
       winner: "Hahke",
-      bans: ["Kang"],
+      bans: ["Kang","Loki"],
 
       players: [
     {
