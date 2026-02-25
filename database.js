@@ -12,12 +12,113 @@ const database = {
       bans: ["Kang"],
 
       players: [
-    { name: "Dawid ak. Void", deck: [] },
-    { name: "Budiso", deck: [] },
-    { name: "Hardkor", deck: [] },
-    { name: "Dejwidgakure", deck: [] },
-    { name: "Marek", deck: [] },
-    { name: "Hahke", deck: [] } 
+    {
+name: "Budiso",
+deck: [
+"Luke Cage",
+"Cyclops",
+"Carnage",
+"Human Torch",
+"Juggernaut",
+"Domino",
+"Rogue",
+"Crystal",
+"Magneto",
+"Kraven",
+"Medusa",
+"Shanna"
+]
+},
+
+{
+name: "Hardkor",
+deck: [
+"Elektra",
+"Proxima Midnight",
+"Namor",
+"Kingpin",
+"Rockslide",
+"Kang",
+"Corvus Glaive",
+"Alioth",
+"Nick Fury",
+"Quinjet",
+"Hellcow",
+"Black Knight"
+]
+},
+
+{
+name: "Hahke",
+deck: [
+"Grand Master",
+"Mysterio",
+"Nico Minoru",
+"Elektra",
+"White Tiger",
+"Ultron",
+"Wolfsbane",
+"Destroyer",
+"Rescue",
+"Black Bolt",
+"Rockslide",
+"Armor"
+]
+},
+
+{
+name: "Dawid ak. Void",
+deck: [
+"Psylocke",
+"Hazmat",
+"Elsa Bloodstone",
+"Death",
+"Hawkeye",
+"Abomination",
+"Wong",
+"Magik",
+"Bast",
+"Black Swann",
+"America Chavez",
+"Knull"
+]
+},
+
+{
+name: "Marek",
+deck: [
+"Medusa",
+"Hellcow",
+"Bishop",
+"Martyr",
+"Ravonna Renslayer",
+"Attuma",
+"Morph",
+"Titania",
+"Ironheart",
+"Spider-Ham",
+"Groot",
+"Human Torch"
+]
+},
+
+{
+name: "Dejwidgakure",
+deck: [
+"Juggernaut",
+"Howard the Duck",
+"Rocket Raccoon",
+"Moon Knight",
+"Valentina",
+"Quicksilver",
+"Werewolf By Night",
+"Warpath",
+"Maximus",
+"Korg",
+"Doctor Doom",
+"Carnage"
+]
+}
         
       ],
 
