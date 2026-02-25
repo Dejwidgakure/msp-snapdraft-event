@@ -354,7 +354,7 @@ deck: [
 matches: [
 
 { p1:"99iant", p2:"Budiso", pts1:19, pts2:0 },
-{ p1:"99iant", p2:"Hahke", pts1:18, pts2:0 },
+{ p1:"Hahke", p2:"99iant", pts1:18, pts2:0 }
 { p1:"99iant", p2:"kb", pts1:18, pts2:0 },
 { p1:"99iant", p2:"LukeTrustsGod", pts1:12, pts2:0 },
 { p1:"Dawid ak. Void", p2:"99iant", pts1:14, pts2:0 },
