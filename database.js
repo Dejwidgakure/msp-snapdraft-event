@@ -96,7 +96,7 @@ const database = {
         { name: "Supcio", deck: ["Martyr","Domino","Toxin","Air-Walker","Debrii","Phastos","Sword Master","Anti-Venom","Crossbones","Black Bolt","Hobgoblin","Thanos"] },
         { name: "Weregesu", deck: ["Arana","Nico Minoru","Squirrel Girl","Hydra Bob","Mister Sinister","Scarlet Witch","Colossus","Marvel Boy","Copycat","Redwing","Sword Master","Giganto"] },
         { name: "Matixmgg", deck: ["Vulture","Forge","Lockjaw","Domino","Brood","Human Torch First Steps","Black Widow","Gladiator","Jessica Jones","Laufey","Stardust","Hellion"] },
-        { name: "Fizjoradek", deck: ["Elektra","Misty Knight","Victoria Hand","Jennifer Kale","Crystal","Kang The Conqueror","Zombie Scarlet Witch","Fan Fei","Negasonic Teenage Warhead","Anti-Venom","Cosmic Ghost Rider","Ajax"] },
+        { name: "FizjoRadek", deck: ["Elektra","Misty Knight","Victoria Hand","Jennifer Kale","Crystal","Kang The Conqueror","Zombie Scarlet Witch","Fan Fei","Negasonic Teenage Warhead","Anti-Venom","Cosmic Ghost Rider","Ajax"] },
         { name: "Kmythic", deck: ["Forge","Jennifer Kale","Red Shift","Toxie Doxie","Kraglin","Mister Negative","Ghost Rider","Darkhawk","M.O.D.O.K.","Apocalypse","Agatha Harkness","Zombie Galacti"] },
         { name: "Maniek", deck: ["Ghost-Spider","Grand Master","Sentinel","Cable","Captain America","Rogue","Mole Man","Nakia","Gladiator","Namor","Mockingbird","Odin"] }
       ],
@@ -107,16 +107,16 @@ const database = {
         { p1: "Dawid ak. Void", p2: "Budiso", pts1: 24, pts2: 1 },
         { p1: "Raciatek", p2: "Budiso", pts1: 18, pts2: 7 },
         { p1: "Dawid ak. Void", p2: "Maniek", pts1: 21, pts2: 4 },
-        { p1: "Raciatek", p2: "Fizjoradek", pts1: 21, pts2: 4 },
+        { p1: "Raciatek", p2: "FizjoRadek", pts1: 21, pts2: 4 },
         { p1: "Kmythic", p2: "Weregesu", pts1: 25, pts2: 0 },
-        { p1: "Fizjoradek", p2: "Maniek", pts1: 17, pts2: 8 },
+        { p1: "FizjoRadek", p2: "Maniek", pts1: 17, pts2: 8 },
         { p1: "Weregesu", p2: "Maniek", pts1: 24, pts2: 1 },
-        { p1: "Fizjoradek", p2: "Dawid ak. Void", pts1: 21, pts2: 4 },
+        { p1: "FizjoRadek", p2: "Dawid ak. Void", pts1: 21, pts2: 4 },
         { p1: "Kmythic", p2: "Maniek", pts1: 23, pts2: 2 },
         { p1: "Weregesu", p2: "Raciatek", pts1: 21, pts2: 4 },
         { p1: "Kmythic", p2: "Dawid ak. Void", pts1: 21, pts2: 4 },
-        { p1: "Fizjoradek", p2: "Kmythic", pts1: 21, pts2: 4 },
-        { p1: "Fizjoradek", p2: "Weregesu", pts1: 22, pts2: 3 },
+        { p1: "FizjoRadek", p2: "Kmythic", pts1: 21, pts2: 4 },
+        { p1: "FizjoRadek", p2: "Weregesu", pts1: 22, pts2: 3 },
         { p1: "Kmythic", p2: "Raciatek", pts1: 18, pts2: 7 },
         { p1: "Dejwidgakure", p2: "Kmythic", pts1: 22, pts2: 3 },
         { p1: "Weregesu", p2: "Budiso", pts1: 23, pts2: 2 },
@@ -124,6 +124,12 @@ const database = {
         { p1: "Kmythic", p2: "Pluton32", pts1: 25, pts2: 0 },
         { p1: "Budiso", p2: "Maniek", pts1: 20, pts2: 5 },
         { p1: "Pluton32", p2: "Maniek", pts1: 17, pts2: 8 }
+        {
+    "p1": "FizjoRadek",
+    "p2": "Budiso",
+    "pts1": 25,
+    "pts2": 0
+  }
       ]
     }
 
