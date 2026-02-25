@@ -406,6 +406,7 @@ startDate:"",
 endDate:"",
 mode:"Classic",
 presetCard:null,
+playersCount:10,
 winner:null,
 bans:["Arishem","Kang","Loki"],
 
