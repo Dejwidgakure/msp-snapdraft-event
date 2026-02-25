@@ -366,7 +366,7 @@ matches: [
 { p1:"Hahke", p2:"Budiso", pts1:16, pts2:0 },
 { p1:"kb", p2:"Budiso", pts1:20, pts2:0 },
 { p1:"LukeTrustsGod", p2:"Budiso", pts1:14, pts2:0 },
-{ p1:"The Void", p2:"Budiso", pts1:12, pts2:0 },
+{ p1:"Dawid ak. Void", p2:"Budiso", pts1:12, pts2:0 },
 { p1:"Budiso", p2:"Xevo", pts1:14, pts2:0 },
 { p1:"Dejwidgakure", p2:"Budiso", pts1:14, pts2:0 },
 { p1:"Budiso", p2:"FizjoRadek", pts1:14, pts2:0 },
@@ -374,28 +374,28 @@ matches: [
 
 { p1:"Hahke", p2:"kb", pts1:20, pts2:0 },
 { p1:"LukeTrustsGod", p2:"Hahke", pts1:16, pts2:0 },
-{ p1:"The Void", p2:"Hahke", pts1:12, pts2:0 },
+{ p1:"Dawid ak. Void", p2:"Hahke", pts1:12, pts2:0 },
 { p1:"Hahke", p2:"Xevo", pts1:16, pts2:0 },
 { p1:"Dejwidgakure", p2:"Hahke", pts1:14, pts2:0 },
 { p1:"Hahke", p2:"FizjoRadek", pts1:20, pts2:0 },
 
 
 { p1:"LukeTrustsGod", p2:"kb", pts1:14, pts2:0 },
-{ p1:"kb", p2:"The Void", pts1:17, pts2:0 },
+{ p1:"kb", p2:"Dawid ak. Void", pts1:17, pts2:0 },
 { p1:"Xevo", p2:"kb", pts1:13, pts2:0 },
 { p1:"Dejwidgakure", p2:"kb", pts1:11, pts2:0 },
 { p1:"kb", p2:"FizjoRadek", pts1:14, pts2:0 },
 
 
-{ p1:"LukeTrustsGod", p2:"The Void", pts1:14, pts2:0 },
+{ p1:"LukeTrustsGod", p2:"Dawid ak. Void", pts1:14, pts2:0 },
 { p1:"Xevo", p2:"LukeTrustsGod", pts1:16, pts2:0 },
 { p1:"Dejwidgakure", p2:"LukeTrustsGod", pts1:16, pts2:0 },
 { p1:"LukeTrustsGod", p2:"FizjoRadek", pts1:14, pts2:0 },
 
 
-{ p1:"The Void", p2:"Xevo", pts1:12, pts2:0 },
+{ p1:"Dawid ak. Void", p2:"Xevo", pts1:12, pts2:0 },
 { p1:"Dejwidgakure", p2:"The Void", pts1:20, pts2:0 },
-{ p1:"The Void", p2:"FizjoRadek", pts1:17, pts2:0 },
+{ p1:"Dawid ak. Void", p2:"FizjoRadek", pts1:17, pts2:0 },
 
 
 { p1:"Xevo", p2:"Dejwidgakure", pts1:16, pts2:0 },
