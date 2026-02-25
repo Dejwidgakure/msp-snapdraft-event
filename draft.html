@@ -519,18 +519,41 @@ if(Object.keys(cardCount).length>0){
 
 /* DECKI */
 draft.players.forEach((p,i)=>{
+
   const color=playerColors[i%playerColors.length];
+
+  let imagePath =
+  "assets/decks/" +
+  p.name.toLowerCase().replace(/ /g,"").replace(/\./g,"") +
+  "_" + draft.id + ".jpg";
+
   let html=`
   <div class="deck-card" style="border:2px solid ${color};box-shadow:0 0 30px ${color}">
-    <h3 style="color:${color};text-align:center;">${p.name}</h3>
+    
+    <h3 style="color:${color};text-align:center;">
+    ${p.name}
+    </h3>
+
     <div class="cards-grid">
+
       ${p.deck.map(c=>`
-        <div class="card-tile" style="color:${color};border:1px solid ${color};">
-          ${c}
-        </div>`).join("")}
+        <div class="card-tile"
+        style="color:${color};border:1px solid ${color};">
+        ${c}
+        </div>
+      `).join("")}
+
     </div>
-  </div>`;
-  document.getElementById("decksContainer").innerHTML+=html;
+
+    <img src="${imagePath}"
+    onerror="this.style.display='none'">
+
+  </div>
+  `;
+
+  document.getElementById("decksContainer")
+  .innerHTML+=html;
+
 });
 
 function addMatch(){
