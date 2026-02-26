@@ -593,7 +593,10 @@ matches:[
         { p1: "Dejwidgakure", p2: "FizjoRadek", pts1: 24, pts2: 1 },
         { p1: "Dejwidgakure", p2: "Pluton32", pts1: 19, pts2: 6 },
         { p1: "Dawid ak. Void", p2: "Pluton32", pts1: 8, pts2: 17 },
-        { p1: "Weregesu", p2: "Pluton32", pts1: 23, pts2: 2 }
+        { p1: "Weregesu", p2: "Pluton32", pts1: 23, pts2: 2 },
+        { p1: "Weregesu", p2: "Dawid ak. Void", pts1: 19, pts2: 6 },
+        { p1: "Raciatek", p2: "Dawid ak. Void", pts1: 2, pts2: 23 },
+        { p1: "Raciatek", p2: "Dejwidgakure", pts1: 1, pts2: 24 }
 ]
     }
 
