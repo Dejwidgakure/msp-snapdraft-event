@@ -475,76 +475,59 @@ players:[
 
 matches:[
 
-// Marek
-{p1:"Dawid ak. Void",p2:"Marek",pts1:22,pts2:0},
-{p1:"Marek",p2:"99iant",pts1:24,pts2:0},
-{p1:"Marek",p2:"Budiso",pts1:25,pts2:0},
-{p1:"kb",p2:"Marek",pts1:17,pts2:0},
-{p1:"Killjoy",p2:"Marek",pts1:20,pts2:0},
-{p1:"Marek",p2:"kolo313",pts1:25,pts2:0},
-{p1:"Marek",p2:"LukeTrustsGod",pts1:19,pts2:0},
-{p1:"Marek",p2:"Dejwidgakure",pts1:18,pts2:0},
-{p1:"Marek",p2:"FizjoRadek",pts1:16,pts2:0},
+{ p1:"Dawid ak. Void", p2:"Marek", pts1:22, pts2:3 },
+{ p1:"Marek", p2:"99iant", pts1:24, pts2:1 },
+{ p1:"Marek", p2:"Budiso", pts1:25, pts2:0 },
+{ p1:"kb", p2:"Marek", pts1:17, pts2:8 },
+{ p1:"Killjoy", p2:"Marek", pts1:20, pts2:5 },
+{ p1:"Marek", p2:"kolo313", pts1:25, pts2:0 },
+{ p1:"Marek", p2:"Luke", pts1:19, pts2:6 },
+{ p1:"Marek", p2:"Dejwidgakure", pts1:18, pts2:7 },
+{ p1:"Marek", p2:"FizjoRadek", pts1:16, pts2:9 },
 
+{ p1:"Dawid ak. Void", p2:"99iant", pts1:21, pts2:4 },
+{ p1:"Dawid ak. Void", p2:"Budiso", pts1:24, pts2:1 },
+{ p1:"kb", p2:"Dawid ak. Void", pts1:16, pts2:9 },
+{ p1:"Killjoy", p2:"Dawid ak. Void", pts1:21, pts2:4 },
+{ p1:"kolo313", p2:"Dawid ak. Void", pts1:18, pts2:7 },
+{ p1:"Luke", p2:"Dawid ak. Void", pts1:18, pts2:7 },
+{ p1:"Dejwidgakure", p2:"Dawid ak. Void", pts1:22, pts2:3 },
+{ p1:"Dawid ak. Void", p2:"FizjoRadek", pts1:21, pts2:4 },
 
-// Dawid ak. Void
-{p1:"Dawid ak. Void",p2:"99iant",pts1:21,pts2:0},
-{p1:"Dawid ak. Void",p2:"Budiso",pts1:24,pts2:0},
-{p1:"kb",p2:"Dawid ak. Void",pts1:16,pts2:0},
-{p1:"Killjoy",p2:"Dawid ak. Void",pts1:21,pts2:0},
-{p1:"kolo313",p2:"Dawid ak. Void",pts1:18,pts2:0},
-{p1:"LukeTrustsGod",p2:"Dawid ak. Void",pts1:18,pts2:0},
-{p1:"Dejwidgakure",p2:"Dawid ak. Void",pts1:22,pts2:0},
-{p1:"Dawid ak. Void",p2:"FizjoRadek",pts1:21,pts2:0},
+{ p1:"Budiso", p2:"99iant", pts1:24, pts2:1 },
+{ p1:"kb", p2:"99iant", pts1:23, pts2:2 },
+{ p1:"Killjoy", p2:"99iant", pts1:20, pts2:5 },
+{ p1:"kolo313", p2:"99iant", pts1:23, pts2:2 },
+{ p1:"Luke", p2:"99iant", pts1:19, pts2:6 },
+{ p1:"Dejwidgakure", p2:"99iant", pts1:17, pts2:8 },
+{ p1:"99iant", p2:"FizjoRadek", pts1:24, pts2:1 },
 
+{ p1:"kb", p2:"Budiso", pts1:22, pts2:3 },
+{ p1:"Killjoy", p2:"Budiso", pts1:25, pts2:0 },
+{ p1:"Budiso", p2:"kolo313", pts1:25, pts2:0 },
+{ p1:"Luke", p2:"Budiso", pts1:23, pts2:2 },
+{ p1:"Budiso", p2:"Dejwidgakure", pts1:25, pts2:0 },
+{ p1:"FizjoRadek", p2:"Budiso", pts1:23, pts2:2 },
 
-// 99iant
-{p1:"Budiso",p2:"99iant",pts1:24,pts2:0},
-{p1:"kb",p2:"99iant",pts1:23,pts2:0},
-{p1:"Killjoy",p2:"99iant",pts1:20,pts2:0},
-{p1:"kolo313",p2:"99iant",pts1:23,pts2:0},
-{p1:"LukeTrustsGod",p2:"99iant",pts1:19,pts2:0},
-{p1:"Dejwidgakure",p2:"99iant",pts1:17,pts2:0},
-{p1:"99iant",p2:"FizjoRadek",pts1:24,pts2:0},
+{ p1:"kb", p2:"Killjoy", pts1:25, pts2:0 },
+{ p1:"kb", p2:"kolo313", pts1:24, pts2:1 },
+{ p1:"kb", p2:"Luke", pts1:22, pts2:3 },
+{ p1:"Dejwidgakure", p2:"kb", pts1:23, pts2:2 },
+{ p1:"kb", p2:"FizjoRadek", pts1:25, pts2:0 },
 
+{ p1:"Killjoy", p2:"kolo313", pts1:23, pts2:2 },
+{ p1:"Luke", p2:"Killjoy", pts1:23, pts2:2 },
+{ p1:"Dejwidgakure", p2:"Killjoy", pts1:17, pts2:8 },
+{ p1:"Killjoy", p2:"FizjoRadek", pts1:21, pts2:4 },
 
-// Budiso
-{p1:"kb",p2:"Budiso",pts1:22,pts2:0},
-{p1:"Killjoy",p2:"Budiso",pts1:25,pts2:0},
-{p1:"Budiso",p2:"kolo313",pts1:25,pts2:0},
-{p1:"LukeTrustsGod",p2:"Budiso",pts1:23,pts2:0},
-{p1:"Budiso",p2:"Dejwidgakure",pts1:25,pts2:0},
-{p1:"FizjoRadek",p2:"Budiso",pts1:23,pts2:0},
+{ p1:"Luke", p2:"kolo313", pts1:18, pts2:7 },
+{ p1:"Dejwidgakure", p2:"kolo313", pts1:19, pts2:6 },
+{ p1:"FizjoRadek", p2:"kolo313", pts1:19, pts2:6 },
 
+{ p1:"Dejwidgakure", p2:"Luke", pts1:23, pts2:2 },
+{ p1:"Luke", p2:"FizjoRadek", pts1:19, pts2:6 },
 
-// kb (1 miejsce)
-{p1:"kb",p2:"Killjoy",pts1:22,pts2:0},
-{p1:"kb",p2:"kolo313",pts1:24,pts2:0},
-{p1:"kb",p2:"LukeTrustsGod",pts1:21,pts2:0},
-{p1:"kb",p2:"Dejwidgakure",pts1:23,pts2:0},
-{p1:"kb",p2:"FizjoRadek",pts1:20,pts2:0},
-
-
-// Killjoy
-{p1:"Killjoy",p2:"kolo313",pts1:23,pts2:0},
-{p1:"LukeTrustsGod",p2:"Killjoy",pts1:23,pts2:0},
-{p1:"Dejwidgakure",p2:"Killjoy",pts1:17,pts2:0},
-{p1:"Killjoy",p2:"FizjoRadek",pts1:21,pts2:0},
-
-
-// kolo313
-{p1:"LukeTrustsGod",p2:"kolo313",pts1:18,pts2:0},
-{p1:"Dejwidgakure",p2:"kolo313",pts1:19,pts2:0},
-{p1:"FizjoRadek",p2:"kolo313",pts1:19,pts2:0},
-
-
-// LukeTrustsGod
-{p1:"Dejwidgakure",p2:"LukeTrustsGod",pts1:23,pts2:0},
-{p1:"LukeTrustsGod",p2:"FizjoRadek",pts1:19,pts2:0},
-
-
-// FizjoRadek
-{p1:"FizjoRadek",p2:"Dejwidgakure",pts1:25,pts2:0}
+{ p1:"FizjoRadek", p2:"Dejwidgakure", pts1:25, pts2:0 }
 
 ]
 },
