@@ -433,7 +433,8 @@ const cardDatabase = [
   { name: "Zombie Mister Fantastic", image: "Zombie Mister Fantastic.jpg" },
   { name: "Zombie Power Man", image: "Zombie Power Man.jpg" },
   { name: "Zombie Scarlet Witch", image: "Zombie Scarlet Witch.jpg" },
-  { name: "Zombie Sentry", image: "Zombie Sentry.jpg" }
+  { name: "Zombie Sentry", image: "Zombie Sentry.jpg" },
+  { name: "Jack Flag", image: "Jack Flag.jpg" }
 
 ];
 
