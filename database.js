@@ -446,7 +446,23 @@ players:[
       "Hela"
     ]
   },
-{name:"99iant",deck:[]},
+ {
+    "name": "99iant",
+    "deck": [
+      "Ant-Man",
+      "America Chavez",
+      "Yondu",
+      "Brood",
+      "Negasonic Teenage Warhead",
+      "Agent Coulson",
+      "White Tiger",
+      "Devil Dinosaur",
+      "Nimrod",
+      "Sersi",
+      "Red Hulk",
+      "Agatha Harkness"
+    ]
+      },
 {name:"Budiso",deck:[]},
 {name:"kb",deck:[]},
 {name:"Killjoy",deck:[]},
