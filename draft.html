@@ -450,6 +450,7 @@ color:playerColors[i%playerColors.length]
 
 });
 
+
 draft.matches.forEach(m=>{
   if(m.pts1>m.pts2){
 
@@ -475,6 +476,31 @@ stats[m.p2].total+=m.pts2;
   document.getElementById("resultsBox")
     .innerHTML+=`<p>${m.p1} ${m.pts1} – ${m.pts2} ${m.p2}</p>`;
 });
+
+    const unplayed = getUnplayedMatches(draft);
+
+if(unplayed.length>0){
+
+  document.getElementById("resultsBox").innerHTML += `
+    <div class="unplayed-section">
+      <h3>🕓 Nierozgrane mecze</h3>
+      ${unplayed.map(m=>`
+        <div class="unplayed-match">
+          ${m.p1} vs ${m.p2}
+        </div>
+      `).join("")}
+    </div>
+  `;
+
+}else{
+
+  document.getElementById("resultsBox").innerHTML += `
+    <div class="unplayed-section">
+      <h3>🔥 Wszystkie mecze rozegrane</h3>
+    </div>
+  `;
+
+}
 
 /* RANKING */
 let ranking=Object.keys(stats).map(n=>({name:n,...stats[n]}));
@@ -767,7 +793,33 @@ renderDeckPreview();
 alert("Deck zapisany");
 
 }
+function getUnplayedMatches(draft){
 
+    const played = new Set(
+        draft.matches.map(m => 
+            [m.p1, m.p2].sort().join("-")
+        )
+    );
+
+    const missing = [];
+
+    for(let i=0;i<draft.players.length;i++){
+        for(let j=i+1;j<draft.players.length;j++){
+
+            const p1 = draft.players[i].name;
+            const p2 = draft.players[j].name;
+
+            const key = [p1,p2].sort().join("-");
+
+            if(!played.has(key)){
+                missing.push({p1,p2});
+            }
+        }
+    }
+
+    return missing;
+}
+    
 initDeckBuilder();
     
 </script>
