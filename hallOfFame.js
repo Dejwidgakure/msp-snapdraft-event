@@ -10,7 +10,6 @@ diff:0,
 score:""
 };
 
-
 /* ==== ZBIERANIE DANYCH ==== */
 
 database.drafts.forEach(draft=>{
@@ -36,7 +35,6 @@ players[p.name].drafts++;
 
 });
 
-
 /* ==== ZWYCIĘZCA DRAFTU ==== */
 
 let draftPoints={};
@@ -52,7 +50,6 @@ let winner = Object.keys(draftPoints)
 .sort((a,b)=>draftPoints[b]-draftPoints[a])[0];
 
 players[winner].draftWins++;
-
 
 /* ==== MECZE ==== */
 
@@ -98,34 +95,28 @@ biggestWin.score=`${m.pts1}-${m.pts2}`;
 
 });
 
-
 /* ==== RANKING ==== */
 
 let ranking = Object.values(players)
-
 .sort((a,b)=>{
 if(b.draftWins!==a.draftWins)
 return b.draftWins-a.draftWins;
 return b.points-a.points;
 });
 
-
 ranking.forEach(p=>{
 p.avg = Math.round(p.points/p.drafts);
 });
-
 
 let cleanRanking = Object.keys(cleanWins)
 .map(n=>({name:n,val:cleanWins[n]}))
 .sort((a,b)=>b.val-a.val)
 .slice(0,3);
 
-
 let fighterRanking = Object.keys(fighterPoints)
 .map(n=>({name:n,val:fighterPoints[n]}))
 .sort((a,b)=>b.val-a.val)
 .slice(0,3);
-
 
 return{
 ranking,
@@ -135,3 +126,52 @@ biggestWin
 };
 
 }
+
+
+/* ========================= */
+/* ===== RENDERING ========= */
+/* ========================= */
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+const data = calculateHallOfFame(database);
+
+/* ==== RANKING TABLE ==== */
+
+const tbody = document.querySelector("#rankingTable tbody");
+
+data.ranking.forEach((p,i)=>{
+
+tbody.innerHTML+=`
+<tr>
+<td>${i+1}</td>
+<td>${p.name}</td>
+<td>${p.draftWins}</td>
+<td>${p.points}</td>
+</tr>
+`;
+
+});
+
+/* ==== REKORDY ==== */
+
+const container = document.getElementById("recordsContainer");
+
+container.innerHTML += `
+<div class="record-box">
+<h3>Najwięcej winów do 0</h3>
+<p>${data.cleanRanking[0]?.name} (${data.cleanRanking[0]?.val})</p>
+</div>
+
+<div class="record-box">
+<h3>Największa wygrana</h3>
+<p>${data.biggestWin.player} (${data.biggestWin.score})</p>
+</div>
+
+<div class="record-box">
+<h3>Najwięcej punktów z porażek</h3>
+<p>${data.fighterRanking[0]?.name} (${data.fighterRanking[0]?.val})</p>
+</div>
+`;
+
+});
