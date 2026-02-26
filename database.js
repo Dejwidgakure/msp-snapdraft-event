@@ -177,13 +177,13 @@ deck: [
 
     {
 id: 2,
-startDate: "",
-endDate: "",
-mode: "Classic",
+startDate: "2024-06-09",
+endDate: "2024-06-14",
+mode: "Classic (Stary System Punktów)",
 presetCard: null,
 playersCount: 9,
-winner: "",
-bans: [],
+winner: "Dejwidgakure",
+bans: ["Kang","Loki"],
 
 players: [
 
@@ -402,18 +402,50 @@ matches: [
 
     {
 id: 3,
-startDate:"",
-endDate:"",
+startDate: "2024-06-15",
+endDate: "2024-06-22",
 mode:"Classic",
 presetCard:null,
 playersCount:10,
-winner:null,
-bans:["Arishem","Kang","Loki"],
+winner:"kb",
+bans:["Kang","Loki"],
 
 players:[
 
-{name:"Marek",deck:[]},
-{name:"Dawid ak. Void",deck:[]},
+{
+    "name": "Marek",
+    "deck": [
+      "Spider-Ham",
+      "White Widow",
+      "Sentinel",
+      "Ironheart",
+      "Crystal",
+      "Groot",
+      "Nakia",
+      "Thor",
+      "Nocturne",
+      "Devil Dinosaur",
+      "Valkyrie",
+      "Lady Deathstrike"
+    ]
+  },
+{
+    "name": "Dawid ak. Void",
+    "deck": [
+      "Morbius",
+      "Invisible Woman",
+      "Swarm",
+      "Caiera",
+      "Corvus Glaive",
+      "Lady Sif",
+      "Polaris",
+      "Silver Samurai",
+      "Hellcow",
+      "Black Cat",
+      "Adam Warlock",
+      "Hela"
+    ]
+  },
 {name:"99iant",deck:[]},
 {name:"Budiso",deck:[]},
 {name:"kb",deck:[]},
