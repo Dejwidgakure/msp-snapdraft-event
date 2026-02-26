@@ -463,7 +463,7 @@ players:[
       "Agatha Harkness"
     ]
       },
-{name:"Budiso",deck:[]},
+{name:"Budiso",deck:["Nova","Selene","Baron Mordo","Scarlet Witch","Electro","Strong Guy","Viper","Ka-Zar","Silver Samurai","Blink","Sersi","She-Hulk"]},
 {name:"kb",deck:[]},
 {name:"Killjoy",deck:[]},
 {name:"kolo313",deck:[]},
