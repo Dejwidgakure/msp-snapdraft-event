@@ -175,6 +175,7 @@ const cardDatabase = [
   { name: "Iron Patriot", image: "Iron Patriot.jpg" },
   { name: "Ironheart", image: "Ironheart.jpg" },
   { name: "Jane Foster", image: "Jane Foster.jpg" },
+  { name: "Jack Flag", image: "Jack Flag.jpg" },
   { name: "Jean Grey", image: "Jean Grey.jpg" },
   { name: "Jeff the Baby Land Shark", image: "Jeff the Baby Land Shark.jpg" },
   { name: "Jennifer Kale", image: "Jennifer Kale.jpg" },
@@ -433,8 +434,8 @@ const cardDatabase = [
   { name: "Zombie Mister Fantastic", image: "Zombie Mister Fantastic.jpg" },
   { name: "Zombie Power Man", image: "Zombie Power Man.jpg" },
   { name: "Zombie Scarlet Witch", image: "Zombie Scarlet Witch.jpg" },
-  { name: "Zombie Sentry", image: "Zombie Sentry.jpg" },
-  { name: "Jack Flag", image: "Jack Flag.jpg" }
+  { name: "Zombie Sentry", image: "Zombie Sentry.jpg" }
+ 
 
 ];
 
