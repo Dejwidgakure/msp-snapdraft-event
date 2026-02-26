@@ -630,11 +630,12 @@ function addMatch(){
 }
 function generateMatchesCode(){
   document.getElementById("codeOutput").value=
-  JSON.stringify(draft.matches,null,2);
+  JSON.stringify(draft.matches);
 }
+
 function generateDecksCode(){
   document.getElementById("codeOutput").value=
-  JSON.stringify(draft.players,null,2);
+  JSON.stringify(draft.players);
 }
     function initDeckBuilder(){
 
