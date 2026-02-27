@@ -3,6 +3,36 @@
 <head>
 <meta charset="UTF-8">
 <title>MSP SnapDraft Event</title>
+
+    <style>
+
+        body {
+  position: relative;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("assets/cosmic_tlo.png") center no-repeat;
+  background-size: 60%;
+  z-index: 1;
+  animation: floatGalaxy 25s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes floatGalaxy {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-30px); }
+}
+
+/* GUI nad grafiką */
+nav,
+.hero {
+  position: relative;
+  z-index: 2;
+}
+
+</style>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
