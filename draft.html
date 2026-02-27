@@ -16,6 +16,41 @@ body{
     color:white;
 }
 
+    .winner-bg{
+    position:absolute;
+    top:260px;
+    left:50%;
+    transform:translateX(-50%);
+    width:1100px;
+    height:650px;
+
+    opacity:0.18;
+    filter:blur(10px);
+
+    z-index:0;
+
+    clip-path: polygon(
+        12% 8%,
+        88% 5%,
+        95% 25%,
+        85% 75%,
+        70% 95%,
+        30% 92%,
+        8% 70%,
+        5% 30%
+    );
+
+    animation: deckFloat 18s ease-in-out infinite alternate;
+
+    background-position:center;
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
+@keyframes deckFloat{
+    0%{ transform:translateX(-50%) translateY(0px); }
+    100%{ transform:translateX(-50%) translateY(-35px); }
+}
 /* NAV */
 nav{
     display:flex;
@@ -314,7 +349,13 @@ textarea{
     opacity:0.85;
     padding:3px 0;
 }
-    
+
+.main-row,
+.draft-stats,
+.decks-section{
+    position:relative;
+    z-index:2;
+}
 </style>
 </head>
 
@@ -339,6 +380,8 @@ textarea{
     <h1 id="draftTitle"></h1>
     <div class="meta" id="draftMeta"></div>
 </div>
+    
+<div class="winner-bg"></div>
 
 <div class="podium-wrapper" id="podium"></div>
 
@@ -505,6 +548,25 @@ if(unplayed.length>0){
 /* RANKING */
 let ranking=Object.keys(stats).map(n=>({name:n,...stats[n]}));
 ranking.sort((a,b)=>b.total-a.total);
+
+    /* ===== TŁO ZWYCIĘZCY ===== */
+
+if(ranking.length > 0){
+
+  const winner = ranking[0].name;
+  const draftId = draft.id;
+
+  const winnerBg = document.querySelector(".winner-bg");
+
+  const imagePath =
+    "assets/decks/" +
+    winner.toLowerCase().replace(/ /g,"").replace(/\./g,"") +
+    "_" + draftId + ".jpg";
+
+  winnerBg.style.backgroundImage = `url("${imagePath}")`;
+
+}
+    
 
 ranking.forEach((p,i)=>{
   document.querySelector("#rankingTable tbody").innerHTML+=`
