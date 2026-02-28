@@ -597,7 +597,15 @@ matches:[
         { p1: "Weregesu", p2: "Dawid ak. Void", pts1: 19, pts2: 6 },
         { p1: "Raciatek", p2: "Dawid ak. Void", pts1: 2, pts2: 23 },
         { p1: "Raciatek", p2: "Dejwidgakure", pts1: 1, pts2: 24 },
-        { p1: "Raciatek", p2: "Maniek", pts1: 20, pts2: 5 } 
+        { p1: "Raciatek", p2: "Maniek", pts1: 20, pts2: 5 },
+        { p1: "Dejwidgakure", p2: "Matixmgg", pts1: 25, pts2: 0 },
+        { p1: "Dejwidgakure", p2: "Weregesu", pts1: 0, pts2: 25 },
+        { p1: "Raciatek", p2: "Matixmgg", pts1: 25, pts2: 0 },
+        { p1: "Weregesu", p2: "Matixmgg", pts1: 4, pts2: 21 },
+        { p1: "Kmythic", p2: "Matixmgg", pts1: 25, pts2: 0 },
+        { p1: "Dawid ak. Void", p2: "Matixmgg", pts1: 2, pts2: 23 }
+        
+        
 ]
     }
 
