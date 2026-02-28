@@ -558,7 +558,7 @@ matches:[
         { name: "Budiso", deck: ["Clea","Bruce Banner","Merlin","Master Mold","Doctor Strange","Bishop","Silver Surfer First Steps","Gwenpool","Moon Girl","Silver Samurai","Professor X","Doctor Doom"] },
         { name: "Pluton32", deck: ["Sauron","Ghost-Spider","Vulture","Merlin","U.S. Agent","Brood","Nocturne","Prodigy","Dracula","Misery","Galactus","The Infinaut"] },
         { name: "Raciatek", deck: ["Agony","Fastball Special","Morbius","Lasher","The First Ghost Rider","Human Torch","Gambit","Silver Surfer First Steps","Cull Obsidian","Legion","Blob","Hulk"] },
-        { name: "Supcio", deck: ["Martyr","Domino","Toxin","Air-Walker","Debrii","Phastos","Sword Master","Anti-Venom","Crossbones","Black Bolt","Hobgoblin","Thanos"] },
+        { name: "Supcio", deck: ["Martyr","Domino","Carnage","Mojo","Debrii","Phastos","Sword Master","Sandman","Crossbones","Black Bolt","Hobgoblin","Thanos"] },
         { name: "Weregesu", deck: ["Arana","Nico Minoru","Squirrel Girl","Hydra Bob","Mister Sinister","Scarlet Witch","Colossus","Marvel Boy","Copycat","Redwing","Sword Master","Giganto"] },
         { name: "Matixmgg", deck: ["Vulture","Forge","Lockjaw","Domino","Brood","Human Torch First Steps","Black Widow","Gladiator","Jessica Jones","Laufey","Stardust","Hellion"] },
         { name: "FizjoRadek", deck: ["Elektra","Misty Knight","Victoria Hand","Jennifer Kale","Crystal","Kang The Conqueror","Zombie Scarlet Witch","Fan Fei","Negasonic Teenage Warhead","Anti-Venom","Cosmic Ghost Rider","Ajax"] },
