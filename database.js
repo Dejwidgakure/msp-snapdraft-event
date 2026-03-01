@@ -603,7 +603,8 @@ matches:[
         { p1: "Raciatek", p2: "Matixmgg", pts1: 25, pts2: 0 },
         { p1: "Weregesu", p2: "Matixmgg", pts1: 4, pts2: 21 },
         { p1: "Kmythic", p2: "Matixmgg", pts1: 25, pts2: 0 },
-        { p1: "Dawid ak. Void", p2: "Matixmgg", pts1: 2, pts2: 23 }
+        { p1: "Dawid ak. Void", p2: "Matixmgg", pts1: 2, pts2: 23 },
+        { p1: "Maniek", p2: "Matixmgg", pts1: 0, pts2: 25 }
         
         
 ]
