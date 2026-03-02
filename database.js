@@ -464,10 +464,10 @@ players:[
     ]
       },
 {name:"Budiso",deck:["Nova","Selene","Baron Mordo","Scarlet Witch","Electro","Strong Guy","Viper","Ka-Zar","Silver Samurai","Blink","Sersi","She-Hulk"]},
-{name:"kb",deck:[]},
-{name:"Killjoy",deck:[]},
-{name:"kolo313",deck:[]},
-{name:"LukeTrustsGod",deck:[]},
+{name:"kb",deck:["Kitty Pryde","Angel","Iron Fist","U.S. Agent","Cloak","Hit-Monkey","Rhino","Rock Slide","Attuma","Cannonball","Spider-Man 2099","Hulk"]},
+{name:"Killjoy",deck:["Hazmat","Cloak","Ironheart","Brood","Killmonger","Mister Negative","Wong","Valkyrie","Black Panther","Blink","Spectrum","Onslaught"]},
+{name:"kolo313",deck:["Sunspot","Scorpion","Storm","Cyclops","Spider-Man","Iron Lad","White Queen","Hell Cow","Sandman","Heimdall","She-Hulk","Magneto"]},
+{name:"LukeTrustsGod",deck:["The Hood","Quicksilver","Beast","Falcon","Thor","Viper","Mister Negative","Supergiant","Attuma","Abomination","Spider-Man 2099","Orka"]},
 {name:"Dejwidgakure",deck:[]},
 {name:"FizjoRadek",deck:[]}
 
