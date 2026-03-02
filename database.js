@@ -468,8 +468,8 @@ players:[
 {name:"Killjoy",deck:["Hazmat","Cloak","Ironheart","Brood","Killmonger","Mister Negative","Wong","Valkyrie","Black Panther","Blink","Spectrum","Onslaught"]},
 {name:"kolo313",deck:["Sunspot","Scorpion","Storm","Cyclops","Spider-Man","Iron Lad","White Queen","Hell Cow","Sandman","Heimdall","She-Hulk","Magneto"]},
 {name:"LukeTrustsGod",deck:["The Hood","Quicksilver","Beast","Falcon","Thor","Viper","Mister Negative","Supergiant","Attuma","Abomination","Spider-Man 2099","Orka"]},
-{name:"Dejwidgakure",deck:[]},
-{name:"FizjoRadek",deck:[]}
+{name:"Dejwidgakure",deck:["Yellowjacket","Hawkeye","Human Torch","Iron Fist","Snowguard","Falcon","Sage","Bishop","Nakia","Caiera","Jessica Jones","The Living Tribunal"]},
+{name:"FizjoRadek",deck:["Howard the Duck","Master Mold","Black Widow","Killmonger","Mobius M. Mobius","Moon Knight","Rescue","Phoenix Force","White Queen","Cannonball","Vision","Helicarrier"]}
 
 ],
 
