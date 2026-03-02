@@ -604,7 +604,10 @@ matches:[
         { p1: "Weregesu", p2: "Matixmgg", pts1: 4, pts2: 21 },
         { p1: "Kmythic", p2: "Matixmgg", pts1: 25, pts2: 0 },
         { p1: "Dawid ak. Void", p2: "Matixmgg", pts1: 2, pts2: 23 },
-        { p1: "Maniek", p2: "Matixmgg", pts1: 0, pts2: 25 }
+        { p1: "Maniek", p2: "Matixmgg", pts1: 0, pts2: 25 },
+        { p1: "Dejwidgakure", p2: "Budiso", pts1: 24, pts2: 1 },
+        { p1: "FizjoRadek", p2: "Matixmgg", pts1: 16, pts2: 9 },
+        { p1: "Budiso", p2: "Matixmgg", pts1: 8, pts2: 17 }
         
         
 ]
