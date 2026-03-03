@@ -607,8 +607,9 @@ matches:[
         { p1: "Maniek", p2: "Matixmgg", pts1: 0, pts2: 25 },
         { p1: "Dejwidgakure", p2: "Budiso", pts1: 24, pts2: 1 },
         { p1: "FizjoRadek", p2: "Matixmgg", pts1: 16, pts2: 9 },
-        { p1: "Budiso", p2: "Matixmgg", pts1: 8, pts2: 17 }
-        
+        { p1: "Budiso", p2: "Matixmgg", pts1: 8, pts2: 17 },
+        { p1: "Pluton32", p2: "Matixmgg", pts1: 2, pts2: 23 },
+        { p1: "FizjoRadek", p2: "Pluton32", pts1: 6, pts2: 19 }
         
 ]
     }
