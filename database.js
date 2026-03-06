@@ -535,7 +535,7 @@ matches:[
       id: 18,
       startDate: "2026-02-21",
       endDate: "2026-03-06",
-      mode: "Classic + Bany + Jokery",
+      mode: "Bany + Jokery + Save & Steal",
       presetCard: null,
       playersCount: 11,
       winner: null,
