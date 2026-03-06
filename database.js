@@ -609,7 +609,19 @@ matches:[
         { p1: "FizjoRadek", p2: "Matixmgg", pts1: 16, pts2: 9 },
         { p1: "Budiso", p2: "Matixmgg", pts1: 8, pts2: 17 },
         { p1: "Pluton32", p2: "Matixmgg", pts1: 2, pts2: 23 },
-        { p1: "FizjoRadek", p2: "Pluton32", pts1: 6, pts2: 19 }
+        { p1: "FizjoRadek", p2: "Pluton32", pts1: 6, pts2: 19 },
+        { p1: "Pluton32", p2: "Raciatek", pts1: 1, pts2: 24 },
+        { p1: "Dawid ak. Void", p2: "Supcio", pts1: 20, pts2: 0 },
+        { p1: "Dejwidgakure", p2: "Supcio", pts1: 20, pts2: 0 },
+        { p1: "Kmythic", p2: "Supcio", pts1: 20, pts2: 0 },
+        { p1: "Raciatek", p2: "Supcio", pts1: 20, pts2: 0 },
+        { p1: "Pluton32", p2: "Supcio", pts1: 20, pts2: 0 },
+        { p1: "Maniek", p2: "Supcio", pts1: 23, pts2: 0 },
+        { p1: "Budiso", p2: "Supcio", pts1: 20, pts2: 0 },
+        { p1: "Matixmgg", p2: "Supcio", pts1: 20, pts2: 0 },
+        { p1: "Weregesu", p2: "Supcio", pts1: 20, pts2: 0 },
+        { p1: "FizjoRadek", p2: "Supcio", pts1: 20, pts2: 0 },
+        { p1: "Budiso", p2: "Pluton32", pts1: 0, pts2: 0 }
         
 ]
     }
