@@ -109,6 +109,7 @@ const cardDatabase = [
   { name: "Elsa Bloodstone", cost: 3, power: 5, tags: [] },
   { name: "Emperor Hulkling", cost: 6, power: 12, tags: [] },
   { name: "Enchantress", cost: 5, power: 8, tags: [] },
+  { name: "En Sbah Nur", cost: 4, power: 5, tags: [] },
   { name: "Esme Cuckoo", cost: 3, power: 4, tags: [] },
   { name: "Eson", cost: 6, power: 10, tags: [] },
   { name: "Ezekiel Sims", cost: 2, power: 2, tags: [] },
@@ -172,7 +173,8 @@ const cardDatabase = [
   { name: "Iron Lad", cost: 4, power: 7, tags: [] },
   { name: "Iron Man", cost: 5, power: 0, tags: [] },
   { name: "Iron Patriot", cost: 2, power: 3, tags: [] },
-  { name: "Ironheart", cost: 4, power: 3, tags: [] },
+  { name: "Ironheart", cost: 3, power: 0, tags: [] },
+  { name: "Isca the Unbeaten", cost: 4, power: 3, tags: [] },
   { name: "Jane Foster", cost: 5, power: 9, tags: [] },
   { name: "Jack Flag", cost: 3, power: 3, tags: [] },
   { name: "Jean Grey", cost: 3, power: 4, tags: [] },
@@ -184,6 +186,7 @@ const cardDatabase = [
   { name: "Jocasta", cost: 3, power: 3, tags: [] },
   { name: "Jubilee", cost: 4, power: 1, tags: [] },
   { name: "Juggernaut", cost: 4, power: 5, tags: [] },
+  { name: "Juggernaut Horseman of War", cost: 2, power: 2, tags: [] },
   { name: "Ka-Zar", cost: 4, power: 5, tags: [] },
   { name: "Kahhori", cost: 4, power: 6, tags: [] },
   { name: "Kang", cost: 3, power: 4, tags: [] },
@@ -435,5 +438,3 @@ const cardDatabase = [
   { name: "Zombie Scarlet Witch", cost: 3, power: 4, tags: [] },
   { name: "Zombie Sentry", cost: 3, power: 4, tags: [] },
 ];
-
-const cards = cardDatabase.map(c => c.name);
