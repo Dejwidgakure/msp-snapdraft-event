@@ -621,7 +621,7 @@ matches:[
         { p1: "Matixmgg", p2: "Supcio", pts1: 20, pts2: 0 },
         { p1: "Weregesu", p2: "Supcio", pts1: 20, pts2: 0 },
         { p1: "FizjoRadek", p2: "Supcio", pts1: 20, pts2: 0 },
-        { p1: "Budiso", p2: "Pluton32", pts1: 1, pts2: 1 }
+        { p1: "Budiso", p2: "Pluton32", pts1: 0, pts2: 0 }
         
 ]
     }
