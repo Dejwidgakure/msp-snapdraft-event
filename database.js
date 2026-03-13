@@ -625,7 +625,35 @@ matches:[
         
 ]
 
-      }
+      },
+    {
+      id: 19,
+      startDate: "2026-03-06",
+      endDate: "2026-03-20",
+      mode: "Poker Draft",
+      presetCard: null,
+      playersCount: 10,
+      winner: null,
+      bans: [],
+
+      players: [
+        { name: "Dejwidgakure", deck: ["Sam Wilson Captain America","Speed","Miles Morales Spider-Man","Mister Fantastic First Steps","Web Sling","Thor","Maria Hill","Aurora","Superior Spider-Man","Hit-Monkey","Gilgamesh","Zombie Mister Fantastic"] },
+        { name: "Raciatek", deck: ["Killmonger","Terrax the Tamer","Sabretooth","Khonshu","Gwenpool","Firehair","The Hood","Silk","Knull","Gambit","Silver Surfer First Steps","Uncle Ben"] },
+        { name: "Dawid ak. Void", deck: ["Dazzler","Titania","Infinity Ultron","Blue Marvel","Sentinel","Captain America","Human Torch First Steps","Baron Zemo","Polaris","Kitty Pryde","America Chavez","Diamondback"] },
+        { name: "Supcio", deck: ["Orka","Mister Fantastic First Steps","Sam Wilson Captain America","Hydra Bob","Fan Fei","Surtur","Silver Surfer","Dazzler","Kitty Pryde","Namora","Mister Sinister","Captain America"] },
+        { name: "Jacusinski", deck: ["Daredevil","Rogue","Gamora","Majestic Wingbeat","Shuri","Snowguard","Major Victory","Negasonic Teenage Warhead","Silver Surfer First Steps","Sandman","Magus","H.E.R.B.I.E."] },
+        { name: "Weregesu", deck: ["Angela","Supergiant","Black Bolt","Lockjaw","Giganto","Warpath","Stature","Hulkbuster","Kitty Pryde","Thena","Laufey","Stegron"] },
+        { name: "Budiso", deck: ["Leader","Sparky","Black Bolt","Odin","Ms. Marvel","Cobra","Batroc the Leaper","Hulkbuster","Mantis","Wolfsbane","Agent Coulson","Cloak"] },
+        { name: "Pluton32", deck: ["Knull","White Widow","The Living Tribunal","Mystique","Cannonball","Dragon Lord","Quicksilver","Jubilee","Warlock","Spider-Woman","Agony","Omega Red"] },
+        { name: "Maniek", deck: ["Selene","Rogue","Legion","Grand Master","The Infinaut","Dragon Lord","Skaar","Zombie Giant-Man","Iron Lad","Zombie Scarlet Witch","Majestic Wingbeat","Hazmat"] },
+        { name: "Kmythic", deck: ["Captain Carter","Lady Sif","Khonshu","White Queen","Zombie Power Man","M.O.D.O.K.","Chamber","Gambit","Morbius","Helicarrier","Silver Samurai","Thaddeus Ross"] }
+      ],
+
+      matches: [{"p1":"Dejwidgakure","p2":"Maniek","pts1":24,"pts2":1},{"p1":"Kmythic","p2":"Raciatek","pts1":19,"pts2":6},{"p1":"Raciatek","p2":"Maniek","pts1":23,"pts2":2},
+               {"p1":"Kmythic","p2":"Maniek","pts1":20,"pts2":5},{"p1":"Weregesu","p2":"Kmythic","pts1":17,"pts2":8},{"p1":"Maniek","p2":"Weregesu","pts1":17,"pts2":8},{"p1":"Weregesu","p2":"Raciatek","pts1":19,"pts2":6},
+               {"p1":"Maniek","p2":"Budiso","pts1":22,"pts2":3}
+               ]
+    }
     
 
   ]
