@@ -635,16 +635,7 @@ matches:[
       playersCount: 10,
       winner: null,
       bans: [
-        "Arishem",
-        "Shang-Chi",
-        "Cosmo",
-        "Echo",
-        "Fin Fang Foom",
-        "Hela",
-        "Klaw",
-        "Shadow King",
-        "Shou-Lao the Undying",
-        "Star-Lord, Master of the Sun"
+  
       ],
 
       players: [
