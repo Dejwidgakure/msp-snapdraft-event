@@ -651,7 +651,7 @@ matches:[
 
       matches: [{"p1":"Dejwidgakure","p2":"Maniek","pts1":24,"pts2":1},{"p1":"Kmythic","p2":"Raciatek","pts1":19,"pts2":6},{"p1":"Raciatek","p2":"Maniek","pts1":23,"pts2":2},
                {"p1":"Kmythic","p2":"Maniek","pts1":20,"pts2":5},{"p1":"Weregesu","p2":"Kmythic","pts1":17,"pts2":8},{"p1":"Maniek","p2":"Weregesu","pts1":17,"pts2":8},{"p1":"Weregesu","p2":"Raciatek","pts1":19,"pts2":6},
-               {"p1":"Maniek","p2":"Budiso","pts1":22,"pts2":3}
+               {"p1":"Maniek","p2":"Budiso","pts1":22,"pts2":3},{"p1":"Dejwidgakure","p2":"Weregesu","pts1":25,"pts2":0}
                ]
     }
     
