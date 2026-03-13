@@ -628,12 +628,12 @@ matches:[
       },
     {
       id: 19,
-      startDate: "2026-02-21",
-      endDate: "2026-03-06",
-      mode: "Bany + Jokery + Save & Steal",
+      startDate: "2026-03-06",
+      endDate: "2026-03-20",
+      mode: "Poker Draft",
       presetCard: null,
-      playersCount: 11,
-      winner: "Kmythic",
+      playersCount: 10,
+      winner: null,
       bans: [
         "Arishem",
         "Shang-Chi",
