@@ -652,8 +652,7 @@ matches:[
       ],
 
       matches: [
-        { p1: "Dejwidgakure", p2: "Maniek", pts1: 24, pts2: 1 },
-        { p1: "Kmythic", p2: "Raciatek", pts1: 19, pts2: 6 },
+        {"p1":"Dejwidgakure","p2":"Maniek","pts1":24,"pts2":1},{"p1":"Kmythic","p2":"Raciatek","pts1":19,"pts2":6},{"p1":"Raciatek","p2":"Maniek","pts1":23,"pts2":2},
         
      
         
