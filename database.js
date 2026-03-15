@@ -655,6 +655,8 @@ matches:[
                 {"p1":"Dejwidgakure","p2":"Kmythic","pts1":20,"pts2":5},{"p1":"Supcio","p2":"Kmythic","pts1":19,"pts2":6},{"p1":"Supcio","p2":"Maniek","pts1":25,"pts2":0},
                 {"p1":"Supcio","p2":"Raciatek","pts1":16,"pts2":9},{"p1":"Supcio","p2":"Weregesu","pts1":20,"pts2":5},{"p1":"Supcio","p2":"Jacusinski","pts1":4,"pts2":21},
                 {"p1":"Weregesu","p2":"Jacusinski","pts1":23,"pts2":2},{"p1":"Maniek","p2":"Jacusinski","pts1":1,"pts2":24},{"p1":"Pluton32","p2":"Maniek","pts1":21,"pts2":4},
+                {"p1":"Kmythic","p2":"Budiso","pts1":25,"pts2":0},{"p1":"Raciatek","p2":"Budiso","pts1":21,"pts2":4},
+                {"p1":"Weregesu","p2":"Pluton32","pts1":25,"pts2":0}, {"p1":"Weregesu","p2":"Budiso","pts1":2,"pts2":23},
                 {"p1":"Raciatek","p2":"Pluton32","pts1":21,"pts2":4},{"p1":"Supcio","p2":"Budiso","pts1":20,"pts2":5},{"p1":"Dejwidgakure","p2":"Pluton32","pts1":24,"pts2":1}
                ]
     }
