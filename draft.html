@@ -292,6 +292,90 @@ text-shadow:0 0 10px #8a2be2;
     border-radius:8px;
     text-align:center;
 }
+
+    /* JEFF ZOOM BUTTON */
+
+.deck-zoom-btn{
+position:absolute;
+bottom:10px;
+right:10px;
+
+width:42px;
+height:42px;
+
+cursor:pointer;
+z-index:5;
+}
+
+.deck-zoom-btn img{
+width:100%;
+transition:0.25s;
+
+filter:
+drop-shadow(0 0 6px #00f0ff)
+drop-shadow(0 0 10px #8a2be2);
+}
+
+.deck-zoom-btn:hover img{
+
+transform:scale(1.2) rotate(6deg);
+
+filter:
+drop-shadow(0 0 10px #00f0ff)
+drop-shadow(0 0 25px #8a2be2)
+drop-shadow(0 0 40px #8a2be2);
+
+}
+
+    /* ZOOM MODAL */
+
+.deckZoomOverlay{
+
+position:fixed;
+inset:0;
+
+background:rgba(0,0,40,0.9);
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+z-index:9999;
+
+}
+
+.deckZoomModal img{
+
+width:520px;
+
+border-radius:18px;
+
+box-shadow:
+0 0 20px #00f0ff,
+0 0 40px #00f0ff,
+0 0 70px #8a2be2;
+
+animation:neonPulse 1.2s infinite alternate;
+
+}
+
+@keyframes neonPulse{
+
+0%{
+box-shadow:
+0 0 20px #00f0ff,
+0 0 40px #00f0ff,
+0 0 70px #8a2be2;
+}
+
+100%{
+box-shadow:
+0 0 30px #00f0ff,
+0 0 60px #00f0ff,
+0 0 120px #8a2be2;
+}
+
+}
     
 .deck-card img{
 
@@ -892,6 +976,97 @@ function getUnplayedMatches(draft){
 
     return missing;
 }
+
+    function openDeckZoom(imgSrc){
+
+const overlay = document.createElement("div");
+overlay.className="deckZoomOverlay";
+
+overlay.innerHTML=`
+<div class="deckZoomModal">
+<img src="${imgSrc}">
+</div>
+`;
+
+overlay.onclick=()=>{
+document.body.removeChild(overlay);
+};
+
+document.body.appendChild(overlay);
+
+}
+
+    /* ========================= */
+/* JEFF ZOOM SYSTEM */
+/* ========================= */
+
+function openDeckZoom(imgSrc){
+
+const overlay = document.createElement("div");
+overlay.style.position="fixed";
+overlay.style.inset="0";
+overlay.style.background="rgba(0,0,40,0.9)";
+overlay.style.display="flex";
+overlay.style.justifyContent="center";
+overlay.style.alignItems="center";
+overlay.style.zIndex="9999";
+
+overlay.innerHTML=`
+<img src="${imgSrc}" style="
+width:520px;
+border-radius:18px;
+box-shadow:
+0 0 20px #00f0ff,
+0 0 40px #00f0ff,
+0 0 70px #8a2be2;
+">
+`;
+
+overlay.onclick=()=>{
+document.body.removeChild(overlay);
+};
+
+document.body.appendChild(overlay);
+
+}
+
+
+/* automatyczne dodanie Jeffa do decków */
+
+setTimeout(()=>{
+
+document.querySelectorAll(".deck-card > img")
+
+const btn=document.createElement("img");
+
+btn.src="assets/jefflupa.png";
+
+btn.style.position="absolute";
+btn.style.width="40px";
+btn.style.bottom="10px";
+btn.style.right="10px";
+btn.style.cursor="pointer";
+btn.style.filter="drop-shadow(0 0 8px #00f0ff)";
+
+btn.onmouseenter=()=>{
+btn.style.transform="scale(1.2)";
+};
+
+btn.onmouseleave=()=>{
+btn.style.transform="scale(1)";
+};
+
+btn.onclick=(e)=>{
+e.stopPropagation();
+openDeckZoom(deckImg.src);
+};
+
+deckImg.parentElement.style.position="relative";
+deckImg.parentElement.appendChild(btn);
+
+});
+
+},500);
     
 initDeckBuilder();
     
