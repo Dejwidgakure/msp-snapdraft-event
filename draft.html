@@ -377,7 +377,7 @@ box-shadow:
 
 }
     
-.deck-card img{
+.deck-card > img{
 
 display:block;
 
@@ -450,6 +450,15 @@ textarea{
 .decks-section{
     position:relative;
     z-index:2;
+}
+@keyframes rainbowPlus{
+
+0%{ color:#00f0ff; text-shadow:0 0 10px #00f0ff;}
+25%{ color:#ff00ff; text-shadow:0 0 10px #ff00ff;}
+50%{ color:#8a2be2; text-shadow:0 0 10px #8a2be2;}
+75%{ color:#00ff88; text-shadow:0 0 10px #00ff88;}
+100%{ color:#00f0ff; text-shadow:0 0 10px #00f0ff;}
+
 }
 </style>
 </head>
@@ -1011,13 +1020,13 @@ btn.src = "assets/jefflupa.png";
 btn.style.position = "absolute";
 btn.style.bottom = "10px";
 btn.style.right = "10px";
-btn.style.width = "40px";
+btn.style.width = "70px";
 btn.style.cursor = "pointer";
-btn.style.filter = "drop-shadow(0 0 10px #00f0ff)";
+btn.style.filter = "drop-shadow(0 0 15px #00f0ff)";
 btn.style.transition = "0.2s";
 
 btn.onmouseenter = () => {
-btn.style.transform = "scale(1.2)";
+btn.style.transform = "scale(1.25) rotate(-5deg)";
 };
 
 btn.onmouseleave = () => {
@@ -1056,6 +1065,23 @@ document.body.appendChild(overlay);
 };
 
 card.appendChild(btn);
+
+    const plus = document.createElement("div");
+
+plus.innerHTML = "+";
+
+plus.style.position = "absolute";
+plus.style.bottom = "40px";
+plus.style.right = "5px";
+
+plus.style.fontSize = "26px";
+plus.style.fontWeight = "bold";
+
+plus.style.fontFamily = "Orbitron";
+
+plus.style.animation = "rainbowPlus 1.2s infinite";
+
+card.appendChild(plus);
 
 });
 
