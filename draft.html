@@ -1062,42 +1062,7 @@ card.appendChild(btn);
 });
 
 
-/* automatyczne dodanie Jeffa do decków */
 
-setTimeout(()=>{
-
-document.querySelectorAll(".deck-card > img")
-
-const btn=document.createElement("img");
-
-btn.src="assets/jefflupa.png";
-
-btn.style.position="absolute";
-btn.style.width="40px";
-btn.style.bottom="10px";
-btn.style.right="10px";
-btn.style.cursor="pointer";
-btn.style.filter="drop-shadow(0 0 8px #00f0ff)";
-
-btn.onmouseenter=()=>{
-btn.style.transform="scale(1.2)";
-};
-
-btn.onmouseleave=()=>{
-btn.style.transform="scale(1)";
-};
-
-btn.onclick=(e)=>{
-e.stopPropagation();
-openDeckZoom(deckImg.src);
-};
-
-deckImg.parentElement.style.position="relative";
-deckImg.parentElement.appendChild(btn);
-
-});
-
-},500);
     
 initDeckBuilder();
     
