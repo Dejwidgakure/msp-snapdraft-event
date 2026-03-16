@@ -16,41 +16,33 @@ body{
     color:white;
 }
 
- .winner-bg{
+    .winner-bg{
+    position:absolute;
+    top:260px;
+    left:50%;
+    transform:translateX(-50%);
+    width:1100px;
+    height:650px;
 
-position:absolute;
+    opacity:0.30;
+    filter:blur(3px);
 
-top:420px;
-left:50%;
-transform:translateX(-50%);
+    z-index:0;
 
-width:700px;
-height:380px;
+    border-radius: 50% / 35%;
+    );
 
-opacity:0.45;
-filter:blur(2px);
+    animation: deckFloat 18s ease-in-out infinite alternate;
 
-z-index:0;
-
-border-radius:50% / 35%;
-
-animation:deckFloat 18s ease-in-out infinite alternate;
-
-background-position:center;
-background-size:cover;
-background-repeat:no-repeat;
-
+    background-position:center;
+    background-size:cover;
+    background-repeat:no-repeat;
 }
 
-    @keyframes deckFloat{
-0%{
-transform:translateX(-50%) translateY(0px);
+@keyframes deckFloat{
+    0%{ transform:translateX(-50%) translateY(0px); }
+    100%{ transform:translateX(-50%) translateY(-35px); }
 }
-100%{
-transform:translateX(-50%) translateY(-30px);
-}
-}
-    
 /* NAV */
 nav{
     display:flex;
@@ -95,139 +87,45 @@ nav a{
 #prevDraft{ left:20px; }
 #nextDraft{ right:20px; }
 
-    
-..header{
-text-align:center;
-padding:30px 20px 10px 20px;
-
-max-width:900px;
-margin:auto;
-
-position:relative;
-z-index:5;
-
-
-background:linear-gradient(
-to bottom,
-rgba(0,0,20,0.85),
-rgba(0,0,20,0.65),
-rgba(0,0,20,0)
-);
-
-backdrop-filter:blur(2px);
-}
 /* HEADER */
-.header h1{
+.header{
+    text-align:center;
+    padding:30px 20px 10px 20px;
 
-font-family:'Orbitron', sans-serif;
-font-size:90px;
-font-weight:900;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,20,0.85),
+        rgba(0,0,20,0.65),
+        rgba(0,0,20,0)
+    );
 
-margin:0 auto;
-
-letter-spacing:4px;
-
-text-transform:uppercase;
-
-background-image:url("assets/galaxytool.png");
-background-size:200%;
-background-position:center;
-
--webkit-background-clip:text;
-background-clip:text;
-
-color:transparent;
-
-text-shadow:
-0 0 6px var(--color1),
-0 0 18px var(--color1),
-0 0 40px var(--color2);
-
-animation:
-neonShift 6s infinite linear,
-cosmicShimmer 8s infinite linear;
--webkit-text-stroke:1px rgba(120,200,255,0.6);
-background-origin:border-box;
-background-clip:text, border-box;
-
-}
-
-   @keyframes neonShift{
-
-0%{
-text-shadow:
-0 0 6px var(--color1),
-0 0 20px var(--color1),
-0 0 40px var(--color2);
-}
-
-50%{
-text-shadow:
-0 0 10px var(--color2),
-0 0 30px var(--color2),
-0 0 50px var(--color1);
-}
-
-100%{
-text-shadow:
-0 0 6px var(--color1),
-0 0 20px var(--color1),
-0 0 40px var(--color2);
-}
-
-}
-
-@keyframes cosmicShimmer{
-
-0%{
-background-position:0% 50%;
-}
-
-50%{
-background-position:100% 50%;
-}
-
-100%{
-background-position:0% 50%;
-}
-
-}
-
-
-
-
-
+    backdrop-filter: blur(2px);
 }
 .header img{
-
-height:70px;
-max-height:70px;
-width:auto;
-
-display:block;
-margin:0 auto 25px auto;
-
-filter:
-drop-shadow(0 0 20px #00f0ff)
-drop-shadow(0 0 40px #8a2be2);
-
+    height:180px;
+    display:block;
+    margin:0 auto 20px;
+    filter:drop-shadow(0 0 40px #00f0ff);
 }
+..header h1{
+    font-family:'Orbitron', sans-serif;
+    font-size:72px;
+    font-weight:900;
+    margin:0;
+    letter-spacing:3px;
+    color:#ffffff;
 
-    .cosmic-title{
-
-background-image:url("assets/cosmic_tlo.png");
-background-size:cover;
-background-position:center;
-
--webkit-background-clip:text;
-background-clip:text;
-
+    text-shadow:
+        0 0 10px #ffffff,
+        0 0 25px #00f0ff,
+        0 0 45px #00f0ff,
+        0 0 70px #8a2be2,
+        0 0 120px #8a2be2;
 }
 .meta{
-margin-top:15px;
-opacity:0.9;
-line-height:1.6;
-text-align:center;
+    margin-top:15px;
+    opacity:0.9;
+    line-height:1.6;
 }
 
 /* PURPLE HEADER GLOW */
@@ -652,28 +550,6 @@ if(!draft){
 
 /* META */
 document.getElementById("draftTitle").textContent = "DRAFT " + draft.id;
-    const colorPairs = [
-
-["#00f0ff","#8a2be2"],
-["#ff00ff","#00f0ff"],
-["#00ff88","#00f0ff"],
-["#ff8800","#ff00ff"],
-["#ff0066","#ffcc00"],
-["#00ffff","#8a2be2"],
-["#7d5cff","#00f0ff"],
-["#ff3cac","#784ba0"],
-["#43e97b","#38f9d7"]
-
-];
-
-const pair = colorPairs[Math.floor(Math.random()*colorPairs.length)];
-
-const title = document.getElementById("draftTitle");
-
-title.classList.add("cosmic-title");
-
-title.style.setProperty("--color1", pair[0]);
-title.style.setProperty("--color2", pair[1]);
 
 let metaText = `Tryb: ${draft.mode}<br>`;
 if(draft.startDate) metaText += `${draft.startDate}`;
