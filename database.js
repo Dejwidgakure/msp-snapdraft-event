@@ -488,7 +488,7 @@ matches:[
 { p1:"Dawid ak. Void", p2:"99iant", pts1:21, pts2:4 },
 { p1:"Dawid ak. Void", p2:"Budiso", pts1:24, pts2:1 },
 { p1:"kb", p2:"Dawid ak. Void", pts1:16, pts2:9 },
-{ p1:"Killjoy", p2:"Dawid ak. Void", pts1:21, pts2:4 },
+{ p1:"Killjoy", p2:"Dawid ak. Void", pts1:4, pts2:21 },
 { p1:"kolo313", p2:"Dawid ak. Void", pts1:18, pts2:7 },
 { p1:"LukeTrustsGod", p2:"Dawid ak. Void", pts1:18, pts2:7 },
 { p1:"Dejwidgakure", p2:"Dawid ak. Void", pts1:22, pts2:3 },
