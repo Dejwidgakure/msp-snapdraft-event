@@ -20,17 +20,17 @@ body{
 
 position:absolute;
 
-top:330px;
+top:420px;
 left:50%;
 transform:translateX(-50%);
 
-width:650px;
-height:360px;
+width:700px;
+height:380px;
 
-opacity:0.22;
-filter:blur(3px);
+opacity:0.45;
+filter:blur(2px);
 
-z-index:1;
+z-index:0;
 
 border-radius:50% / 35%;
 
@@ -96,12 +96,16 @@ nav a{
 #nextDraft{ right:20px; }
 
     
-.header{
+..header{
 text-align:center;
 padding:30px 20px 10px 20px;
 
+max-width:900px;
+margin:auto;
+
 position:relative;
 z-index:5;
+
 
 background:linear-gradient(
 to bottom,
@@ -195,14 +199,18 @@ background-position:0% 50%;
 
 }
 .header img{
-height:75px;
+
+height:70px;
+max-height:70px;
 width:auto;
+
 display:block;
 margin:0 auto 25px auto;
 
 filter:
 drop-shadow(0 0 20px #00f0ff)
 drop-shadow(0 0 40px #8a2be2);
+
 }
 
     .cosmic-title{
