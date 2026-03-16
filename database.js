@@ -522,7 +522,7 @@ matches:[
 
 { p1:"LukeTrustsGod", p2:"kolo313", pts1:7, pts2:18 },
 { p1:"Dejwidgakure", p2:"kolo313", pts1:19, pts2:6 },
-{ p1:"FizjoRadek", p2:"kolo313", pts1:19, pts2:6 },
+{ p1:"FizjoRadek", p2:"kolo313", pts1:6, pts2:19 },
 
 { p1:"Dejwidgakure", p2:"LukeTrustsGod", pts1:23, pts2:2 },
 { p1:"LukeTrustsGod", p2:"FizjoRadek", pts1:6, pts2:19 },
