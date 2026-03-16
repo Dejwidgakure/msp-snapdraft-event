@@ -532,6 +532,56 @@ matches:[
 ]
 },
     {
+      id: 4,
+      startDate: "2026-02-21",
+      endDate: "2026-03-06",
+      mode: "Classic + Bany",
+      presetCard: null,
+      playersCount: 7,
+      winner: "Dejwidgakure",
+      bans: [
+        "Arishem",
+        "Loki",
+        "Kang"
+        
+      ],
+
+      players: [
+        { name: "Dejwidgakure", deck: ["Ant-Man","Nightcrawler","Pixie","Quake","Maximus","Mystique","Cyclops","Super Skrull","Ms. Marvel","Beta Ray Bill","Ronan","Thor"] },
+        { name: "Dawid ak. Void", deck: ["America Chavez","Misty Knight","Uatu","Pixie","Elsa Bloodstone","Kazar","Adam Warlock","Sasquatch","Invisible Woman","Captain America","Thanos","The Infinaut"] },
+        { name: "Hardkor", deck: ["Maria Hill","Quinjet","Zabu","Rock Slide","Lady Silk","Rescure","Captain Marvel","Man-Thing","Omega Red","Beta Ray Bill","Spider-Woman","Heimdall"] },
+        { name: "99iant", deck: ["Hawkaye","Iron Fist","Korg","Baron Mordo","Quake","Storm","Spider-Man","Mockingbird","Darkhawk","Annihilus","Modok","Doctor Doom"] },
+        { name: "LukeTrustsGod", deck: ["Spider-Ham","Elektra","Zero","Beast","Ghost","Omega Red","Typhoid Mary","Sandman","Mojo","Green Goblin","Blob","Giganto"] },
+        { name: "Killjoy", deck: ["Yondu","Bucky Barnes","Shadow King","Multiple Man","Magik","Gambit","Venom","Viper","Phoenix Force","Knull","Orka","Death"] },
+        { name: "FizjoRadek", deck: ["Rocket Raccon","Ebony Maw","Grand Master","Mojo","Electro","Absorbing Man","Captain Marvel","White Queen","Wolverine","Cloak","Hobgoblin","Black Panther"] },
+      ],
+
+      matches: [
+        { p1: "Dejwidgakure", p2: "99iant", pts1: 18, pts2: 7 },
+        { p1: "Dejwidgakure", p2: "Dawid ak. Void", pts1: 18, pts2: 7 },
+        { p1: "Dawid ak. Void", p2: "99iant", pts1: 7, pts2: 18 },
+        { p1: "Hardkor", p2: "99iant", pts1: 14, pts2: 11 },
+        { p1: "Dawid ak. Void", p2: "Hardkor", pts1: 7, pts2: 18 },
+        { p1: "Hardkor", p2: "FizjoRadek", pts1: 8, pts2: 17 },
+        { p1: "99iant", p2: "Killjoy", pts1: 11, pts2: 14 },
+        { p1: "FizjoRadek", p2: "99iant", pts1: 20, pts2: 5 },
+        { p1: "99iant", p2: "LukeTrustsGod", pts1: 20, pts2: 5 },
+        { p1: "FizjoRadek", p2: "Dawid ak. Void", pts1: 16, pts2: 9 },
+        { p1: "Hardkor", p2: "Killjoy", pts1: 22, pts2: 3 },
+        { p1: "Hardkor", p2: "LukeTrustsGod", pts1: 18, pts2: 7 },
+        { p1: "Hardkor", p2: "Dejwidgakure", pts1: 18, pts2: 7 },
+        { p1: "FizjoRadek", p2: "Killjoy", pts1: 6, pts2: 19 },
+        { p1: "FizjoRadek", p2: "LukeTrustsGod", pts1: 8, pts2: 17 },
+        { p1: "Killjoy", p2: "LukeTrustsGod", pts1: 11, pts2: 14 },
+        { p1: "Dejwidgakure", p2: "Killjoy", pts1: 21, pts2: 4 },
+        { p1: "Killjoy", p2: "Dawid ak. Void", pts1: 6, pts2: 19 },
+        { p1: "LukeTrustsGod", p2: "Dejwidgakure", pts1: 6, pts2: 19 },
+        { p1: "LukeTrustsGod", p2: "Dawid ak. Void", pts1: 20, pts2: 5 },
+        { p1: "Dejwidgakure", p2: "FizjoRadek", pts1: 21, pts2: 4 }
+        
+]
+        },
+    {
       id: 18,
       startDate: "2026-02-21",
       endDate: "2026-03-06",
