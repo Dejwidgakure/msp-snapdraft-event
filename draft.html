@@ -19,12 +19,13 @@ body{
     .winner-bg{
 
 position:absolute;
-top:260px;
+
+top:430px;
 left:50%;
 transform:translateX(-50%);
 
-width:700px;
-height:420px;
+width:650px;
+height:360px;
 
 opacity:0.22;
 filter:blur(3px);
@@ -39,11 +40,6 @@ background-position:center;
 background-size:cover;
 background-repeat:no-repeat;
 
-}
-
-@keyframes deckFloat{
-    0%{ transform:translateX(-50%) translateY(0px); }
-    100%{ transform:translateX(-50%) translateY(-35px); }
 }
 /* NAV */
 nav{
@@ -205,11 +201,14 @@ text-shadow:
 
 }
 .header img{
-height:130px;
-max-width:320px;
+height:95px;
+width:auto;
 display:block;
-margin:0 auto 20px;
-filter:drop-shadow(0 0 40px #00f0ff);
+margin:0 auto 25px auto;
+
+filter:
+drop-shadow(0 0 20px #00f0ff)
+drop-shadow(0 0 40px #8a2be2);
 }
 
     .cosmic-title{
@@ -653,12 +652,15 @@ if(!draft){
 document.getElementById("draftTitle").textContent = "DRAFT " + draft.id;
     const colorPairs = [
 
-["#ff00ff","#ff0055"],
-["#8a2be2","#00f0ff"],
-["#00f0ff","#00ff88"],
+["#00f0ff","#8a2be2"],
+["#ff00ff","#00f0ff"],
+["#00ff88","#00f0ff"],
 ["#ff8800","#ff00ff"],
 ["#ff0066","#ffcc00"],
-["#00ffff","#8a2be2"]
+["#00ffff","#8a2be2"],
+["#7d5cff","#00f0ff"],
+["#ff3cac","#784ba0"],
+["#43e97b","#38f9d7"]
 
 ];
 
