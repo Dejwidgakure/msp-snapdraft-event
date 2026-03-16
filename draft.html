@@ -30,7 +30,7 @@ body{
     z-index:0;
 
     border-radius: 50% / 35%;
-    );
+   
 
     animation: deckFloat 18s ease-in-out infinite alternate;
 
@@ -88,18 +88,58 @@ nav a{
 #nextDraft{ right:20px; }
 
 /* HEADER */
-.header{
-    text-align:center;
-    padding:30px 20px 10px 20px;
+.header h1{
 
-    background: linear-gradient(
-        to bottom,
-        rgba(0,0,20,0.85),
-        rgba(0,0,20,0.65),
-        rgba(0,0,20,0)
-    );
+font-family:'Orbitron', sans-serif;
+font-size:110px;
+font-weight:900;
 
-    backdrop-filter: blur(2px);
+margin:0;
+
+letter-spacing:4px;
+
+text-transform:uppercase;
+
+background-size:cover;
+background-position:center;
+
+-webkit-background-clip:text;
+background-clip:text;
+
+color:transparent;
+
+animation:neonShift 6s infinite linear;
+
+}
+
+    @keyframes neonShift{
+
+0%{
+text-shadow:
+0 0 10px var(--color1),
+0 0 30px var(--color1),
+0 0 60px var(--color2),
+0 0 120px var(--color2);
+}
+
+50%{
+text-shadow:
+0 0 15px var(--color2),
+0 0 40px var(--color2),
+0 0 80px var(--color1),
+0 0 140px var(--color1);
+}
+
+100%{
+text-shadow:
+0 0 10px var(--color1),
+0 0 30px var(--color1),
+0 0 60px var(--color2),
+0 0 120px var(--color2);
+}
+
+
+
 }
 .header img{
     height:180px;
@@ -107,20 +147,16 @@ nav a{
     margin:0 auto 20px;
     filter:drop-shadow(0 0 40px #00f0ff);
 }
-..header h1{
-    font-family:'Orbitron', sans-serif;
-    font-size:72px;
-    font-weight:900;
-    margin:0;
-    letter-spacing:3px;
-    color:#ffffff;
 
-    text-shadow:
-        0 0 10px #ffffff,
-        0 0 25px #00f0ff,
-        0 0 45px #00f0ff,
-        0 0 70px #8a2be2,
-        0 0 120px #8a2be2;
+    .cosmic-title{
+
+background-image:url("assets/cosmic_tlo.png");
+background-size:cover;
+background-position:center;
+
+-webkit-background-clip:text;
+background-clip:text;
+
 }
 .meta{
     margin-top:15px;
@@ -550,6 +586,25 @@ if(!draft){
 
 /* META */
 document.getElementById("draftTitle").textContent = "DRAFT " + draft.id;
+    const colorPairs = [
+
+["#ff00ff","#ff0055"],
+["#8a2be2","#00f0ff"],
+["#00f0ff","#00ff88"],
+["#ff8800","#ff00ff"],
+["#ff0066","#ffcc00"],
+["#00ffff","#8a2be2"]
+
+];
+
+const pair = colorPairs[Math.floor(Math.random()*colorPairs.length)];
+
+const title = document.getElementById("draftTitle");
+
+title.classList.add("cosmic-title");
+
+title.style.setProperty("--color1", pair[0]);
+title.style.setProperty("--color2", pair[1]);
 
 let metaText = `Tryb: ${draft.mode}<br>`;
 if(draft.startDate) metaText += `${draft.startDate}`;
