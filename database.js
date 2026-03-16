@@ -533,8 +533,8 @@ matches:[
 },
     {
       id: 4,
-      startDate: "2026-02-21",
-      endDate: "2026-03-06",
+      startDate: "2024-06-23",
+      endDate: "2024-06-30",
       mode: "Classic + Bany",
       presetCard: null,
       playersCount: 7,
