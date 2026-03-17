@@ -116,20 +116,34 @@ margin:0;
 
 letter-spacing:3px;
 
-color:#ffffff;
+/* 🔹 KLUCZ: NIE transparent */
+color:white;
 
+/* 🔹 gradient NA tekście (nie jako maska!) */
+background: linear-gradient(
+90deg,
+#00f0ff,
+#8a2be2,
+#ff00ff,
+#00f0ff
+);
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+/* 🔹 outline żeby NIE przepuszczało tła */
+-webkit-text-stroke:1px rgba(255,255,255,0.25);
+
+/* 🔹 glow */
 text-shadow:
-0 0 8px #ffffff,
-0 0 18px #00f0ff,
-0 0 35px #00f0ff,
+0 0 6px rgba(255,255,255,0.8),
+0 0 15px #00f0ff,
+0 0 30px #00f0ff,
 0 0 60px #8a2be2;
 
 }
-.meta{
-    margin-top:15px;
-    opacity:0.9;
-    line-height:1.6;
-}
+
+
 
 /* PURPLE HEADER GLOW */
 .section-title{
