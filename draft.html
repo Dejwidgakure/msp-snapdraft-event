@@ -126,24 +126,15 @@ nav a{
 }
 .header h1{
 
-position:relative;  /* 🔥 TO DODAJESZ */
+position:relative;
+
 font-family:'Orbitron', sans-serif;
 font-size:72px;
 font-weight:900;
 margin:0;
 letter-spacing:3px;
 
-/* 🔥 SOLIDNY TEKST */
-color:#ffffff;
-
-/* 🔥 glow */
-text-shadow:
-0 0 4px #ffffff,
-0 0 10px #00f0ff,
-0 0 18px #00f0ff,
-0 0 22px #8a2be2;
-
-/* 🔥 lekki gradient jako efekt (NIE maska!) */
+/* 🔥 gradient */
 background: linear-gradient(
 90deg,
 #00f0ff,
@@ -155,9 +146,19 @@ background: linear-gradient(
 background-size:200%;
 animation:gradientMove 6s linear infinite;
 
-/* 🔥 bardzo ważne */
--webkit-text-stroke:1px rgba(255,255,255,0.3);
-    
+/* 🔥 KLUCZ */
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+/* 🔥 outline żeby było czytelne */
+-webkit-text-stroke:1px rgba(255,255,255,0.35);
+
+/* 🔥 glow */
+text-shadow:
+0 0 4px #ffffff,
+0 0 10px #00f0ff,
+0 0 18px #00f0ff,
+0 0 22px #8a2be2;
 
 }
 
