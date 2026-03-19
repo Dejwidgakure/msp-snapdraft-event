@@ -713,7 +713,10 @@ matches:[
                 {"p1":"Pluton32","p2":"Dawid ak. Void","pts1":20,"pts2":0},{"p1":"Raciatek","p2":"Dawid ak. Void","pts1":20,"pts2":0},
                 {"p1":"Maniek","p2":"Dawid ak. Void","pts1":20,"pts2":0},{"p1":"Supcio","p2":"Dawid ak. Void","pts1":20,"pts2":0},
                 {"p1":"Jacusinski","p2":"Dawid ak. Void","pts1":20,"pts2":0},{"p1":"Weregesu","p2":"Dawid ak. Void","pts1":20,"pts2":0},
-                {"p1":"Kmythic","p2":"Dawid ak. Void","pts1":20,"pts2":0},{"p1":"Jacusinski","p2":"Raciatek","pts1":2,"pts2":23}
+                {"p1":"Kmythic","p2":"Dawid ak. Void","pts1":20,"pts2":0},{"p1":"Jacusinski","p2":"Raciatek","pts1":2,"pts2":23},
+                {"p1":"Jacusinski","p2":"Kmythic","pts1":2,"pts2":23},{"p1":"Pluton32","p2":"Supcio","pts1":0,"pts2":20},
+                {"p1":"Pluton32","p2":"Budiso","pts1":0,"pts2":20},{"p1":"Pluton32","p2":"Kmythic","pts1":0,"pts2":20},
+                {"p1":"Pluton32","p2":"Jacusinski","pts1":0,"pts2":20}
                ]
     }
     
