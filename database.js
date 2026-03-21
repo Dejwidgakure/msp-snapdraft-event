@@ -719,7 +719,279 @@ matches:[
                 {"p1":"Pluton32","p2":"Jacusinski","pts1":0,"pts2":20},{"p1":"Dejwidgakure","p2":"Supcio","pts1":7,"pts2":18},
                 {"p1":"Dejwidgakure","p2":"Jacusinski","pts1":20,"pts2":0},{"p1":"Budiso","p2":"Jacusinski","pts1":20,"pts2":0}
                ]
+    
+{
+
+  "id": 20,
+  "startDate": "",
+  "endDate": "",
+  "mode": "Bany + Custom Paczki + Mulligan",
+  "presetCard": null,
+  "playersCount": 15,
+  "winner": null,
+  "bans": [],
+  "players": [
+    {
+      "name": "Supcio",
+      "deck": [
+        "Spider-Man",
+        "Blade",
+        "Lizard",
+        "Black Widow",
+        "Sasquatch",
+        "Rescue",
+        "Super-Skrull",
+        "Ronan the Accuser",
+        "Laufey",
+        "Squirrel Girl",
+        "Zero",
+        "Victoria Hand"
+      ]
+    },
+    {
+      "name": "Skaje",
+      "deck": [
+        "Iron Lad",
+        "Mister Sinister",
+        "Copycat",
+        "Mercury",
+        "Elektra",
+        "Goose",
+        "Beta Ray Bill",
+        "Jane Foster Mighty Thor",
+        "Iron Man",
+        "Forge",
+        "Titania",
+        "Jean Grey"
+      ]
+    },
+    {
+      "name": "Raciatek",
+      "deck": [
+        "Negasonic Teenage Warhead",
+        "Sabretooth",
+        "Wild Child",
+        "Fastball Special",
+        "Grand Master",
+        "Blob",
+        "Quicksilver",
+        "Colleen Wing",
+        "Adamantium Infusion",
+        "M.O.D.O.K.",
+        "Scorn",
+        "Misery"
+      ]
+    },
+    {
+      "name": "Matixmgg",
+      "deck": [
+        "Gorr",
+        "Doctor Octopus",
+        "Thor",
+        "Drax Avatar of Life",
+        "Shuri",
+        "Zero",
+        "Quake",
+        "Crystal",
+        "Red Shift",
+        "Agatha Harkness",
+        "Ebony Maw",
+        "Drax"
+      ]
+    },
+    {
+      "name": "MatiMyHair",
+      "deck": [
+        "Nightcrawler",
+        "Hydra Bob",
+        "Miles Morales Spider-Man",
+        "Gilgamesh",
+        "Nico Minoru",
+        "Xorn",
+        "Iron Fist",
+        "Hit-Monkey",
+        "Rocket and Groot",
+        "Merlin",
+        "Misty Knight",
+        "Namora"
+      ]
+    },
+    {
+      "name": "Maniek",
+      "deck": [
+        "Leader",
+        "Black Bolt",
+        "Blue Marvel",
+        "Leech",
+        "Marvel Boy",
+        "Alioth",
+        "Cannonball",
+        "Hulk",
+        "En Sbah Nur",
+        "Apocalypse",
+        "Doctor Doom",
+        "Ronan the Accuser"
+      ]
+    },
+    {
+      "name": "kolo313",
+      "deck": [
+        "White Queen",
+        "Armor",
+        "Leader",
+        "Hellcow",
+        "White Tiger",
+        "Destroyer",
+        "Iceman",
+        "Magneto",
+        "Forge",
+        "Ghost Rider",
+        "Nebula",
+        "Wave"
+      ]
+    },
+    {
+      "name": "Kmythic",
+      "deck": [
+        "Morph",
+        "Sebastian Shaw",
+        "Baron Zemo",
+        "Firelord",
+        "Ultron",
+        "Sandman",
+        "Ant-Man",
+        "Awesome Andy",
+        "Patriot",
+        "Ronan the Accuser",
+        "Maximus",
+        "Hellion"
+      ]
+    },
+    {
+      "name": "John Skrull",
+      "deck": [
+        "Cable",
+        "Zombie Giant-Man",
+        "Zombie Mister Fantastic",
+        "Speed",
+        "Cull Obsidian",
+        "Deadpool",
+        "Emperor Hulkling",
+        "Rockslide",
+        "Darkhawk",
+        "Surtur",
+        "Captain Marvel",
+        "Baron Zemo"
+      ]
+    },
+    {
+      "name": "Jacusinski",
+      "deck": [
+        "Esme Cuckoo",
+        "Korg",
+        "Mister Fantastic First Steps",
+        "Juggernaut Horseman of War",
+        "Angela",
+        "Wolfsbane",
+        "Kitty Pryde",
+        "Ms. Marvel",
+        "Doctor Doom",
+        "Eson",
+        "Cable",
+        "Sebastian Shaw"
+      ]
+    },
+    {
+      "name": "Hardkor",
+      "deck": [
+        "Ms. Marvel",
+        "Psylocke",
+        "Medusa",
+        "Enchantress",
+        "Armor",
+        "Rockslide",
+        "Maximus",
+        "Mad Thinker",
+        "Kraglin",
+        "Red Skull",
+        "Mirage",
+        "Mystique"
+      ]
+    },
+    {
+      "name": "Dawid ak. Void",
+      "deck": [
+        "Sage",
+        "Sasquatch",
+        "Hit-Monkey",
+        "Agony",
+        "Titania",
+        "America Chavez",
+        "Nightcrawler",
+        "Angel",
+        "Beast",
+        "Groot",
+        "Shocker",
+        "Clea"
+      ]
+    },
+    {
+      "name": "Budiso",
+      "deck": [
+        "Sersi",
+        "Luna Snow",
+        "Maria Hill",
+        "Bruce Banner",
+        "Mysterio",
+        "Black Bolt",
+        "Pixie",
+        "U.S. Agent",
+        "Toxie Doxie",
+        "Jessica Jones",
+        "Baron Zemo",
+        "Namor"
+      ]
+    },
+    {
+      "name": "Dejwidgakure",
+      "deck": [
+        "Iron Man",
+        "Ancient One",
+        "Surge",
+        "Elektra",
+        "Ms. Marvel",
+        "Rocket Raccoon",
+        "Rhino",
+        "Mystique",
+        "Jennifer Kale",
+        "Mister Negative",
+        "Scarlet Spider",
+        "Mockingbird"
+      ]
+    },
+    {
+      "name": "Weregesu",
+      "deck": [
+        "Legion",
+        "Nocturne",
+        "Ghost-Spider",
+        "Hydra Stomper",
+        "Miles Morales Spider-Man",
+        "Spider-Man",
+        "Cloak",
+        "Spider-Man 2099",
+        "Doctor Strange",
+        "Doctor Octopus",
+        "Heimdall",
+        "Baron Mordo"
+      ]
     }
+  ],
+  "matches": []
+
+},
+    }
+  
     
 
   ]
