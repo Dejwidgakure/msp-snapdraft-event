@@ -719,7 +719,6 @@ matches:[
                 {"p1":"Pluton32","p2":"Jacusinski","pts1":0,"pts2":20},{"p1":"Dejwidgakure","p2":"Supcio","pts1":7,"pts2":18},
                 {"p1":"Dejwidgakure","p2":"Jacusinski","pts1":20,"pts2":0},{"p1":"Budiso","p2":"Jacusinski","pts1":20,"pts2":0}
               ]
-
       },
     
 {
@@ -990,7 +989,7 @@ matches:[
   ],
   "matches": []
 
-},
+}
     }
   
     
