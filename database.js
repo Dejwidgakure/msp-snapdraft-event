@@ -723,8 +723,8 @@ matches:[
     
 {
   "id": 20,
-  "startDate": "",
-  "endDate": "",
+  "startDate": "20.03.2026",
+  "endDate": "03.04.2026",
   "mode": "Bany + Custom Paczki + Mulligan",
   "presetCard": null,
   "playersCount": 15,
@@ -734,7 +734,7 @@ matches:[
     {
       "name": "Supcio",
       "deck": [
-        "Spider-Man",
+        "Hydra-Bob",
         "Blade",
         "Lizard",
         "Black Widow",
@@ -803,7 +803,7 @@ matches:[
       "name": "MatiMyHair",
       "deck": [
         "Nightcrawler",
-        "Hydra Bob",
+        "Spider-Man",
         "Miles Morales Spider-Man",
         "Gilgamesh",
         "Nico Minoru",
@@ -975,7 +975,7 @@ matches:[
         "Legion",
         "Nocturne",
         "Ghost-Spider",
-        "Hydra Stomper",
+        "Cyclops",
         "Miles Morales Spider-Man",
         "Spider-Man",
         "Cloak",
@@ -987,7 +987,14 @@ matches:[
       ]
     }
   ],
-  "matches": []
+  "matches": [{"p1":"Dejwidgakure","p2":"kolo313","pts1":21,"pts2":4},{"p1":"Dawid ak. Void","p2":"Raciatek","pts1":22,"pts2":3},{"p1":"Raciatek","p2":"MatiMyHair","pts1":4,"pts2":21},
+                {"p1":"kolo313","p2":"Raciatek","pts1":20,"pts2":5},{"p1":"Hardkor","p2":"Jacusinski","pts1":21,"pts2":4},{"p1":"John Skrull","p2":"kolo313","pts1":25,"pts2":0},
+                {"p1":"John Skrull","p2":"MatiMyHair","pts1":22,"pts2":3},{"p1":"MatiMyHair","p2":"kolo313","pts1":25,"pts2":0},{"p1":"Jacusinski","p2":"kolo313","pts1":23,"pts2":2},
+                {"p1":"Maniek","p2":"Kmythic","pts1":0,"pts2":25},{"p1":"Supcio","p2":"Maniek","pts1":24,"pts2":1},{"p1":"Raciatek","p2":"Maniek","pts1":25,"pts2":0},
+                {"p1":"Weregesu","p2":"Kmythic","pts1":25,"pts2":0},{"p1":"Supcio","p2":"Kmythic","pts1":1,"pts2":24},{"p1":"Supcio","p2":"Weregesu","pts1":23,"pts2":2},
+                {"p1":"Budiso","p2":"Kmythic","pts1":0,"pts2":25},{"p1":"Kmythic","p2":"Hardkor","pts1":25,"pts2":0},{"p1":"Budiso","p2":"Hardkor","pts1":21,"pts2":4},
+                {"p1":"Skaje","p2":"Jacusinski","pts1":24,"pts2":1},{"p1":"MatiMyHair","p2":"Skaje","pts1":23,"pts2":2},{"p1":"Skaje","p2":"Hardkor","pts1":0,"pts2":25},
+                {"p1":"Supcio","p2":"Hardkor","pts1":20,"pts2":5},{"p1":"Supcio","p2":"Budiso","pts1":23,"pts2":2}]
 
 }
     
