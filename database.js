@@ -606,6 +606,7 @@ matches:[
         { p1: "Supcio", p2: "Raciatek", pts1: 25, pts2: 0 },
         { p1: "Raciatek", p2: "Weregesu", pts1: 19, pts2: 6 },
 ]
+        },
     {
       id: 18,
       startDate: "2026-02-21",
