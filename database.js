@@ -582,6 +582,31 @@ matches:[
 ]
         },
     {
+      id: 17,
+      startDate: "2025-03-22",
+      endDate: "2025-04-4",
+      mode: "Bany",
+      presetCard: null,
+      playersCount: 3,
+      winner: "Supcio",
+      bans: [
+        "Arishem",
+        "Loki",
+        "Kang",
+      ],
+
+      players: [
+        { name: "Supcio", deck: ["Squireel Girl","Doctor Strange","Patriot","Groot","Rocket Raccon And Groot","Beast","Surtur","Doctor Octopus","Ronan","Knull","Doctor Doom","Death"] },
+        { name: "Weregesu", deck: ["Misty Knight","Scorn","Hazmat","Swarm","Colleen Wing","Cassandra Nova","Debrii","Werewolf","Corvus Glaive","Devil Dinosaur","Nimrod","Abomination"] },
+        { name: "Raciatek", deck: ["Yondu","Hazmat","Shadow King","Armor","Rocket Raccon And Groot","Elsa Bloodstone","Jean Grey","Proxima Midnight","Symbiote Spider-Man","Lady Deathstrike","Abomination","Odin"] },
+      ],
+
+      matches: [
+        { p1: "Supcio", p2: "Weregesu", pts1: 22, pts2: 3 },
+        { p1: "Supcio", p2: "Raciatek", pts1: 25, pts2: 0 },
+        { p1: "Raciatek", p2: "Weregesu", pts1: 19, pts2: 6 },
+]
+    {
       id: 18,
       startDate: "2026-02-21",
       endDate: "2026-03-06",
