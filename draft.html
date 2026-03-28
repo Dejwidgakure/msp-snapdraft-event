@@ -521,6 +521,118 @@ textarea{
 100%{ color:#00f0ff; text-shadow:0 0 10px #00f0ff;}
 
 }
+
+    .player-modal{
+position:fixed;
+top:120px;
+left:120px;
+
+width:420px;
+max-height:600px;
+
+background:
+linear-gradient(rgba(0,0,30,0.9), rgba(0,0,50,0.95)),
+url("assets/prompt-bg.png");
+
+background-size:cover;
+
+border-radius:20px;
+box-shadow:
+0 0 20px #00f0ff,
+0 0 40px #8a2be2;
+
+z-index:99999;
+
+display:flex;
+flex-direction:column;
+
+overflow:hidden;
+}
+
+.hidden{
+display:none;
+}
+
+/* HEADER */
+.player-modal-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:12px 18px;
+
+font-family:'Orbitron';
+font-size:18px;
+
+background:rgba(0,0,40,0.8);
+
+border-bottom:1px solid rgba(0,255,255,0.3);
+}
+
+/* CLOSE */
+.close-btn{
+cursor:pointer;
+font-size:18px;
+}
+
+/* CONTENT */
+.player-modal-content{
+padding:15px;
+overflow-y:auto;
+flex:1;
+}
+
+/* INFO */
+.player-info{
+display:flex;
+justify-content:space-around;
+margin-bottom:15px;
+}
+
+.player-info div{
+text-align:center;
+}
+
+/* MATCHES */
+.player-matches{
+font-size:14px;
+line-height:1.6;
+}
+
+/* FOOTER */
+.player-modal-footer{
+padding:12px;
+
+background:rgba(0,0,40,0.9);
+
+border-top:1px solid rgba(0,255,255,0.3);
+
+position:sticky;
+bottom:0;
+}
+
+.player-modal-footer button{
+width:100%;
+padding:10px;
+
+border:none;
+border-radius:10px;
+
+font-weight:bold;
+cursor:pointer;
+
+background:#00f0ff;
+
+box-shadow:
+0 0 10px #00f0ff,
+0 0 20px #8a2be2;
+
+transition:0.2s;
+}
+
+.player-modal-footer button:hover{
+transform:scale(1.05);
+}
 </style>
 </head>
 
@@ -1195,6 +1307,36 @@ function selectPlayer(name){
 initDeckBuilder();
     
 </script>
+<div id="playerModal" class="player-modal hidden">
 
+  <div class="player-modal-header">
+    <span id="modalTitle"></span>
+    <span class="close-btn" onclick="closePlayerModal()">✖</span>
+  </div>
+
+  <div class="player-modal-content">
+
+    <div class="player-info" id="playerInfo"></div>
+
+    <div class="player-matches">
+      <h3>Wyniki</h3>
+      <div id="playerPlayed"></div>
+
+      <h3>Nierozgrane</h3>
+      <div id="playerUnplayed"></div>
+    </div>
+
+  </div>
+
+  <div class="player-modal-footer">
+    <button onclick="openPlayerPage()">
+      WYŚWIETL BAZĘ WOJOWNIKA
+    </button>
+  </div>
+
+</div>
+
+
+   
 </body>
 </html>
