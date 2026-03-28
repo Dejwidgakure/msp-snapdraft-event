@@ -1313,8 +1313,12 @@ openPlayerModal(name);
 highlightMatches(name);
 }
 
-    function closePlayerModal(){
+function closePlayerModal(){
 document.getElementById("playerModal").classList.add("hidden");
+
+document.querySelectorAll(".highlight").forEach(el=>{
+el.classList.remove("highlight");
+});
 }
 
 function openPlayerModal(name){
