@@ -595,6 +595,8 @@ textarea{
 <script src="cards.js"></script>
 <script src="database.js"></script>
 <script>
+    
+let activePlayer = null;
 
 const urlParams = new URLSearchParams(window.location.search);
 const idParam = parseInt(urlParams.get("id"));
@@ -757,7 +759,12 @@ ranking.forEach((p,i)=>{
   document.querySelector("#rankingTable tbody").innerHTML+=`
   <tr>
     <td>${i+1}</td>
-    <td style="color:${p.color};font-weight:bold;">${p.name}</td>
+<td 
+style="color:${p.color};font-weight:bold;cursor:pointer;"
+onclick="selectPlayer('${p.name}')"
+>
+${p.name}
+</td>
     <td>${p.wins}-${p.losses}</td>
     <td>${p.total}</td>
     <td>${p.winPoints}</td>
@@ -888,9 +895,13 @@ draft.players.forEach((p,i)=>{
   let html=`
   <div class="deck-card" style="border:2px solid ${color};box-shadow:0 0 30px ${color}">
     
-    <h3 style="color:${color};text-align:center;">
-    ${p.name}
-    </h3>
+    <h3 
+style="color:${color};text-align:center;cursor:pointer;"
+onclick="selectPlayer('${p.name}')"
+>
+${p.name}
+</h3>
+  
 
     <div class="cards-grid">
 
@@ -1168,7 +1179,17 @@ card.appendChild(plus);
 
 });
 
+function selectPlayer(name){
 
+  if(activePlayer === name){
+    activePlayer = null; // toggle off
+  }else{
+    activePlayer = name;
+  }
+
+  console.log("Active player:", activePlayer);
+
+}
 
     
 initDeckBuilder();
