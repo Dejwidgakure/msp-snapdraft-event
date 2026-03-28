@@ -685,8 +685,16 @@ stats[m.p1].lossPoints+=m.pts1;
 stats[m.p1].total+=m.pts1;
 stats[m.p2].total+=m.pts2;
 
-  document.getElementById("resultsBox")
-    .innerHTML+=`<p>${m.p1} ${m.pts1} – ${m.pts2} ${m.p2}</p>`;
+  const p1Color = stats[m.p1].color;
+const p2Color = stats[m.p2].color;
+
+document.getElementById("resultsBox")
+  .innerHTML+=`
+  <p>
+    <span style="color:${p1Color};font-weight:bold;">${m.p1}</span> 
+    ${m.pts1} – ${m.pts2} 
+    <span style="color:${p2Color};font-weight:bold;">${m.p2}</span>
+  </p>`;
 });
 
     const unplayed = getUnplayedMatches(draft);
