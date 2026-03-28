@@ -524,14 +524,14 @@ textarea{
 
     .player-modal{
 position:fixed;
-top:120px;
-left:120px;
+top:80px;
+left:80px;
 
-width:420px;
-max-height:600px;
+width:380px;
+max-height:75vh;
 
 background:
-linear-gradient(rgba(0,0,30,0.9), rgba(0,0,50,0.95)),
+linear-gradient(rgba(0,0,30,0.75), rgba(0,0,50,0.8)),
 url("assets/prompt-bg.png");
 
 background-size:cover;
@@ -559,6 +559,21 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 
+cursor:grab;
+
+padding:12px 18px;
+
+font-family:'Orbitron';
+font-size:18px;
+
+background:rgba(0,0,40,0.8);
+
+border-bottom:1px solid rgba(0,255,255,0.3);
+}
+
+.player-modal-header:active{
+cursor:grabbing;
+}
 padding:12px 18px;
 
 font-family:'Orbitron';
@@ -634,12 +649,21 @@ transition:0.2s;
 transform:scale(1.05);
 }
 .highlight{
-animation:glowPulse 1s infinite alternate;
+animation:glowPulse 0.8s infinite alternate;
 }
 
 @keyframes glowPulse{
-0%{ text-shadow:0 0 5px #00f0ff; }
-100%{ text-shadow:0 0 15px #8a2be2; }
+0%{
+text-shadow:
+0 0 5px #00f0ff,
+0 0 10px #00f0ff;
+}
+100%{
+text-shadow:
+0 0 15px #00f0ff,
+0 0 25px #00f0ff,
+0 0 35px #8a2be2;
+}
 }
 </style>
 </head>
@@ -880,6 +904,7 @@ ranking.forEach((p,i)=>{
   <tr>
     <td>${i+1}</td>
 <td 
+class="player-name"
 style="color:${p.color};font-weight:bold;cursor:pointer;"
 onclick="selectPlayer('${p.name}')"
 >
@@ -1016,6 +1041,7 @@ draft.players.forEach((p,i)=>{
   <div class="deck-card" style="border:2px solid ${color};box-shadow:0 0 30px ${color}">
     
     <h3 
+class="player-name"
 style="color:${color};text-align:center;cursor:pointer;"
 onclick="selectPlayer('${p.name}')"
 >
@@ -1381,6 +1407,33 @@ el.classList.remove("highlight");
 function openPlayerPage(){
 alert("Tu będzie strona gracza 😈");
 }
+
+window.addEventListener("load", ()=>{
+
+const modal = document.getElementById("playerModal");
+const header = document.querySelector(".player-modal-header");
+
+let isDragging = false;
+let offsetX, offsetY;
+
+header.addEventListener("mousedown", (e)=>{
+isDragging = true;
+offsetX = e.clientX - modal.offsetLeft;
+offsetY = e.clientY - modal.offsetTop;
+});
+
+document.addEventListener("mousemove", (e)=>{
+if(!isDragging) return;
+
+modal.style.left = (e.clientX - offsetX) + "px";
+modal.style.top = (e.clientY - offsetY) + "px";
+});
+
+document.addEventListener("mouseup", ()=>{
+isDragging = false;
+});
+
+});
     
 initDeckBuilder();
     
