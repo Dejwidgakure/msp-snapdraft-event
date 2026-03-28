@@ -633,6 +633,14 @@ transition:0.2s;
 .player-modal-footer button:hover{
 transform:scale(1.05);
 }
+.highlight{
+animation:glowPulse 1s infinite alternate;
+}
+
+@keyframes glowPulse{
+0%{ text-shadow:0 0 5px #00f0ff; }
+100%{ text-shadow:0 0 15px #8a2be2; }
+}
 </style>
 </head>
 
@@ -1293,16 +1301,82 @@ card.appendChild(plus);
 
 function selectPlayer(name){
 
-  if(activePlayer === name){
-    activePlayer = null; // toggle off
-  }else{
-    activePlayer = name;
-  }
+if(activePlayer === name){
+closePlayerModal();
+activePlayer = null;
+return;
+}
 
-  console.log("Active player:", activePlayer);
+activePlayer = name;
+
+openPlayerModal(name);
+highlightMatches(name);
+}
+
+    function closePlayerModal(){
+document.getElementById("playerModal").classList.add("hidden");
+}
+
+function openPlayerModal(name){
+
+const modal = document.getElementById("playerModal");
+modal.classList.remove("hidden");
+
+document.getElementById("modalTitle").innerHTML =
+`DRAFT ${draft.id} — ${name}`;
+
+const player = ranking.find(p=>p.name===name);
+
+document.getElementById("playerInfo").innerHTML = `
+<div>Pozycja<br><b>${ranking.indexOf(player)+1}</b></div>
+<div>Punkty<br><b>${player.total}</b></div>
+<div>Bilans<br><b>${player.wins}-${player.losses}</b></div>
+`;
+
+let playedHTML = "";
+draft.matches.forEach(m=>{
+if(m.p1===name || m.p2===name){
+playedHTML += `<div>${m.p1} ${m.pts1} – ${m.pts2} ${m.p2}</div>`;
+}
+});
+
+document.getElementById("playerPlayed").innerHTML = playedHTML;
+
+const unplayed = getUnplayedMatches(draft);
+
+let unplayedHTML = "";
+unplayed.forEach(m=>{
+if(m.p1===name || m.p2===name){
+unplayedHTML += `<div>${m.p1} vs ${m.p2}</div>`;
+}
+});
+
+document.getElementById("playerUnplayed").innerHTML = unplayedHTML;
+}
+
+function highlightMatches(name){
+
+document.querySelectorAll("#resultsBox p").forEach(p=>{
+if(p.innerText.includes(name)){
+p.classList.add("highlight");
+}else{
+p.classList.remove("highlight");
+}
+});
+
+document.querySelectorAll(".unplayed-match").forEach(el=>{
+if(el.innerText.includes(name)){
+el.classList.add("highlight");
+}else{
+el.classList.remove("highlight");
+}
+});
 
 }
 
+function openPlayerPage(){
+alert("Tu będzie strona gracza 😈");
+}
     
 initDeckBuilder();
     
