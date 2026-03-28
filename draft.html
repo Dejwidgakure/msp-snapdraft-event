@@ -704,11 +704,19 @@ if(unplayed.length>0){
   document.getElementById("resultsBox").innerHTML += `
     <div class="unplayed-section">
       <h3>🕓 Nierozgrane mecze</h3>
-      ${unplayed.map(m=>`
-        <div class="unplayed-match">
-          ${m.p1} vs ${m.p2}
-        </div>
-      `).join("")}
+      ${unplayed.map(m=>{
+
+  const p1Color = stats[m.p1].color;
+  const p2Color = stats[m.p2].color;
+
+  return `
+  <div class="unplayed-match">
+    <span style="color:${p1Color};font-weight:bold;">${m.p1}</span>
+    vs
+    <span style="color:${p2Color};font-weight:bold;">${m.p2}</span>
+  </div>
+  `;
+}).join("")}
     </div>
   `;
 
