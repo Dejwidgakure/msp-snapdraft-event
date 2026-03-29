@@ -1,0 +1,46 @@
+.player:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 20px #00f0ff;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>Wybierz Wojownika</h1>
+
+<div class="grid" id="playersGrid"></div>
+</div>
+
+<script>
+
+// 🔥 zbieramy wszystkich graczy z database
+let playersSet = new Set();
+
+database.drafts.forEach(d=>{
+    d.players.forEach(p=>{
+        playersSet.add(p.name);
+    });
+});
+
+const players = Array.from(playersSet);
+
+const grid = document.getElementById("playersGrid");
+
+players.forEach(name=>{
+    const div = document.createElement("div");
+    div.className = "player";
+    div.innerText = name;
+
+    div.onclick = () => {
+        window.location.href = `player.html?name=${name}`;
+    };
+
+    grid.appendChild(div);
+});
+
+</script>
+
+</body>
+</html>
