@@ -639,9 +639,23 @@ flex:1;
 
 /* INFO */
 .player-info{
-display:flex;
-justify-content:space-around;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
 margin-bottom:15px;
+}
+
+    .player-info div{
+background:rgba(0,0,40,0.6);
+padding:8px;
+border-radius:10px;
+text-align:center;
+
+box-shadow:0 0 10px rgba(0,240,255,0.2);
+}
+
+.player-info b{
+font-size:18px;
 }
 
 .player-info div{
@@ -1451,6 +1465,59 @@ document.getElementById("modalTitle").innerHTML =
 
 const player = ranking.find(p=>p.name===name);
 
+    const playerMatches = draft.matches
+.filter(m=>m.p1===name || m.p2===name);
+
+/* FORMA */
+const lastMatches = playerMatches.slice(-5);
+
+let form = "";
+lastMatches.forEach(m=>{
+let isWin =
+(m.p1===name && m.pts1>m.pts2) ||
+(m.p2===name && m.pts2>m.pts1);
+
+form += isWin ? "🟢" : "🔴";
+});
+
+/* STREAK */
+let streak = 0;
+
+for(let i = playerMatches.length - 1; i >= 0; i--){
+const m = playerMatches[i];
+
+let isWin =
+(m.p1===name && m.pts1>m.pts2) ||
+(m.p2===name && m.pts2>m.pts1);
+
+if(isWin){
+streak++;
+}else{
+break;
+}
+}
+
+/* MOMENTUM */
+let momentum = "⚪ Neutralny";
+let momentumColor = "#aaa";
+
+if(streak >= 3){
+momentum = "🔥 HOT";
+momentumColor = "#ff00ff";
+}
+else if(streak === 2){
+momentum = "⚡ Rośnie";
+momentumColor = "#00f0ff";
+}
+else if(streak === 1){
+momentum = "🟢 Plus";
+momentumColor = "#00ff88";
+}
+else if(playerMatches.length){
+momentum = "❄️ Spadek";
+momentumColor = "#888";
+}
+
 const matchesPlayed = draft.matches.filter(m=>m.p1===name || m.p2===name);
 
 const totalMatches = matchesPlayed.length;
@@ -1481,6 +1548,8 @@ document.getElementById("playerInfo").innerHTML = `
 <div>Śr. pkt<br><b>${avgPoints}</b></div>
 <div>Prognoza<br><b>${predicted}</b></div>
 <div>Prog. miejsce<br><b>${predictedPlace}</b></div>
+<div>Forma<br><b>${form || "-"}</b></div>
+<div>Momentum<br><b style="color:${momentumColor}">${momentum}</b></div>
 `;
 
 let playedHTML = "";
