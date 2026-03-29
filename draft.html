@@ -1623,6 +1623,10 @@ isDragging = false;
 });
 
 });
+    function openPlayerPage(name){
+    if(!name) return;
+    window.location.href = `player.html?name=${name}`;
+}
     
 initDeckBuilder();
     
@@ -1649,7 +1653,7 @@ initDeckBuilder();
   </div>
 
   <div class="player-modal-footer">
-    <button onclick="openPlayerPage()">
+   <button onclick="openPlayerPage(activePlayer)">
       WYŚWIETL BAZĘ DRAFTOWĄ WOJOWNIKA
     </button>
   </div>
