@@ -554,6 +554,44 @@ overflow:hidden;
 display:none;
 }
 
+    .player-modal::before{
+content:"";
+position:absolute;
+inset:-3px;
+
+border-radius:20px;
+
+background:linear-gradient(
+90deg,
+transparent,
+#00f0ff,
+#8a2be2,
+transparent
+);
+
+opacity:0.6;
+
+filter:blur(8px);
+
+animation:portalRing 1.2s ease;
+pointer-events:none;
+}
+
+@keyframes portalRing{
+0%{
+opacity:0;
+transform:scale(0.6);
+}
+50%{
+opacity:1;
+transform:scale(1.1);
+}
+100%{
+opacity:0;
+transform:scale(1.2);
+}
+}
+
 /* HEADER */
 .player-modal-header{
 display:flex;
@@ -681,20 +719,30 @@ animation:glowPulse 0.8s infinite alternate;
 
 0%{
 opacity:0;
-transform:translateY(40px) scale(0.9);
-filter:blur(6px);
+transform:scale(0.7) rotateX(40deg);
+filter:blur(10px) brightness(2);
+box-shadow:
+0 0 0px #00f0ff,
+0 0 0px #8a2be2;
 }
 
-60%{
+40%{
 opacity:1;
-transform:translateY(-5px) scale(1.02);
-filter:blur(0);
+transform:scale(1.05) rotateX(0deg);
+filter:blur(0) brightness(1.5);
+
+box-shadow:
+0 0 40px #00f0ff,
+0 0 80px #8a2be2;
+}
+
+70%{
+transform:scale(0.98);
 }
 
 100%{
-transform:translateY(0) scale(1);
+transform:scale(1);
 }
-
 }
 
 @keyframes glowPulse{
@@ -1402,10 +1450,36 @@ document.getElementById("modalTitle").innerHTML =
 
 const player = ranking.find(p=>p.name===name);
 
+const matchesPlayed = draft.matches.filter(m=>m.p1===name || m.p2===name);
+
+const totalMatches = matchesPlayed.length;
+
+const avgPoints = totalMatches
+? (player.total / totalMatches).toFixed(1)
+: 0;
+
+/* przewidywane */
+const remaining = (draft.players.length - 1) - totalMatches;
+
+const predicted = Math.round(player.total + (avgPoints * remaining));
+
+/* przewidywane miejsce */
+let simulated = ranking.map(p=>{
+if(p.name === name){
+return {...p, total:predicted};
+}
+return p;
+}).sort((a,b)=>b.total-a.total);
+
+const predictedPlace = simulated.findIndex(p=>p.name===name)+1;
+
 document.getElementById("playerInfo").innerHTML = `
 <div>Pozycja<br><b>${ranking.indexOf(player)+1}</b></div>
 <div>Punkty<br><b>${player.total}</b></div>
 <div>Bilans<br><b>${player.wins}-${player.losses}</b></div>
+<div>Śr. pkt<br><b>${avgPoints}</b></div>
+<div>Prognoza<br><b>${predicted}</b></div>
+<div>Prog. miejsce<br><b>${predictedPlace}</b></div>
 `;
 
 let playedHTML = "";
