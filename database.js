@@ -582,6 +582,38 @@ matches:[
 ]
         },
     {
+      id: 16,
+      startDate: "2025-02-22",
+      endDate: "2025-03-5",
+      mode: "Bany + Jokery + Save & Steal",
+      presetCard: null,
+      playersCount: 5,
+      winner: "Weregesu",
+      bans: [
+        "Arishem",
+        "Loki",
+        "Kang",
+      ],
+
+      players: [
+        { name: "Pluton", deck: ["Black King","Squirrel Girl","Zabu","Scorpion","Caiera","Nocturne","Dracula","Silver Samurai","Professor X","Stature","Galactus","Giganto"] },
+        { name: "Weregesu", deck: ["Scorn","Ebony Maw","Lasher","Maximus","Silver Surfer","Sebastina Shaw","Baron Zemo","Wave","Drax","Scarlet Spider","Ronan","Heimdall"] },
+        { name: "Raciatek", deck: ["America Chavez","Mantis","Misty Knight","Forge","Beast","Deathlok","Lockjaw","Beta Ray Bill","Iron Man","Stature","Arnim Zola","Heimdall"] },
+		{ name: "Dejwidgakure", deck: ["Blade","Angela","Sam Wilson Captain America","Captain America","Red Guardian","Shanna","Sword Master","Kazar","Cull Obsidian","Professor X","Heimdall","Red Hulk"] },
+        { name: "Polop", deck: ["Sunspot","Iceman","Forge","Hulk Buster","Morphy","Black Widow","Baron Zemo","Gladiator","Supergiant","Blink","Gamora","Blob"] },
+      ],
+
+      matches: [
+        { p1: "Dejwidgakure", p2: "Raciatek", pts1: 18, pts2: 7 },
+        { p1: "Weregesu", p2: "Raciatek", pts1: 21, pts2: 4 },
+        { p1: "Raciatek", p2: "Pluton", pts1: 17, pts2: 8 },
+		{ p1: "Raciatek", p2: "Polop", pts1: 2, pts2: 23 },
+		{ p1: "Weregesu", p2: "Pluton", pts1: 7, pts2: 18 },
+		{ p1: "Raciatek", p2: "Polop", pts1: 25, pts2: 0 },
+		{ p1: "Polop", p2: "Pluton", pts1: 23, pts2: 2 },
+]
+        },
+    {
       id: 17,
       startDate: "2025-03-22",
       endDate: "2025-04-4",
