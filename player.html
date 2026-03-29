@@ -1,1 +1,311 @@
 
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kroniki Wojownika</title>
+
+<script src="database.js"></script>
+<script src="cardDatabase.js"></script>
+
+<style>
+body{
+    margin:0;
+    font-family:'Rajdhani', sans-serif;
+    background:#050816;
+    color:white;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:20px;
+}
+
+h1{
+    font-size:42px;
+    margin-bottom:5px;
+}
+
+.rank{
+    font-size:28px;
+    color:#00f0ff;
+    text-shadow:0 0 10px #00f0ff;
+}
+
+.section{
+    margin-top:40px;
+    padding:20px;
+    border-radius:16px;
+    background:rgba(255,255,255,0.03);
+    box-shadow:0 0 20px rgba(0,255,255,0.1);
+}
+
+.title{
+    font-size:20px;
+    margin-bottom:10px;
+    color:#00f0ff;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:15px;
+}
+
+.card{
+    padding:15px;
+    border-radius:12px;
+    background:rgba(0,0,0,0.4);
+    box-shadow:0 0 10px rgba(0,255,255,0.2);
+}
+
+.badges{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.badge{
+    padding:10px 15px;
+    border-radius:10px;
+    background:rgba(0,255,255,0.1);
+    box-shadow:0 0 10px #00f0ff;
+}
+
+.deck-slider{
+    display:flex;
+    overflow-x:auto;
+    gap:15px;
+    padding:10px;
+}
+
+.deck{
+    min-width:250px;
+    padding:15px;
+    background:rgba(0,0,0,0.5);
+    border-radius:12px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1 id="playerName"></h1>
+<div class="rank" id="rank"></div>
+
+<div class="section">
+<div class="title">Statystyki</div>
+<div class="grid" id="stats"></div>
+</div>
+
+<div class="section">
+<div class="title">Rekordy</div>
+<div class="grid" id="records"></div>
+</div>
+
+<div class="section">
+<div class="title">Rywalizacja</div>
+<div class="grid" id="rivals"></div>
+</div>
+
+<div class="section">
+<div class="title">Archiwum Draftów</div>
+<div class="deck-slider" id="decks"></div>
+</div>
+
+<div class="section">
+<div class="title">Statystyki Kart</div>
+<div class="grid" id="cards"></div>
+</div>
+
+<div class="section">
+<div class="title">Osiągnięcia</div>
+<div class="badges" id="badges"></div>
+</div>
+
+</div>
+
+<script>
+
+const params = new URLSearchParams(window.location.search);
+const playerName = params.get("name");
+
+document.getElementById("playerName").innerText = playerName;
+
+let draftsPlayed=0,totalPoints=0,wins=0,losses=0;
+let decks=[],vs={},cardCount={},cardWins={},cardGames={};
+
+let bestDraftPts=0,bestDraftId="";
+let mostWinsDraft=0,mostWinsDraftId="";
+let leastLossDraft=999,leastLossDraftId="";
+let maxLossPoints=0,maxLossDraft="";
+
+let currentStreak=0,bestStreak=0;
+
+database.drafts.forEach(d=>{
+
+const player=d.players.find(p=>p.name===playerName);
+if(!player) return;
+
+draftsPlayed++;
+decks.push({draft:d.id,deck:player.deck});
+
+player.deck.forEach(c=>{
+cardCount[c]=(cardCount[c]||0)+1;
+});
+
+let draftPts=0,draftWins=0,draftLoss=0,draftLossPts=0;
+
+d.matches.forEach(m=>{
+
+if(m.p1===playerName||m.p2===playerName){
+
+const isP1=m.p1===playerName;
+const myPts=isP1?m.pts1:m.pts2;
+const oppPts=isP1?m.pts2:m.pts1;
+const opp=isP1?m.p2:m.p1;
+
+draftPts+=myPts;
+
+if(!vs[opp]) vs[opp]={w:0,l:0};
+
+if(myPts>oppPts){
+wins++;draftWins++;vs[opp].w++;
+currentStreak++;
+if(currentStreak>bestStreak) bestStreak=currentStreak;
+}else if(myPts<oppPts){
+losses++;draftLoss++;vs[opp].l++;
+draftLossPts+=myPts;
+currentStreak=0;
+}
+
+player.deck.forEach(c=>{
+cardGames[c]=(cardGames[c]||0)+1;
+if(myPts>oppPts) cardWins[c]=(cardWins[c]||0)+1;
+});
+
+}
+
+});
+
+totalPoints+=draftPts;
+
+if(draftPts>bestDraftPts){
+bestDraftPts=draftPts;
+bestDraftId=d.id;
+}
+
+if(draftWins>mostWinsDraft){
+mostWinsDraft=draftWins;
+mostWinsDraftId=d.id;
+}
+
+if(draftLoss<leastLossDraft){
+leastLossDraft=draftLoss;
+leastLossDraftId=d.id;
+}
+
+if(draftLossPts>maxLossPoints){
+maxLossPoints=draftLossPts;
+maxLossDraft=d.id;
+}
+
+});
+
+const winrate = (wins+losses)?((wins/(wins+losses))*100).toFixed(1):0;
+const avgPts = draftsPlayed?(totalPoints/draftsPlayed).toFixed(1):0;
+
+/* RYWALIZACJA */
+let mostPlayed="-",maxGames=0,nemesis="-",maxLoss=0,victim="-",maxWin=0;
+
+for(const p in vs){
+const g=vs[p].w+vs[p].l;
+if(g>maxGames){maxGames=g;mostPlayed=p}
+if(vs[p].l>maxLoss){maxLoss=vs[p].l;nemesis=p}
+if(vs[p].w>maxWin){maxWin=vs[p].w;victim=p}
+}
+
+/* KARTY */
+let bestCard="-",bestWR=0,worstCard="-",worstWR=999;
+
+for(const c in cardGames){
+const wr=(cardWins[c]||0)/cardGames[c];
+if(wr>bestWR){bestWR=wr;bestCard=c}
+if(wr<worstWR){worstWR=wr;worstCard=c}
+}
+
+/* RENDER */
+function add(list,id){
+const el=document.getElementById(id);
+list.forEach(t=>{
+const d=document.createElement("div");
+d.className="card";
+d.innerText=t;
+el.appendChild(d);
+});
+}
+
+add([
+`Drafty: ${draftsPlayed}`,
+`Pkt: ${totalPoints}`,
+`Bilans: ${wins}W-${losses}L`,
+`Winrate: ${winrate}%`,
+`Śr pkt: ${avgPts}`
+],"stats");
+
+add([
+`Najwięcej pkt: ${bestDraftPts} (D${bestDraftId})`,
+`Najwięcej winów: ${mostWinsDraft} (D${mostWinsDraftId})`,
+`Najmniej porażek: ${leastLossDraft} (D${leastLossDraftId})`,
+`Pkt z porażek: ${maxLossPoints} (D${maxLossDraft})`,
+`Seria winów: ${bestStreak}`
+],"records");
+
+add([
+`Najczęstszy: ${mostPlayed}`,
+`Pogromca: ${victim}`,
+`Nemesis: ${nemesis}`
+],"rivals");
+
+const decksEl=document.getElementById("decks");
+
+decks.forEach(d=>{
+const div=document.createElement("div");
+div.className="deck";
+div.innerHTML=`<b>DRAFT ${d.draft}</b><br>${d.deck.join(", ")}`;
+decksEl.appendChild(div);
+});
+
+add([
+`Najlepsza karta: ${bestCard}`,
+`Najgorsza karta: ${worstCard}`
+],"cards");
+
+/* ODZNAKI */
+let badges=[];
+
+if(wins>10) badges.push("Weteran");
+if(bestStreak>=5) badges.push("Seria zwycięstw");
+if(bestDraftPts>100) badges.push("Dominacja");
+if(maxWin>=5) badges.push("Kat");
+
+const bEl=document.getElementById("badges");
+
+badges.forEach(b=>{
+const d=document.createElement("div");
+d.className="badge";
+d.innerText=b;
+bEl.appendChild(d);
+});
+
+/* RANK */
+document.getElementById("rank").innerText =
+`⭐ ${totalPoints} PKT`;
+
+</script>
+
+</body>
+</html>
