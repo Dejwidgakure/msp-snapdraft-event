@@ -1020,7 +1020,15 @@ matches:[
                 {"p1":"Weregesu","p2":"Kmythic","pts1":25,"pts2":0},{"p1":"Supcio","p2":"Kmythic","pts1":1,"pts2":24},{"p1":"Supcio","p2":"Weregesu","pts1":23,"pts2":2},
                 {"p1":"Budiso","p2":"Kmythic","pts1":0,"pts2":25},{"p1":"Kmythic","p2":"Hardkor","pts1":25,"pts2":0},{"p1":"Budiso","p2":"Hardkor","pts1":21,"pts2":4},
                 {"p1":"Skaje","p2":"Jacusinski","pts1":24,"pts2":1},{"p1":"MatiMyHair","p2":"Skaje","pts1":23,"pts2":2},{"p1":"Skaje","p2":"Hardkor","pts1":0,"pts2":25},
-                {"p1":"Supcio","p2":"Hardkor","pts1":20,"pts2":5},{"p1":"Supcio","p2":"Budiso","pts1":23,"pts2":2}]
+                {"p1":"Supcio","p2":"Hardkor","pts1":20,"pts2":5},{"p1":"Supcio","p2":"Budiso","pts1":23,"pts2":2},{"p1":"MatiMyHair","p2":"Kmythic","pts1":19,"pts2":6},
+                {"p1":"MatiMyHair","p2":"Hardkor","pts1":25,"pts2":0},{"p1":"MatiMyHair","p2":"Supcio","pts1":23,"pts2":2},{"p1":"Matixmgg","p2":"Weregesu","pts1":21,"pts2":4},
+                {"p1":"Kmythic","p2":"Matixmgg","pts1":25,"pts2":0},{"p1":"Weregesu","p2":"John Skrull","pts1":19,"pts2":6},{"p1":"John Skrull","p2":"Dawid ak. Void","pts1":25,"pts2":0},
+                {"p1":"MatiMyHair","p2":"Weregesu","pts1":21,"pts2":4},{"p1":"Kmythic","p2":"John Skrull","pts1":25,"pts2":0},{"p1":"MatiMyHair","p2":"Matixmgg","pts1":25,"pts2":0},
+                {"p1":"John Skrull","p2":"Matixmgg","pts1":24,"pts2":1},{"p1":"Supcio","p2":"Dejwidgakure","pts1":24,"pts2":1},{"p1":"Dejwidgakure","p2":"Budiso","pts1":22,"pts2":3},
+                {"p1":"John Skrull","p2":"Budiso","pts1":25,"pts2":0},{"p1":"Kmythic","p2":"Dejwidgakure","pts1":23,"pts2":2},{"p1":"Raciatek","p2":"Budiso","pts1":0,"pts2":25},
+                {"p1":"John Skrull","p2":"Raciatek","pts1":23,"pts2":2},{"p1":"Supcio","p2":"Raciatek","pts1":24,"pts2":1},{"p1":"Raciatek","p2":"Kmythic","pts1":0,"pts2":25},
+                {"p1":"Dejwidgakure","p2":"Weregesu","pts1":20,"pts2":5},{"p1":"Kmythic","p2":"Skaje","pts1":23,"pts2":2},{"p1":"John Skrull","p2":"Skaje","pts1":25,"pts2":0},
+                {"p1":"Supcio","p2":"Dawid ak. Void","pts1":22,"pts2":3},{"p1":"Hardkor","p2":"Raciatek","pts1":20,"pts2":5},{"p1":"John Skrull","p2":"Skaje","pts1":25,"pts2":0}]
 
 }
     
