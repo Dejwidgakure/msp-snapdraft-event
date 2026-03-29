@@ -529,6 +529,7 @@ left:80px;
 
 width:380px;
 max-height:75vh;
+animation:modalAppear 0.35s ease;
 
 background:
 linear-gradient(rgba(0,0,30,0.75), rgba(0,0,50,0.8)),
@@ -645,11 +646,55 @@ box-shadow:
 transition:0.2s;
 }
 
+    .player-modal-header span{
+color:#00f0ff;
+
+text-shadow:
+0 0 6px #00f0ff,
+0 0 12px #00f0ff,
+0 0 20px #8a2be2;
+}
+
+    .player-name{
+transition:0.25s;
+}
+
+.player-name:hover{
+transform:scale(1.12);
+
+text-shadow:
+0 0 8px currentColor,
+0 0 16px currentColor,
+0 0 30px #8a2be2;
+
+filter:brightness(1.4);
+}
+
 .player-modal-footer button:hover{
 transform:scale(1.05);
 }
 .highlight{
 animation:glowPulse 0.8s infinite alternate;
+}
+
+    @keyframes modalAppear{
+
+0%{
+opacity:0;
+transform:translateY(40px) scale(0.9);
+filter:blur(6px);
+}
+
+60%{
+opacity:1;
+transform:translateY(-5px) scale(1.02);
+filter:blur(0);
+}
+
+100%{
+transform:translateY(0) scale(1);
+}
+
 }
 
 @keyframes glowPulse{
