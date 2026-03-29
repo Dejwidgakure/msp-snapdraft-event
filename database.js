@@ -581,6 +581,63 @@ matches:[
         
 ]
         },
+
+	  {
+      id: 15,
+      startDate: "2025-02-08",
+      endDate: "2025-02-22",
+      mode: "Bany",
+      presetCard: null,
+      playersCount: 8,
+      winner: "Supcio",
+      bans: [
+        "Arishem",
+        "Loki",
+        "Kang",
+      ],
+
+      players: [
+        { name: "Pluton32", deck: ["Quicksilver","Domino","Scarlet Witch","Silver Surfer","Mobius M. Mobius","Megasonic","Red Guardian","Makkari","Leech","Stature","Galactus","Red Hulk"] },
+        { name: "Weregesu", deck: ["Hawkeye","Black Knight","Cerebro","Swarm","Colleen Wing","Morphy","Sabretooth","Sword Master","Blackcat","Crossbones","Klaw","Red Hulk"] },
+        { name: "Raciatek", deck: ["echo","King Eitri","Squirrel Girl","Forge","Grandmaster","Iron Patriot","Brood","Silver Surfer","Strong Guy","Corvus Glave","Red Skull","Taskmaster"] },
+		{ name: "Dejwidgakure", deck: ["Ghost Spider","Human Torch","Iron Fist","Bucky Barnes","Falcon","USA Agent","Valentina","Werewolf","Groot","Phoenix Force","Klaw","Destroyer"] },
+        { name: "Polop", deck: ["Mister Sinister","Colossus","Sentinel","Victoria Hand","Silk","Bishop","Storm","Supergiant","Jane Foster Thor","Mockingbird","Thanos","Death"] },
+        { name: "Supcio", deck: ["Zero","Titania","Mirage","Baron Mordo","Cable","Victoria Hand","Maximus","Jean Grey","Man-Thing","Typhoid Mary","Namora","Doctor Doom"] },
+        { name: "Skaje", deck: ["Sunspot","Mantis","Dazzler","Colossus","Daredevil","Iron Fist","Cyclops","Malekith","Crossbones","Cull Obsidian","Gamora","Thanos"] },
+        { name: "Dawid Ak. Void", deck: ["Nico Minoru","Bruce Banner","Angela","Spider-Man","Wolfsbane","Luna Snow","Mister Negative","Kazar","Moon Girl","Iron Lad","Black Panther","Arnim Zola"] },
+      ],
+
+      matches: [
+        { p1: "Dejwidgakure", p2: "Raciatek", pts1: 21, pts2: 4 },
+        { p1: "Weregesu", p2: "Raciatek", pts1: 20, pts2: 5 },
+        { p1: "Raciatek", p2: "Pluton32", pts1: 4, pts2: 21 },
+	    { p1: "Raciatek", p2: "Polop", pts1: 8, pts2: 17 },
+	    { p1: "Raciatek", p2: "Dawid Ak. Void", pts1: 20, pts2: 0 },
+	    { p1: "Raciatek", p2: "Supcio", pts1: 5, pts2: 20 },
+	    { p1: "Raciatek", p2: "Skaje", pts1: 6, pts2: 19 },
+	    { p1: "Supcio", p2: "Skaje", pts1: 22, pts2: 3 },
+	    { p1: "Supcio", p2: "Polop", pts1: 2, pts2: 23 },
+		{ p1: "Supcio", p2: "Weregesu", pts1: 24, pts2: 1 },
+		{ p1: "Supcio", p2: "Dejwidgakure", pts1: 20, pts2: 0 },
+		{ p1: "Supcio", p2: "Dawid Ak. Void", pts1: 23, pts2: 2 },
+		{ p1: "Supcio", p2: "Pluton32", pts1: 25, pts2: 0 },
+		{ p1: "Skaje", p2: "Polop", pts1: 4, pts2: 21 },
+		{ p1: "Skaje", p2: "Weregesu", pts1: 4, pts2: 21 },
+		{ p1: "Skaje", p2: "Dejwidgakure", pts1: 20, pts2: 0 },
+		{ p1: "Skaje", p2: "Dawid Ak. Void", pts1: 20, pts2: 0 },
+		{ p1: "Skaje", p2: "Pluton32", pts1: 19, pts2: 6 },
+		{ p1: "Dejwidgakure", p2: "Dawid Ak. Void", pts1: 25, pts2: 25 },
+		{ p1: "Polop", p2: "Dejwidgakure", pts1: 2, pts2: 23 },
+		{ p1: "Dawid Ak. Void", p2: "Polop", pts1: 0, pts2: 20 },
+		{ p1: "Pluton32", p2: "Polop", pts1: 4, pts2: 21 },
+		{ p1: "Raciatek", p2: "Polop", pts1: 8, pts2: 17 },
+		{ p1: "Weregesu", p2: "Dejwidgakure", pts1: 20, pts2: 0 },
+		{ p1: "Weregesu", p2: "Dawid Ak. Void", pts1: 20, pts2: 0 },
+		{ p1: "Weregesu", p2: "Pluton32", pts1: 9, pts2: 16 },
+		{ p1: "Dejwidgakure", p2: "Pluton32", pts1: 0, pts2: 25 },
+		{ p1: "Dawid Ak. Void", p2: "Pluton32", pts1: 0, pts2: 25 },
+]
+},
     {
       id: 16,
       startDate: "2025-02-22",
