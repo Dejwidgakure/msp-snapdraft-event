@@ -1,0 +1,2764 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>MSP SNAP Draft</title>
+
+<style>
+body {
+    margin:0;
+    font-family:"Segoe UI",sans-serif;
+    background:url("tlo MS POLSKA 2.png") no-repeat center center fixed;
+    background-size:cover;
+    color:#7ec8e3;
+    overflow-x:hidden;
+}
+
+/* ====== mały napis u góry ====== */
+#thanksTop{
+    width:100%;
+    text-align:center;
+    margin-top:10px;
+    font-size:14px;
+    opacity:0.55;
+    color:#e8f7ff;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+    letter-spacing:0.2px;
+    position:relative;
+    z-index:10;
+}
+
+/* Neonowy tytuł draftu */
+h1 {
+    font-family:"Orbitron",sans-serif;
+    font-size:48px;
+    margin-top:10px;
+    text-align:center;
+    color:#c8a2ff;
+    text-shadow: 0 0 5px #c8a2ff, 0 0 10px #7ec8e3, 0 0 20px #c8a2ff;
+    animation: neonColors 6s infinite;
+    position: relative;
+    z-index: 10;
+}
+
+@keyframes neonColors {
+    0% { color: #00f0ff; text-shadow: 0 0 5px #00f0ff,0 0 10px #00f0ff,0 0 20px #00f0ff; }
+    20% { color: #ff00ff; text-shadow: 0 0 5px #ff00ff,0 0 10px #ff00ff,0 0 20px #ff00ff; }
+    40% { color: #00ff00; text-shadow: 0 0 5px #00ff00,0 0 10px #00ff00,0 0 20px #00ff00; }
+    60% { color: #ffff00; text-shadow: 0 0 5px #ffff00,0 0 10px #ffff00,0 0 20px #ffff00; }
+    80% { color: #ff7f00; text-shadow: 0 0 5px #ff7f00,0 0 10px #ff7f00,0 0 20px #ff7f00; }
+    100% { color: #c8a2ff; text-shadow: 0 0 5px #c8a2ff,0 0 10px #7ec8e3,0 0 20px #c8a2ff; }
+}
+
+#top-logo{width:400px;margin:10px auto;display:block;cursor:pointer;position:relative;z-index:10;}
+#bottom-logo{width:150px;opacity:0.6;position:fixed;bottom:10px;right:10px;z-index:10;}
+#draft-logo{width:150px;opacity:0.6;position:fixed;bottom:10px;left:10px;z-index:10;}
+
+#startPanel{
+    position: relative;
+    z-index: 10;
+    margin: 30px auto;
+    width: 480px;
+    padding: 30px 35px;
+    border-radius: 18px;
+
+    background:
+        linear-gradient(rgba(5,20,45,0.75), rgba(5,20,45,0.75)),
+        repeating-linear-gradient(
+            0deg,
+            rgba(0,240,255,0.06) 0px,
+            rgba(0,240,255,0.06) 1px,
+            transparent 1px,
+            transparent 40px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            rgba(0,240,255,0.06) 0px,
+            rgba(0,240,255,0.06) 1px,
+            transparent 1px,
+            transparent 40px
+        );
+
+    border: 2px solid rgba(0,240,255,0.6);
+
+    box-shadow:
+        0 0 15px rgba(0,240,255,0.5),
+        inset 0 0 25px rgba(0,240,255,0.15);
+
+    backdrop-filter: blur(6px);
+}
+.settingsTitle{
+    text-align:center;
+    font-family:"Orbitron", sans-serif;
+    font-size:36px;
+    font-weight:900;
+    letter-spacing:5px;
+    margin-bottom:28px;
+
+    background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #dfffff 25%,
+    #b8ffff 45%,
+    #6fffff 70%,
+    #3dfcff 100%
+);
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    text-shadow:
+    0 2px 0 rgba(0,0,0,0.8),
+    0 4px 10px rgba(0,0,0,0.6),
+    0 0 25px rgba(0,255,255,1),
+    0 0 50px rgba(0,240,255,0.9);
+
+    animation: cosmicTitleGlow 2.5s ease-in-out infinite alternate;
+}
+@keyframes cosmicTitleGlow{
+    0%{
+        text-shadow:
+            0 2px 0 rgba(0,0,0,0.8),
+            0 4px 8px rgba(0,0,0,0.6),
+            0 0 10px rgba(0,240,255,0.6),
+            0 0 20px rgba(0,240,255,0.4);
+    }
+    100%{
+        text-shadow:
+            0 2px 0 rgba(0,0,0,0.8),
+            0 6px 12px rgba(0,0,0,0.8),
+            0 0 25px rgba(0,240,255,1),
+            0 0 45px rgba(0,240,255,0.8);
+    }
+}
+
+.settingsSection{
+    margin-bottom:25px;
+}
+
+.sectionLabel{
+    font-family:"Orbitron", sans-serif;
+    font-size:16px;
+    font-weight:800;
+    letter-spacing:2px;
+    margin-bottom:10px;
+    color:#9ffcff;
+
+    text-shadow:
+        0 0 10px rgba(0,255,255,0.8),
+        0 0 20px rgba(0,240,255,0.6);
+}
+
+/* SELECT */
+#numPlayers{
+    background:rgba(10,40,70,0.6);
+    border:1px solid rgba(0,240,255,0.7);
+    border-radius:8px;
+    color:#dfffff;
+    padding:6px 10px;
+    font-weight:bold;
+
+    box-shadow:
+        0 0 10px rgba(0,240,255,0.6),
+        inset 0 0 10px rgba(0,240,255,0.2);
+
+    outline:none;
+}
+
+#numPlayers:hover{
+    box-shadow:
+        0 0 15px rgba(0,240,255,0.9),
+        inset 0 0 15px rgba(0,240,255,0.3);
+}
+
+/* INPUT NAZW */
+#playerNames{
+    background:rgba(10,40,70,0.6);
+    border:1px solid rgba(0,240,255,0.7);
+    border-radius:8px;
+    color:#eaffff;
+    padding:6px 10px;
+    width:250px;
+
+    box-shadow:
+        0 0 10px rgba(0,240,255,0.6),
+        inset 0 0 10px rgba(0,240,255,0.2);
+
+    outline:none;
+}
+
+#playerNames::placeholder{
+    color:rgba(200,255,255,0.6);
+}
+
+/* CHECKBOXY TRYBÓW */
+.modeOption{
+    display:flex;
+    align-items:center;
+    gap:12px;          /* odstęp między tekstem a Jeffem */
+    margin:10px 0;
+}
+
+.modeOption input{
+    accent-color:#00f0ff;
+    transform:scale(1.1);
+}
+
+/* Małe Jeffy przy trybach */
+.modeJeff{
+    height:48px;     /* było 38px */
+    transition:transform 0.3s ease, filter 0.3s ease;
+    filter: drop-shadow(0 0 8px rgba(0,240,255,0.7));
+}
+
+.modeJeff:hover{
+    transform:scale(1.2);
+    filter: drop-shadow(0 0 18px rgba(0,255,255,1));
+}
+
+.settingsJeff{
+    position:absolute;
+    right:-40px;
+    bottom:-20px;
+    width:220px;
+    pointer-events:none;
+    z-index:2;
+
+    filter: drop-shadow(0 0 15px rgba(0,240,255,0.6))
+            drop-shadow(0 0 40px rgba(0,200,255,0.4));
+
+    animation: hackerJeffFloat 4s ease-in-out infinite;
+}
+
+@keyframes hackerJeffFloat{
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+    100% { transform: translateY(0px); }
+}
+
+
+#startDraftBtn{
+    position:relative;
+    overflow:hidden;
+    border-radius:18px;
+    padding:18px 50px;
+    cursor:pointer;
+    background:transparent;
+    border:2px solid rgba(200,162,255,0.7);
+
+    box-shadow:
+        0 0 35px rgba(200,162,255,0.9),
+        0 0 90px rgba(0,240,255,0.6);
+
+    transition:all 0.4s ease;
+}
+
+/* 🌌 Mgławica tło */
+.galaxyBg{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    opacity:0.8;
+    z-index:1;
+    transition:transform 6s ease;
+}
+
+/* ✨ GWIAZDY */
+#startDraftBtn::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:2;
+
+    background:
+        radial-gradient(white 1px, transparent 2px),
+        radial-gradient(#00f0ff 1px, transparent 2px),
+        radial-gradient(#ff00ff 1px, transparent 2px),
+        radial-gradient(#ffffff 2px, transparent 3px);
+
+    background-size:
+        30px 30px,
+        60px 60px,
+        90px 90px,
+        120px 120px;
+
+    animation: starBlink 2s infinite;
+    pointer-events:none;
+}
+
+/* ☄️ KOMETA */
+#startDraftBtn::after{
+    content:"";
+    position:absolute;
+    top:40%;
+    left:-30%;
+    width:120px;
+    height:4px;
+    z-index:3;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        white,
+        #00f0ff,
+        #ff00ff,
+        transparent
+    );
+
+    filter:blur(2px);
+    opacity:0;
+    pointer-events:none;
+}
+
+/* ✨ TEKST */
+#startDraftBtn span{
+    position:relative;
+    z-index:4;
+
+    font-family:"Orbitron", sans-serif;
+    font-size:26px;
+    font-weight:900;
+    letter-spacing:5px;
+    color:white;
+
+    text-shadow:
+        0 0 20px #ff00ff,
+        0 0 40px #00f0ff,
+        0 0 80px rgba(255,255,255,0.6);
+}
+
+/* 🌠 Hover – galaktyka żyje */
+#startDraftBtn:hover .galaxyBg{
+    transform:scale(1.1);
+}
+
+/* ☄️ Hover – kometa przelatuje */
+#startDraftBtn:hover::after{
+    animation: cometFly 1.2s ease-out forwards;
+}
+
+/* 🔥 Hover glow boost */
+#startDraftBtn:hover{
+    box-shadow:
+        0 0 60px rgba(255,0,255,1),
+        0 0 140px rgba(0,240,255,0.9);
+    transform:scale(1.05);
+}
+
+/* 🌟 Gwiazdy migają */
+@keyframes starBlink{
+    0%{ opacity:0.4; }
+    50%{ opacity:1; }
+    100%{ opacity:0.4; }
+}
+
+/* ☄️ Kometa animacja */
+@keyframes cometFly{
+    0%{
+        left:-30%;
+        opacity:0;
+    }
+    10%{
+        opacity:1;
+    }
+    100%{
+        left:120%;
+        opacity:0;
+    }
+}
+
+#draftStarted{
+    display:none;
+    text-align:center;
+    font-size:24px;
+    margin:20px;
+    color:#c8a2ff;
+    text-shadow: 0 0 5px #c8a2ff,0 0 10px #7ec8e3,0 0 20px #c8a2ff;
+    position: relative;
+    z-index: 10;
+}
+
+#banModal{
+    display:none;
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:520px;
+    max-height:600px;
+    z-index:999;
+
+    position:fixed;
+}
+.banWrapper{
+    position:relative;
+    width:520px;
+    max-height:600px;
+    border:3px solid #00ff88;      /* 🔥 większa ramka */
+    border-radius:20px;
+    box-shadow:
+        0 0 20px #00ff88,
+        0 0 40px rgba(0,255,136,0.6),
+        0 0 80px rgba(0,255,136,0.4);   /* 🔥 chłodny glow */
+    background:url("banlayout.png") center center no-repeat;
+    background-size:cover;
+    overflow:hidden;
+}
+
+/* przyciemnienie */
+.banWrapper::before{
+    content:"";
+    position:relative;
+    inset:0;
+    background:rgba(5,10,20,0.35); /* 🔥 bardziej przezroczyste */
+    z-index:1;
+}
+
+.banContent{
+    position:relative;
+    z-index:2;
+    padding:20px;
+    max-height:560px;
+    overflow-y:auto;              /* 🔥 pasek przewijania */
+    color:white;
+}
+
+/* styl scrolla jak wcześniej */
+.banContent::-webkit-scrollbar{
+    width:6px;
+}
+.banContent::-webkit-scrollbar-thumb{
+    background:#c8a2ff;
+    border-radius:10px;
+}
+
+.banJeff{
+    position:absolute;
+    right:-60px;      /* 🔥 bardziej na prawo */
+    bottom:0;
+    height:55%;       /* 🔥 wyraźnie mniejszy */
+    z-index:2;
+    pointer-events:none;
+    opacity:0.95;
+}
+
+.banTitle{
+    position:absolute;
+    z-index:5;
+    top:-28px;                /* 🔥 bardzo blisko ramki */
+    left:50%;
+    transform:translateX(-50%);
+    font-size:44px;
+    font-weight:900;
+    letter-spacing:6px;
+    font-family:"Orbitron", sans-serif;
+
+    color:#00ff66;
+
+    /* 🔥 czarny kontur dla czytelności */
+    -webkit-text-stroke: 1px black;
+
+    text-shadow:
+        0 0 6px #00ff66,
+        0 0 15px #00ff66,
+        0 0 30px rgba(0,255,120,0.9),
+        0 2px 4px rgba(0,0,0,0.9);
+
+    animation:banGlitch 2.2s infinite;
+    pointer-events:none;
+    width:100%;
+    text-align:center;
+}
+/* glitch efekt */
+@keyframes banGlitch{
+    0%{
+        transform:translateX(-50%) translate(0,0);
+        opacity:1;
+    }
+    20%{
+        transform:translateX(-50%) translate(-1px,1px);
+    }
+    40%{
+        transform:translateX(-50%) translate(1px,-1px);
+    }
+    60%{
+        transform:translateX(-50%) translate(-1px,-1px);
+    }
+    80%{
+        transform:translateX(-50%) translate(1px,1px);
+    }
+    100%{
+        transform:translateX(-50%) translate(0,0);
+        opacity:1;
+    }
+}
+#banModal h3{text-align:center; margin-top:0;}
+#banModal label{display:block; margin:3px 0;}
+
+.info-panel{
+    width:200px;
+    min-height:200px;
+    padding:10px;
+    border:2px solid #fff;
+    background:rgba(0,0,0,0.5);
+    border-radius:10px;
+    box-shadow: 0 0 10px #c8a2ff, 0 0 20px #7ec8e3;
+    position: relative;
+    z-index: 10;
+}
+.info-panel h4 { text-transform: uppercase; }
+
+.deck-section{
+    display:inline-block;
+    vertical-align:top;
+    margin:20px;
+    padding:20px;
+    border-radius:18px;
+    min-width:240px;
+
+    position:relative;
+    overflow:hidden;
+
+    background:
+        linear-gradient(rgba(5,20,45,0.82), rgba(5,20,45,0.82)),
+        repeating-linear-gradient(
+            0deg,
+            rgba(0,240,255,0.06) 0px,
+            rgba(0,240,255,0.06) 1px,
+            transparent 1px,
+            transparent 32px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            rgba(0,240,255,0.06) 0px,
+            rgba(0,240,255,0.06) 1px,
+            transparent 1px,
+            transparent 32px
+        );
+
+    backdrop-filter:blur(6px);
+
+    border:2px solid rgba(0,240,255,0.5);
+
+    box-shadow:
+        0 0 25px rgba(0,240,255,0.4),
+        inset 0 0 40px rgba(0,240,255,0.08);
+
+    transition:all 0.3s ease;
+}
+
+.deck-section:hover{
+    transform:translateY(-5px);
+    box-shadow:
+        0 0 40px rgba(0,240,255,0.9),
+        inset 0 0 60px rgba(0,240,255,0.15);
+}
+
+.deck-section h4{
+    font-family:"Orbitron", sans-serif;
+    font-size:21px;
+    letter-spacing:2px;
+    margin-bottom:16px;
+    text-transform:uppercase;
+
+    position:relative;
+
+    text-shadow:
+        0 2px 0 rgba(0,0,0,0.95),
+        0 4px 8px rgba(0,0,0,0.85),
+        0 0 12px currentColor,
+        0 0 30px currentColor;
+
+    transition: all 0.3s ease;
+}
+
+.deck{
+    padding:14px;
+    border-radius:12px;
+
+    background:
+        linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+        repeating-linear-gradient(
+            45deg,
+            rgba(255,255,255,0.03) 0px,
+            rgba(255,255,255,0.03) 2px,
+            transparent 2px,
+            transparent 12px
+        );
+
+    box-shadow:
+        inset 0 0 20px rgba(0,0,0,0.6),
+        0 0 12px rgba(255,255,255,0.05);
+
+    min-height:200px;
+}
+
+.card{
+    padding:6px 10px;
+    margin:6px 0;
+    border-radius:8px;
+
+    font-size:13.5px;
+    font-weight:700;
+    letter-spacing:0.4px;
+
+    background:rgba(255,255,255,0.06);
+
+    transition:all 0.2s ease;
+
+    text-shadow:
+        0 1px 0 rgba(0,0,0,0.9),
+        0 2px 6px rgba(0,0,0,0.8),
+        0 0 6px currentColor;
+}
+
+.card:hover{
+    background:rgba(255,255,255,0.15);
+    transform:translateX(6px);
+    box-shadow:0 0 15px currentColor;
+}
+.current-player {
+    background-color: rgba(200, 162, 255, 0.5);
+    font-weight: bold;
+    padding: 2px 5px;
+    border-radius: 4px;
+    animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+    0% { background-color: rgba(200,162,255,0.4); }
+    100% { background-color: rgba(200,162,255,0.6); }
+}
+
+.flex-container{
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    margin-top:20px;
+    position: relative;
+    z-index: 10;
+}
+
+.center-column{
+    flex:1;
+    margin:0 20px;
+    text-align:center;
+}
+
+
+/* =========================================================
+   🌌 PACK
+   ========================================================= */
+
+#pack{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap: 34px;
+    padding: 10px 0;
+}
+
+@keyframes packFloat {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0px); }
+}
+
+/* karta paczki */
+/* 🌌 GALAXY WARSTWA */
+.pack-card-btn{
+    width:112px;
+    height:148px;
+    position:relative;
+    overflow:visible;
+    border-radius:16px;
+
+    /* Cienka animowana ramka */
+    border:2px solid #00f0ff;
+
+    /* Mniej przezroczysta karta */
+    background:
+        linear-gradient(rgba(18,8,28,0.82), rgba(18,8,28,0.82));
+
+    /* Większy cień pod kartą */
+    box-shadow:
+        0 20px 35px rgba(0,0,0,0.75),
+        0 0 18px #00f0ff,
+        0 0 40px rgba(0,240,255,0.6),
+        inset 0 0 12px rgba(255,255,255,0.05);
+
+    transition:transform 0.4s ease;
+
+    animation:
+        packFloat 3.6s ease-in-out infinite,
+        neonBorderShift 4s linear infinite;
+}
+
+/* 🌌 Galaxy overlay */
+.pack-card-btn::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:url("galaxytool.png") center/cover no-repeat;
+    opacity:0.22;
+    pointer-events:none;
+}
+
+/* 🌈 ANIMACJA RAMKI + GLOW */
+@keyframes neonBorderShift{
+    0%{
+        border-color:#00f0ff;
+        box-shadow:
+            0 20px 35px rgba(0,0,0,0.75),
+            0 0 18px #00f0ff,
+            0 0 40px rgba(0,240,255,0.6);
+    }
+    33%{
+        border-color:#8a2be2;
+        box-shadow:
+            0 20px 35px rgba(0,0,0,0.75),
+            0 0 18px #8a2be2,
+            0 0 40px rgba(138,43,226,0.6);
+    }
+    66%{
+        border-color:#ff00ff;
+        box-shadow:
+            0 20px 35px rgba(0,0,0,0.75),
+            0 0 18px #ff00ff,
+            0 0 40px rgba(255,0,255,0.6);
+    }
+    100%{
+        border-color:#00f0ff;
+        box-shadow:
+            0 20px 35px rgba(0,0,0,0.75),
+            0 0 18px #00f0ff,
+            0 0 40px rgba(0,240,255,0.6);
+    }
+}
+
+/* 🌌 Delikatny ruch galaxy */
+@keyframes galaxyDrift{
+    0%{
+        transform: translate(0px,0px);
+    }
+    50%{
+        transform: translate(-6px,4px);
+    }
+    100%{
+        transform: translate(4px,-5px);
+    }
+}
+/* ✨ Hover */
+.pack-card-btn:hover{
+    transform:scale(1.07);
+}
+
+/* =====================================
+   ✨ FINAL CHAOTIC MICRO STARFIELD
+   (NO ZOOM • NO SCALE • PURE FLICKER)
+===================================== */
+
+.pack-card-btn::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+
+    background:
+        radial-gradient(circle at 6% 14%, rgba(255,255,255,0.95) 0.4px, transparent 1px),
+        radial-gradient(circle at 18% 63%, rgba(0,240,255,0.85) 0.5px, transparent 1px),
+        radial-gradient(circle at 33% 27%, rgba(255,0,255,0.8) 0.5px, transparent 1px),
+        radial-gradient(circle at 47% 81%, rgba(255,255,255,0.9) 0.4px, transparent 1px),
+        radial-gradient(circle at 59% 18%, rgba(0,240,255,0.85) 0.5px, transparent 1px),
+        radial-gradient(circle at 72% 49%, rgba(255,255,255,0.9) 0.4px, transparent 1px),
+        radial-gradient(circle at 86% 73%, rgba(255,0,255,0.8) 0.5px, transparent 1px),
+        radial-gradient(circle at 91% 22%, rgba(255,255,255,0.95) 0.4px, transparent 1px),
+        radial-gradient(circle at 24% 91%, rgba(0,240,255,0.85) 0.5px, transparent 1px),
+        radial-gradient(circle at 63% 64%, rgba(255,255,255,0.9) 0.4px, transparent 1px);
+
+    filter: blur(0.8px);
+    opacity:0.55;
+
+    animation: starFlicker 6s linear infinite;
+}
+
+/* Tylko migotanie jasności */
+@keyframes starFlicker{
+    0%   { opacity:0.30; }
+    13%  { opacity:0.65; }
+    27%  { opacity:0.40; }
+    41%  { opacity:0.80; }
+    58%  { opacity:0.45; }
+    74%  { opacity:0.70; }
+    89%  { opacity:0.50; }
+    100% { opacity:0.35; }
+}
+
+/* animacja komety */
+@keyframes cometFly{
+    0%{
+        top:20%;
+        left:-40%;
+        transform:rotate(25deg);
+        opacity:0;
+    }
+    10%{
+        opacity:1;
+    }
+    100%{
+        top:70%;
+        left:140%;
+        transform:rotate(25deg);
+        opacity:0;
+    }
+}
+
+/* tekst */
+.pack-card-name{
+    width:100%;
+    text-align:center;
+    font-size:15.5px;      /* minimalnie mniejsza */
+    font-weight:900;
+    line-height:1.1;
+
+    position:relative;
+    top:-6px;              /* lekko wyżej żeby złapać balans */
+    left:-14px;
+
+    padding:0 12px;        /* odrobinę większy margines boczny */
+
+    color:#ffffff;
+
+    text-shadow:
+        0 1px 0 rgba(0,0,0,0.85),
+        0 2px 4px rgba(0,0,0,0.7),
+        0 0 6px rgba(0,240,255,0.35);
+
+    letter-spacing:0.4px;
+}
+
+/* ikony */
+.pack-icon{
+    width:52px;
+    height:52px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-weight:1000;
+    font-size:22px;
+
+    position:absolute;
+    top:-22px;
+    z-index:10;
+
+    color:#ffffff;
+
+    /* Mocniejszy cień pod cyfrą */
+    text-shadow:
+        0 2px 0 rgba(0,0,0,0.95),
+        0 4px 6px rgba(0,0,0,0.85),
+        0 6px 12px rgba(0,0,0,0.75),
+        0 10px 20px rgba(0,0,0,0.65),
+        0 0 8px rgba(255,255,255,0.4);
+}
+
+/* planeta */
+.pack-planet{
+    left: -17px;
+    border-radius: 999px;
+    background:
+        radial-gradient(circle at 35% 30%,
+            rgba(255,255,255,0.92) 0%,
+            rgba(190,250,255,0.85) 10%,
+            rgba(90,190,255,0.95) 26%,
+            rgba(95,120,255,0.92) 46%,
+            rgba(70,40,255,0.88) 62%,
+            rgba(15,0,45,0.98) 100%
+        );
+    box-shadow:
+        0 0 18px rgba(120,170,255,0.95),
+        0 0 38px rgba(0,240,255,0.38),
+        0 0 70px rgba(120,120,255,0.22),
+        inset 0 0 12px rgba(255,255,255,0.18);
+}
+
+/* pierścień saturna (pod cyfrą) */
+.pack-planet::after{
+    content:"";
+    position:absolute;
+
+    width: 66px;
+    height: 10px;
+
+    left: -12px;
+    top: 26px;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(90deg,
+            rgba(255,255,255,0.00),
+            rgba(190,250,255,0.20),
+            rgba(255,255,255,0.30),
+            rgba(160,210,255,0.28),
+            rgba(200,162,255,0.22),
+            rgba(255,255,255,0.18),
+            rgba(255,255,255,0.00)
+        );
+
+    transform: rotate(-18deg);
+
+    box-shadow:
+        0 0 10px rgba(0,240,255,0.26),
+        0 0 18px rgba(255,255,255,0.12);
+
+    opacity: 0.85;
+    pointer-events:none;
+    z-index: -1;
+}
+
+/* gwiazdka */
+.pack-star{
+    right: -20px;
+    top: -20px;
+    background: radial-gradient(circle at 30% 30%,
+        #ffffff 0%,
+        #fff6d0 16%,
+        #ffe07e 34%,
+        #ffc14a 55%,
+        #c77a00 78%,
+        #2a0d00 100%
+    );
+    box-shadow:
+        0 0 40px rgba(255,240,170,1.0),
+        0 0 110px rgba(255,190,0,0.72),
+        0 0 180px rgba(255,255,140,0.34);
+    clip-path: polygon(
+        50% 0%,
+        62% 28%,
+        92% 32%,
+        70% 52%,
+        78% 84%,
+        50% 68%,
+        22% 84%,
+        30% 52%,
+        8% 32%,
+        38% 28%
+    );
+}
+
+/* =========================================================
+   🃏 JOKER = SPIRALNA MGŁAWICA (RAMIONA + POSZARPANY KSZTAŁT)
+   ========================================================= */
+
+@keyframes galaxySpin {
+    0% { transform: rotate(0deg) scale(1); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+
+@keyframes galaxyPulse {
+    0% { filter: brightness(1) saturate(1.2) hue-rotate(0deg); }
+    50% { filter: brightness(1.55) saturate(1.6) hue-rotate(55deg); }
+    100% { filter: brightness(1) saturate(1.2) hue-rotate(0deg); }
+}
+
+@keyframes galaxyStarsBlink {
+    0% { opacity:0.18; }
+    50% { opacity:0.95; }
+    100% { opacity:0.18; }
+}
+
+@keyframes galaxyGlitch {
+    0%   { transform: translate(0px,0px); opacity:0.10; }
+    20%  { transform: translate(2px,-1px); opacity:0.18; }
+    40%  { transform: translate(-2px,1px); opacity:0.12; }
+    60%  { transform: translate(1px,2px); opacity:0.20; }
+    80%  { transform: translate(-1px,-2px); opacity:0.12; }
+    100% { transform: translate(0px,0px); opacity:0.10; }
+}
+
+@keyframes jokerTitleNeon {
+    0% { color:#ff4dff; text-shadow: 0 0 12px rgba(255,0,255,0.65), 0 0 30px rgba(0,240,255,0.20); }
+    50% { color:#caa0ff; text-shadow: 0 0 12px rgba(200,162,255,0.65), 0 0 30px rgba(255,0,255,0.20); }
+    100% { color:#00f0ff; text-shadow: 0 0 12px rgba(0,240,255,0.65), 0 0 30px rgba(255,0,255,0.20); }
+}
+/* =========================================================
+   🃏 FINALNY JOKER DESIGN – CROWN GALAXY
+   ========================================================= */
+
+:root{
+    --joker-shape: polygon(
+        0% 18%,
+        10% 8%, 20% 18%,
+        30% 5%, 40% 18%,
+        50% 2%, 60% 18%,
+        70% 5%, 80% 18%,
+        90% 8%, 100% 18%,
+        100% 92%,
+        92% 100%, 8% 100%,
+        0% 92%
+    );
+}
+
+@keyframes jokerBorderShift{
+    0%{ background:#ff00ff; }
+    25%{ background:#8a2be2; }
+    50%{ background:#00f0ff; }
+    75%{ background:#ff1493; }
+    100%{ background:#ff00ff; }
+}
+
+@keyframes jokerGalaxyFloat{
+    0%{ transform:scale(1.05) translate(0,0); }
+    50%{ transform:scale(1.1) translate(-4px,4px); }
+    100%{ transform:scale(1.05) translate(0,0); }
+}
+
+@keyframes jokerGlowPulse{
+    0%{ text-shadow:0 0 20px #ff00ff,0 0 40px #ff00ff; }
+    100%{ text-shadow:0 0 20px #00f0ff,0 0 40px #00f0ff; }
+}
+
+@keyframes jokerStarBlink{
+    0%{ opacity:0.4; }
+    50%{ opacity:1; }
+    100%{ opacity:0.4; }
+}
+
+@keyframes jokerGlitchMove{
+    0%{ transform:translate(0); }
+    25%{ transform:translate(-1px,1px); }
+    50%{ transform:translate(1px,-1px); }
+    75%{ transform:translate(-1px,-1px); }
+    100%{ transform:translate(0); }
+}
+
+.joker-card-btn{
+    width:112px;
+    height:170px;
+    border:none;
+    background:transparent;
+    padding:0;
+    position:relative;
+    cursor:pointer;
+    animation:packFloat 3.6s ease-in-out infinite;
+}
+
+.joker-border{
+    position:absolute;
+    inset:0;
+    clip-path:var(--joker-shape);
+    padding:3px;
+    animation:jokerBorderShift 6s linear infinite;
+    box-shadow:
+        0 0 30px #ff00ff,
+        0 0 60px #8a2be2,
+        0 0 120px #00f0ff;
+}
+
+.joker-card{
+    position:absolute;
+    inset:3px;
+    clip-path:var(--joker-shape);
+    overflow:hidden;
+    background:linear-gradient(160deg,#050012,#000010);
+}
+
+.joker-bg-glow{
+    position:absolute;
+    inset:-40%;
+    background:
+        radial-gradient(circle at 30% 30%, rgba(255,0,255,0.4), transparent 60%),
+        radial-gradient(circle at 70% 60%, rgba(0,240,255,0.4), transparent 60%);
+    filter:blur(60px);
+}
+
+.joker-starfield{
+    position:absolute;
+    inset:0;
+    background-image:
+        radial-gradient(#ffffff 1px, transparent 2px),
+        radial-gradient(#00f0ff 1px, transparent 2px),
+        radial-gradient(#ff00ff 1px, transparent 2px);
+    background-size:25px 25px,40px 40px,60px 60px;
+    animation:jokerStarBlink 2s infinite;
+}
+
+.joker-galaxy{
+    position:absolute;
+    inset:0;
+    background:url("joker_galaxy.png") center 30px/cover no-repeat;
+    animation:jokerGalaxyFloat 8s infinite ease-in-out;
+}
+
+.joker-title{
+    position:absolute;
+    top:10px;
+    width:100%;
+    text-align:center;
+    font-weight:1000;
+    font-size:17px;
+    color:#fff;
+    animation:jokerGlowPulse 1.6s infinite alternate;
+}
+
+.joker-desc{
+    position:absolute;
+    bottom:10px;
+    width:100%;
+    text-align:center;
+    font-weight:1000;
+    font-size:14px;
+    color:#fff;
+    text-shadow:
+        0 0 10px #000,
+        0 0 20px #000,
+        0 0 40px #000;
+}
+
+.joker-questions span{
+    position:absolute;
+    font-size:20px;
+    font-weight:1000;
+    color:white;
+    text-shadow:
+        -2px 0 red,
+        2px 0 cyan,
+        0 0 25px #ff00ff,
+        0 0 45px #00f0ff;
+    animation:jokerGlitchMove 0.6s infinite;
+}
+
+.q-left{ left:6%; top:45%; }
+.q-right{ right:6%; top:45%; }
+
+#reshuffleContainer{
+    position:relative;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    margin-top:60px;
+    margin-bottom:40px;
+}
+
+#reshuffleJeff{
+    width:230px;
+    cursor:pointer;
+    pointer-events:auto;
+}
+/* =============================== */
+/* 🎡 RESHUFFLE MODAL STYLE */
+/* =============================== */
+
+#reshuffleOverlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.85);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+#reshuffleModal{
+    background:rgba(10,10,30,0.95);
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 0 40px #c8a2ff;
+    text-align:center;
+    color:white;
+}
+
+.reshuffle-options{
+    display:flex;
+    gap:30px;
+    margin-top:20px;
+}
+
+.reshuffle-card{
+    width:130px;
+    height:180px;
+    border-radius:16px;
+    border:3px solid #c8a2ff;
+    background:linear-gradient(160deg,#101030,#1a1a50);
+    color:white;
+    cursor:pointer;
+    transition:transform 0.2s ease;
+}
+
+.reshuffle-card:hover{
+    transform:scale(1.08);
+}
+
+@keyframes reshuffleFlash{
+    0%{ box-shadow:0 0 0px transparent; }
+    50%{ box-shadow:0 0 25px #00f0ff; }
+    100%{ box-shadow:0 0 0px transparent; }
+}
+
+
+/* =====================================
+   🌈 PRZELOSUJ RAINBOW TEXT
+===================================== */
+
+#reshuffleWrapper{
+    position:relative;
+    display:inline-block;
+    cursor:pointer;
+
+    animation: jeffGlowPulse 1.8s ease-in-out infinite alternate;
+}
+
+@keyframes jeffGlowPulse{
+    0%{
+        filter: drop-shadow(0 0 10px #ff00ff)
+                drop-shadow(0 0 20px #00f0ff);
+    }
+    100%{
+        filter: drop-shadow(0 0 20px #ffd700)
+                drop-shadow(0 0 40px #ff00ff);
+    }
+}
+
+#reshuffleText{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    font-family:"Orbitron", sans-serif;
+    font-weight:900;
+    font-size:30px;
+    letter-spacing:3px;
+
+    pointer-events:none;
+
+    background:linear-gradient(
+        90deg,
+        red,
+        orange,
+        yellow,
+        lime,
+        cyan,
+        blue,
+        violet,
+        red
+    );
+    background-size:400% 100%;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    -webkit-text-stroke: 1.5px gold;
+
+    text-shadow:
+        0 2px 0 rgba(0,0,0,0.7),
+        0 4px 8px rgba(0,0,0,0.6),
+        0 0 15px rgba(255,215,0,0.8),
+        0 0 25px rgba(255,215,0,0.6);
+
+    animation:
+        rainbowShift 0.8s linear infinite,
+        rainbowFlash 0.4s ease-in-out infinite alternate;
+}
+
+/* 🔥 TERAZ JEST POZA BLOKIEM */
+@keyframes rainbowFlash{
+    0%{
+        text-shadow:
+            0 2px 0 rgba(0,0,0,0.8),
+            0 4px 8px rgba(0,0,0,0.7),
+            0 0 10px gold,
+            0 0 20px orange;
+        transform:translate(-50%, -50%) scale(1);
+    }
+    100%{
+        text-shadow:
+            0 2px 0 rgba(0,0,0,0.8),
+            0 6px 12px rgba(0,0,0,0.9),
+            0 0 25px #ff00ff,
+            0 0 45px #00f0ff;
+        transform:translate(-50%, -50%) scale(1.05);
+    }
+}
+
+@keyframes rainbowShift{
+    0%{ background-position:0% 50%; }
+    100%{ background-position:400% 50%; }
+}
+
+/* =====================================
+   🛡️ SAVE & STEAL JEFF POSITIONS
+===================================== */
+
+#cosmicSaveStealModal{
+    position:relative;
+}
+
+/* Wspólny styl Jeffa */
+#saveStealJeff{
+    position:absolute;
+    height:200px;
+    pointer-events:none;
+    z-index:3;
+}
+
+/* SAVE – Jeff rycerz z prawej strony */
+.save-phase #saveStealJeff{
+    right:-40px;
+    bottom:30px;
+}
+
+/* STEAL – Jeff złodziej centralnie pod kartami */
+.steal-phase #saveStealJeff{
+    left:50%;
+    bottom:40px;
+    transform:translateX(-50%);
+}
+@keyframes jeffFloatRight {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes jeffFloatCenter {
+    0% { transform: translateX(-50%) translateY(0px); }
+    50% { transform: translateX(-50%) translateY(-10px); }
+    100% { transform: translateX(-50%) translateY(0px); }
+}
+
+/* SAVE – Jeff z boku */
+.save-phase #saveStealJeff{
+    right:-40px;
+    bottom:30px;
+    animation: jeffFloatRight 3s ease-in-out infinite;
+}
+
+/* STEAL – Jeff pod kartami */
+.steal-phase #saveStealJeff{
+    left:50%;
+    bottom:-10px;
+    animation: jeffFloatCenter 2.5s ease-in-out infinite;
+}
+
+
+@keyframes confettiFall {
+  0% { transform: translateY(0) rotate(0deg); opacity:1; }
+  100% { transform: translateY(400px) rotate(720deg); opacity:0; }
+}
+
+@keyframes glimmerPulse {
+  from { opacity:0.2; transform:scale(1); }
+  to { opacity:0.8; transform:scale(1.5); }
+}
+
+@keyframes bidGlow {
+  from { text-shadow:0 0 10px gold; }
+  to { text-shadow:0 0 20px lime; }
+}
+
+.cosmic-export-btn{
+
+font-family:'Orbitron', sans-serif;
+font-size:18px;
+font-weight:700;
+
+padding:14px 28px;
+border-radius:14px;
+
+background:linear-gradient(90deg,#00f0ff,#8a2be2,#ff00ff);
+background-size:200%;
+
+color:white;
+border:none;
+
+cursor:pointer;
+
+box-shadow:
+0 0 10px #00f0ff,
+0 0 20px #00f0ff,
+0 0 35px #8a2be2;
+
+transition:all 0.25s ease;
+
+letter-spacing:1px;
+
+animation:cosmicPulse 3s infinite;
+
+}
+
+.cosmic-export-btn:hover{
+
+transform:scale(1.06);
+
+box-shadow:
+0 0 15px #00f0ff,
+0 0 40px #8a2be2,
+0 0 70px #ff00ff;
+
+background-position:right;
+
+}
+
+@keyframes cosmicPulse{
+
+0%{
+box-shadow:0 0 10px #00f0ff,0 0 25px #8a2be2;
+}
+
+50%{
+box-shadow:0 0 20px #00f0ff,0 0 50px #ff00ff;
+}
+
+100%{
+box-shadow:0 0 10px #00f0ff,0 0 25px #8a2be2;
+}
+
+}
+
+.card.selected{
+
+position:relative;
+
+outline:2px solid transparent;
+
+animation: rainbowPulse 0.4s linear infinite;
+
+}
+
+@keyframes rainbowPulse{
+
+0%{
+box-shadow:
+0 0 6px red,
+0 0 12px red;
+}
+
+20%{
+box-shadow:
+0 0 6px orange,
+0 0 12px orange;
+}
+
+40%{
+box-shadow:
+0 0 6px yellow,
+0 0 12px yellow;
+}
+
+60%{
+box-shadow:
+0 0 6px lime,
+0 0 12px lime;
+}
+
+80%{
+box-shadow:
+0 0 6px cyan,
+0 0 12px cyan;
+}
+
+100%{
+box-shadow:
+0 0 6px magenta,
+0 0 12px magenta;
+}
+
+}
+
+.title-wrapper{
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.cosmic-title{
+    position:relative;
+    font-family:'Orbitron', sans-serif;
+    font-size:90px;
+    letter-spacing:6px;
+    text-align:center;
+
+    background: linear-gradient(
+        90deg,
+        rgba(0,234,255,0.85),
+        rgba(122,92,255,0.85),
+        rgba(200,77,255,0.85)
+    );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+
+    transform: perspective(600px) rotateX(8deg);
+
+    filter:
+        drop-shadow(0 12px 18px rgba(0,0,0,0.6))
+        drop-shadow(0 0 6px rgba(0,255,255,0.4))
+        drop-shadow(0 0 12px rgba(255,0,255,0.2));
+
+    text-shadow:
+        0 -1px 2px rgba(255,255,255,0.35);
+
+    /* 🔥 ANIMOWANY INNER LINE */
+    -webkit-text-stroke: 1px rgba(0,200,255,0.7);
+    animation: strokeShift 3s infinite alternate;
+
+    z-index:3;
+}
+
+/* 🌌 GALAXY */
+.cosmic-title::before{
+    content:attr(data-text);
+    position:absolute;
+    inset:0;
+
+    background:url("galaxytool.png");
+    background-size:200% 200%;
+    background-position:0% 50%;
+
+    opacity:0.9;
+    filter: contrast(1.2) brightness(1.1);
+
+    animation: galaxyMove 16s linear infinite;
+
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+
+    z-index:2;
+}
+
+/* ✨ GLOW */
+.cosmic-title::after{
+    content:attr(data-text);
+    position:absolute;
+    inset:0;
+    color:transparent;
+
+    text-shadow:
+        0 0 8px rgba(0,255,255,0.6),
+        0 0 18px rgba(0,200,255,0.5),
+        0 0 25px rgba(255,0,255,0.3);
+
+    z-index:1;
+}
+
+/* ⭐ GWIAZDY (MGŁAWICA++) */
+.cosmic-title span{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+
+    background:
+        /* małe */
+        radial-gradient(rgba(255,255,255,0.9) 1px, transparent 2px),
+        /* średnie */
+        radial-gradient(rgba(255,255,255,0.8) 2px, transparent 3px),
+        /* glow niebieski */
+        radial-gradient(rgba(0,200,255,0.6) 2px, transparent 5px),
+        /* większe */
+        radial-gradient(rgba(255,255,255,0.7) 3px, transparent 6px),
+        /* kometa */
+        linear-gradient(120deg, transparent 45%, white 50%, transparent 55%);
+
+    background-size:
+        30px 30px,
+        60px 60px,
+        80px 80px,
+        120px 120px,
+        200% 100%;
+
+    filter: blur(0.7px);
+
+    animation:
+        starBlinkFast 0.4s infinite alternate,
+        starBlinkSlow 0.9s infinite alternate,
+        cometMove 4s linear infinite;
+
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+
+    z-index:4;
+}
+
+@keyframes galaxyMove{
+    0%{ background-position:0% 50%; }
+    100%{ background-position:100% 50%; }
+}
+
+.customModalContent {
+    position: relative;
+    width: 500px;
+    padding: 25px;
+    border-radius: 20px;
+
+    background:
+        linear-gradient(rgba(5,10,30,0.85), rgba(5,10,30,0.85)),
+        url("customfabryka.png") center/cover no-repeat;
+
+    border: 2px solid rgba(0,240,255,0.5);
+
+    box-shadow:
+        0 0 30px rgba(0,240,255,0.6),
+        0 0 80px rgba(168,85,247,0.4);
+
+    backdrop-filter: blur(6px);
+}
+
+.customModalContent::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image: url("blueprint_overlay.png");
+    background-size: cover;
+
+    opacity: 0.12;
+    pointer-events: none;
+}
+
+.customHeader {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.customHeader h2 {
+    font-size: 28px;
+    letter-spacing: 2px;
+
+    background: linear-gradient(90deg, #00eaff, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    text-shadow: 0 0 15px rgba(0,255,255,0.5);
+}
+
+.customJeff {
+    width: 60px;
+    filter: drop-shadow(0 0 10px gold);
+}
+
+.packList {
+    max-height: 200px;
+    overflow-y: auto;
+
+    padding: 10px;
+    border-radius: 12px;
+
+    background: rgba(0,0,0,0.4);
+    border: 1px solid rgba(0,255,255,0.3);
+}
+
+.customSection {
+    margin-top: 20px;
+    padding: 15px;
+
+    border-radius: 12px;
+
+    background: rgba(20,25,60,0.6);
+    border: 1px solid rgba(150,0,255,0.3);
+}
+
+.sectionTitle {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #00eaff;
+}
+
+.customConfirmBtn {
+    margin-top: 20px;
+    padding: 12px 25px;
+
+    border-radius: 12px;
+    border: none;
+
+    background: linear-gradient(90deg, #00eaff, #a855f7);
+    color: black;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 15px rgba(0,255,255,0.6),
+        0 0 30px rgba(168,85,247,0.4);
+
+    transition: 0.2s;
+}
+
+.customConfirmBtn:hover {
+    transform: scale(1.05);
+}
+
+#packName{
+    text-align:center;
+    font-size:28px;
+    font-weight:900;
+    margin-bottom:12px;
+    letter-spacing:2px;
+
+    position:relative;
+    display:inline-block;
+}
+
+/* 🌌 STANDARD */
+.pack-standard{
+    position: relative;
+    display: inline-block;
+    isolation: isolate;
+
+    font-weight: 900;
+    letter-spacing: 2px;
+
+    background:
+        radial-gradient(circle at 30% 30%, #00f0ff, transparent 40%),
+        radial-gradient(circle at 70% 60%, #8a2be2, transparent 50%),
+        radial-gradient(circle at 50% 50%, #000814 40%, #000 100%);
+
+    background-size: 200% 200%;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    animation: cosmicFlow 6s ease-in-out infinite;
+
+    text-shadow:
+        0 0 10px rgba(0,240,255,0.9),
+        0 0 30px rgba(0,136,255,0.7);
+}
+
+@keyframes cosmicFlow{
+    0%{ background-position: 0% 50%; }
+    50%{ background-position: 100% 50%; }
+    100%{ background-position: 0% 50%; }
+}
+
+.pack-standard::before{
+    content: attr(data-text); /* 🔥 KLUCZ */
+    position:absolute;
+    inset:0;
+
+    background:
+        radial-gradient(white 1px, transparent 2px),
+        radial-gradient(#00f0ff 1px, transparent 2px);
+
+    background-size:40px 40px, 80px 80px;
+
+    animation:
+        starBlink 1.5s infinite,
+        starMove 20s linear infinite;
+
+    opacity:0.8;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    pointer-events:none;
+}
+
+@keyframes starMove{
+    from{ background-position:0 0, 0 0; }
+    to{ background-position:200px 200px, -200px 150px; }
+}
+
+/* 🃏 JOKER */
+.pack-joker{
+    position: relative;
+    display: inline-block;
+
+    font-weight: 900;
+    letter-spacing: 3px;
+
+    background: linear-gradient(
+        90deg,
+        #ff00ff,
+        #00ffff,
+        #00ff88,
+        #ffff00,
+        #ff0080,
+        #00ffff,
+        #ff00ff
+    );
+
+    background-size: 300% 100%;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    isolation: isolate;
+
+    animation: jokerRainbow 3s linear infinite,
+               jokerGlitch 1s infinite;
+}
+
+/* 🌈 FLOW */
+@keyframes jokerRainbow{
+    0%   { background-position: 0% 50%; }
+    100% { background-position: 300% 50%; }
+}
+
+/* ⚡ GLITCH */
+@keyframes jokerGlitch{
+    0%   { transform: translate(0,0); }
+    10%  { transform: translate(-1px,1px); }
+    20%  { transform: translate(2px,-1px); }
+    30%  { transform: translate(-2px,2px); }
+    40%  { transform: translate(1px,-2px); }
+    50%  { transform: translate(0,0); }
+    60%  { transform: translate(2px,1px); }
+    70%  { transform: translate(-1px,-2px); }
+    80%  { transform: translate(1px,2px); }
+    90%  { transform: translate(-2px,-1px); }
+    100% { transform: translate(0,0); }
+}
+
+/* RGB SPLIT */
+.pack-joker::before,
+.pack-joker::after{
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    pointer-events: none;
+}
+
+.pack-joker::before{
+    color: #ff00ff;
+    z-index: -1;
+    animation: glitchTop 0.8s infinite;
+}
+
+.pack-joker::after{
+    color: #00ffff;
+    z-index: -2;
+    animation: glitchBottom 0.8s infinite;
+}
+
+@keyframes glitchTop{
+    0%{ clip-path: inset(0 0 70% 0); transform: translate(-2px,-2px); }
+    50%{ clip-path: inset(0 0 40% 0); transform: translate(2px,1px); }
+    100%{ clip-path: inset(0 0 70% 0); transform: translate(-1px,2px); }
+}
+
+@keyframes glitchBottom{
+    0%{ clip-path: inset(60% 0 0 0); transform: translate(2px,2px); }
+    50%{ clip-path: inset(40% 0 0 0); transform: translate(-2px,-1px); }
+    100%{ clip-path: inset(60% 0 0 0); transform: translate(1px,-2px); }
+}
+
+/* 🧬 CUSTOM */
+.pack-custom{
+    position: relative;
+    display: inline-block;
+    isolation: isolate;
+
+    font-weight: 900;
+    letter-spacing: 2px;
+
+    background:
+        linear-gradient(#7efcff, #00bcd4),
+        repeating-linear-gradient(
+            0deg,
+            rgba(0,240,255,0.25) 0px,
+            rgba(0,240,255,0.25) 1px,
+            transparent 1px,
+            transparent 6px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            rgba(0,240,255,0.25) 0px,
+            rgba(0,240,255,0.25) 1px,
+            transparent 1px,
+            transparent 6px
+        );
+
+    background-size: 100% 100%, 100% 200%, 200% 100%;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    animation: blueprintMove 6s linear infinite;
+
+    text-shadow:
+        0 0 12px #00f0ff,
+        0 0 30px rgba(0,240,255,0.8);
+}
+
+@keyframes blueprintMove{
+    0%{
+        background-position: 0 0, 0 0, 0 0;
+    }
+    100%{
+        background-position: 0 0, 0 200px, 200px 0;
+    }
+}
+
+.pack-custom::before{
+    content: attr(data-text);
+    position:absolute;
+    inset:0;
+    z-index:1; /* 🔥 */
+
+    background:
+        repeating-linear-gradient(
+            45deg,
+            rgba(0,255,255,0.3) 0px,
+            rgba(0,255,255,0.3) 2px,
+            transparent 2px,
+            transparent 10px
+        );
+
+    animation: dnaPulse 2s infinite;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+@keyframes dnaPulse{
+    0%{ opacity:0.2; }
+    50%{ opacity:0.7; }
+    100%{ opacity:0.2; }
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="thanksTop">W podziękowaniach dla Hahke &lt;3. Bez Ciebie nie byłoby Draftu</div>
+
+
+<img id="top-logo" src="DRAFT EVENT LOGO.png">
+<img id="bottom-logo" src="LOGO MS POLSKA 2 x.png">
+<img id="draft-logo" src="DRAFT EVENT LOGO.png">
+
+<div class="title-wrapper">
+    <div class="cosmic-title" data-text="MSP SNAP DRAFT">
+        MSP SNAP DRAFT
+        <span>MSP SNAP DRAFT</span>
+    </div>
+</div>
+
+<div id="startPanel">
+    <div class="settingsTitle">USTAWIENIA DRAFTU</div>
+
+<div class="settingsSection">
+    <div class="sectionLabel">GRACZE</div>
+
+    <div class="playerCountRow">
+        <label for="numPlayers">Liczba graczy:</label>
+        <select id="numPlayers">
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+    <option value="15">15</option>
+    <option value="16">16</option>
+    <option value="17">17</option>
+    <option value="18">18</option>
+    <option value="19">19</option>
+    <option value="20">20</option>
+        </select>
+    </div>
+
+    <div class="namesRow">
+        <label for="playerNames">NAZWY:</label>
+        <input type="text" id="playerNames" placeholder="np. Jan, Ola, Kamil...">
+    </div>
+</div>
+
+<div class="settingsSection">
+    <div class="sectionLabel">WYBÓR TRYBÓW</div>
+
+    <div class="modeOption">
+        <label>
+            <input type="checkbox" id="enableBans">
+            BANY
+        </label>
+        <img src="jeff_judge.png" class="modeJeff">
+    </div>
+
+    <div class="modeOption">
+        <label>
+            <input type="checkbox" id="enableJokers">
+            JOKERY
+        </label>
+        <img src="jeff_joker.png" class="modeJeff">
+    </div>
+
+    <div class="modeOption">
+        <label>
+            <input type="checkbox" id="enableSaveSteal">
+            SAVE N STEAL
+        </label>
+        <img src="jeff_thief.png" class="modeJeff">
+    </div>
+
+    <!-- 🔥 TU -->
+    <div class="modeOption">
+        <label>
+            <input type="checkbox" id="enableCustomPacks">
+            CUSTOM PACKS
+        </label>
+        <img src="jeffgoldenhand.png" class="modeJeff">
+    </div>
+
+</div>
+
+<div class="modeOption">
+    <label>
+        <input type="checkbox" id="enablePokerDraft">
+        POKER DRAFT
+    </label>
+</div>
+
+<button id="startDraftBtn" onclick="startDraft()">
+    <img src="galaxytool.png" class="galaxyBg">
+    <span>START DRAFT</span>
+</button>
+
+<img src="hakerjeff.png" class="settingsJeff">
+</div>
+
+<div id="draftStarted">DRAFT ROZPOCZĘTY</div>
+
+<div id="banModal">
+    <div class="banTitle">BANY</div>
+
+    <div class="banWrapper">
+        <div class="banContent">
+            <h3>Wybierz karty do zbanowania</h3>
+            <div id="banList"></div>
+            <button onclick="confirmBans()">ZBANUJ</button>
+        </div>
+
+        <img src="jeff_judge.png" class="banJeff">
+    </div>
+</div>
+
+<div id="draftSection" style="display:none;">
+  <div class="flex-container">
+
+    <!-- LEWA KOLUMNA -->
+    <div class="info-panel">
+      <h4 class="cosmic-title">AKTUALNA KOLEJKA PACZKI</h4>
+      <div id="roundQueue"></div>
+    </div>
+
+    <!-- ŚRODEK -->
+    <div class="center-column">
+      <div id="packName"></div>
+<div id="pack"></div>
+
+
+
+      <h3 class="cosmic-title">DECKI GRACZY</h3>
+      <div id="decks"></div>
+    </div>
+
+    <!-- PRAWA KOLUMNA -->
+    <div class="info-panel">
+      <h4 class="cosmic-title">INFORMACJE O DRAFCIE</h4>
+      <div id="infoContent"></div>
+    </div>
+
+
+  </div>
+</div>
+
+<script src="cards.js"></script>
+<script>
+// ======== Baza Jokerów =======
+const jokers = [
+  { desc: "Dowolny 1-cost" },
+  { desc: "Dowolny 2-cost" },
+  { desc: "Dowolny 3/4-cost" },
+  { desc: "Dowolny 5+ cost" },
+  { desc: "Kopia innej wybranej karty" },
+  { desc: "Dowolna karta" },
+  { desc: 'Karta z "Move"' },
+  { desc: 'Karta z "Destroy"' },
+  { desc: 'Karta z "Ongoing"' },
+  { desc: 'Karta z "End of Turn"' },
+  { desc: 'Karta z Activate' },
+  { desc: 'Karta z "Copy"' },
+  { desc: "Dowolny Tech" },
+  { desc: "Karta 0 i mniej siły" },
+  { desc: "Karta 10+ siły" },
+  { desc: "Dowolny Zwierzak" },
+  { desc: "Dowolna Karta Spellowa" },
+  { desc: "Karta tworząca Token" },
+  { desc: 'Dowolna karta z "Discard"' },
+  { desc: 'Dowolna karta z "Bounce"' },
+  { desc: "Karta Zombie" },
+  { desc: "Dowolny Cost / Energy Cheat" }
+];
+
+const playerColors = [
+  "#00f0ff", "#ff00ff", "#00ff88", "#ffd700",
+  "#ff4d4d", "#7d5cff", "#00ffcc", "#ff8800",
+  "#ffffff", "#66ccff", "#ff66cc", "#aaff00"
+];
+
+// ======== Draft logic =======
+var players=[], decks=[], numPlayers=2, currentPack=[], packStartIndex=0;
+let draftFinished=false, pickOrder=[], currentPickIndex=0;
+let bannedCards=[];
+
+let customPackSettings = {
+    enabled: false,
+
+    selectedPacks: [
+        // { id: "animal_pack", count: 2 }
+    ],
+
+    distribution: "queue", // "queue" | "random"
+    fillMode: "random"
+};
+
+let customPackQueue = [];
+let customPackQueueBuilt = false;
+let currentPackName = "STANDARD PACK";
+
+document.getElementById("top-logo").onclick = ()=>location.reload();
+
+function startDraft(){
+    numPlayers=parseInt(document.getElementById("numPlayers").value);
+    const names=document.getElementById("playerNames").value.split(",");
+    players=[];
+    for(let i=0;i<numPlayers;i++){
+        players.push(names[i]?names[i].trim():"Gracz"+(i+1));
+    }
+    decks=Array.from({length:numPlayers},()=>[]);
+    draftFinished=false; packStartIndex=0; currentPickIndex=0; bannedCards=[];
+customPackUsed = false;
+if(
+    document.getElementById("enableCustomPacks").checked &&
+    !document.getElementById("enablePokerDraft").checked
+){
+
+    customPackSettings.enabled = true;
+
+    customPackQueue = [];
+
+}else{
+      customPackSettings.enabled = false; 
+}
+    document.getElementById("startPanel").style.display = "none";
+    document.getElementById("draftStarted").style.display = "block";
+    document.getElementById("draftSection").style.display="block";
+
+    if(document.getElementById("enablePokerDraft").checked){
+    startPokerDraft();
+    return;
+}
+
+startDraftFlow();
+
+}
+
+function startDraftFlow(){
+
+    // 🎴 CUSTOM PACKS (tylko raz!)
+    if(customPackSettings.enabled && !customPackUsed){
+        customPackUsed = true;
+        openCustomPackModal();
+        return;
+    }
+
+    // 🟥 BANY
+    if(document.getElementById("enableBans").checked){
+        showBanSection();
+        return;
+    }
+
+    // 🚀 START DRAFTU
+    nextPack();
+}
+
+function openCustomPackModal(){
+    document.getElementById("customPackModal").style.display = "flex";
+
+    const list = document.getElementById("customPackList");
+    list.innerHTML = "";
+
+    customPacks.forEach(pack => {
+        const div = document.createElement("div");
+
+       div.innerHTML = `
+    <label style="display:flex; justify-content:space-between; align-items:center;">
+        
+        <div>
+            <input type="checkbox" value="${pack.id}">
+            ${pack.name}
+        </div>
+
+        <input 
+            type="number" 
+            min="1" 
+            value="1" 
+            class="packCount"
+            data-id="${pack.id}"
+            style="width:60px;"
+        >
+
+    </label>
+`;
+
+list.appendChild(div);
+     });
+}
+
+function confirmCustomPacks(){
+
+    const checked = document.querySelectorAll("#customPackList input:checked");
+
+    customPackSettings.selectedPacks = [...checked].map(c => {
+
+    const input = document.querySelector(
+        `.packCount[data-id="${c.value}"]`
+    );
+
+    return {
+        id: c.value,
+        count: parseInt(input.value) || 1
+    };
+});
+
+    const distribution = document.querySelector('input[name="mode"]:checked');
+const fill = document.querySelector('input[name="fill"]:checked');
+const order = document.querySelector('input[name="order"]:checked');
+customPackSettings.order = order ? order.value : "ordered";
+
+customPackSettings.distribution = distribution ? distribution.value : "queue";
+customPackSettings.fillMode = fill ? fill.value : "random";
+
+    document.getElementById("customPackModal").style.display = "none";
+
+    startDraftFlow();
+}
+
+function showBanSection(){
+    const modal=document.getElementById("banModal");
+    const banList=document.getElementById("banList");
+    banList.innerHTML="";
+    cardDatabase.forEach(card=>{
+        const cb=document.createElement("input");
+        cb.type="checkbox"; cb.value=card.name; cb.id="ban_"+card.name;
+        const label=document.createElement("label");
+        label.innerText=card.name; label.prepend(cb);
+        banList.appendChild(label);
+    });
+    modal.style.display="block";
+}
+
+function confirmBans(){
+    bannedCards=[];
+
+    cardDatabase.forEach(card=>{
+        const cb=document.getElementById("ban_"+card.name);
+        if(cb && cb.checked) bannedCards.push(card.name);
+    });
+
+    document.getElementById("banModal").style.display="none";
+
+    // 🔥 KLUCZOWE
+    document.getElementById("enableBans").checked = false;
+
+    startDraftFlow();
+}
+
+function totalPacks(){ const picksPerPack = numPlayers; return Math.ceil(12 / picksPerPack); }
+
+function setupPickOrder(){
+    pickOrder=[];
+    for(let i=0;i<numPlayers;i++) pickOrder.push((packStartIndex+i)%numPlayers);
+    for(let i=numPlayers-1;i>=0;i--) pickOrder.push((packStartIndex+i)%numPlayers);
+    updateRoundQueueDisplay();
+}
+
+function updateRoundQueueDisplay(){
+    const div=document.getElementById("roundQueue");
+    div.innerHTML="";
+    pickOrder.forEach((p,i)=>{
+        const span=document.createElement("div"); span.innerText=players[p];
+        if(i===currentPickIndex) span.classList.add("current-player");
+        div.appendChild(span);
+    });
+    updateInfoPanel();
+}
+
+function updateInfoPanel(){
+    const info=document.getElementById("infoContent");
+    let mode="Klasyczny";
+    if(document.getElementById("enableBans").checked) mode="BANY";
+    if(document.getElementById("enableJokers").checked) mode="JOKERY";
+    const packsCount = totalPacks();
+    const currentPackNumber = Math.min(packStartIndex + 1, packsCount);
+    const totalSelected = decks.reduce((sum,d)=>sum+d.length,0);
+    const totalCardsNeeded = numPlayers * 12;
+    info.innerHTML=`<b>TRYB:</b> ${mode}<br><br>
+        <b>GRACZE:</b> ${numPlayers}<br><br>
+        <b>ZBANOWANE:</b><br>${bannedCards.length>0?bannedCards.join(", "):"Brak"}<br><br>
+        <b>NUMER PACZKI:</b> ${currentPackNumber}/${packsCount}<br><br>
+        <b>WYBRANE KARTY:</b> ${totalSelected}/${totalCardsNeeded}`;
+}
+
+function nextPack(){
+    if(draftFinished) return;
+    currentPack=[]; 
+    let packSize=numPlayers*2+1;
+
+    let addJoker=false, addSecondJoker=false;
+    if(document.getElementById("enableJokers").checked){
+        addJoker = Math.random()<0.5;        
+        addSecondJoker = addJoker && Math.random()<0.1; 
+    }
+
+    // 🎴 GENEROWANIE PACZKI
+    let generatedPack = resolvePack(packSize);
+
+    // 🚫 FILTR BANÓW
+    generatedPack = generatedPack.filter(c => 
+        !(c && c.name && bannedCards.includes(c.name))
+    );
+
+    // 🔁 UZUPEŁNIANIE BRAKÓW
+    while(generatedPack.length < packSize){
+        const r = Math.floor(Math.random()*cardDatabase.length);
+        const card = cardDatabase[r];
+
+        if(!bannedCards.includes(card.name)){
+            generatedPack.push(card);
+        }
+    }
+
+    currentPack = generatedPack;
+if(document.getElementById("enableJokers").checked){
+
+    if(currentPackName === "STANDARD PACK"){
+
+        if(addJoker){
+            currentPackName = "JOKER PACK"; 
+            currentPack[Math.floor(Math.random()*currentPack.length)] = {
+                joker: true,
+                desc: jokers[Math.floor(Math.random()*jokers.length)].desc
+            };
+        }
+
+        if(addSecondJoker){
+currentPackName = "JOKER PACK";
+            currentPack[Math.floor(Math.random()*currentPack.length)] = {
+                joker: true,
+                desc: jokers[Math.floor(Math.random()*jokers.length)].desc
+            };
+        }
+
+    } 
+}
+currentPickIndex = 0;
+setupPickOrder();
+showPack();
+showDecks();
+}
+
+function showPack(){
+
+const nameDiv = document.getElementById("packName");
+
+if(currentPackName === "STANDARD PACK"){
+    nameDiv.className = "pack-standard";
+
+    const text = "🌌 KOSMICZNA PACZKA";
+    nameDiv.innerText = text;
+    nameDiv.setAttribute("data-text", text);
+}
+else if(currentPackName === "JOKER PACK"){
+    nameDiv.className = "pack-joker";
+
+    const text = "🃏 PACZKA JOKEROWA";
+    nameDiv.innerText = text;
+    nameDiv.setAttribute("data-text", text);
+}
+else{
+    nameDiv.className = "pack-custom";
+
+    const text = "🧬 " + currentPackName;
+    nameDiv.innerText = text;
+    nameDiv.setAttribute("data-text", text);
+}
+
+    const packDiv=document.getElementById("pack");
+    packDiv.innerHTML="";
+
+    currentPack.forEach((c,i)=>{
+        const btn=document.createElement("button");
+
+        if(c && typeof c === "object" && c.joker){
+            btn.className = "joker-card-btn";
+btn.innerHTML = `
+    <div class="joker-border">
+        <div class="joker-card">
+            <div class="joker-bg-glow"></div>
+            <div class="joker-starfield"></div>
+            <div class="joker-galaxy"></div>
+
+            <div class="joker-title">JOKER</div>
+
+            <div class="joker-questions">
+                <span class="q-left">?</span>
+                <span class="q-right">?</span>
+            </div>
+
+            <div class="joker-desc">${c.desc}</div>
+        </div>
+    </div>
+`;
+
+            btn.onclick=()=>{
+                let chosenName = prompt("Wybrałeś JOKERA (" + c.desc + "). Wpisz nazwę karty do dodania:");
+                if(chosenName){
+                    const found = cardDatabase.find(card => card.name.toLowerCase() === chosenName.trim().toLowerCase());
+                    if(found){
+                        const playerIndex=pickOrder[currentPickIndex];
+                        decks[playerIndex].push(found);
+                        currentPack.splice(i,1);
+                        nextPickOrPack();
+                    } else {
+                        alert("Nie znaleziono karty w bazie!");
+                    }
+                }
+            };
+
+        } else {
+            btn.className = "pack-card-btn";
+            btn.innerHTML = `
+              <div class="pack-card-inner">
+                <div class="pack-icon pack-planet">${c.cost}</div>
+                <div class="pack-card-name">${c.name}</div>
+                <div class="pack-icon pack-star">${c.power}</div>
+              </div>
+            `;
+            btn.onclick=()=>pickCard(i);
+        }
+
+        packDiv.appendChild(btn);
+    });
+}
+
+function pickCard(index){
+    if(draftFinished) return;
+    const playerIndex=pickOrder[currentPickIndex];
+    decks[playerIndex].push(currentPack[index]);
+    currentPack.splice(index,1);
+    nextPickOrPack();
+}
+
+function nextPickOrPack(){
+
+    // 🔴 KONIEC DRAFTU
+    if(decks.every(d => d.length >= 12)){
+        draftFinished = true;
+
+document.getElementById("exportDraftContainer").style.display = "block";
+
+        const checkbox = document.getElementById("enableSaveSteal");
+
+        if(checkbox && checkbox.checked){
+            if(typeof openSaveStealModal === "function"){
+                openSaveStealModal();
+                return;
+            }
+        }
+
+        alert("Draft zakończony!");
+        showDecks();
+        return;
+    }
+
+    // 🟡 PRZEJŚCIE DO NASTĘPNEGO PICKU
+    currentPickIndex++;
+
+    // 🔵 KONIEC KOLEJKI → NOWA PACZKA
+    if(currentPickIndex >= pickOrder.length){
+        packStartIndex++;
+        nextPack();
+        return;
+    }
+
+    // 🟢 NORMALNE ODŚWIEŻENIE
+    showPack();
+    showDecks();
+    updateRoundQueueDisplay();
+}
+
+function showDecks(){
+    const decksDiv=document.getElementById("decks");
+    decksDiv.innerHTML="";
+
+    players.forEach((p,i)=>{
+        const color = playerColors[i % playerColors.length];
+
+        const playerDiv=document.createElement("div");
+        playerDiv.className="deck-section";
+        playerDiv.style.borderColor = color;
+        playerDiv.style.boxShadow = `0 0 20px ${color}, inset 0 0 30px ${color}33`;
+
+        const name=document.createElement("h4");
+        name.innerText=p;
+        name.style.color = color;
+        name.style.textShadow = `0 0 10px ${color}, 0 0 20px ${color}`;
+        playerDiv.appendChild(name);
+
+        const deck=document.createElement("div");
+        deck.className="deck";
+
+        decks[i].forEach(card=>{
+            const cDiv=document.createElement("div");
+            cDiv.className="card";
+            cDiv.innerText=card.name + " (" + card.cost + "/" + card.power + ")";
+            cDiv.style.color = color;
+            cDiv.onclick = () => {
+    cDiv.classList.toggle("selected");
+};
+            deck.appendChild(cDiv);
+        });
+
+        playerDiv.appendChild(deck);
+        decksDiv.appendChild(playerDiv);
+    });
+}
+
+function reshuffleSelected(){
+       for(let i=0;i<decks.length;i++){
+        for(let j=0;j<decks[i].length;j++){
+            const cardDiv=document.getElementsByClassName("deck")[i].children[j];
+            if(cardDiv.classList.contains("selected")){
+                const r=Math.floor(Math.random()*cardDatabase.length);
+                decks[i][j]=cardDatabase[r];
+                cardDiv.classList.remove("selected");
+            }
+        }
+    }
+    showDecks();
+}
+
+function exportDraft(){
+
+let draftID = prompt("Numer draftu?");
+if(!draftID) return;
+
+let playersFormatted = players.map((p,i)=>({
+    name: p,
+    deck: decks[i].map(c=>c.name)
+}));
+
+let draftObject = {
+id: parseInt(draftID),
+startDate: "",
+endDate: "",
+mode: "Classic + Bany + Jokery",
+presetCard: null,
+playersCount: players.length,
+winner: null,
+bans: [],
+players: playersFormatted,
+matches: []
+};
+
+let code =
+"\n{\n" +
+JSON.stringify(draftObject, null, 2).slice(1,-1) +
+"\n},\n";
+
+navigator.clipboard.writeText(code);
+
+alert("Draft " + draftID + " skopiowany do database.js!");
+
+}
+
+function generateNormalPack(packSize){
+    return shuffleArray(cardDatabase).slice(0, packSize);
+}
+
+function resolvePack(packSize){
+
+    // 🔥 budujemy kolejkę tylko raz
+    if(!customPackQueueBuilt){
+
+        let pool = [];
+
+customPackSettings.selectedPacks.forEach(p => {
+    for(let i=0; i<p.count; i++){
+        pool.push(p.id);
+    }
+});
+
+// 🎯 KOLEJNOŚĆ
+if(customPackSettings.order === "random"){
+    pool = shuffleArray(pool);
+}
+
+const maxPacks = 6;
+
+if(customPackSettings.distribution === "random"){
+
+    // 🔥 LOSOWE SLOTY W DRAFcie
+    let slots = new Array(maxPacks).fill(null);
+
+    // losujemy sloty dla customów
+    for(let i = 0; i < pool.length && i < maxPacks; i++){
+        let index;
+
+        do{
+            index = Math.floor(Math.random() * maxPacks);
+        } while(slots[index] !== null);
+
+        slots[index] = pool[i];
+    }
+
+    customPackQueue = slots;
+
+}else{
+
+    // 🔵 NA POCZĄTKU
+    customPackQueue = pool.slice(0, maxPacks);
+
+}
+
+customPackQueueBuilt = true;
+    }
+
+    // ❌ brak paczek → fallback
+    if(customPackQueue.length === 0){
+        currentPackName = "STANDARD PACK";
+        return generateNormalPack(packSize);
+    }
+
+    // 🎴 bierzemy kolejną paczkę
+    const packId = customPackQueue.shift();
+
+    const packDef = customPacks.find(p => p.id === packId);
+
+    if(!packDef){
+        currentPackName = "STANDARD PACK";
+        return generateNormalPack(packSize);
+    }
+
+    currentPackName = packDef.name;
+
+    // 🎴 generowanie
+    return generateCustomPack(
+        packDef,
+        packSize,
+        customPackSettings.fillMode
+    );
+}
+
+
+</script>
+
+<script src="cosmicBackground.js"></script>
+<script src="saveSteal.js"></script>
+<script src="jeffEngine.js"></script>
+<script src="reshuffle.js"></script>
+<script src="customPacks.js"></script>
+<script src="customPackEngine.js"></script>
+<script src="pokerDraft.js"></script>
+
+<div id="customPackModal" class="customModal" style="display:none;">
+
+    <div class="customModalContent">
+
+        <!-- HEADER -->
+        <div class="customHeader">
+            <img src="jeffgoldenhand.png" class="customJeff">
+            <h2>CUSTOM PACKS</h2>
+        </div>
+
+        <!-- LISTA PACZEK -->
+        <div class="customSection">
+            <div class="sectionTitle">WYBIERZ PACZKI</div>
+            <div id="customPackList" class="packList"></div>
+        </div>
+
+        <!-- TRYB -->
+        <div class="customSection">
+            <div class="sectionTitle">TRYB POJAWIANIA</div>
+
+            <label><input type="radio" name="mode" value="queue"> NA POCZĄTKU</label>
+            <label><input type="radio" name="mode" value="random"> LOSOWO</label>
+        </div>
+
+<div class="customSection">
+    <div class="sectionTitle">KOLEJNOŚĆ PACZEK</div>
+
+    <label>
+        <input type="radio" name="order" value="ordered" checked>
+        KOLEJNOŚĆ LISTY
+    </label>
+    <br>
+
+    <label>
+        <input type="radio" name="order" value="random">
+        LOSOWA KOLEJNOŚĆ
+    </label>
+</div>
+
+        <!-- FILL MODE -->
+        <div class="customSection">
+            <div class="sectionTitle">UZUPEŁNIANIE</div>
+
+            <label><input type="radio" name="fill" value="random"> RANDOM</label>
+            <label><input type="radio" name="fill" value="duplicate"> DUPLICATE</label>
+            <label><input type="radio" name="fill" value="half"> 50/50</label>
+        </div>
+
+        <!-- BUTTON -->
+        <button class="customConfirmBtn" onclick="confirmCustomPacks()">
+            START
+        </button>
+
+    </div>
+
+</div>
+
+    
+
+<div id="exportDraftContainer" style="text-align:center;margin-top:40px;display:none;">
+
+<button class="cosmic-export-btn" onclick="exportDraft()">
+🚀 EKSPORTUJ DRAFT
+
+</button>
+
+</div>
+
+<!-- 🔥 RESHUFFLE -->
+<div id="reshuffleContainer">
+    <div id="reshuffleWrapper" onclick="reshuffleCards()">
+        <img src="jeff_reshuffle.png" id="reshuffleJeff">
+        <div id="reshuffleText">PRZELOSUJ</div>
+    </div>
+</div>

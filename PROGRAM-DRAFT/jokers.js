@@ -1,0 +1,25 @@
+jokers.js
+const jokers = [
+  { desc: "Dowolny 1-cost" },
+  { desc: "Dowolny 2-cost" },
+  { desc: "Dowolny 3/4-cost" },
+  { desc: "Dowolny 5+ cost" },
+  { desc: "Kopia innej wybranej karty" },
+  { desc: "Dowolna karta" },
+  { desc: 'Karta z "Move"' },
+  { desc: 'Karta z "Destroy"' },
+  { desc: 'Karta z "Ongoing"' },
+  { desc: 'Karta z "End of Turn"' },
+  { desc: 'Karta z Activate' },
+  { desc: 'Karta z "Copy"' },
+  { desc: "Dowolny Tech" },
+  { desc: "Karta 0 i mniej siły" },
+  { desc: "Karta 10+ siły" },
+  { desc: "Dowolny Zwierzak" },
+  { desc: "Dowolna Karta Spellowa" },
+  { desc: "Karta tworząca Token" },
+  { desc: 'Dowolna karta z "Discard"' },
+  { desc: 'Dowolna karta z "Bounce"' },
+  { desc: "Karta Zombie" },
+  { desc: "Dowolny Cost / Energy Cheat" }
+];
