@@ -1932,12 +1932,45 @@ box-shadow:
     100%{ opacity:0.2; }
 }
 
+    .back-btn{
+position:fixed;
+top:20px;
+left:20px;
+
+padding:10px 18px;
+
+background:linear-gradient(45deg,#00f0ff,#8a2be2);
+color:black;
+
+border-radius:10px;
+text-decoration:none;
+font-weight:bold;
+
+z-index:9999;
+
+box-shadow:0 0 15px #00f0ff;
+
+transition:0.25s;
+}
+
+.back-btn:hover{
+transform:scale(1.08);
+
+box-shadow:
+0 0 20px #00f0ff,
+0 0 40px #8a2be2,
+0 0 60px #8a2be2;
+}
 </style>
 </head>
 
 <body>
 
 <div id="thanksTop">W podziękowaniach dla Hahke &lt;3. Bez Ciebie nie byłoby Draftu</div>
+
+    <a href="../index.html" class="back-btn">
+⬅ POWRÓT DO CENTRUM
+</a>
 
 
 <img id="top-logo" src="DRAFT EVENT LOGO.png">
