@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Pack Opening Test</title>
+
+<style>
+body{
+    margin:0;
+    overflow:hidden;
+    font-family:"Segoe UI",sans-serif;
+    background:black;
+}
+
+.scene{
+    position:relative;
+    width:100vw;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+}
+
+/* 🪐 PODIUM */
+.podium{
+    width:300px;
+    position:absolute;
+    bottom:80px;
+    z-index:1;
+}
+
+/* 📦 SKRZYNKA */
+.crate{
+    width:220px;
+    cursor:pointer;
+    z-index:2;
+    transition: all 0.4s ease;
+}
+
+/* 🔵 NORMAL */
+.crate.normal{
+    filter: drop-shadow(0 0 20px cyan);
+}
+
+/* 🐾 ANIMAL */
+.crate.animal{
+    filter: drop-shadow(0 0 25px orange);
+}
+
+/* hover */
+.crate:hover{
+    transform:scale(1.05);
+}
+
+/* otwieranie */
+.crate.opening{
+    animation: openAnim 0.6s ease forwards;
+}
+
+@keyframes openAnim{
+    0%{ transform:scale(1); }
+    50%{ transform:scale(1.2); }
+    100%{ transform:scale(1.1); }
+}
+
+/* 🃏 KARTY */
+#cards{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    display:flex;
+    gap:20px;
+}
+
+.card{
+    width:110px;
+    height:150px;
+    border-radius:14px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    color:white;
+    font-weight:bold;
+    text-align:center;
+
+    opacity:0;
+    transform:translateY(80px) scale(0.8);
+
+    transition: all 0.5s ease;
+}
+
+/* NORMAL CARD */
+.card.normal{
+    background:rgba(20,20,40,0.9);
+    border:2px solid #00f0ff;
+    box-shadow:0 0 15px #00f0ff;
+}
+
+/* ANIMAL CARD */
+.card.animal{
+    background:linear-gradient(160deg,#3a2b1a,#1a1208);
+    border:2px solid orange;
+    box-shadow:0 0 15px orange;
+}
+
+/* pokaz */
+.card.show{
+    opacity:1;
+    transform:translateY(0px) scale(1);
+}
+
+/* highlight */
+.card.highlight{
+    box-shadow:
+        0 0 30px gold,
+        0 0 60px orange;
+}
+
+/* particles */
+.particles{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    opacity:0;
+}
+
+.particles.active{
+    animation: sparkle 1s ease forwards;
+}
+
+@keyframes sparkle{
+    0%{ opacity:0; }
+    50%{ opacity:1; }
+    100%{ opacity:0; }
+}
+
+.particles::before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+        radial-gradient(white 2px, transparent 3px),
+        radial-gradient(cyan 2px, transparent 3px),
+        radial-gradient(magenta 2px, transparent 3px);
+
+    background-size:40px 40px, 60px 60px, 80px 80px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="scene">
+
+    <img src="podium.png" class="podium">
+
+    <img id="crate" class="crate">
+
+    <div class="particles" id="particles"></div>
+
+    <div id="cards"></div>
+
+</div>
+
+<script src="cosmicBackground.js"></script>
+<script src="cards.js"></script>
+
+<script>
+
+const crate = document.getElementById("crate");
+const cardsDiv = document.getElementById("cards");
+const particles = document.getElementById("particles");
+
+let opened = false;
+
+/* 🎲 LOSOWANIE TYPU */
+function getRandomPackType(){
+    return Math.random() < 0.5 ? "normal" : "animal";
+}
+
+let currentType = getRandomPackType();
+
+/* 📦 STANY SKRZYNKI */
+function getCrateImage(state){
+
+    if(currentType === "animal"){
+        if(state === "closed") return "crate_animal_closed.png";
+        if(state === "half") return "crate_animal_half.png";
+        if(state === "open") return "crate_animal_open.png";
+    }else{
+        if(state === "closed") return "crate_normal_closed.png";
+        if(state === "half") return "crate_normal_half.png";
+        if(state === "open") return "crate_normal_open.png";
+    }
+}
+
+/* 🎨 SETUP */
+function setupCrate(){
+
+    crate.classList.remove("normal","animal");
+
+    crate.src = getCrateImage("closed");
+
+    if(currentType === "animal"){
+        crate.classList.add("animal");
+    }else{
+        crate.classList.add("normal");
+    }
+}
+
+setupCrate();
+
+/* 🎲 GENEROWANIE PACZKI */
+function generatePack(){
+
+    let pool = [...cardDatabase];
+
+    if(currentType === "animal"){
+        pool = pool.filter(c => c.tags && c.tags.includes("animal"));
+
+        if(pool.length < 6){
+            pool = [...cardDatabase];
+        }
+    }
+
+    const shuffled = pool.sort(()=>Math.random()-0.5);
+    return shuffled.slice(0,6);
+}
+
+/* 🃏 TWORZENIE KART */
+function createCard(card, index){
+
+    const div = document.createElement("div");
+    div.className = "card " + currentType;
+
+    div.innerHTML = `
+        <div>${card.name}</div>
+        <div>${card.cost} / ${card.power}</div>
+    `;
+
+    cardsDiv.appendChild(div);
+
+    setTimeout(()=>{
+        div.classList.add("show");
+
+        if(index < 3){
+            div.classList.add("highlight");
+        }
+
+    }, index < 3 ? index * 200 : 800 + (index * 120));
+}
+
+/* 🎬 OTWARCIE PACZKI */
+crate.onclick = () => {
+
+    if(opened) return;
+    opened = true;
+
+    crate.classList.add("opening");
+    particles.classList.add("active");
+
+    const pack = generatePack();
+
+    // 🔓 HALF
+    crate.src = getCrateImage("half");
+
+    setTimeout(() => {
+        // 🔥 OPEN
+        crate.src = getCrateImage("open");
+    }, 300);
+
+    setTimeout(() => {
+        // 🃏 KARTY
+        pack.forEach((card, i)=>{
+            createCard(card, i);
+        });
+    }, 600);
+};
+
+</script>
+
+</body>
+</html>
