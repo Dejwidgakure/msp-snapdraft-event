@@ -918,37 +918,58 @@ color:playerColors[i%playerColors.length]
 
 
 draft.matches.forEach(m=>{
-  if(m.pts1>m.pts2){
 
-stats[m.p1].wins++;
-stats[m.p2].losses++;
+  let isDoubleWalkover = (m.pts1 === 0 && m.pts2 === 0);
+  let isWalkover = (m.pts1 === 20 && m.pts2 === 0) || (m.pts2 === 20 && m.pts1 === 0);
 
-stats[m.p1].winPoints+=m.pts1;
-stats[m.p2].lossPoints+=m.pts2;
+  if(isDoubleWalkover){
 
-}else{
+    // 🔴 PODWÓJNY WALKOWER
+    stats[m.p1].losses++;
+    stats[m.p2].losses++;
 
-stats[m.p2].wins++;
-stats[m.p1].losses++;
+  }else if(m.pts1 > m.pts2){
 
-stats[m.p2].winPoints+=m.pts2;
-stats[m.p1].lossPoints+=m.pts1;
+    stats[m.p1].wins++;
+    stats[m.p2].losses++;
 
-}
+    stats[m.p1].winPoints += m.pts1;
+    stats[m.p2].lossPoints += m.pts2;
 
-stats[m.p1].total+=m.pts1;
-stats[m.p2].total+=m.pts2;
+  }else if(m.pts2 > m.pts1){
+
+    stats[m.p2].wins++;
+    stats[m.p1].losses++;
+
+    stats[m.p2].winPoints += m.pts2;
+    stats[m.p1].lossPoints += m.pts1;
+
+  }
+
+  // punkty zawsze lecą
+  stats[m.p1].total += m.pts1;
+  stats[m.p2].total += m.pts2;
+
+  // ✨ DOPISEK
+  let note = "";
+
+  if(isDoubleWalkover){
+    note = " <span style='opacity:0.6;font-size:12px'>(pod. walk.)</span>";
+  }else if(isWalkover){
+    note = " <span style='opacity:0.6;font-size:12px'>(walk.)</span>";
+  }
 
   const p1Color = stats[m.p1].color;
-const p2Color = stats[m.p2].color;
+  const p2Color = stats[m.p2].color;
 
-document.getElementById("resultsBox")
-  .innerHTML+=`
-  <p>
-    <span style="color:${p1Color};font-weight:bold;">${m.p1}</span> 
-    ${m.pts1} – ${m.pts2} 
-    <span style="color:${p2Color};font-weight:bold;">${m.p2}</span>
-  </p>`;
+  document.getElementById("resultsBox")
+    .innerHTML += `
+    <p>
+      <span style="color:${p1Color};font-weight:bold;">${m.p1}</span> 
+      ${m.pts1} – ${m.pts2} 
+      <span style="color:${p2Color};font-weight:bold;">${m.p2}</span>
+      ${note}
+    </p>`;
 });
 
     const unplayed = getUnplayedMatches(draft);
