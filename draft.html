@@ -847,6 +847,25 @@ text-shadow:
 <script src="cards.js"></script>
 <script src="database.js"></script>
 <script>
+
+    function sortDeck(deck){
+
+  return [...deck].sort((a,b)=>{
+
+    const cardA = cardDatabase.find(c => c.name === a);
+    const cardB = cardDatabase.find(c => c.name === b);
+
+    const costA = cardA ? cardA.cost : 999;
+    const costB = cardB ? cardB.cost : 999;
+
+    if(costA !== costB){
+      return costA - costB;
+    }
+
+    return a.localeCompare(b, 'pl');
+  });
+
+}
     
 let activePlayer = null;
 
@@ -1180,7 +1199,7 @@ ${p.name}
 
     <div class="cards-grid">
 
-      ${p.deck.map(c=>`
+      ${sortDeck(p.deck).map(c=>`
         <div class="card-tile"
         style="color:${color};border:1px solid ${color};">
         ${c}
