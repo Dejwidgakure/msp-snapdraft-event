@@ -1127,7 +1127,11 @@ matches:[
 			    {"p1":"Skaje","p2":"Matixmgg","pts1":24,"pts2":1},{"p1":"Skaje","p2":"Dejwidgakure","pts1":23,"pts2":2},
 			    {"p1":"kolo313","p2":"Supcio","pts1":0,"pts2":20},{"p1":"kolo313","p2":"Skaje","pts1":0,"pts2":20},{"p1":"kolo313","p2":"Matixmgg","pts1":0,"pts2":23},
 			    {"p1":"kolo313","p2":"Kmythic","pts1":0,"pts2":20},{"p1":"kolo313","p2":"Hardkor","pts1":0,"pts2":20},{"p1":"kolo313","p2":"Budiso","pts1":0,"pts2":23},
-			    {"p1":"kolo313","p2":"Weregesu","pts1":0,"pts2":20},{"p1":"kolo313","p2":"Maniek","pts1":0,"pts2":0},{"p1":"kolo313","p2":"Dawid ak. Void","pts1":0,"pts2":0}]
+			    {"p1":"kolo313","p2":"Weregesu","pts1":0,"pts2":20},{"p1":"kolo313","p2":"Maniek","pts1":0,"pts2":0},{"p1":"kolo313","p2":"Dawid ak. Void","pts1":0,"pts2":0},
+			    {"p1":"Maniek","p2":"Dejwidgakure","pts1":0,"pts2":20},{"p1":"Maniek","p2":"MatiMyHair","pts1":0,"pts2":20},{"p1":"Maniek","p2":"Skaje","pts1":0,"pts2":20},
+			    {"p1":"Maniek","p2":"Matixmgg","pts1":0,"pts2":20},{"p1":"Maniek","p2":"John Skrull","pts1":0,"pts2":20},{"p1":"Maniek","p2":"Jacusinski","pts1":0,"pts2":20},
+			    {"p1":"Maniek","p2":"Hardkor","pts1":0,"pts2":20},{"p1":"Maniek","p2":"Dawid ak. Void","pts1":0,"pts2":0},{"p1":"Maniek","p2":"Budiso","pts1":0,"pts2":20},
+			    {"p1":"Maniek","p2":"Weregesu","pts1":0,"pts2":20}]
 
 }
     
