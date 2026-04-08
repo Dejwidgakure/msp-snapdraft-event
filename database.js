@@ -1120,7 +1120,11 @@ matches:[
                 {"p1":"Supcio","p2":"Dawid ak. Void","pts1":22,"pts2":3},{"p1":"Hardkor","p2":"Raciatek","pts1":20,"pts2":5},{"p1":"Weregesu","p2":"Raciatek","pts1":19,"pts2":6},
 			    {"p1":"Matixmgg","p2":"Raciatek","pts1":24,"pts2":1},{"p1":"Dejwidgakure","p2":"Raciatek","pts1":5,"pts2":20},{"p1":"Dejwidgakure","p2":"John Skrull","pts1":24,"pts2":1},
 			    {"p1":"Supcio","p2":"John Skrull","pts1":18,"pts2":7},{"p1":"Hardkor","p2":"John Skrull","pts1":23,"pts2":2},{"p1":"Hardkor","p2":"Weregesu","pts1":16,"pts2":9},
-			    {"p1":"Hardkor","p2":"Dejwidgakure","pts1":4,"pts2":21}]
+			    {"p1":"Hardkor","p2":"Dejwidgakure","pts1":4,"pts2":21},{"p1":"MatiMyHair","p2":"Budiso","pts1":22,"pts2":3},{"p1":"Dejwidgakure","p2":"MatiMyHair","pts1":18,"pts2":7},
+			    {"p1":"Hardkor","p2":"Matixmgg","pts1":25,"pts2":0},{"p1":"Supcio","p2":"Matixmgg","pts1":25,"pts2":0},{"p1":"Skaje","p2":"Weregesu","pts1":23,"pts2":2},
+			    {"p1":"Weregesu","p2":"Budiso","pts1":21,"pts2":4},{"p1":"Skaje","p2":"Raciatek","pts1":19,"pts2":6},{"p1":"Skaje","p2":"Supcio","pts1":20,"pts2":5},
+			    {"p1":"Skaje","p2":"Budiso","pts1":4,"pts2":21},{"p1":"Matixmgg","p2":"Budiso","pts1":25,"pts2":0},{"p1":"Dejwidgakure","p2":"Matixmgg","pts1":23,"pts2":2},
+			    {"p1":"Skaje","p2":"Matixmgg","pts1":24,"pts2":1},{"p1":"Skaje","p2":"Dejwidgakure","pts1":23,"pts2":2}]
 
 }
     
