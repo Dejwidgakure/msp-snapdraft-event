@@ -626,7 +626,7 @@ matches:[
 		{ p1: "Skaje", p2: "Dejwidgakure", pts1: 20, pts2: 0 },
 		{ p1: "Skaje", p2: "Dawid Ak. Void", pts1: 20, pts2: 0 },
 		{ p1: "Skaje", p2: "Pluton32", pts1: 19, pts2: 6 },
-		{ p1: "Dejwidgakure", p2: "Dawid Ak. Void", pts1: 25, pts2: 25 },
+		{ p1: "Dejwidgakure", p2: "Dawid Ak. Void", pts1: 0, pts2: 0 },
 		{ p1: "Polop", p2: "Dejwidgakure", pts1: 2, pts2: 23 },
 		{ p1: "Dawid Ak. Void", p2: "Polop", pts1: 0, pts2: 20 },
 		{ p1: "Pluton32", p2: "Polop", pts1: 4, pts2: 21 },
