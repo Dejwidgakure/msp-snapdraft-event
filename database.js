@@ -1131,7 +1131,9 @@ matches:[
 			    {"p1":"Maniek","p2":"Dejwidgakure","pts1":0,"pts2":20},{"p1":"Maniek","p2":"MatiMyHair","pts1":0,"pts2":20},{"p1":"Maniek","p2":"Skaje","pts1":0,"pts2":20},
 			    {"p1":"Maniek","p2":"Matixmgg","pts1":0,"pts2":20},{"p1":"Maniek","p2":"John Skrull","pts1":0,"pts2":20},{"p1":"Maniek","p2":"Jacusinski","pts1":0,"pts2":20},
 			    {"p1":"Maniek","p2":"Hardkor","pts1":0,"pts2":20},{"p1":"Maniek","p2":"Dawid ak. Void","pts1":0,"pts2":0},{"p1":"Maniek","p2":"Budiso","pts1":0,"pts2":20},
-			    {"p1":"Maniek","p2":"Weregesu","pts1":0,"pts2":20}]
+			    {"p1":"Dawid ak. Void","p2":"Weregesu","pts1":0,"pts2":20},{"p1":"Dawid ak. Void","p2":"Skaje","pts1":0,"pts2":20},{"p1":"Dawid ak. Void","p2":"MatiMyHair","pts1":0,"pts2":20},
+			    {"p1":"Dawid ak. Void","p2":"Matixmgg","pts1":0,"pts2":20},{"p1":"Dawid ak. Void","p2":"Kmythic","pts1":0,"pts2":20},{"p1":"Dawid ak. Void","p2":"Jacusinski","pts1":0,"pts2":0},
+			    {"p1":"Dawid ak. Void","p2":"Hardkor","pts1":0,"pts2":20},{"p1":"Dawid ak. Void","p2":"Budiso","pts1":0,"pts2":20},{"p1":"Dawid ak. Void","p2":"Dejwidgakure","pts1":0,"pts2":20}]
 
 }
     
