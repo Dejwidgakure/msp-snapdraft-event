@@ -862,7 +862,10 @@ text-shadow:
       return costA - costB;
     }
 
-    return a.localeCompare(b, 'pl');
+    const powerA = cardA ? cardA.power : 999;
+    const powerB = cardB ? cardB.power : 999;
+
+    return powerA - powerB;
   });
 
 }
