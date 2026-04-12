@@ -2685,7 +2685,9 @@ function showDecks(){
         const deck=document.createElement("div");
         deck.className="deck";
 
-        decks[i].forEach(card=>{
+        const sortedDeck = sortDeck(decks[i]);
+
+sortedDeck.forEach(card=>{
             const cDiv=document.createElement("div");
             cDiv.className="card";
             cDiv.innerText=card.name + " (" + card.cost + "/" + card.power + ")";
