@@ -65,7 +65,7 @@ const customPacks = [
 
 {
     id: "animal_pack",
-    name: "ANIMAL PACK 🐾",
+    name: "PACZKA ZWIERZAKOWA 🐾",
     tags: ["animal"]
 },
 
@@ -81,13 +81,31 @@ const customPacks = [
     maxCost: 2
 },
 {
-    id: "hybrid_pack",
-    name: "MOCNE & TANIE",
+    id: "tanie_mocne",
+    name: "TANIE & MOCNE",
     tags: [],
     minCost: 2,
     maxCost: 3,
     minPower: 5
 },
+    {
+    id: "zoo_pack",
+    name: "ZOO PACK",
+    tags: [],
+    minCost: 0,
+    maxCost: 1
+},
+    {
+     id: "spell_pack",
+    name: "PACZKA SPELLOWA",
+    tags: ["spells"] 
+},
+     {
+     id: "card_gen_pack",
+    name: "PACZKA GENERATORÓW",
+    tags: ["cardgen"] 
+},
+    
 {
     id: "red_pack",
     name: "RED PACK 🔴",
