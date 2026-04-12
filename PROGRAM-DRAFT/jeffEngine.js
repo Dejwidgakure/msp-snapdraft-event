@@ -10,12 +10,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const TRAIL_INTERVAL = 60;
 
     const jeffImages = [
-        "jeff_love.png",      // 0
-        "jeff_normal.png",    // 1
-        "jeff_shocked.png",   // 2
-        "jeff_angry.png",     // 3
-        "jeff_thinking.png",  // 4
-        "jeff_sleepy.png"     // 5
+        "jeff_love.png",
+        "jeff_normal.png",
+        "jeff_shocked.png",
+        "jeff_angry.png",
+        "jeff_thinking.png",
+        "jeff_sleepy.png"
     ];
 
     const jeffLayer = document.createElement("div");
@@ -69,9 +69,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let lastTrailTime = 0;
     let lastUserAction = Date.now();
 
-    // =============================
-    // 🎮 GLOBAL CONTROL
-    // =============================
     window.setJeffState = function(state){
 
         const states = {
@@ -95,9 +92,6 @@ document.addEventListener("DOMContentLoaded", () => {
         jeff.src = jeffImages[index];
     }
 
-    // =============================
-    // 🎲 LOSOWA MINKA (WSZYSTKIE)
-    // =============================
     function randomBounceFace(){
 
         let newIndex;
@@ -110,13 +104,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // =============================
-    // 💤 IDLE SYSTEM
+    // 💤 IDLE SYSTEM (FIXED)
     // =============================
     function resetIdle(){
         lastUserAction = Date.now();
     }
 
-    ["click","mousemove","keydown","touchstart"].forEach(e=>{
+    // ❗ USUNIĘTY mousemove
+    ["click","keydown","touchstart"].forEach(e=>{
         document.addEventListener(e, resetIdle);
     });
 
@@ -124,7 +119,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const idleTime = Date.now() - lastUserAction;
 
-        // 😴 HARD SLEEP
         if(idleTime > 50000){
             if(lastFaceIndex !== 5){
                 setFace(5);
@@ -132,7 +126,6 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        // 🤓 THINKING
         if(idleTime > 10000){
             if(lastFaceIndex !== 4){
                 setFace(4);
@@ -140,9 +133,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // =============================
-    // ✨ TRAIL
-    // =============================
     function currentTrailColors() {
         if (lastFaceIndex === 3) {
             return ["#ff3b3b", "#ff6b6b", "#ff0000"];
@@ -191,9 +181,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // =============================
-    // 💥 BURST
-    // =============================
     function spawnBurst(){
 
         const colors = currentTrailColors();
@@ -241,9 +228,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // =============================
-    // 😴 ZZZ
-    // =============================
     function spawnZ(){
 
         const z = document.createElement("div");
@@ -267,9 +251,6 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(()=>z.remove(),2000);
     }
 
-    // =============================
-    // 🎯 PHYSICS
-    // =============================
     function clampSpeed(){
         vx = Math.max(-MAX_SPEED, Math.min(MAX_SPEED, vx));
         vy = Math.max(-MAX_SPEED, Math.min(MAX_SPEED, vy));
@@ -293,7 +274,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if(bounced){
 
-            randomBounceFace(); // 🔥 WSZYSTKIE MINKI
+            randomBounceFace();
             spawnBurst();
 
             vx += (Math.random()-0.5)*0.2;
@@ -303,13 +284,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
             rotation += (Math.random()-0.5)*20;
 
-            lastUserAction = Date.now();
+            // ❗ USUNIĘTE:
+            // lastUserAction = Date.now();
         }
     }
 
-    // =============================
-    // 🎬 MAIN LOOP
-    // =============================
     function animate(timestamp){
 
         x += vx;
