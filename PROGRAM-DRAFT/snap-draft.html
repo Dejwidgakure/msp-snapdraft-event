@@ -2664,6 +2664,19 @@ document.getElementById("exportDraftContainer").style.display = "block";
     updateRoundQueueDisplay();
 }
 
+    function sortDeck(deck){
+    return deck.slice().sort((a,b)=>{
+
+        if(!a || !b) return 0;
+
+        if(a.cost !== b.cost){
+            return a.cost - b.cost;
+        }
+
+        return a.power - b.power;
+    });
+}
+
 function showDecks(){
     const decksDiv=document.getElementById("decks");
     decksDiv.innerHTML="";
