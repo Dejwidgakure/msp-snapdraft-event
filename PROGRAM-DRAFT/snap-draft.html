@@ -2000,6 +2000,72 @@ letter-spacing:1px;
     opacity:0.9;
     line-height:1.1;
 }
+
+    .deck-title{
+    font-family:'Orbitron', sans-serif;
+
+    font-size:34px;              /* 🔥 większy niż panele */
+    letter-spacing:3px;
+    text-align:center;
+
+    position:relative;
+    display:inline-block;
+
+    /* 🔷 blueprint kolor */
+    background: linear-gradient(180deg, #b8ffff, #00eaff);
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    text-shadow:
+        0 2px 0 rgba(0,0,0,0.8),
+        0 4px 10px rgba(0,0,0,0.6),
+        0 0 15px rgba(0,240,255,0.8),
+        0 0 30px rgba(0,240,255,0.5);
+
+    margin:12px 0;
+}
+
+/* 🔷 blueprint grid overlay */
+.deck-title::before{
+    content:attr(data-text);
+    position:absolute;
+    inset:0;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            rgba(0,240,255,0.25) 0px,
+            rgba(0,240,255,0.25) 1px,
+            transparent 1px,
+            transparent 6px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            rgba(0,240,255,0.25) 0px,
+            rgba(0,240,255,0.25) 1px,
+            transparent 1px,
+            transparent 6px
+        );
+
+    animation: blueprintMove 6s linear infinite;
+
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+
+    pointer-events:none;
+}
+
+/* lekka animacja */
+@keyframes blueprintMove{
+    0%{
+        background-position:0 0, 0 0;
+    }
+    100%{
+        background-position:0 120px, 120px 0;
+    }
+}
 </style>
 </head>
 
@@ -2145,7 +2211,7 @@ letter-spacing:1px;
 
 
 
-      <h3 class="cosmic-title">DECKI GRACZY</h3>
+      <h3 class="deck-title" data-text="DECKI WOJOWNIKÓW">DECKI WOJOWNIKÓW</h3>
       <div id="decks"></div>
     </div>
 
