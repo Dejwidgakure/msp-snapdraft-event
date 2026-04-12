@@ -1,18 +1,21 @@
 // =============================
-// JEFF ENGINE 2.1 – COSMIC BURST
+// JEFF ENGINE 3.0 – SMOOTH & SMART
 // =============================
 
 document.addEventListener("DOMContentLoaded", () => {
 
     const JEFF_SIZE = 130;
     const BASE_SPEED = 2.4;
-    const TRAIL_INTERVAL = 60; // więcej traila niż wcześniej
+    const MAX_SPEED = 3; // 🔥 blokada turbo
+    const TRAIL_INTERVAL = 60;
 
     const jeffImages = [
         "jeff_love.png",
         "jeff_normal.png",
         "jeff_shocked.png",
-        "jeff_angry.png"
+        "jeff_angry.png",
+        "jeff_thinking.png",   // 🧠 NOWY
+        "jeff_sleepy.png"      // 😴 NOWY
     ];
 
     const jeffLayer = document.createElement("div");
@@ -44,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const jeff = document.createElement("img");
     jeff.className = "jeff";
-    jeff.src = jeffImages[0];
+    jeff.src = jeffImages[1];
     jeffLayer.appendChild(jeff);
 
     let x = 300;
@@ -52,26 +55,45 @@ document.addEventListener("DOMContentLoaded", () => {
     let vx = BASE_SPEED;
     let vy = BASE_SPEED * 0.9;
     let rotation = 0;
-    let lastFaceIndex = 0;
+    let lastFaceIndex = 1;
     let lastTrailTime = 0;
 
+    let lastActionTime = Date.now();
+
+    function setFace(index){
+        lastFaceIndex = index;
+        jeff.src = jeffImages[index];
+    }
+
     function randomFace() {
+        const normalFaces = [0,1,2,3]; // bez thinking/sleepy
         let newIndex;
+
         do {
-            newIndex = Math.floor(Math.random() * jeffImages.length);
+            newIndex = normalFaces[Math.floor(Math.random() * normalFaces.length)];
         } while (newIndex === lastFaceIndex);
 
-        lastFaceIndex = newIndex;
-        jeff.src = jeffImages[newIndex];
+        setFace(newIndex);
+        lastActionTime = Date.now();
+    }
+
+    function checkIdle() {
+        const now = Date.now();
+
+        // 😴 po 5 sekundach brak akcji → sleepy
+        if (now - lastActionTime > 5000) {
+            setFace(5);
+        }
+        // 🤓 lekki idle → thinking
+        else if (now - lastActionTime > 2500) {
+            setFace(4);
+        }
     }
 
     function currentTrailColors() {
-
-        // angry → czerwony
         if (lastFaceIndex === 3) {
             return ["#ff3b3b", "#ff6b6b", "#ff0000"];
         }
-
         return ["white", "#9fd3ff", "#caa6ff", "#fff3a1"];
     }
 
@@ -82,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const colors = currentTrailColors();
 
-        for (let i = 0; i < 2; i++) { // więcej niż wcześniej
+        for (let i = 0; i < 2; i++) {
 
             const star = document.createElement("div");
             star.className = "jeffTrail";
@@ -161,6 +183,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    function clampSpeed() {
+        vx = Math.max(-MAX_SPEED, Math.min(MAX_SPEED, vx));
+        vy = Math.max(-MAX_SPEED, Math.min(MAX_SPEED, vy));
+    }
+
     function bounce() {
 
         const w = window.innerWidth;
@@ -182,9 +209,13 @@ document.addEventListener("DOMContentLoaded", () => {
             randomFace();
             spawnBurst();
 
-            vx += (Math.random() - 0.5) * 0.6;
-            vy += (Math.random() - 0.5) * 0.6;
-            rotation += (Math.random() - 0.5) * 40;
+            // 🔥 ZAMIANA: brak przyspieszenia → tylko lekka zmiana kierunku
+            vx += (Math.random() - 0.5) * 0.2;
+            vy += (Math.random() - 0.5) * 0.2;
+
+            clampSpeed();
+
+            rotation += (Math.random() - 0.5) * 20;
         }
     }
 
@@ -192,9 +223,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         x += vx;
         y += vy;
-        rotation += 0.5;
+        rotation += 0.3;
 
         bounce();
+        checkIdle();
 
         jeff.style.transform = `
             translate(${x}px, ${y}px)
