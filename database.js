@@ -849,7 +849,7 @@ matches:[
     {
       "name": "Supcio",
       "deck": [
-        "Hydra-Bob",
+        "Hydra Bob",
         "Blade",
         "Lizard",
         "Black Widow",
@@ -942,7 +942,7 @@ matches:[
         "Alioth",
         "Cannonball",
         "Hulk",
-        "En Sbah Nur",
+        "En Sabah Nur",
         "Apocalypse",
         "Doctor Doom",
         "Ronan the Accuser"
