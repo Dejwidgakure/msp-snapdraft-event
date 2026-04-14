@@ -1138,7 +1138,209 @@ matches:[
 			    {"p1":"Jacusinski","p2":"Supcio","pts1":0,"pts2":20},{"p1":"Jacusinski","p2":"Matixmgg","pts1":0,"pts2":20},{"p1":"Jacusinski","p2":"Kmythic","pts1":0,"pts2":20},
 			    {"p1":"Jacusinski","p2":"John Skrull","pts1":0,"pts2":20},{"p1":"Jacusinski","p2":"Weregesu","pts1":0,"pts2":20},{"p1":"Jacusinski","p2":"MatiMyHair","pts1":0,"pts2":20}]
 
-}
+},
+	  {
+
+  "id": 21,
+  "startDate": "12.04.2026",
+  "endDate": "24.04.2026",
+  "mode": "Classic + Bany + Jokery + Mulligan",
+  "presetCard": null,
+  "playersCount": 11,
+  "winner": null,
+  "bans": [],
+  "players": [
+    {
+      "name": "Dejwidgakure",
+      "deck": [
+        "Major Victory",
+        "Magus",
+        "Clea",
+        "Maria Hill",
+        "Quake",
+        "Eson",
+        "Frigga",
+        "Prowler",
+        "Agamotto",
+        "Nicholas Scratch",
+        "Luna Snow",
+        "Drax Avatar of Life"
+      ]
+    },
+    {
+      "name": "Raciatek",
+      "deck": [
+        "Quicksilver",
+        "Eson",
+        "Agent 13",
+        "Scorpion",
+        "Domino",
+        "Esme Cuckoo",
+        "Agent Coulson",
+        "Peni Parker",
+        "Astral Projection",
+        "Prowler",
+        "Jubilee",
+        "Lockjaw"
+      ]
+    },
+    {
+      "name": "BSTHPRO",
+      "deck": [
+        "Groot",
+        "Onslaught",
+        "Elektra",
+        "Spider Woman",
+        "Mantis",
+        "Helicarrier",
+        "Agent 13",
+        "Nick Fury",
+        "Maria Hill",
+        "White Queen",
+        "Captain America",
+        "Ant-Man"
+      ]
+    },
+    {
+      "name": "Budiso",
+      "deck": [
+        "Hope Summers",
+        "Batroc the Leaper",
+        "Nico Minoru",
+        "The Hunger",
+        "Emperor Hulkling",
+        "Daken",
+        "Mirage",
+        "Zombie Galacti",
+        "Majestic Wingbeat",
+        "Clea",
+        "Agatha Harkness",
+        "Bruce Banner"
+      ]
+    },
+    {
+      "name": "Kmythic",
+      "deck": [
+        "Odin",
+        "Abomination",
+        "Techno-Organic Virus",
+        "Scorn",
+        "Galactus",
+        "Angel",
+        "Bastion",
+        "Ancient One",
+        "Fastball Special",
+        "Adamantium Infusion",
+        "Jim Hammond Human Torch",
+        "Air-Walker"
+      ]
+    },
+    {
+      "name": "Weregesu",
+      "deck": [
+        "Agent Coulson",
+        "Annihilus",
+        "Selene",
+        "Moira X",
+        "AraÃ±a",
+        "Grand Master",
+        "Snowguard",
+        "Moira X",
+        "Frigga",
+        "The Hunger",
+        "H.E.R.B.I.E.",
+        "Angel"
+      ]
+    },
+    {
+      "name": "Maniek",
+      "deck": [
+        "Galactus",
+        "Havok",
+        "King Eitri",
+        "Agony",
+        "Nakia",
+        "Abomination",
+        "Nico Minoru",
+        "Master Mold",
+        "Daredevil",
+        "Sandstorm",
+        "Green Goblin",
+        "Captain Carter"
+      ]
+    },
+    {
+      "name": "MatiMyHair",
+      "deck": [
+        "Prowler",
+        "Scream",
+        "Ghost-Spider",
+        "Vulture",
+        "Cannonball",
+        "Xorn",
+        "Valentina",
+        "The Hood",
+        "Merlin",
+        "Deafening Chord",
+        "Madame Web",
+        "Legion"
+      ]
+    },
+    {
+      "name": "Matixmgg",
+      "deck": [
+        "Agony",
+        "Aero",
+        "Quicksilver",
+        "Hawkeye",
+        "Black Panther",
+        "Absorbing Man",
+        "Black Widow",
+        "Major Victory",
+        "Legion",
+        "Web Sling",
+        "Forge",
+        "Hellion"
+      ]
+    },
+    {
+      "name": "Hardkor",
+      "deck": [
+        "Peni Parker",
+        "Angel",
+        "Zero",
+        "Ebony Maw",
+        "Sentry",
+        "Majestic Wingbeat",
+        "Cable",
+        "Mantis",
+        "Techno-Organic Virus",
+        "Colonel America",
+        "Attuma",
+        "Yellowjacket"
+      ]
+    },
+    {
+      "name": "FizjoRadek",
+      "deck": [
+        "Bruce Banner",
+        "Caiera",
+        "Sunspot",
+        "Wasp",
+        "Fantasticar",
+        "Elektra",
+        "Moon Girl",
+        "Helicarrier",
+        "Medusa",
+        "The Ancient One",
+        "Jocasta",
+        "Lady Sif"
+      ]
+    }
+  ],
+  "matches": []
+
+},
     
   
     
