@@ -1154,7 +1154,7 @@ matches:[
       "name": "Dejwidgakure",
       "deck": [
         "Major Victory",
-        "Magus",
+        "U.S. Agent",
         "Clea",
         "Maria Hill",
         "Quake",
@@ -1211,7 +1211,7 @@ matches:[
         "Emperor Hulkling",
         "Daken",
         "Mirage",
-        "Zombie Galacti",
+        "Sera",
         "Majestic Wingbeat",
         "Clea",
         "Agatha Harkness",
