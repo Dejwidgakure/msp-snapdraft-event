@@ -31,7 +31,7 @@ deck: [
 },
 
 {
-name: "Hardkor",
+name: "Supcio",
 deck: [
 "Elektra",
 "Proxima Midnight",
