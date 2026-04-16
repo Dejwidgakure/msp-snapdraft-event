@@ -1304,7 +1304,7 @@ matches:[
       ]
     },
     {
-      "name": "Hardkor",
+      "name": "Supcio",
       "deck": [
         "Peni Parker",
         "Angel",
