@@ -220,7 +220,7 @@ const cardDatabase = [
   { name: "Lockjaw", cost: 2, power: 3, tags: [] },
   { name: "Loki", cost: 1, power: 2, tags: ["zoo","cardgen"] },
   { name: "Luke Cage", cost: 3, power: 2, tags: ["wind5"] },
-  { name: "Luna Snow", cost: 3, power: 3, tags: [] },
+  { name: "Luna Snow", cost: 3, power: 6, tags: [] },
   { name: "M'baku", cost: 1, power: 3, tags: ["zoo"] },
   { name: "M.O.D.O.K.", cost: 5, power: 7, tags: ["wind18"] },
   { name: "Mad Thinker", cost: 1, power: 2, tags: [] },
