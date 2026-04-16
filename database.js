@@ -1242,10 +1242,10 @@ matches:[
         "Annihilus",
         "Selene",
         "Moira X",
-        "AraÃ±a",
+        "Araña",
         "Grand Master",
         "Snowguard",
-        "Moira X",
+        "Infinity Ultron",
         "Frigga",
         "The Hunger",
         "H.E.R.B.I.E.",
@@ -1264,7 +1264,7 @@ matches:[
         "Nico Minoru",
         "Master Mold",
         "Daredevil",
-        "Sandstorm",
+        "Merlin",
         "Green Goblin",
         "Captain Carter"
       ]
@@ -1281,7 +1281,7 @@ matches:[
         "Valentina",
         "The Hood",
         "Merlin",
-        "Deafening Chord",
+        "Leader",
         "Madame Web",
         "Legion"
       ]
@@ -1311,11 +1311,11 @@ matches:[
         "Zero",
         "Ebony Maw",
         "Sentry",
-        "Majestic Wingbeat",
+        "She-Hulk",
         "Cable",
         "Mantis",
         "Techno-Organic Virus",
-        "Colonel America",
+        "Ghost",
         "Attuma",
         "Yellowjacket"
       ]
@@ -1332,7 +1332,7 @@ matches:[
         "Moon Girl",
         "Helicarrier",
         "Medusa",
-        "The Ancient One",
+        "Infinity Ultron",
         "Jocasta",
         "Lady Sif"
       ]
