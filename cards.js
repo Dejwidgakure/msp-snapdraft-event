@@ -214,7 +214,7 @@ const cardDatabase = [
   { name: "Lockjaw", cost: 2, power: 3, tags: [] },
   { name: "Loki", cost: 1, power: 2, tags: [] },
   { name: "Luke Cage", cost: 3, power: 2, tags: [] },
-  { name: "Luna Snow", cost: 3, power: 3, tags: [] },
+  { name: "Luna Snow", cost: 3, power: 6, tags: [] },
   { name: "M'baku", cost: 1, power: 3, tags: [] },
   { name: "M.O.D.O.K.", cost: 5, power: 7, tags: [] },
   { name: "Mad Thinker", cost: 1, power: 2, tags: [] },
