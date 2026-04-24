@@ -1190,7 +1190,7 @@ matches:[
         "Groot",
         "Onslaught",
         "Elektra",
-        "Spider Woman",
+        "Spider-Woman",
         "Mantis",
         "Helicarrier",
         "Agent 13",
