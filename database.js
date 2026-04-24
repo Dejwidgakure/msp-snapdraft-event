@@ -1347,7 +1347,9 @@ matches:[
 			   {"p1":"Dejwidgakure","p2":"Maniek","pts1":25,"pts2":0},{"p1":"Maniek","p2":"Supcio","pts1":4,"pts2":21},{"p1":"MatiMyHair","p2":"FizjoRadek","pts1":23,"pts2":2},
 			   {"p1":"Supcio","p2":"FizjoRadek","pts1":24,"pts2":1},{"p1":"Kmythic","p2":"Supcio","pts1":0,"pts2":25},{"p1":"Matixmgg","p2":"Weregesu","pts1":0,"pts2":25},
 			   {"p1":"Budiso","p2":"Kmythic","pts1":23,"pts2":2},{"p1":"Weregesu","p2":"Supcio","pts1":0,"pts2":25},{"p1":"Dejwidgakure","p2":"Weregesu","pts1":23,"pts2":2},
-			   {"p1":"Budiso","p2":"Supcio","pts1":23,"pts2":2},{"p1":"Dejwidgakure","p2":"Budiso","pts1":24,"pts2":1}
+			   {"p1":"Budiso","p2":"Supcio","pts1":23,"pts2":2},{"p1":"Dejwidgakure","p2":"Budiso","pts1":24,"pts2":1},{"p1":"FizjoRadek","p2":"Budiso","pts1":20,"pts2":5},
+			   {"p1":"Dejwidgakure","p2":"FizjoRadek","pts1":24,"pts2":1},{"p1":"Matixmgg","p2":"Maniek","pts1":17,"pts2":8},{"p1":"MatiMyHair","p2":"Matixmgg","pts1":19,"pts2":6},
+			   {"p1":"Weregesu","p2":"Raciatek","pts1":21,"pts2":4},{"p1":"Matixmgg","p2":"Dejwidgakure","pts1":1,"pts2":24},{"p1":"Dejwidgakure","p2":"Kmythic","pts1":25,"pts2":0}
 				
               ]
 
