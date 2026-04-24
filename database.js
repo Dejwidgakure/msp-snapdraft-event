@@ -1353,7 +1353,7 @@ matches:[
 			   {"p1":"BSTHPRO","p2":"Dejwidgakure","pts1":0,"pts2":20},{"p1":"Matixmgg","p2":"BSTHPRO","pts1":20,"pts2":0},{"p1":"BSTHPRO","p2":"Kmythic","pts1":0,"pts2":20},
 			   {"p1":"BSTHPRO","p2":"Weregesu","pts1":0,"pts2":20},{"p1":"Budiso","p2":"BSTHPRO","pts1":20,"pts2":0},{"p1":"BSTHPRO","p2":"MatiMyHair","pts1":0,"pts2":20},
 			   {"p1":"BSTHPRO","p2":"Supcio","pts1":0,"pts2":20},{"p1":"FizjoRadek","p2":"BSTHPRO","pts1":20,"pts2":0},{"p1":"BSTHPRO","p2":"Maniek","pts1":0,"pts2":20},
-			   {"p1":"BSTHPRO","p2":"Raciatek","pts1":0,"pts2":20}
+			   {"p1":"BSTHPRO","p2":"Raciatek","pts1":0,"pts2":20},{"p1":"Supcio","p2":"Raciatek","pts1":19,"pts2":6},{"p1":"Dejwidgakure","p2":"Supcio","pts1":21,"pts2":4}
 				
               ]
 
