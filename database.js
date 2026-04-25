@@ -1487,7 +1487,7 @@ matches:[
         "Attuma",
         "Red Hulk",
         "The Infinaut",
-        "Storm"
+        "Storm Horseman of Famine"
       ]
     },
     {
