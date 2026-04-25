@@ -1525,23 +1525,6 @@ matches:[
       ]
     },
     {
-      "name": "Supcio",
-      "deck": [
-        "Peni Parker",
-        "Angel",
-        "Zero",
-        "Ebony Maw",
-        "Sentry",
-        "She-Hulk",
-        "Cable",
-        "Mantis",
-        "Techno-Organic Virus",
-        "Ghost",
-        "Attuma",
-        "Yellowjacket"
-      ]
-    },
-    {
       "name": "Maniek",
       "deck": [
         "Bruce Banner",
