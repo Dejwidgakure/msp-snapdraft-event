@@ -2669,11 +2669,18 @@ document.getElementById("exportDraftContainer").style.display = "block";
 
         if(!a || !b) return 0;
 
+        // 1️⃣ COST
         if(a.cost !== b.cost){
             return a.cost - b.cost;
         }
 
-        return a.power - b.power;
+        // 2️⃣ POWER
+        if(a.power !== b.power){
+            return a.power - b.power;
+        }
+
+        // 3️⃣ ALFABETYCZNIE
+        return a.name.localeCompare(b.name);
     });
 }
 
