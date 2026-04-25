@@ -858,6 +858,7 @@ text-shadow:
     const costA = cardA ? cardA.cost : 999;
     const costB = cardB ? cardB.cost : 999;
 
+    // 1️⃣ COST
     if(costA !== costB){
       return costA - costB;
     }
@@ -865,7 +866,13 @@ text-shadow:
     const powerA = cardA ? cardA.power : 999;
     const powerB = cardB ? cardB.power : 999;
 
-    return powerA - powerB;
+    // 2️⃣ POWER
+    if(powerA !== powerB){
+      return powerA - powerB;
+    }
+
+    // 3️⃣ ALFABET
+    return a.localeCompare(b);
   });
 
 }
