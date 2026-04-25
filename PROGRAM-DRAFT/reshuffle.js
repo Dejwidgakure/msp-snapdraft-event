@@ -95,14 +95,36 @@ function applyReshuffle(newCard, selectedCardDiv) {
 
             if (cards[i] === selectedCardDiv) {
 
-                decks[deckIndex][i] = newCard;
+                // 🔥 pobierz dane karty z tekstu
+                const text = selectedCardDiv.innerText;
+                const match = text.match(/(.+) \((\d+)\/(\d+)\)/);
+
+                if(!match) return;
+
+                const name = match[1];
+                const cost = parseInt(match[2]);
+                const power = parseInt(match[3]);
+
+                // 🔥 znajdź prawdziwy indeks w decku (NIE ten z UI!)
+                const realIndex = decks[deckIndex].findIndex(c =>
+                    c.name === name &&
+                    c.cost === cost &&
+                    c.power === power
+                );
+
+                if(realIndex !== -1){
+                    decks[deckIndex][realIndex] = newCard;
+                }
+
                 showDecks();
 
-                // mały flash efekt
+                // ✨ efekt
                 setTimeout(() => {
                     const updatedDeck = document.querySelectorAll(".deck")[deckIndex];
                     const newCardDiv = updatedDeck.children[i];
-                    newCardDiv.style.animation = "reshuffleFlash 0.6s ease";
+                    if(newCardDiv){
+                        newCardDiv.style.animation = "reshuffleFlash 0.6s ease";
+                    }
                 }, 50);
 
                 return;
