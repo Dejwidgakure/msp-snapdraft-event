@@ -1255,7 +1255,7 @@ matches:[
     {
       "name": "Maniek",
       "deck": [
-        "Galactus",
+        "Hit-Monkey",
         "Havok",
         "King Eitri",
         "Agony",
