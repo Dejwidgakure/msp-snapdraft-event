@@ -653,21 +653,21 @@ matches:[
       ],
 
       players: [
-        { name: "Pluton", deck: ["Black King","Squirrel Girl","Zabu","Scorpion","Caiera","Nocturne","Dracula","Silver Samurai","Professor X","Stature","Galactus","Giganto"] },
+        { name: "Pluton32", deck: ["Black King","Squirrel Girl","Zabu","Scorpion","Caiera","Nocturne","Dracula","Silver Samurai","Professor X","Stature","Galactus","Giganto"] },
         { name: "Weregesu", deck: ["Scorn","Ebony Maw","Lasher","Maximus","Silver Surfer","Sebastina Shaw","Baron Zemo","Wave","Drax","Scarlet Spider","Ronan","Heimdall"] },
         { name: "Raciatek", deck: ["America Chavez","Mantis","Misty Knight","Forge","Beast","Deathlok","Lockjaw","Beta Ray Bill","Iron Man","Stature","Arnim Zola","Heimdall"] },
 		{ name: "Dejwidgakure", deck: ["Blade","Angela","Sam Wilson Captain America","Captain America","Red Guardian","Shanna","Sword Master","Kazar","Cull Obsidian","Professor X","Heimdall","Red Hulk"] },
-        { name: "Polop", deck: ["Sunspot","Iceman","Forge","Hulk Buster","Morphy","Black Widow","Baron Zemo","Gladiator","Supergiant","Blink","Gamora","Blob"] },
+        { name: "Polop852", deck: ["Sunspot","Iceman","Forge","Hulk Buster","Morphy","Black Widow","Baron Zemo","Gladiator","Supergiant","Blink","Gamora","Blob"] },
       ],
 
       matches: [
         { p1: "Dejwidgakure", p2: "Raciatek", pts1: 18, pts2: 7 },
         { p1: "Weregesu", p2: "Raciatek", pts1: 21, pts2: 4 },
-        { p1: "Raciatek", p2: "Pluton", pts1: 17, pts2: 8 },
-		{ p1: "Raciatek", p2: "Polop", pts1: 2, pts2: 23 },
-		{ p1: "Weregesu", p2: "Pluton", pts1: 7, pts2: 18 },
-		{ p1: "Raciatek", p2: "Polop", pts1: 25, pts2: 0 },
-		{ p1: "Polop", p2: "Pluton", pts1: 23, pts2: 2 },
+        { p1: "Raciatek", p2: "Pluton32", pts1: 17, pts2: 8 },
+		{ p1: "Raciatek", p2: "Polop852", pts1: 2, pts2: 23 },
+		{ p1: "Weregesu", p2: "Pluton32", pts1: 7, pts2: 18 },
+		{ p1: "Raciatek", p2: "Polop852", pts1: 25, pts2: 0 },
+		{ p1: "Polop852", p2: "Pluton32", pts1: 23, pts2: 2 },
 ]
         },
     {
@@ -1147,8 +1147,8 @@ matches:[
   "mode": "Classic + Bany + Jokery + Mulligan",
   "presetCard": null,
   "playersCount": 11,
-  "winner": null,
-  "bans": [],
+  "winner": "Dejwidgakure",
+  "bans": ["Arishem","Loki"],
   "players": [
     {
       "name": "Dejwidgakure",
@@ -1357,6 +1357,242 @@ matches:[
 			   {"p1":"Matixmgg","p2":"Raciatek","pts1":2,"pts2":23},{"p1":"Matixmgg","p2":"Budiso","pts1":19,"pts2":6},{"p1":"Matixmgg","p2":"Supcio","pts1":1,"pts2":24},
 			   {"p1":"MatiMyHair","p2":"Dejwidgakure","pts1":25,"pts2":0},{"p1":"Dejwidgakure","p2":"Raciatek","pts1":22,"pts2":3},{"p1":"Matixmgg","p2":"FizjoRadek","pts1":0,"pts2":20},
 			   {"p1":"Matixmgg","p2":"Kmythic","pts1":0,"pts2":20}
+				
+              ]
+
+},
+	  "id": 22,
+  "startDate": "25.04.2026",
+  "endDate": "08.05.2026",
+  "mode": "Classic + Bany + Jokery + Mulligan + Champion",
+  "presetCard": null,
+  "playersCount": 12,
+  "winner": null,
+  "bans": ["Arishem","Loki","Aurora","Fenris Wolf","Quinjet","Fin Fang Foom","Red Guardian","Sera","Shadow King","Star Lord, Master of the Sun","Stardust","Wong"],
+  "players": [
+    {
+      "name": "SalsaTequilaJr",
+      "deck": [
+        "Major Victory",
+        "U.S. Agent",
+        "Clea",
+        "Maria Hill",
+        "Quake",
+        "Eson",
+        "Frigga",
+        "Prowler",
+        "Agamotto",
+        "Nicholas Scratch",
+        "Luna Snow",
+        "Drax Avatar of Life"
+      ]
+    },
+    {
+      "name": "Dejwidgakure",
+      "deck": [
+        "Quicksilver",
+        "Eson",
+        "Agent 13",
+        "Scorpion",
+        "Domino",
+        "Esme Cuckoo",
+        "Agent Coulson",
+        "Peni Parker",
+        "Astral Projection",
+        "Prowler",
+        "Jubilee",
+        "Lockjaw"
+      ]
+    },
+    {
+      "name": "Budiso",
+      "deck": [
+        "Groot",
+        "Onslaught",
+        "Elektra",
+        "Spider-Woman",
+        "Mantis",
+        "Helicarrier",
+        "Agent 13",
+        "Nick Fury",
+        "Maria Hill",
+        "White Queen",
+        "Captain America",
+        "Ant-Man"
+      ]
+    },
+    {
+      "name": "Dawid ak. Void",
+      "deck": [
+        "Hope Summers",
+        "Batroc the Leaper",
+        "Nico Minoru",
+        "The Hunger",
+        "Emperor Hulkling",
+        "Daken",
+        "Mirage",
+        "Sera",
+        "Majestic Wingbeat",
+        "Clea",
+        "Agatha Harkness",
+        "Bruce Banner"
+      ]
+    },
+    {
+      "name": "FizjoRadek",
+      "deck": [
+        "Odin",
+        "Abomination",
+        "Techno-Organic Virus",
+        "Scorn",
+        "Galactus",
+        "Angel",
+        "Bastion",
+        "Ancient One",
+        "Fastball Special",
+        "Adamantium Infusion",
+        "Jim Hammond Human Torch",
+        "Air-Walker"
+      ]
+    },
+    {
+      "name": "kamajot",
+      "deck": [
+        "Agent Coulson",
+        "Annihilus",
+        "Selene",
+        "Moira X",
+        "Araña",
+        "Grand Master",
+        "Snowguard",
+        "Infinity Ultron",
+        "Frigga",
+        "The Hunger",
+        "H.E.R.B.I.E.",
+        "Angel"
+      ]
+    },
+    {
+      "name": "Kmythic",
+      "deck": [
+        "Hit-Monkey",
+        "Havok",
+        "King Eitri",
+        "Agony",
+        "Nakia",
+        "Abomination",
+        "Nico Minoru",
+        "Master Mold",
+        "Daredevil",
+        "Merlin",
+        "Green Goblin",
+        "Captain Carter"
+      ]
+    },
+    {
+      "name": "Weregesu",
+      "deck": [
+        "Prowler",
+        "Scream",
+        "Ghost-Spider",
+        "Vulture",
+        "Cannonball",
+        "Xorn",
+        "Valentina",
+        "The Hood",
+        "Merlin",
+        "Leader",
+        "Madame Web",
+        "Legion"
+      ]
+    },
+    {
+      "name": "Supcio",
+      "deck": [
+        "Agony",
+        "Aero",
+        "Quicksilver",
+        "Hawkeye",
+        "Black Panther",
+        "Absorbing Man",
+        "Black Widow",
+        "Major Victory",
+        "Legion",
+        "Web Sling",
+        "Forge",
+        "Hellion"
+      ]
+    },
+    {
+      "name": "Supcio",
+      "deck": [
+        "Peni Parker",
+        "Angel",
+        "Zero",
+        "Ebony Maw",
+        "Sentry",
+        "She-Hulk",
+        "Cable",
+        "Mantis",
+        "Techno-Organic Virus",
+        "Ghost",
+        "Attuma",
+        "Yellowjacket"
+      ]
+    },
+    {
+      "name": "Maniek",
+      "deck": [
+        "Bruce Banner",
+        "Caiera",
+        "Sunspot",
+        "Wasp",
+        "Fantasticar",
+        "Elektra",
+        "Moon Girl",
+        "Helicarrier",
+        "Medusa",
+        "Infinity Ultron",
+        "Jocasta",
+        "Lady Sif"
+      ]
+    },
+	  {
+      "name": "MatiMyHair",
+      "deck": [
+        "Peni Parker",
+        "Angel",
+        "Zero",
+        "Ebony Maw",
+        "Sentry",
+        "She-Hulk",
+        "Cable",
+        "Mantis",
+        "Techno-Organic Virus",
+        "Ghost",
+        "Attuma",
+        "Yellowjacket"
+      ]
+    },
+	  {
+      "name": "Polop852",
+      "deck": [
+        "Peni Parker",
+        "Angel",
+        "Zero",
+        "Ebony Maw",
+        "Sentry",
+        "She-Hulk",
+        "Cable",
+        "Mantis",
+        "Techno-Organic Virus",
+        "Ghost",
+        "Attuma",
+        "Yellowjacket"
+      ]
+    },
+  ],
+   "matches": [
 				
               ]
 
