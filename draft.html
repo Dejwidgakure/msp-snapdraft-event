@@ -1640,22 +1640,19 @@ unplayedHTML += `<div>${m.p1} vs ${m.p2}</div>`;
 });
 
 document.getElementById("playerUnplayed").innerHTML = unplayedHTML;
-}
 
- 
-
-    // 🃏 DECK OBRAZKOWY
-   // 🃏 DECK OBRAZKOWY
+    
+// 🃏 DECK OBRAZKOWY (TEN SAM CO NA DOLE)
 const fullPlayer = draft.players.find(p => p.name === name);
 
-if(fullPlayer && fullPlayer.deck){
+if(fullPlayer){
 
 const imagePath =
 "assets/decks/" +
 fullPlayer.name.toLowerCase().replace(/ /g,"").replace(/\./g,"") +
 "_" + draft.id + ".jpg";
 
-const deckHTML = `
+document.getElementById("playerDeckPreview").innerHTML = `
 <img 
 src="${imagePath}"
 style="width:100%;border-radius:12px;box-shadow:0 0 20px #00f0ff;"
@@ -1663,9 +1660,13 @@ onerror="this.style.display='none'"
 >
 `;
 
-document.getElementById("playerDeckPreview").innerHTML = deckHTML;
-
 }
+
+ 
+
+    // 🃏 DECK OBRAZKOWY
+   // 🃏 DECK OBRAZKOWY
+
     
 
     
