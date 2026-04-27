@@ -1579,8 +1579,8 @@ matches:[
    "matches": [{"p1":"Dawid ak. Void","p2":"Budiso","pts1":23,"pts2":2},{"p1":"Polop852","p2":"Maniek","pts1":25,"pts2":0},{"p1":"FizjoRadek","p2":"Dawid ak. Void","pts1":25,"pts2":0},
 			   {"p1":"kamajot","p2":"Maniek","pts1":22,"pts2":3},{"p1":"Polop852","p2":"FizjoRadek","pts1":6,"pts2":19},{"p1":"kamajot","p2":"Weregesu","pts1":19,"pts2":6},
 			   {"p1":"MatiMyHair","p2":"Maniek","pts1":4,"pts2":21},{"p1":"MatiMyHair","p2":"kamajot","pts1":21,"pts2":4},{"p1":"Maniek","p2":"Weregesu","pts1":2,"pts2":23},
-			   {"p1":"FizjoRadek","p2":"Maniek","pts1":23,"pts2":2},{"p1":"MatiMyHair","p2":"FizjoRadek","pts1":25,"pts2":0},{"p1":"MatiMyHair","p2":"Weregesu","pts1":16,"pts2":9}
-				
+			   {"p1":"FizjoRadek","p2":"Maniek","pts1":23,"pts2":2},{"p1":"MatiMyHair","p2":"FizjoRadek","pts1":25,"pts2":0},{"p1":"MatiMyHair","p2":"Weregesu","pts1":16,"pts2":9},
+			   {"p1":"Weregesu","p2":"Polop852","pts1":0,"pts2":25}
               ]
 
 }
