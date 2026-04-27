@@ -680,6 +680,25 @@ position:sticky;
 bottom:0;
 }
 
+    .player-deck-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:8px;
+margin-bottom:15px;
+}
+
+.player-deck-grid img{
+width:100%;
+border-radius:8px;
+box-shadow:0 0 10px rgba(0,240,255,0.5);
+transition:0.2s;
+cursor:pointer;
+}
+
+.player-deck-grid img:hover{
+transform:scale(1.15);
+z-index:2;
+}
 .player-modal-footer button{
 width:100%;
 padding:10px;
@@ -1623,6 +1642,36 @@ unplayedHTML += `<div>${m.p1} vs ${m.p2}</div>`;
 document.getElementById("playerUnplayed").innerHTML = unplayedHTML;
 }
 
+ 
+
+    // 🃏 DECK OBRAZKOWY
+   // 🃏 DECK OBRAZKOWY
+const fullPlayer = draft.players.find(p => p.name === name);
+
+if(fullPlayer && fullPlayer.deck){
+
+const deckHTML = sortDeck(fullPlayer.deck).map(cardName => {
+
+const fileName = cardName
+.replaceAll(" ", "")
+.replaceAll(".", "");
+
+return `
+<img 
+src="assets/cards/${fileName}.png"
+alt="${cardName}"
+onerror="this.src='assets/cards/default.png'"
+>
+`;
+
+}).join("");
+
+document.getElementById("playerDeckPreview").innerHTML = deckHTML;
+
+}
+    
+}
+    
 function highlightMatches(name){
 
 document.querySelectorAll("#resultsBox p").forEach(p=>{
@@ -1691,7 +1740,9 @@ initDeckBuilder();
   <div class="player-modal-content">
 
     <div class="player-info" id="playerInfo"></div>
-
+      
+<h3>Deck</h3>
+<div id="playerDeckPreview" class="player-deck-grid"></div>
     <div class="player-matches">
       <h3>Wyniki</h3>
       <div id="playerPlayed"></div>
