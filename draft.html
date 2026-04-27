@@ -1650,21 +1650,18 @@ const fullPlayer = draft.players.find(p => p.name === name);
 
 if(fullPlayer && fullPlayer.deck){
 
-const deckHTML = sortDeck(fullPlayer.deck).map(cardName => {
+const imagePath =
+"assets/decks/" +
+fullPlayer.name.toLowerCase().replace(/ /g,"").replace(/\./g,"") +
+"_" + draft.id + ".jpg";
 
-const fileName = cardName
-.replaceAll(" ", "")
-.replaceAll(".", "");
-
-return `
+const deckHTML = `
 <img 
-src="assets/cards/${fileName}.png"
-alt="${cardName}"
-onerror="this.src='assets/cards/default.png'"
+src="${imagePath}"
+style="width:100%;border-radius:12px;box-shadow:0 0 20px #00f0ff;"
+onerror="this.style.display='none'"
 >
 `;
-
-}).join("");
 
 document.getElementById("playerDeckPreview").innerHTML = deckHTML;
 
