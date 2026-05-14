@@ -794,6 +794,7 @@ matches:[
       },
     {
       id: 19,
+	  title: "Poker Draft Edition",
       startDate: "2026-03-06",
       endDate: "2026-03-20",
       mode: "Poker Draft",
