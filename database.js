@@ -1605,7 +1605,8 @@ matches:[
 {"p1":"Dawid ak. Void","p2":"Supcio","pts1":0,"pts2":20},
 {"p1":"Dawid ak. Void","p2":"Polop852","pts1":0,"pts2":20},
 {"p1":"Dawid ak. Void","p2":"Maniek","pts1":0,"pts2":20},
-{"p1":"Dawid ak. Void","p2":"Dejwidgakure","pts1":0,"pts2":20}
+{"p1":"Dawid ak. Void","p2":"Dejwidgakure","pts1":0,"pts2":20},
+			   {"p1":"Polop852","p2":"Kmythic","pts1":0,"pts2":20},{"p1":"Kmythic","p2":"SalsaTequilaJr","pts1":4,"pts2":21},{"p1":"SalsaTequilaJr","p2":"Budiso","pts1":0,"pts2":20}
 			   
               ]
 
