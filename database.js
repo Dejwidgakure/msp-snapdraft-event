@@ -642,7 +642,7 @@ matches:[
       id: 16,
       startDate: "2025-02-22",
       endDate: "2025-03-5",
-      mode: "Bany + Jokery + Save & Steal",
+      mode: "Bany",
       presetCard: null,
       playersCount: 5,
       winner: "Weregesu",
@@ -698,6 +698,7 @@ matches:[
         },
     {
       id: 18,
+	 "title": "Comeback Edition",
       startDate: "2026-02-21",
       endDate: "2026-03-06",
       mode: "Bany + Jokery + Save & Steal",
@@ -838,6 +839,7 @@ matches:[
     
 {
   "id": 20,
+  "title": "Jubileusz Edition",
   "startDate": "20.03.2026",
   "endDate": "03.04.2026",
   "mode": "Bany + Custom Paczki + Mulligan",
