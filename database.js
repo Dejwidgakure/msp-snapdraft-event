@@ -1363,6 +1363,7 @@ matches:[
 },
 	   {
 	  "id": 22,
+		   "title": "Champions Edition",
   "startDate": "25.04.2026",
   "endDate": "08.05.2026",
   "mode": "Classic + Bany + Jokery + Mulligan + Championy",
