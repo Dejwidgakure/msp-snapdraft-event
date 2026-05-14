@@ -1589,7 +1589,11 @@ matches:[
 			   {"p1":"kamajot","p2":"Kmythic","pts1":19,"pts2":6},{"p1":"FizjoRadek","p2":"Weregesu","pts1":22,"pts2":3},
 			   {"p1":"MatiMyHair","p2":"Dejwidgakure","pts1":20,"pts2":0},{"p1":"Maniek","p2":"Dejwidgakure","pts1":20,"pts2":0},{"p1":"FizjoRadek","p2":"Dejwidgakure","pts1":20,"pts2":0},
 			   {"p1":"Supcio","p2":"Dejwidgakure","pts1":20,"pts2":0},{"p1":"kamajot","p2":"Dejwidgakure","pts1":20,"pts2":0},{"p1":"Kmythic","p2":"Dejwidgakure","pts1":20,"pts2":0},
-			   {"p1":"Weregesu","p2":"Dejwidgakure","pts1":20,"pts2":0},{"p1":"Budiso","p2":"Dejwidgakure","pts1":20,"pts2":0},{"p1":"SalsaTequilaJr","p2":"Dejwidgakure","pts1":20,"pts2":0}
+			   {"p1":"Weregesu","p2":"Dejwidgakure","pts1":20,"pts2":0},{"p1":"Budiso","p2":"Dejwidgakure","pts1":20,"pts2":0},{"p1":"SalsaTequilaJr","p2":"Dejwidgakure","pts1":20,"pts2":0},
+			   {"p1":"Kmythic","p2":"Budiso","pts1":19,"pts2":6},{"p1":"Supcio","p2":"FizjoRadek","pts1":23,"pts2":2},{"p1":"kamajot","p2":"Budiso","pts1":25,"pts2":0},
+			   {"p1":"Supcio","p2":"Budiso","pts1":25,"pts2":0},{"p1":"SalsaTequilaJr","p2":"Supcio","pts1":23,"pts2":2},{"p1":"SalsaTequilaJr","p2":"kamajot","pts1":20,"pts2":5},
+			   {"p1":"Supcio","p2":"Kmythic","pts1":2,"pts2":23},{"p1":"Weregesu","p2":"Supcio","pts1":25,"pts2":0},{"p1":"SalsaTequilaJr","p2":"FizjoRadek","pts1":3,"pts2":22}
+			   
               ]
 
 }
