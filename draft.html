@@ -189,6 +189,63 @@ animation:galaxyMove 20s linear infinite;
 
 }
 
+    #draftSubtitle{
+
+position:relative;
+z-index:2;
+
+margin-top:10px;
+margin-bottom:12px;
+
+font-family:'Orbitron', sans-serif;
+
+font-size:28px;
+font-weight:700;
+
+letter-spacing:2px;
+
+opacity:0.95;
+
+/* 🌈 neon gradient */
+background:linear-gradient(
+90deg,
+#ff00ff,
+#00f0ff,
+#8a2be2,
+#ff00ff
+);
+
+background-size:200%;
+
+animation:
+gradientMove 8s linear infinite,
+subtitleGlow 2s ease-in-out infinite alternate;
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+text-shadow:
+0 0 10px rgba(255,0,255,0.7),
+0 0 20px rgba(0,240,255,0.5);
+
+}
+
+/* ✨ subtelny puls */
+@keyframes subtitleGlow{
+
+0%{
+filter:
+drop-shadow(0 0 4px #ff00ff)
+drop-shadow(0 0 10px #00f0ff);
+}
+
+100%{
+filter:
+drop-shadow(0 0 8px #00f0ff)
+drop-shadow(0 0 20px #8a2be2);
+}
+
+}
 /* PURPLE HEADER GLOW */
 .section-title{
     text-align:center;
@@ -814,6 +871,7 @@ text-shadow:
 <div class="header">
     <img src="assets/draft-logo.png">
     <h1 id="draftTitle" data-text=""></h1>
+    <h2 id="draftSubtitle"></h2>
     <div class="meta" id="draftMeta"></div>
 </div>
     
@@ -917,6 +975,18 @@ const titleEl = document.getElementById("draftTitle");
 
 titleEl.textContent = title;
 titleEl.setAttribute("data-text", title);
+
+    const subtitleEl = document.getElementById("draftSubtitle");
+
+if(draft.title && draft.title.trim() !== ""){
+
+    subtitleEl.textContent = draft.title;
+
+}else{
+
+    subtitleEl.style.display = "none";
+
+}
 
 let metaText = `Tryb: ${draft.mode}<br>`;
 if(draft.startDate) metaText += `${draft.startDate}`;
