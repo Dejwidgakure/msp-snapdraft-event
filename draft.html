@@ -1655,7 +1655,16 @@ fullPlayer.name.toLowerCase().replace(/ /g,"").replace(/\./g,"") +
 document.getElementById("playerDeckPreview").innerHTML = `
 <img 
 src="${imagePath}"
-style="width:100%;border-radius:12px;box-shadow:0 0 20px #00f0ff;"
+style="
+width:100%;
+border-radius:12px;
+box-shadow:0 0 20px #00f0ff;
+cursor:pointer;
+transition:0.25s;
+"
+onclick="openDeckZoom('${imagePath}')"
+onmouseover="this.style.transform='scale(1.03)'"
+onmouseout="this.style.transform='scale(1)'"
 onerror="this.style.display='none'"
 >
 `;
