@@ -2506,33 +2506,53 @@ function nextPack(){
     }
 
     currentPack = generatedPack;
+
 if(document.getElementById("enableJokers").checked){
 
     if(currentPackName === "STANDARD PACK"){
 
         if(addJoker){
-            currentPackName = "JOKER PACK"; 
-            currentPack[Math.floor(Math.random()*currentPack.length)] = {
+
+            currentPackName = "JOKER PACK";
+
+            const joker = getRandomJoker();
+
+            currentPack[
+                Math.floor(Math.random()*currentPack.length)
+            ] = {
                 joker: true,
-                desc: jokers[Math.floor(Math.random()*jokers.length)].desc
+                type: joker.type,
+                desc: joker.desc
             };
+
         }
 
         if(addSecondJoker){
-currentPackName = "JOKER PACK";
-            currentPack[Math.floor(Math.random()*currentPack.length)] = {
+
+            currentPackName = "JOKER PACK";
+
+            const joker = getRandomJoker();
+
+            currentPack[
+                Math.floor(Math.random()*currentPack.length)
+            ] = {
                 joker: true,
-                desc: jokers[Math.floor(Math.random()*jokers.length)].desc
+                type: joker.type,
+                desc: joker.desc
             };
+
         }
 
-    } 
+    }
+
 }
+
 currentPickIndex = 0;
+
 setupPickOrder();
+
 showPack();
 showDecks();
-}
 
 function showPack(){
 
@@ -2856,6 +2876,8 @@ customPackQueueBuilt = true;
 <script src="saveSteal.js"></script>
 <script src="jeffEngine.js"></script>
 <script src="reshuffle.js"></script>
+<script src="jokers.js"></script>
+<script src="jokerEngine.js"></script>    
 <script src="customPacks.js"></script>
 <script src="customPackEngine.js"></script>
 <script src="pokerDraft.js"></script>
