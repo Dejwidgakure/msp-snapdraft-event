@@ -3050,27 +3050,36 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
     });
 
-    /* TOGGLE TYPES */
+ /* TOGGLE TYPES */
 
-    document.querySelectorAll(".jokerTypeCard")
-    .forEach(card=>{
+document.querySelectorAll(".jokerTypeCard")
+.forEach(card=>{
 
-        card.onclick = ()=>{
+    card.onclick = ()=>{
 
-            card.classList.toggle("active");
+        card.classList.toggle("active");
 
-            jokerSettings.allowChoice =
-            document.querySelector(
-                '.jokerTypeCard[data-type="choice"]'
-            ).classList.contains("active");
+        jokerSettings.allowedTypes = [];
 
-            jokerSettings.allowSurprise =
-            document.querySelector(
-                '.jokerTypeCard[data-type="surprise"]'
-            ).classList.contains("active");
-        };
+        if(
+        document.querySelector(
+        '.jokerTypeCard[data-type="choice"]'
+        ).classList.contains("active")
+        ){
+            jokerSettings.allowedTypes.push("choice");
+        }
 
-    });
+        if(
+        document.querySelector(
+        '.jokerTypeCard[data-type="surprise"]'
+        ).classList.contains("active")
+        ){
+            jokerSettings.allowedTypes.push("surprise");
+        }
+
+    };
+
+});
 
     /* CONFIRM */
 
