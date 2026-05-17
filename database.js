@@ -1614,8 +1614,213 @@ matches:[
 			   
               ]
 
-}
+},
+	  
     
+{
+
+  "id": 23,
+	"title": "Joker Madness Edition",
+  "startDate": "17.05.2026",
+  "endDate": "29.05.2026",
+  "mode": "Classic + Bany + Jokery + Mulligan",
+  "presetCard": null,
+  "playersCount": 11,
+  "winner": null,
+  "bans": [],
+  "players": [
+    {
+      "name": "Budiso",
+      "deck": [
+        "Typhoid Mary",
+        "M'baku",
+        "Super-Skrull",
+        "Ares",
+        "Multiple Man",
+        "Red Shift",
+        "Galactus First Steps",
+        "Cassandra Nova",
+        "Okoye",
+        "Captain Marvel",
+        "Spider-Man Noir",
+        "Cloak"
+      ]
+    },
+    {
+      "name": "Dejwidgakure",
+      "deck": [
+        "Merlin",
+        "Fan Fei",
+        "Shou-Lao the Undying",
+        "White Widow",
+        "Beast",
+        "Frigga",
+        "Korg",
+        "Agent Coulson",
+        "Mantis",
+        "Techno-Organic Virus",
+        "Lin Lie Iron Fist",
+        "Silver Surfer"
+      ]
+    },
+    {
+      "name": "MatimyHair",
+      "deck": [
+        "Doctor Doom",
+        "Lin Lie Iron Fist",
+        "Shang-Chi",
+        "Strange Supreme",
+        "Nico Minoru",
+        "Colonel America",
+        "Galactus First Steps",
+        "Doctor Strange",
+        "Black Cat",
+        "Emperor Hulkling",
+        "The Hunger",
+        "Madame Web"
+      ]
+    },
+    {
+      "name": "Raciatek",
+      "deck": [
+        "Merlin",
+        "Beast",
+        "Red Guardian",
+        "Namora",
+        "Wiccan",
+        "Black Cat",
+        "Hobgoblin",
+        "Colleen Wing",
+        "Howard the Duck",
+        "Omega Red",
+        "Maximus",
+        "Shadow King"
+      ]
+    },
+    {
+      "name": "FizjoRadek",
+      "deck": [
+        "Nico Minoru",
+        "Jeff the Baby Land Shark",
+        "Shadowlands Daredevil",
+        "Wong",
+        "Angela",
+        "Caiera",
+        "Emperor Hulkling",
+        "Deafening Chord",
+        "Cannonball",
+        "Captain Marvel",
+        "Infinity Ultron",
+        "Rogue"
+      ]
+    },
+    {
+      "name": "kamajot",
+      "deck": [
+        "Doctor Doom 2099",
+        "Blob",
+        "Okoye",
+        "Attuma",
+        "Orka",
+        "Onslaught",
+        "Moondragon",
+        "Esme Cuckoo",
+        "Speed",
+        "Mockingbird",
+        "Infinity Ultron",
+        "Shang-Chi, Master of the Rings"
+      ]
+    },
+    {
+      "name": "Kmythic",
+      "deck": [
+        "Ares",
+        "Spectrum",
+        "Baron Zemo",
+        "Colleen Wing",
+        "Dazzler",
+        "Moonstone",
+        "Electro",
+        "Spider-Woman",
+        "Fenris Wolf",
+        "Nova",
+        "Iceman",
+        "Red Shift"
+      ]
+    },
+    {
+      "name": "Supcio",
+      "deck": [
+        "Cerebro",
+        "Fastball Special",
+        "Snowguard",
+        "Nakia",
+        "Maria Hill",
+        "Deadpool",
+        "Drax",
+        "Angel",
+        "Carnage",
+        "Ironheart",
+        "Death",
+        "Orka"
+      ]
+    },
+    {
+      "name": "Weregesu",
+      "deck": [
+        "White Widow",
+        "Cassandra Nova",
+        "Rhino",
+        "Klaw",
+        "Agent 13",
+        "Batroc the Leaper",
+        "Ozymandias",
+        "Rocket Raccoon",
+        "America Chavez",
+        "Red Hulk",
+        "Werewolf By Night",
+        "Stature"
+      ]
+    },
+    {
+      "name": "Sylvan",
+      "deck": [
+        "Sasquatch",
+        "Cable",
+        "Blue Marvel",
+        "Sabretooth",
+        "Psylocke",
+        "Angel",
+        "Nova",
+        "Wasp",
+        "Rhino",
+        "Bastion",
+        "Anti-Venom",
+        "Black Knight"
+      ]
+    },
+    {
+      "name": "Maniek",
+      "deck": [
+        "Iron Patriot",
+        "Red Skull",
+        "Iron Fist",
+        "Peni Parker",
+        "Shang-Chi",
+        "Terrax the Tamer",
+        "Stryfe",
+        "Silver Surfer",
+        "Copycat",
+        "Captain Carter",
+        "Shadowlands Daredevil",
+        "Wasp"
+      ]
+    }
+  ],
+  "matches": []
+
+}
+
   
     
 
