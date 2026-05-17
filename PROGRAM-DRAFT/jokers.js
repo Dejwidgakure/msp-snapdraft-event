@@ -815,6 +815,6 @@ const jokers = [
 
     minPower:null,
     maxPower:null
-},
+}
 
 ];
