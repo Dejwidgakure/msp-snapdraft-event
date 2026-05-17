@@ -141,3 +141,67 @@ function injectJokersIntoPack(pack){
     return newPack;
 
 }
+
+/* =========================
+   SURPRISE JOKER
+========================= */
+
+function getCardsForSurpriseJoker(joker){
+
+    let pool = [...cardDatabase];
+
+    /* COST FILTER */
+
+    if(joker.minCost !== null){
+
+        pool = pool.filter(card =>
+            card.cost >= joker.minCost
+        );
+
+    }
+
+    if(joker.maxCost !== null){
+
+        pool = pool.filter(card =>
+            card.cost <= joker.maxCost
+        );
+
+    }
+
+    /* POWER FILTER */
+
+    if(joker.minPower !== null){
+
+        pool = pool.filter(card =>
+            card.power >= joker.minPower
+        );
+
+    }
+
+    if(joker.maxPower !== null){
+
+        pool = pool.filter(card =>
+            card.power <= joker.maxPower
+        );
+
+    }
+
+    /* TODO:
+       TAG FILTERS
+       move / destroy / etc
+    */
+
+    /* REMOVE DUPLICATES */
+
+    pool = [...new Map(
+        pool.map(card => [card.name, card])
+    ).values()];
+
+    /* RANDOM 2 */
+
+    const shuffled =
+        pool.sort(()=>Math.random()-0.5);
+
+    return shuffled.slice(0,2);
+
+}
