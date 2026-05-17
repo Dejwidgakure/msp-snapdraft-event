@@ -3462,11 +3462,7 @@ function nextPack(){
     currentPack=[]; 
     let packSize=numPlayers*2+1;
 
-    let addJoker=false, addSecondJoker=false;
-    if(document.getElementById("enableJokers").checked){
-        addJoker = Math.random()<0.5;        
-        addSecondJoker = addJoker && Math.random()<0.1; 
-    }
+
 
     // 🎴 GENEROWANIE PACZKI
     let generatedPack = resolvePack(packSize);
