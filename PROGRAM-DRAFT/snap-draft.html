@@ -2398,13 +2398,29 @@ box-shadow:
 
 }
 
+.jokerModeCard.active,
 .jokerTypeCard.active{
 
-border-color:#ff00ff;
+transform:
+scale(1.05);
+
+border:
+2px solid #00f0ff;
+
+background:
+linear-gradient(
+135deg,
+rgba(0,240,255,0.22),
+rgba(138,43,226,0.25)
+);
 
 box-shadow:
-0 0 20px #ff00ff,
-0 0 40px #8a2be2;
+0 0 12px #00f0ff,
+0 0 25px #8a2be2,
+0 0 45px rgba(255,0,255,0.45);
+
+filter:
+brightness(1.15);
 
 }
 
@@ -3688,6 +3704,42 @@ customPackQueueBuilt = true;
         </button>
 
     </div>
+
+</div>
+
+    <!-- =========================
+     SURPRISE JOKER MODAL
+========================= -->
+
+<div id="surpriseJokerModal"
+class="jokerChaosModal"
+style="display:none;">
+
+<div class="jokerChaosContent surpriseContent">
+
+    <div class="surpriseHeader">
+
+        <img
+        src="jeff_joker.png"
+        class="surpriseJeff">
+
+        <div class="surpriseTitle">
+            SURPRISE JOKER
+        </div>
+
+        <div class="surpriseSubtitle">
+            Wybierz jedną z kart
+        </div>
+
+    </div>
+
+    <div
+    id="surpriseCardsContainer"
+    class="surpriseCardsContainer">
+
+    </div>
+
+</div>
 
 </div>
 
