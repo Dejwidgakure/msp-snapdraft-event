@@ -3192,13 +3192,13 @@ btn.innerHTML = `
                 <span class="q-right">?</span>
             </div>
 
-            <div class="joker-desc">${c.desc}</div>
+            <div class="joker-desc">${c.jokerData.desc}</div>
         </div>
     </div>
 `;
 
             btn.onclick=()=>{
-                let chosenName = prompt("Wybrałeś JOKERA (" + c.desc + "). Wpisz nazwę karty do dodania:");
+                let chosenName = prompt("Wybrałeś JOKERA ("  + c.jokerData.desc + "). Wpisz nazwę karty do dodania:");
                 if(chosenName){
                     const found = cardDatabase.find(card => card.name.toLowerCase() === chosenName.trim().toLowerCase());
                     if(found){
