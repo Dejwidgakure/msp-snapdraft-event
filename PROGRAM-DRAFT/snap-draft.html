@@ -3573,43 +3573,16 @@ btn.innerHTML = `
     ========================= */
 
     if(c.type === "surprise"){
+const options =
+    getCardsForSurpriseJoker(c);
 
-        const options =
-            getCardsForSurpriseJoker(c);
+openSurpriseJokerModal(
+    c,
+    options,
+    i
+);
 
-        let text =
-`SURPRISE JOKER!
-
-1. ${options[0]?.name || "BRAK"}
-2. ${options[1]?.name || "BRAK"}
-
-Wpisz 1 lub 2`;
-
-        let choice = prompt(text);
-
-        if(choice !== "1" && choice !== "2"){
-            return;
-        }
-
-        const picked =
-            options[parseInt(choice)-1];
-
-        if(!picked){
-            alert("Nie udało się wylosować karty!");
-            return;
-        }
-
-        const playerIndex =
-            pickOrder[currentPickIndex];
-
-        decks[playerIndex].push(picked);
-
-        currentPack.splice(i,1);
-
-        nextPickOrPack();
-
-        return;
-    }
+return;
 
     /* =========================
        CHOICE JOKER
