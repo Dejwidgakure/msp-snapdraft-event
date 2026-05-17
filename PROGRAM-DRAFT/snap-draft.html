@@ -3207,19 +3207,88 @@ btn.innerHTML = `
 `;
 
             btn.onclick=()=>{
-                let chosenName = prompt("Wybrałeś JOKERA ("  + c.jokerData.desc + "). Wpisz nazwę karty do dodania:");
-                if(chosenName){
-                    const found = cardDatabase.find(card => card.name.toLowerCase() === chosenName.trim().toLowerCase());
-                    if(found){
-                        const playerIndex=pickOrder[currentPickIndex];
-                        decks[playerIndex].push(found);
-                        currentPack.splice(i,1);
-                        nextPickOrPack();
-                    } else {
-                        alert("Nie znaleziono karty w bazie!");
-                    }
-                }
-            };
+
+    /* =========================
+       SURPRISE JOKER
+    ========================= */
+
+    if(c.type === "surprise"){
+
+        const options =
+            getCardsForSurpriseJoker(c);
+
+        let text =
+`SURPRISE JOKER!
+
+1. ${options[0]?.name || "BRAK"}
+2. ${options[1]?.name || "BRAK"}
+
+Wpisz 1 lub 2`;
+
+        let choice = prompt(text);
+
+        if(choice !== "1" && choice !== "2"){
+            return;
+        }
+
+        const picked =
+            options[parseInt(choice)-1];
+
+        if(!picked){
+            alert("Nie udało się wylosować karty!");
+            return;
+        }
+
+        const playerIndex =
+            pickOrder[currentPickIndex];
+
+        decks[playerIndex].push(picked);
+
+        currentPack.splice(i,1);
+
+        nextPickOrPack();
+
+        return;
+    }
+
+    /* =========================
+       CHOICE JOKER
+    ========================= */
+
+    let chosenName = prompt(
+        "Wybrałeś JOKERA (" +
+        c.desc +
+        "). Wpisz nazwę karty do dodania:"
+    );
+
+    if(chosenName){
+
+        const found =
+            cardDatabase.find(card =>
+
+            card.name.toLowerCase() ===
+            chosenName.trim().toLowerCase()
+
+        );
+
+        if(found){
+
+            const playerIndex =
+                pickOrder[currentPickIndex];
+
+            decks[playerIndex].push(found);
+
+            currentPack.splice(i,1);
+
+            nextPickOrPack();
+
+        } else {
+
+            alert("Nie znaleziono karty w bazie!");
+
+        }
+    }
+};
 
         } else {
             btn.className = "pack-card-btn";
