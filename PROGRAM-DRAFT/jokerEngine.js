@@ -1,85 +1,41 @@
-/* ========================= */
-/* ===== JOKER ENGINE ====== */
-/* ========================= */
-
-/* RARITY ODDS */
-
-const jokerRarityRates = {
-
-    common: 60,
-    rare: 25,
-    epic: 10,
-    legendary: 5
-
-};
-
-/* JOKER MODES */
-
-const jokerModes = {
-
-    rare: {
-        packChance: 0.25,
-        minJokers: 1,
-        maxJokers: 1
-    },
-
-    classic: {
-        packChance: 0.50,
-        minJokers: 1,
-        maxJokers: 2
-    },
-
-    madness: {
-        packChance: 1,
-        minJokers: 3,
-        maxJokers: 5
-    }
-
-};
-
-/* ACTIVE SETTINGS */
-
-let jokerSettings = {
+const jokerSettings = {
 
     enabled: false,
 
-    mode: "classic",
+    mode: "classic", // classic / rare / madness
 
-    allowChoice: true,
-    allowSurprise: true
+    allowedTypes: [
+        "choice",
+        "surprise"
+    ],
+
+    rarityChances: {
+
+        common: 70,
+        rare: 22,
+        epic: 6,
+        legendary: 2
+
+    }
 
 };
 
-/* ========================= */
-/* ===== RANDOM HELPERS ==== */
-/* ========================= */
+/* =========================
+   LOSOWANIE RARITY
+========================= */
 
-function randomInt(min, max){
+function getRandomRarity(){
 
-    return Math.floor(
-        Math.random() * (max - min + 1)
-    ) + min;
+    const roll = Math.random()*100;
 
-}
+    let cumulative = 0;
 
-function weightedRandom(weights){
+    for(const rarity in jokerSettings.rarityChances){
 
-    let total = 0;
+        cumulative += jokerSettings.rarityChances[rarity];
 
-    for(let key in weights){
-        total += weights[key];
-    }
-
-    let roll = Math.random() * total;
-
-    let current = 0;
-
-    for(let key in weights){
-
-        current += weights[key];
-
-        if(roll <= current){
-            return key;
+        if(roll <= cumulative){
+            return rarity;
         }
 
     }
@@ -88,127 +44,100 @@ function weightedRandom(weights){
 
 }
 
-/* ========================= */
-/* ===== GET RARITY ======== */
-/* ========================= */
-
-function getRandomJokerRarity(){
-
-    return weightedRandom(jokerRarityRates);
-
-}
-
-/* ========================= */
-/* ===== FILTER JOKERS ===== */
-/* ========================= */
-
-function getAvailableJokers(){
-
-    return jokers.filter(joker => {
-
-        /* TYPE FILTER */
-
-        if(joker.type === "choice" && !jokerSettings.allowChoice){
-            return false;
-        }
-
-        if(joker.type === "surprise" && !jokerSettings.allowSurprise){
-            return false;
-        }
-
-        return true;
-
-    });
-
-}
-
-/* ========================= */
-/* ===== RANDOM JOKER ====== */
-/* ========================= */
+/* =========================
+   LOSOWANIE JOKERA
+========================= */
 
 function getRandomJoker(){
 
-    const rarity = getRandomJokerRarity();
+    const rarity =
+        getRandomRarity();
 
-    const available = getAvailableJokers();
+    let pool = jokers.filter(j =>
 
-    const filtered = available.filter(
-        j => j.rarity === rarity
+        jokerSettings.allowedTypes.includes(j.type) &&
+        j.rarity === rarity
+
     );
 
     /* fallback */
 
-    let pool = filtered;
+    if(pool.length === 0){
 
-    if(pool.length <= 0){
-        pool = available;
+        pool = jokers.filter(j =>
+            jokerSettings.allowedTypes.includes(j.type)
+        );
+
     }
 
-    const joker =
-        pool[Math.floor(Math.random() * pool.length)];
-
-    return {
-
-        joker: true,
-
-        id: joker.id,
-        type: joker.type,
-        rarity: joker.rarity,
-
-        name: joker.name,
-        desc: joker.desc,
-
-        tags: joker.tags || [],
-
-        minCost: joker.minCost,
-        maxCost: joker.maxCost,
-
-        minPower: joker.minPower,
-        maxPower: joker.maxPower
-
-    };
+    return structuredClone(
+        pool[Math.floor(Math.random()*pool.length)]
+    );
 
 }
 
-/* ========================= */
-/* ===== INJECT JOKERS ===== */
-/* ========================= */
+/* =========================
+   DODAWANIE DO PACZKI
+========================= */
 
 function injectJokersIntoPack(pack){
 
-    if(!jokerSettings.enabled){
-        return pack;
-    }
+    const newPack = [...pack];
 
-    const modeData =
-        jokerModes[jokerSettings.mode];
+    let jokerCount = 0;
 
-    if(!modeData){
-        return pack;
-    }
+    /* CLASSIC */
 
-    /* PACK ROLL */
+    if(jokerSettings.mode === "classic"){
 
-    if(Math.random() > modeData.packChance){
-        return pack;
-    }
+        if(Math.random() < 0.5){
+            jokerCount = 1;
+        }
 
-    /* HOW MANY */
-
-    const jokerCount = randomInt(
-        modeData.minJokers,
-        modeData.maxJokers
-    );
-
-    for(let i = 0; i < jokerCount; i++){
-
-        const randomIndex =
-            Math.floor(Math.random() * pack.length);
-
-        pack[randomIndex] = getRandomJoker();
+        if(Math.random() < 0.1){
+            jokerCount = 2;
+        }
 
     }
 
-    return pack;
+    /* RARE */
+
+    else if(jokerSettings.mode === "rare"){
+
+        if(Math.random() < 0.75){
+            jokerCount = 1;
+        }
+
+        if(Math.random() < 0.25){
+            jokerCount = 2;
+        }
+
+    }
+
+    /* MADNESS */
+
+    else if(jokerSettings.mode === "madness"){
+
+        jokerCount =
+            Math.ceil(pack.length / 2);
+
+    }
+
+    for(let i=0;i<jokerCount;i++){
+
+        const index =
+            Math.floor(Math.random()*newPack.length);
+
+        newPack[index] = {
+
+            joker: true,
+
+            ...getRandomJoker()
+
+        };
+
+    }
+
+    return newPack;
 
 }
