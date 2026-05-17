@@ -3383,6 +3383,79 @@ document.querySelectorAll(".jokerTypeCard")
 
 });
 
+    /* =========================
+   SURPRISE JOKER MODAL
+========================= */
+
+function openSurpriseJokerModal(
+    joker,
+    options,
+    packIndex
+){
+
+    const modal =
+        document.getElementById(
+            "surpriseJokerModal"
+        );
+
+    const container =
+        document.getElementById(
+            "surpriseCardsContainer"
+        );
+
+    container.innerHTML = "";
+
+    options.forEach(card=>{
+
+        const div =
+            document.createElement("div");
+
+        div.className = "surpriseCard";
+
+        div.innerHTML = `
+
+        <div class="surpriseCardInner">
+
+            <div class="surpriseStats">
+
+                <div>${card.cost}</div>
+
+                <div>${card.power}</div>
+
+            </div>
+
+            <div class="surpriseName">
+                ${card.name}
+            </div>
+
+            <div class="surpriseArt"></div>
+
+        </div>
+
+        `;
+
+        div.onclick = ()=>{
+
+            const playerIndex =
+                pickOrder[currentPickIndex];
+
+            decks[playerIndex].push(card);
+
+            currentPack.splice(packIndex,1);
+
+            modal.style.display = "none";
+
+            nextPickOrPack();
+
+        };
+
+        container.appendChild(div);
+
+    });
+
+    modal.style.display = "flex";
+
+}
     
 function nextPack(){
     if(draftFinished) return;
