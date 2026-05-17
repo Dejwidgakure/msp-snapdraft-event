@@ -546,6 +546,275 @@ const jokers = [
 
     minPower:null,
     maxPower:null
-  }
+  },
+  {
+    id:"glass_cannon",
+    type:"surprise",
+    rarity:"epic",
+
+    name:"Glass Cannon",
+
+    desc:"Losowa karta 1-3 Cost z 8+ Power",
+
+    tags:[],
+
+    minCost:1,
+    maxCost:3,
+
+    minPower:8,
+    maxPower:null
+},
+
+{
+    id:"mini_titan",
+    type:"surprise",
+    rarity:"rare",
+
+    name:"Mini Titan",
+
+    desc:"Losowa karta 1-2 Cost z 6+ Power",
+
+    tags:[],
+
+    minCost:1,
+    maxCost:2,
+
+    minPower:6,
+    maxPower:null
+},
+
+{
+    id:"heavy_brick",
+    type:"surprise",
+    rarity:"common",
+
+    name:"Heavy Brick",
+
+    desc:"Losowa karta 5+ Cost z maks 4 Power",
+
+    tags:[],
+
+    minCost:5,
+    maxCost:null,
+
+    minPower:null,
+    maxPower:4
+},
+
+{
+    id:"collapsed_star",
+    type:"surprise",
+    rarity:"common",
+
+    name:"Collapsed Star",
+
+    desc:"Losowa karta z większym Cost niż Power",
+
+    tags:["cost-greater-than-power"],
+
+    minCost:null,
+    maxCost:null,
+
+    minPower:null,
+    maxPower:null
+},
+
+{
+    id:"overcharged",
+    type:"surprise",
+    rarity:"rare",
+
+    name:"Overcharged",
+
+    desc:"Losowa karta z większym Power niż Cost",
+
+    tags:["power-greater-than-cost"],
+
+    minCost:null,
+    maxCost:null,
+
+    minPower:null,
+    maxPower:null
+},
+
+{
+    id:"perfect_balance",
+    type:"surprise",
+    rarity:"epic",
+
+    name:"Perfect Balance",
+
+    desc:"Losowa karta z równym Cost i Power",
+
+    tags:["equal-cost-power"],
+
+    minCost:null,
+    maxCost:null,
+
+    minPower:null,
+    maxPower:null
+},
+
+{
+    id:"negative_entity",
+    type:"surprise",
+    rarity:"rare",
+
+    name:"Negative Entity",
+
+    desc:"Losowa karta z 0 lub mniej Power",
+
+    tags:[],
+
+    minCost:null,
+    maxCost:null,
+
+    minPower:null,
+    maxPower:0
+},
+
+{
+    id:"energy_collapse",
+    type:"surprise",
+    rarity:"rare",
+
+    name:"Energy Collapse",
+
+    desc:"Losowa karta 6 Cost z maks 6 Power",
+
+    tags:[],
+
+    minCost:6,
+    maxCost:6,
+
+    minPower:null,
+    maxPower:6
+},
+
+{
+    id:"duelist",
+    type:"surprise",
+    rarity:"common",
+
+    name:"Duelist",
+
+    desc:"Losowa karta 3 Cost z 3-6 Power",
+
+    tags:[],
+
+    minCost:3,
+    maxCost:3,
+
+    minPower:3,
+    maxPower:6
+},
+
+{
+    id:"frozen_core",
+    type:"surprise",
+    rarity:"rare",
+
+    name:"Frozen Core",
+
+    desc:"Losowa karta 4-6 Cost z dokładnie 2 Power",
+
+    tags:["exact-2-power"],
+
+    minCost:4,
+    maxCost:6,
+
+    minPower:2,
+    maxPower:2
+},
+
+{
+    id:"singularity",
+    type:"surprise",
+    rarity:"epic",
+
+    name:"Singularity",
+
+    desc:"Losowa karta 0 Cost",
+
+    tags:[],
+
+    minCost:0,
+    maxCost:0,
+
+    minPower:null,
+    maxPower:null
+},
+
+{
+    id:"triple_six",
+    type:"surprise",
+    rarity:"legendary",
+
+    name:"Triple Six",
+
+    desc:"Losowa karta 6/6",
+
+    tags:["exact-6-6"],
+
+    minCost:6,
+    maxCost:6,
+
+    minPower:6,
+    maxPower:6
+},
+
+{
+    id:"unstoppable_force",
+    type:"surprise",
+    rarity:"legendary",
+
+    name:"Unstoppable Force",
+
+    desc:"Losowa karta 10+ Power",
+
+    tags:[],
+
+    minCost:null,
+    maxCost:null,
+
+    minPower:10,
+    maxPower:null
+},
+
+{
+    id:"cheap_trick",
+    type:"surprise",
+    rarity:"common",
+
+    name:"Cheap Trick",
+
+    desc:"Losowa karta 1 Cost z maks 2 Power",
+
+    tags:[],
+
+    minCost:1,
+    maxCost:1,
+
+    minPower:null,
+    maxPower:2
+},
+
+{
+    id:"stat_monster",
+    type:"surprise",
+    rarity:"epic",
+
+    name:"Stat Monster",
+
+    desc:"Losowa karta z minimum 4 większym Power niż Cost",
+
+    tags:["power-4-above-cost"],
+
+    minCost:null,
+    maxCost:null,
+
+    minPower:null,
+    maxPower:null
+},
 
 ];
