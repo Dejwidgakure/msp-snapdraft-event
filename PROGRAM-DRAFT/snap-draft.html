@@ -3025,6 +3025,69 @@ function updateInfoPanel(){
         <b>WYBRANE KARTY:</b> ${totalSelected}/${totalCardsNeeded}`;
 }
 
+    /* =========================
+   JOKER SETTINGS CONFIRM
+========================= */
+
+document.addEventListener("DOMContentLoaded", ()=>{
+
+    /* SELECT MODE */
+
+    document.querySelectorAll(".jokerModeCard")
+    .forEach(card=>{
+
+        card.onclick = ()=>{
+
+            document
+            .querySelectorAll(".jokerModeCard")
+            .forEach(c=>c.classList.remove("active"));
+
+            card.classList.add("active");
+
+            jokerSettings.mode =
+            card.dataset.mode;
+        };
+
+    });
+
+    /* TOGGLE TYPES */
+
+    document.querySelectorAll(".jokerTypeCard")
+    .forEach(card=>{
+
+        card.onclick = ()=>{
+
+            card.classList.toggle("active");
+
+            jokerSettings.allowChoice =
+            document.querySelector(
+                '.jokerTypeCard[data-type="choice"]'
+            ).classList.contains("active");
+
+            jokerSettings.allowSurprise =
+            document.querySelector(
+                '.jokerTypeCard[data-type="surprise"]'
+            ).classList.contains("active");
+        };
+
+    });
+
+    /* CONFIRM */
+
+    document
+    .getElementById("confirmJokerSettings")
+    .onclick = ()=>{
+
+        document
+        .getElementById("jokerModal")
+        .style.display = "none";
+
+        startDraftFlow();
+    };
+
+});
+
+    
 function nextPack(){
     if(draftFinished) return;
     currentPack=[]; 
@@ -3542,7 +3605,7 @@ customPackQueueBuilt = true;
         id="confirmJokerSettings"
         class="jokerStartBtn">
 
-            START JOKER MADNESS
+            AKTYWUJ JOKERY
 
         </button>
 
