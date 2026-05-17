@@ -2507,45 +2507,21 @@ function nextPack(){
 
     currentPack = generatedPack;
 
-if(document.getElementById("enableJokers").checked){
 
-    if(currentPackName === "STANDARD PACK"){
+    if(
+    document.getElementById("enableJokers").checked &&
+    currentPackName === "STANDARD PACK"
+){
 
-        if(addJoker){
+    jokerSettings.enabled = true;
 
-            currentPackName = "JOKER PACK";
+    currentPack =
+        injectJokersIntoPack(currentPack);
 
-            const joker = getRandomJoker();
-
-            currentPack[
-                Math.floor(Math.random()*currentPack.length)
-            ] = {
-                joker: true,
-                type: joker.type,
-                desc: joker.desc
-            };
-
-        }
-
-        if(addSecondJoker){
-
-            currentPackName = "JOKER PACK";
-
-            const joker = getRandomJoker();
-
-            currentPack[
-                Math.floor(Math.random()*currentPack.length)
-            ] = {
-                joker: true,
-                type: joker.type,
-                desc: joker.desc
-            };
-
-        }
-
+    if(currentPack.some(card => card.joker)){
+        currentPackName = "JOKER PACK";
     }
 
-}
 
 currentPickIndex = 0;
 
@@ -2553,6 +2529,7 @@ setupPickOrder();
 
 showPack();
 showDecks();
+}
 
 function showPack(){
 
