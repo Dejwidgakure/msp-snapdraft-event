@@ -1817,7 +1817,12 @@ matches:[
       ]
     }
   ],
-  "matches": []
+  "matches": [{"p1":"Weregesu","p2":"Raciatek","pts1":21,"pts2":4},{"p1":"Kmythic","p2":"Maniek","pts1":25,"pts2":0},{"p1":"kamajot","p2":"Kmythic","pts1":25,"pts2":0},
+			 {"p1":"kamajot","p2":"Maniek","pts1":24,"pts2":1},{"p1":"MatimyHair","p2":"Maniek","pts1":21,"pts2":4},{"p1":"FizjoRadek","p2":"Maniek","pts1":21,"pts2":4},
+			 {"p1":"Weregesu","p2":"Maniek","pts1":23,"pts2":2},{"p1":"Weregesu","p2":"Budiso","pts1":23,"pts2":2},{"p1":"FizjoRadek","p2":"Weregesu","pts1":7,"pts2":18},
+			 {"p1":"Budiso","p2":"FizjoRadek","pts1":23,"pts2":2},{"p1":"Maniek","p2":"Budiso","pts1":4,"pts2":21},{"p1":"MatimyHair","p2":"Kmythic","pts1":21,"pts2":4},
+			 {"p1":"MatimyHair","p2":"Weregesu","pts1":25,"pts2":0},{"p1":"Maniek","p2":"Supcio","pts1":23,"pts2":2},{"p1":"Weregesur","p2":"kamajot","pts1":23,"pts2":2},
+			]
 
 }
 
