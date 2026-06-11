@@ -1857,7 +1857,10 @@ matches:[
   {"p1": "Budiso", "p2": "Kmythic", "pts1": 20, "pts2": 0},
   {"p1": "Supcio", "p2": "Kmythic", "pts1": 20, "pts2": 0},
   {"p1": "Raciatek", "p2": "Kmythic", "pts1": 20, "pts2": 0},
-  {"p1": "Dejwidgakure", "p2": "Kmythic", "pts1": 20, "pts2": 0}
+  {"p1": "Dejwidgakure", "p2": "Kmythic", "pts1": 20, "pts2": 0},
+			  {"p1": "kamajot", "p2": "Supcio", "pts1": 25, "pts2": 0},
+			  {"p1": "Budiso", "p2": "Supcio", "pts1": 0, "pts2": 20},
+			  {"p1": "Raciatek", "p2": "Supcio", "pts1": 0, "pts2": 20},
 			]
 
 }
