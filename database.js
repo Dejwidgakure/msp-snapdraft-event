@@ -1861,6 +1861,7 @@ matches:[
 			  {"p1": "kamajot", "p2": "Supcio", "pts1": 25, "pts2": 0},
 			  {"p1": "Budiso", "p2": "Supcio", "pts1": 0, "pts2": 20},
 			  {"p1": "Raciatek", "p2": "Supcio", "pts1": 0, "pts2": 20},
+			  {"p1": "Raciatek", "p2": "kamajot", "pts1": 0, "pts2": 20}
 			]
 
 }
