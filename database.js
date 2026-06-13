@@ -1636,13 +1636,13 @@ matches:[
         "M'baku",
         "Super-Skrull",
         "Ares",
-        "Multiple Man",
+        "Lockjaw",
         "Red Shift",
         "Galactus First Steps",
         "Cassandra Nova",
         "Okoye",
         "Captain Marvel",
-        "Spider-Man Noir",
+        "Wasp",
         "Cloak"
       ]
     },
