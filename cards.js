@@ -267,6 +267,7 @@ const cardDatabase = [
   { name: "Morbius", cost: 2, power: 0, tags: [] },
   { name: "Morgan le Fay", cost: 3, power: 4, tags: [] },
   { name: "Morph", cost: 3, power: 0, tags: ["wind7","wind10"] },
+  { name: "Mother Askani", cost: 4, power: 3, tags: ["cardgen"] },
   { name: "Ms. Marvel", cost: 4, power: 5, tags: ["wind4","wind7"] },
   { name: "Multiple Man", cost: 2, power: 4, tags: ["wind2","wind5","wind11"] },
   { name: "Mysterio", cost: 2, power: 5, tags: ["wind1"] },
@@ -389,7 +390,7 @@ const cardDatabase = [
   { name: "Sword Master", cost: 3, power: 7, tags: ["wind13"] },
   { name: "Symbiote Spider-Man", cost: 4, power: 7, tags: ["wind14"] },
   { name: "Taskmaster", cost: 6, power: 0, tags: [] },
-  { name: "Techno-Organic Virus", cost: 1, power: 0, tags: ["spells","zoo","cardgen"] },
+  { name: "Techno-Organic Virus", cost: 2, power: 0, tags: ["spells","zoo","cardgen"] },
   { name: "Terrax the Tamer", cost: 3, power: 4, tags: [] },
   { name: "Thaddeus Ross", cost: 2, power: 2, tags: [] },
   { name: "Thanos", cost: 6, power: 12, tags: [] },
@@ -453,7 +454,7 @@ const cardDatabase = [
   { name: "Zombie Mister Fantastic", cost: 2, power: 2, tags: ["wind19"] },
   { name: "Zombie Power Man", cost: 2, power: 4, tags: [] },
   { name: "Zombie Scarlet Witch", cost: 3, power: 4, tags: [] },
-  { name: "Zombie Sentry", cost: 3, power: 4, tags: [] }
+  { name: "Zombie Sentry", cost: 2, power: 1, tags: [] }
 ];
 
 const cards = cardDatabase.map(c => c.name);
