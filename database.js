@@ -1664,7 +1664,7 @@ matches:[
       ]
     },
     {
-      "name": "MatimyHair",
+      "name": "MatiMyHair",
       "deck": [
         "Doctor Doom",
         "Lin Lie Iron Fist",
@@ -1818,12 +1818,12 @@ matches:[
     }
   ],
   "matches": [{"p1":"Weregesu","p2":"Raciatek","pts1":21,"pts2":4},{"p1":"Kmythic","p2":"Maniek","pts1":25,"pts2":0},{"p1":"kamajot","p2":"Kmythic","pts1":25,"pts2":0},
-			 {"p1":"kamajot","p2":"Maniek","pts1":24,"pts2":1},{"p1":"MatimyHair","p2":"Maniek","pts1":21,"pts2":4},{"p1":"FizjoRadek","p2":"Maniek","pts1":21,"pts2":4},
+			 {"p1":"kamajot","p2":"Maniek","pts1":24,"pts2":1},{"p1":"MatiMyHair","p2":"Maniek","pts1":21,"pts2":4},{"p1":"FizjoRadek","p2":"Maniek","pts1":21,"pts2":4},
 			 {"p1":"Weregesu","p2":"Maniek","pts1":23,"pts2":2},{"p1":"Weregesu","p2":"Budiso","pts1":23,"pts2":2},{"p1":"FizjoRadek","p2":"Weregesu","pts1":7,"pts2":18},
-			 {"p1":"Budiso","p2":"FizjoRadek","pts1":23,"pts2":2},{"p1":"Maniek","p2":"Budiso","pts1":4,"pts2":21},{"p1":"MatimyHair","p2":"Kmythic","pts1":21,"pts2":4},
-			 {"p1":"MatimyHair","p2":"Weregesu","pts1":25,"pts2":0},{"p1":"Maniek","p2":"Supcio","pts1":23,"pts2":2},{"p1":"Weregesu","p2":"kamajot","pts1":23,"pts2":2},
-			 {"p1": "kamajot", "p2": "MatimyHair", "pts1": 22, "pts2": 3},
-  {"p1": "MatimyHair", "p2": "Raciatek", "pts1": 20, "pts2": 5},
+			 {"p1":"Budiso","p2":"FizjoRadek","pts1":23,"pts2":2},{"p1":"Maniek","p2":"Budiso","pts1":4,"pts2":21},{"p1":"MatiMyHair","p2":"Kmythic","pts1":21,"pts2":4},
+			 {"p1":"MatiMyHair","p2":"Weregesu","pts1":25,"pts2":0},{"p1":"Maniek","p2":"Supcio","pts1":23,"pts2":2},{"p1":"Weregesu","p2":"kamajot","pts1":23,"pts2":2},
+			 {"p1": "kamajot", "p2": "MatiMyHair", "pts1": 22, "pts2": 3},
+  {"p1": "MatiMyHair", "p2": "Raciatek", "pts1": 20, "pts2": 5},
   {"p1": "Maniek", "p2": "Raciatek", "pts1": 16, "pts2": 9},
   {"p1": "kamajot", "p2": "Budiso", "pts1": 25, "pts2": 0},
   {"p1": "Budiso", "p2": "Raciatek", "pts1": 23, "pts2": 2},
@@ -1831,14 +1831,14 @@ matches:[
   {"p1": "FizjoRadek", "p2": "Raciatek", "pts1": 21, "pts2": 4},
   {"p1": "Dejwidgakure", "p2": "Maniek", "pts1": 25, "pts2": 0},
   {"p1": "Dejwidgakure", "p2": "Supcio", "pts1": 17, "pts2": 8},
-  {"p1": "MatimyHair", "p2": "Supcio", "pts1": 21, "pts2": 4},
+  {"p1": "MatiMyHair", "p2": "Supcio", "pts1": 21, "pts2": 4},
   {"p1": "Weregesu", "p2": "Dejwidgakure", "pts1": 20, "pts2": 5},
   {"p1": "Budiso", "p2": "Dejwidgakure", "pts1": 21, "pts2": 4},
-  {"p1": "MatimyHair", "p2": "FizjoRadek", "pts1": 20, "pts2": 5},
+  {"p1": "MatiMyHair", "p2": "FizjoRadek", "pts1": 20, "pts2": 5},
   {"p1": "Supcio", "p2": "Weregesu", "pts1": 21, "pts2": 4},
   {"p1": "FizjoRadek", "p2": "Supcio", "pts1": 24, "pts2": 1},
-  {"p1": "MatimyHair", "p2": "Budiso", "pts1": 25, "pts2": 0},
-			  {"p1": "MatimyHair", "p2": "Sylvan", "pts1": 20, "pts2": 0},
+  {"p1": "MatiMyHair", "p2": "Budiso", "pts1": 25, "pts2": 0},
+			  {"p1": "MatiMyHair", "p2": "Sylvan", "pts1": 20, "pts2": 0},
   {"p1": "Weregesu", "p2": "Sylvan", "pts1": 20, "pts2": 0},
   {"p1": "kamajot", "p2": "Sylvan", "pts1": 20, "pts2": 0},
   {"p1": "FizjoRadek", "p2": "Sylvan", "pts1": 20, "pts2": 0},
@@ -1848,7 +1848,7 @@ matches:[
   {"p1": "Supcio", "p2": "Sylvan", "pts1": 20, "pts2": 0},
   {"p1": "Kmythic", "p2": "Sylvan", "pts1": 20, "pts2": 0},
   {"p1": "Raciatek", "p2": "Sylvan", "pts1": 20, "pts2": 0},
-			   {"p1": "MatimyHair", "p2": "Dejwidgakure", "pts1": 20, "pts2": 0},
+			   {"p1": "MatiMyHair", "p2": "Dejwidgakure", "pts1": 20, "pts2": 0},
   {"p1": "kamajot", "p2": "Dejwidgakure", "pts1": 20, "pts2": 0},
   {"p1": "FizjoRadek", "p2": "Dejwidgakure", "pts1": 20, "pts2": 0},
   {"p1": "Raciatek", "p2": "Dejwidgakure", "pts1": 20, "pts2": 0},
@@ -1862,6 +1862,157 @@ matches:[
 			  {"p1": "Budiso", "p2": "Supcio", "pts1": 0, "pts2": 20},
 			  {"p1": "Raciatek", "p2": "Supcio", "pts1": 0, "pts2": 20},
 			  {"p1": "Raciatek", "p2": "kamajot", "pts1": 0, "pts2": 20}
+			]
+
+},
+	    "id": 24,
+	"title": "Joker Madness Edition",
+  "startDate": "17.05.2026",
+  "endDate": "29.05.2026",
+  "mode": "Classic + Bany + Save & Steal + Mulligan",
+  "presetCard": null,
+  "playersCount": 8,
+  "winner": null,
+  "bans": [],
+  "players": [
+    {
+      "name": "Weregesu",
+      "deck": [
+        "Yellow Jacket",
+        "Mad Thinker",
+        "Surge",
+        "Morph",
+        "Black Widow",
+        "Werewolf by Night",
+        "Warlock",
+        "Copycat",
+        "Danger",
+        "Omega Red",
+        "Abomination",
+        "Doctor Doom"
+      ]
+    },
+    {
+      "name": "MatiMyHair,
+      "deck": [
+        "Merlin",
+        "Fan Fei",
+        "Shou-Lao the Undying",
+        "White Widow",
+        "Beast",
+        "Frigga",
+        "Korg",
+        "Agent Coulson",
+        "Mantis",
+        "Techno-Organic Virus",
+        "Lin Lie Iron Fist",
+        "Silver Surfer"
+      ]
+    },
+    {
+      "name": "Dejwidgakure",
+      "deck": [
+        "Doctor Doom",
+        "Lin Lie Iron Fist",
+        "Shang-Chi",
+        "Strange Supreme",
+        "Nico Minoru",
+        "Colonel America",
+        "Galactus First Steps",
+        "Doctor Strange",
+        "Black Cat",
+        "Emperor Hulkling",
+        "The Hunger",
+        "Madame Web"
+      ]
+    },
+    {
+      "name": "Raciatek",
+      "deck": [
+        "Merlin",
+        "Beast",
+        "Red Guardian",
+        "Namora",
+        "Wiccan",
+        "Black Cat",
+        "Hobgoblin",
+        "Colleen Wing",
+        "Howard the Duck",
+        "Omega Red",
+        "Maximus",
+        "Shadow King"
+      ]
+    },
+    {
+      "name": "Budiso",
+      "deck": [
+        "Doctor Doom 2099",
+        "Blob",
+        "Okoye",
+        "Attuma",
+        "Orka",
+        "Onslaught",
+        "Moondragon",
+        "Esme Cuckoo",
+        "Speed",
+        "Mockingbird",
+        "Infinity Ultron",
+        "Shang-Chi, Master of the Rings"
+      ]
+    },
+    {
+      "name": "kamajot",
+      "deck": [
+        "Cerebro",
+        "Fastball Special",
+        "Snowguard",
+        "Nakia",
+        "Maria Hill",
+        "Deadpool",
+        "Drax",
+        "Angel",
+        "Carnage",
+        "Ironheart",
+        "Death",
+        "Orka"
+      ]
+    },
+    {
+      "name": "Supcio",
+      "deck": [
+        "White Widow",
+        "Cassandra Nova",
+        "Rhino",
+        "Klaw",
+        "Agent 13",
+        "Batroc the Leaper",
+        "Ozymandias",
+        "Rocket Raccoon",
+        "America Chavez",
+        "Red Hulk",
+        "Werewolf By Night",
+        "Stature"
+      ]
+    },
+    {
+      "name": "Maniek",
+      "deck": [
+        "Iron Patriot",
+        "Red Skull",
+        "Iron Fist",
+        "Peni Parker",
+        "Shang-Chi",
+        "Terrax the Tamer",
+        "Stryfe",
+        "Silver Surfer",
+        "Copycat",
+        "Captain Carter",
+        "Shadowlands Daredevil",
+        "Wasp"
+      ]
+    }
+  ],
+  "matches": [
 			]
 
 }
