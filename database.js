@@ -1894,7 +1894,7 @@ matches:[
       ]
     },
     {
-      "name": "MatiMyHair,
+      "name": "MatiMyHair",
       "deck": [
         "Merlin",
         "Fan Fei",
