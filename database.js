@@ -1865,6 +1865,7 @@ matches:[
 			]
 
 },
+ {
 	    "id": 24,
 	"title": "Joker Madness Edition",
   "startDate": "17.05.2026",
