@@ -1896,18 +1896,18 @@ matches:[
     {
       "name": "MatiMyHair",
       "deck": [
-        "Merlin",
-        "Fan Fei",
-        "Shou-Lao the Undying",
-        "White Widow",
-        "Beast",
-        "Frigga",
         "Korg",
-        "Agent Coulson",
-        "Mantis",
-        "Techno-Organic Virus",
-        "Lin Lie Iron Fist",
-        "Silver Surfer"
+"Mantis",
+"Techno-Organic Virus",
+"Merlin",
+"White Widow",
+"Lin Lie Iron Fist",
+"Silver Surfer",
+"Frigga",
+"Agent Coulson",
+"Beast",
+"Fan Fei",
+"Shou-Lao the Undying"
       ]
     },
     {
