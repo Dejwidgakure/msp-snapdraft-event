@@ -2013,7 +2013,11 @@ matches:[
       ]
     }
   ],
-  "matches": [
+  "matches": [ {"p1":"MatiMyHair","p2":"Raciatek","pts1":25,"pts2":0},{"p1":"Raciatek","p2":"kamajot","pts1":19,"pts2":6},{"p1":"Dejwidgakure","p2":"Raciatek","pts1":25,"pts2":0},
+			   {"p1":"Budiso","p2":"Maniek","pts1":23,"pts2":2},{"p1":"Weregesu","p2":"Maniek","pts1":25,"pts2":0},{"p1":"Dejwidgakure","p2":"Maniek","pts1":24,"pts2":1},
+			   {"p1":"Dejwidgakure","p2":"Weregesu","pts1":24,"pts2":1},{"p1":"MatiMyHair","p2":"Maniek","pts1":7,"pts2":18},{"p1":"kamajot","p2":"Maniek","pts1":18,"pts2":7},
+			   {"p1":"kamajot","p2":"Weregesu","pts1":24,"pts2":1},{"p1":"Supcio","p2":"Weregesu","pts1":23,"pts2":2},{"p1":"Raciatek","p2":"Maniek","pts1":22,"pts2":3},
+			   {"p1":"Raciatek","p2":"Weregesu","pts1":2,"pts2":23},{"p1":"Supcio","p2":"Maniek","pts1":0,"pts2":25}
 			]
 
 }
