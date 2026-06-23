@@ -1867,14 +1867,14 @@ matches:[
 },
  {
 	    "id": 24,
-	"title": "Joker Madness Edition",
-  "startDate": "17.05.2026",
-  "endDate": "29.05.2026",
+	"title": "",
+  "startDate": "13.06.2026",
+  "endDate": "26.06.2026",
   "mode": "Classic + Bany + Save & Steal + Mulligan",
   "presetCard": null,
   "playersCount": 8,
   "winner": null,
-  "bans": [],
+  "bans": ["Arishem","Loki"],
   "players": [
     {
       "name": "Weregesu",
