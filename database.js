@@ -1937,7 +1937,7 @@ matches:[
 "Joaquin Torres Falcon II",
 "Master Mold",
 "Red Guardian",
-"Omega Red",
+"Wilson Fisk",
 "Cannonball",
 "Legion",
 "Taskmaster",
