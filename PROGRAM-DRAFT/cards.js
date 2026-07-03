@@ -30,7 +30,7 @@ const cardDatabase = [
   { name: "Askani'son", cost: 2, power: 3, tags: [] },
   { name: "Astral Projection", cost: 3, power: 0, tags: ["spells"] },
   { name: "Attuma", cost: 4, power: 10, tags: ["wind3"] },
-  { name: "Aurora", cost: 6, power: 6, tags: ["wind19"] },
+  { name: "Aurora", cost: 6, power: 5, tags: ["wind19"] },
   { name: "Awesome Andy", cost: 2, power: 3, tags: [] },
   { name: "Baron Mordo", cost: 2, power: 3, tags: ["wind15"] },
   { name: "Baron Zemo", cost: 3, power: 5, tags: ["wind16"] },
