@@ -4042,39 +4042,95 @@ transform:translateY(-10px);
     position:absolute;
     left:50%;
     top:48%;
-    width:20px;
-    height:20px;
+    width:360px;
+    height:360px;
     transform:translate(-50%,-50%);
     pointer-events:none;
     z-index:3;
     opacity:0;
+    overflow:visible;
+    filter:saturate(1.14);
+}
+.pack-energy-burst .burst-core,
+.pack-energy-burst .burst-wave,
+.pack-energy-burst .burst-particle{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    opacity:0;
+}
+.pack-energy-burst .burst-core{
+    width:130px;
+    height:130px;
     border-radius:50%;
+    background:
+        radial-gradient(circle, rgba(255,255,255,0.98) 0%, rgba(207,246,255,0.95) 15%, rgba(122,230,255,0.74) 33%, rgba(184,92,255,0.38) 52%, rgba(49,217,255,0.14) 68%, rgba(49,217,255,0) 82%);
+    filter: blur(6px);
+    mix-blend-mode:screen;
+}
+.pack-energy-burst .burst-wave{
+    width:240px;
+    height:240px;
+    border-radius:50%;
+    border:2px solid rgba(168,246,255,0.34);
+    box-shadow:0 0 34px rgba(137,241,255,0.34), inset 0 0 24px rgba(205,125,255,0.18);
+    filter: blur(1.5px);
+}
+.pack-energy-burst .wave-b{ width:300px; height:300px; border-color:rgba(255,255,255,0.22);}
+.pack-energy-burst .wave-c{ width:350px; height:350px; border-color:rgba(171,120,255,0.18);}
+.pack-energy-burst .burst-particle{
+    width:var(--size,10px);
+    height:var(--size,10px);
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(154,239,255,0.95) 38%, rgba(218,113,255,0.68) 68%, rgba(218,113,255,0) 100%);
+    box-shadow:0 0 12px rgba(154,239,255,0.78), 0 0 22px rgba(217,110,255,0.42);
+    filter:blur(.35px);
 }
 .pack-energy-burst.active{
-    animation:packEnergyBurst 1.38s ease-out forwards;
+    animation:packEnergyBurstStage 1.12s ease-out forwards;
 }
-@keyframes packEnergyBurst{
-    0%{
-        opacity:0;
-        box-shadow:0 0 0 rgba(255,255,255,0);
-        transform:translate(-50%,-50%) scale(0.2);
-        background:rgba(255,255,255,0.95);
-    }
-    20%{
-        opacity:1;
-        box-shadow:
-            0 0 40px 22px rgba(255,255,255,0.9),
-            0 0 100px 55px rgba(0,240,255,0.65),
-            0 0 180px 95px rgba(255,0,255,0.35);
-    }
-    100%{
-        opacity:0;
-        transform:translate(-50%,-50%) scale(18);
-        box-shadow:
-            0 0 50px 20px rgba(255,255,255,0.0),
-            0 0 120px 70px rgba(0,240,255,0.0),
-            0 0 220px 110px rgba(255,0,255,0.0);
-    }
+.pack-energy-burst.active .burst-core{
+    animation:packBurstCore 1.05s cubic-bezier(.2,.75,.25,1) forwards;
+}
+.pack-energy-burst.active .wave-a{ animation:packBurstWaveA 1.0s ease-out forwards; }
+.pack-energy-burst.active .wave-b{ animation:packBurstWaveB 1.06s ease-out forwards; }
+.pack-energy-burst.active .wave-c{ animation:packBurstWaveC 1.14s ease-out forwards; }
+.pack-energy-burst.active .burst-particle{
+    animation:packBurstParticle var(--dur,1s) cubic-bezier(.12,.7,.2,1) forwards;
+    animation-delay:var(--delay, 0s);
+}
+@keyframes packEnergyBurstStage{
+    0%{ opacity:0; }
+    10%{ opacity:1; }
+    100%{ opacity:0; }
+}
+@keyframes packBurstCore{
+    0%{ opacity:0; transform:translate(-50%,-50%) scale(.12); filter:blur(10px); }
+    18%{ opacity:1; transform:translate(-50%,-50%) scale(.82); filter:blur(5px); }
+    48%{ opacity:.9; transform:translate(-50%,-50%) scale(1.65); filter:blur(8px); }
+    100%{ opacity:0; transform:translate(-50%,-50%) scale(2.85); filter:blur(18px); }
+}
+@keyframes packBurstWaveA{
+    0%{ opacity:0; transform:translate(-50%,-50%) scale(.2); }
+    20%{ opacity:.92; }
+    100%{ opacity:0; transform:translate(-50%,-50%) scale(1.55); }
+}
+@keyframes packBurstWaveB{
+    0%{ opacity:0; transform:translate(-50%,-50%) scale(.18); }
+    24%{ opacity:.68; }
+    100%{ opacity:0; transform:translate(-50%,-50%) scale(1.48); }
+}
+@keyframes packBurstWaveC{
+    0%{ opacity:0; transform:translate(-50%,-50%) scale(.16); }
+    30%{ opacity:.45; }
+    100%{ opacity:0; transform:translate(-50%,-50%) scale(1.36); }
+}
+@keyframes packBurstParticle{
+    0%{ opacity:0; transform:translate(-50%,-50%) translate(0,0) scale(.2); }
+    12%{ opacity:1; transform:translate(-50%,-50%) translate(calc(var(--dx)*0.12), calc(var(--dy)*0.12)) scale(1); }
+    70%{ opacity:.95; }
+    100%{ opacity:0; transform:translate(-50%,-50%) translate(var(--dx), var(--dy)) scale(.65); }
 }
 
 #packHeroReveal{
@@ -5326,6 +5382,191 @@ body.draft-transitioning #packChestOpen{
     to{ filter:hue-rotate(20deg) brightness(1.16); }
 }
 
+
+
+/* === v8.11 Joker modal fixes ===
+   - Surprise Joker modal centered + real backdrop blur
+   - Joker settings modal made shorter / screen-safe
+*/
+
+/* Surprise Joker: osobny modal nie dziedziczył fixed/centrowania z .customModal */
+#surpriseJokerModal{
+    position:fixed !important;
+    inset:0 !important;
+    width:100vw !important;
+    min-height:100vh !important;
+    justify-content:center !important;
+    align-items:center !important;
+    padding:24px !important;
+    box-sizing:border-box !important;
+    background:rgba(0,0,24,0.76) !important;
+    backdrop-filter:blur(16px) brightness(0.78) saturate(1.18) !important;
+    -webkit-backdrop-filter:blur(16px) brightness(0.78) saturate(1.18) !important;
+    z-index:13000 !important;
+}
+#surpriseJokerModal .surpriseContent{
+    width:min(860px, calc(100vw - 48px)) !important;
+    max-width:min(860px, calc(100vw - 48px)) !important;
+    max-height:calc(100vh - 48px) !important;
+    overflow-y:auto !important;
+    margin:auto !important;
+    padding:28px 30px !important;
+    box-sizing:border-box !important;
+}
+#surpriseJokerModal .surpriseHeader{
+    margin-bottom:18px !important;
+}
+#surpriseJokerModal .surpriseJeff{
+    width:96px !important;
+}
+#surpriseJokerModal .surpriseTitle{
+    font-size:36px !important;
+}
+#surpriseJokerModal .surpriseSubtitle{
+    font-size:16px !important;
+}
+#surpriseJokerModal .surpriseCardsContainer{
+    gap:26px !important;
+    margin-top:18px !important;
+}
+#surpriseJokerModal .surpriseCard{
+    width:230px !important;
+    height:328px !important;
+}
+#surpriseJokerModal .surpriseName{
+    font-size:25px !important;
+}
+
+/* Joker Settings: mniejszy, żeby mieścił się na ekranie */
+#jokerModal.customModal{
+    padding:12px !important;
+    box-sizing:border-box !important;
+    overflow-y:auto !important;
+    align-items:center !important;
+}
+#jokerModal .jokerChaosContent{
+    width:min(900px, calc(100vw - 32px)) !important;
+    max-width:min(900px, calc(100vw - 32px)) !important;
+    max-height:calc(100vh - 24px) !important;
+    overflow-y:auto !important;
+    padding:18px 22px !important;
+    box-sizing:border-box !important;
+    border-radius:22px !important;
+}
+#jokerModal .jokerChaosHeader{
+    margin-bottom:10px !important;
+}
+#jokerModal .jokerChaosJeff{
+    width:76px !important;
+    margin-bottom:2px !important;
+}
+#jokerModal .jokerChaosTitle{
+    font-size:34px !important;
+    letter-spacing:3px !important;
+    margin:0 !important;
+}
+#jokerModal .jokerSectionTitle{
+    font-size:18px !important;
+    margin:12px 0 10px !important;
+    letter-spacing:2px !important;
+}
+#jokerModal .jokerModesGrid{
+    gap:12px !important;
+    margin-bottom:8px !important;
+}
+#jokerModal .jokerModeCard{
+    min-height:112px !important;
+    padding:12px 12px !important;
+    border-radius:16px !important;
+}
+#jokerModal .jokerModeName{
+    font-size:18px !important;
+    margin-bottom:6px !important;
+}
+#jokerModal .jokerModeDesc{
+    font-size:13px !important;
+    line-height:1.32 !important;
+}
+#jokerModal .jokerTypesGrid{
+    gap:12px !important;
+    margin-bottom:10px !important;
+}
+#jokerModal .jokerTypeCard{
+    min-height:94px !important;
+    padding:12px !important;
+    border-radius:16px !important;
+}
+#jokerModal .jokerTypeName{
+    font-size:17px !important;
+    margin-bottom:6px !important;
+}
+#jokerModal .jokerTypeDesc{
+    font-size:13px !important;
+    line-height:1.32 !important;
+}
+#jokerModal .jokerInfoBox{
+    margin:10px auto 12px !important;
+    padding:10px 14px !important;
+    font-size:13px !important;
+    line-height:1.28 !important;
+    max-width:720px !important;
+}
+#jokerModal .jokerStartBtn{
+    margin-top:6px !important;
+    padding:12px 28px !important;
+    font-size:18px !important;
+}
+
+@media (max-height:760px){
+    #jokerModal .jokerChaosContent{ padding:14px 18px !important; }
+    #jokerModal .jokerChaosJeff{ width:62px !important; }
+    #jokerModal .jokerChaosTitle{ font-size:30px !important; }
+    #jokerModal .jokerSectionTitle{ font-size:16px !important; margin:9px 0 7px !important; }
+    #jokerModal .jokerModeCard{ min-height:92px !important; padding:9px !important; }
+    #jokerModal .jokerTypeCard{ min-height:78px !important; padding:9px !important; }
+    #jokerModal .jokerInfoBox{ font-size:12px !important; padding:8px 12px !important; margin:8px auto !important; }
+    #jokerModal .jokerStartBtn{ padding:10px 24px !important; font-size:16px !important; }
+}
+
+
+
+/* === v8.12 Hall of Fame badge na live deckach === */
+.hofLegendBadge{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+    margin:6px auto 2px;
+    padding:3px 12px 4px;
+    border-radius:999px;
+    font-family:"Orbitron", sans-serif;
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:1.5px;
+    color:#ffe68a;
+    background:
+        linear-gradient(90deg, rgba(45,24,0,0.70), rgba(132,84,0,0.34), rgba(45,24,0,0.70));
+    border:1px solid rgba(255,215,85,0.72);
+    box-shadow:
+        0 0 8px rgba(255,210,60,0.45),
+        0 0 16px rgba(255,128,0,0.16),
+        inset 0 0 9px rgba(255,234,130,0.14);
+    text-shadow:
+        0 0 5px rgba(255,236,140,0.95),
+        0 0 11px rgba(255,166,0,0.55);
+    pointer-events:none;
+    text-transform:uppercase;
+}
+.hofLegendBadge::before{
+    content:"✦";
+    font-size:11px;
+    color:#fff4b0;
+    filter:drop-shadow(0 0 5px rgba(255,221,87,0.85));
+}
+.deck-section h4{
+    margin-top:6px !important;
+}
+
 </style>
 </head>
 
@@ -5659,7 +5900,27 @@ body.draft-transitioning #packChestOpen{
             </div>
         </div>
 
-        <div id="packEnergyBurst" class="pack-energy-burst"></div>
+        <div id="packEnergyBurst" class="pack-energy-burst" aria-hidden="true">
+            <span class="burst-core"></span>
+            <span class="burst-wave wave-a"></span>
+            <span class="burst-wave wave-b"></span>
+            <span class="burst-wave wave-c"></span>
+            <span class="burst-particle" style="--dx:-210px; --dy:-120px; --delay:0.00s; --size:10px; --dur:0.90s;"></span>
+            <span class="burst-particle" style="--dx:-150px; --dy:-165px; --delay:0.04s; --size:8px; --dur:0.98s;"></span>
+            <span class="burst-particle" style="--dx:-55px; --dy:-195px; --delay:0.02s; --size:12px; --dur:0.95s;"></span>
+            <span class="burst-particle" style="--dx:60px; --dy:-188px; --delay:0.08s; --size:9px; --dur:1.05s;"></span>
+            <span class="burst-particle" style="--dx:155px; --dy:-150px; --delay:0.06s; --size:11px; --dur:0.92s;"></span>
+            <span class="burst-particle" style="--dx:220px; --dy:-88px; --delay:0.10s; --size:7px; --dur:1.00s;"></span>
+            <span class="burst-particle" style="--dx:235px; --dy:22px; --delay:0.01s; --size:10px; --dur:0.96s;"></span>
+            <span class="burst-particle" style="--dx:178px; --dy:120px; --delay:0.05s; --size:8px; --dur:1.02s;"></span>
+            <span class="burst-particle" style="--dx:85px; --dy:190px; --delay:0.09s; --size:12px; --dur:0.90s;"></span>
+            <span class="burst-particle" style="--dx:-20px; --dy:220px; --delay:0.12s; --size:9px; --dur:1.06s;"></span>
+            <span class="burst-particle" style="--dx:-132px; --dy:175px; --delay:0.07s; --size:11px; --dur:0.93s;"></span>
+            <span class="burst-particle" style="--dx:-205px; --dy:92px; --delay:0.03s; --size:8px; --dur:1.00s;"></span>
+            <span class="burst-particle" style="--dx:-245px; --dy:-12px; --delay:0.11s; --size:10px; --dur:0.97s;"></span>
+            <span class="burst-particle" style="--dx:-118px; --dy:-48px; --delay:0.14s; --size:7px; --dur:0.88s;"></span>
+            <span class="burst-particle" style="--dx:126px; --dy:-38px; --delay:0.13s; --size:7px; --dur:1.02s;"></span>
+        </div>
         <div id="packHeroReveal"></div>
         <div id="draftFinishPanel" class="draft-finish-panel" aria-live="polite">
             <div class="draft-finish-halo"></div>
@@ -5693,6 +5954,8 @@ body.draft-transitioning #packChestOpen{
 </div>
 
 <script src="cards.js"></script>
+<script src="../database.js"></script>
+<script src="database.js"></script>
 <script>
 
 
@@ -5701,6 +5964,105 @@ const playerColors = [
   "#ff4d4d", "#7d5cff", "#00ffcc", "#ff8800",
   "#ffffff", "#66ccff", "#ff66cc", "#aaff00"
 ];
+
+/* =========================
+   🏆 HALL OF FAME LIVE BADGES
+   Program sam liczy rangę legend z database.js.
+========================= */
+const LEGEND_POINTS = { 1:7, 2:4, 3:3, 4:2, 5:1 };
+let cachedLegendRankMap = null;
+
+function normalizeLegendName(name){
+    return String(name || "")
+        .trim()
+        .toLowerCase()
+        .replace(/\s+/g, " ")
+        .replace(/[.]/g, "");
+}
+
+function calculateLegendRankMap(){
+    if(cachedLegendRankMap) return cachedLegendRankMap;
+
+    const source = (typeof database !== "undefined" && database && Array.isArray(database.drafts))
+        ? database
+        : null;
+
+    const map = new Map();
+    if(!source){
+        cachedLegendRankMap = map;
+        return map;
+    }
+
+    const playersStats = {};
+
+    source.drafts.forEach(draft => {
+        if(!draft || !Array.isArray(draft.players)) return;
+
+        const draftPoints = {};
+
+        draft.players.forEach(p => {
+            if(!p || !p.name) return;
+            draftPoints[p.name] = 0;
+
+            if(!playersStats[p.name]){
+                playersStats[p.name] = {
+                    name:p.name,
+                    legendPoints:0,
+                    drafts:0,
+                    points:0
+                };
+            }
+
+            playersStats[p.name].drafts++;
+        });
+
+        if(Array.isArray(draft.matches)){
+            draft.matches.forEach(m => {
+                if(!m) return;
+                if(typeof draftPoints[m.p1] === "number") draftPoints[m.p1] += Number(m.pts1 || 0);
+                if(typeof draftPoints[m.p2] === "number") draftPoints[m.p2] += Number(m.pts2 || 0);
+            });
+        }
+
+        const draftRanking = Object.keys(draftPoints).sort((a,b)=>draftPoints[b]-draftPoints[a]);
+
+        draftRanking.forEach((name, index) => {
+            const place = index + 1;
+            if(place <= 5 && playersStats[name]){
+                playersStats[name].legendPoints += LEGEND_POINTS[place];
+            }
+            if(playersStats[name]){
+                playersStats[name].points += draftPoints[name] || 0;
+            }
+        });
+    });
+
+    const ranking = Object.values(playersStats)
+        .filter(p => p.drafts >= 2)
+        .sort((a,b)=>{
+            if(b.legendPoints !== a.legendPoints) return b.legendPoints - a.legendPoints;
+            return b.points - a.points;
+        });
+
+    ranking.forEach((p, index) => {
+        const record = {
+            place:index + 1,
+            legendPoints:p.legendPoints,
+            drafts:p.drafts,
+            points:p.points
+        };
+        map.set(p.name, record);
+        map.set(normalizeLegendName(p.name), record);
+    });
+
+    cachedLegendRankMap = map;
+    return map;
+}
+
+function getLegendRankForPlayer(name){
+    const map = calculateLegendRankMap();
+    return map.get(name) || map.get(normalizeLegendName(name)) || null;
+}
 
 // ======== Draft logic =======
 var players=[], decks=[], numPlayers=2, currentPack=[], packStartIndex=0;
@@ -7302,6 +7664,15 @@ function showDecks(){
             openDeckInspector(i);
         };
         playerDiv.appendChild(inspectBtn);
+
+        const legendRank = getLegendRankForPlayer(p);
+        if(legendRank){
+            const hofBadge=document.createElement("div");
+            hofBadge.className="hofLegendBadge";
+            hofBadge.title=`${p} — ${legendRank.legendPoints} pkt legendy / ${legendRank.drafts} drafty`;
+            hofBadge.innerText=`RANGA LEGEND #${legendRank.place}`;
+            playerDiv.appendChild(hofBadge);
+        }
 
         const name=document.createElement("h4");
         name.innerText=p;
