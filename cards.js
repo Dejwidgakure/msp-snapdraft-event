@@ -194,7 +194,7 @@ const cardDatabase = [
   { name: "Joaquin Torres Falcon II", cost: 2, power: 3, tags: [] },
   { name: "Jocasta", cost: 3, power: 3, tags: [] },
   { name: "Jubilee", cost: 4, power: 1, tags: [] },
-  { name: "Jubilee Silver Surfer", cost: 4, power: 2, tags: [] },
+  { name: "Jubilee Silver Surfer", cost: 4, power: 3, tags: [] },
   { name: "Juggernaut", cost: 4, power: 5, tags: [] },
   { name: "Juggernaut Horseman of War", cost: 2, power: 2, tags: [] },
   { name: "Ka-Zar", cost: 4, power: 6, tags: [] },
