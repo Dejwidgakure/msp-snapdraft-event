@@ -171,24 +171,194 @@ h1 {
         inset 0 0 15px rgba(0,240,255,0.3);
 }
 
-/* INPUT NAZW */
-#playerNames{
+/* =========================
+   👥 NOWY PANEL GRACZY – STARTOWA KOLEJNOŚĆ KOLEJKI
+========================= */
+.namesRow.playerLobbyBlock{
+    display:block;
+    margin-top:14px;
+}
+
+.playerLobbyInputRow{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    width:100%;
+    margin-top:8px;
+}
+
+#playerInput{
+    flex:1;
+    min-width:0;
     background:rgba(10,40,70,0.6);
     border:1px solid rgba(0,240,255,0.7);
     border-radius:8px;
     color:#eaffff;
-    padding:6px 10px;
-    width:250px;
-
+    padding:7px 10px;
+    width:100%;
     box-shadow:
         0 0 10px rgba(0,240,255,0.6),
         inset 0 0 10px rgba(0,240,255,0.2);
-
     outline:none;
+    font-weight:bold;
 }
 
-#playerNames::placeholder{
+#playerInput::placeholder{
     color:rgba(200,255,255,0.6);
+}
+
+.playerEnterBadge{
+    padding:6px 8px;
+    border-radius:8px;
+    font-family:"Orbitron", sans-serif;
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:1px;
+    color:#001018;
+    background:linear-gradient(90deg,#00f0ff,#b8ffff);
+    box-shadow:0 0 12px rgba(0,240,255,0.75);
+    white-space:nowrap;
+}
+
+.playerLobbyHint{
+    margin-top:6px;
+    font-size:12px;
+    color:rgba(210,255,255,0.72);
+    line-height:1.35;
+}
+
+.startOrderLabel{
+    margin-top:12px;
+    font-family:"Orbitron", sans-serif;
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:2px;
+    color:#fff;
+    text-align:center;
+    text-shadow:
+        0 0 8px rgba(0,240,255,0.9),
+        0 0 18px rgba(255,0,255,0.45);
+}
+
+.playerLobbyTop{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    margin-top:8px;
+}
+
+#playerCounter{
+    color:#8ffcff;
+    font-weight:900;
+    font-size:13px;
+    text-shadow:0 0 8px cyan;
+    white-space:nowrap;
+}
+
+#playerCounter.warning{
+    color:#ffd700;
+    text-shadow:0 0 8px #ffd700;
+}
+
+#shufflePlayersBtn{
+    border:none;
+    border-radius:10px;
+    padding:7px 10px;
+    cursor:pointer;
+    font-family:"Orbitron", sans-serif;
+    font-size:10.5px;
+    font-weight:900;
+    letter-spacing:1px;
+    color:white;
+    background:linear-gradient(90deg,#00f0ff,#8a2be2,#ff00ff);
+    background-size:220%;
+    box-shadow:0 0 10px rgba(0,240,255,0.75),0 0 18px rgba(138,43,226,0.55);
+    transition:all 0.22s ease;
+    white-space:nowrap;
+}
+
+#shufflePlayersBtn:hover{
+    transform:scale(1.04);
+    background-position:100%;
+    box-shadow:0 0 16px rgba(255,0,255,0.85),0 0 26px rgba(0,240,255,0.75);
+}
+
+#playersList{
+    margin-top:9px;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:6px;
+    width:100%;
+}
+
+#playersList.compact{
+    grid-template-columns:1fr 1fr;
+    gap:5px 8px;
+}
+
+.playerChip{
+    min-height:30px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:7px;
+    padding:5px 9px;
+    border-radius:9px;
+    background:rgba(0,0,28,0.56);
+    border:1px solid currentColor;
+    color:#00f0ff;
+    box-shadow:
+        0 0 9px currentColor,
+        inset 0 0 9px rgba(255,255,255,0.04);
+    font-size:14px;
+    font-weight:900;
+    animation:playerChipIn 0.18s ease;
+}
+
+#playersList.compact .playerChip{
+    min-height:25px;
+    padding:4px 7px;
+    font-size:12.5px;
+}
+
+@keyframes playerChipIn{
+    from{opacity:0; transform:scale(0.96);}
+    to{opacity:1; transform:scale(1);}
+}
+
+.playerChipName{
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    padding-right:4px;
+}
+
+.playerChipRemove{
+    cursor:pointer;
+    font-size:14px;
+    color:#ff4d4d;
+    text-shadow:0 0 7px #ff4d4d;
+    user-select:none;
+    transition:all 0.18s ease;
+    flex-shrink:0;
+}
+
+.playerChipRemove:hover{
+    transform:scale(1.25);
+    color:#ffffff;
+}
+
+.playerChip.shuffling{
+    animation:playerShuffleShake 0.16s infinite;
+    filter:brightness(1.2);
+}
+
+@keyframes playerShuffleShake{
+    0%{transform:translate(0,0) rotate(0deg);}
+    33%{transform:translate(-4px,1px) rotate(-1deg);}
+    66%{transform:translate(4px,-1px) rotate(1deg);}
+    100%{transform:translate(0,0) rotate(0deg);}
 }
 
 /* CHECKBOXY TRYBÓW */
@@ -2983,9 +3153,26 @@ transform:translateY(-10px);
         </select>
     </div>
 
-    <div class="namesRow">
-        <label for="playerNames">NAZWY:</label>
-        <input type="text" id="playerNames" placeholder="np. Jan, Ola, Kamil...">
+    <div class="namesRow playerLobbyBlock">
+        <label for="playerInput">DODAJ GRACZA:</label>
+
+        <div class="playerLobbyInputRow">
+            <input type="text" id="playerInput" placeholder="Wpisz nick i naciśnij Enter..." autocomplete="off">
+            <span class="playerEnterBadge">ENTER</span>
+        </div>
+
+        <div class="playerLobbyHint">
+            Enter dodaje nick. Backspace na pustym polu usuwa ostatniego. Możesz też wkleić listę po przecinku.
+        </div>
+
+        <div class="startOrderLabel">STARTOWA KOLEJNOŚĆ KOLEJKI</div>
+
+        <div class="playerLobbyTop">
+            <div id="playerCounter">Dodano: 0 / 2 graczy</div>
+            <button type="button" id="shufflePlayersBtn">🎲 LOSUJ KOLEJNOŚĆ</button>
+        </div>
+
+        <div id="playersList"></div>
     </div>
 </div>
 
@@ -3118,15 +3305,177 @@ let customPackQueue = [];
 let customPackQueueBuilt = false;
 let currentPackName = "STANDARD PACK";
 
+
+// =========================
+// 👥 NOWY PANEL GRACZY – STARTOWA KOLEJNOŚĆ KOLEJKI
+// =========================
+let draftPlayers = [];
+
+function getSelectedPlayerCount(){
+    const select = document.getElementById("numPlayers");
+    return select ? parseInt(select.value, 10) : 2;
+}
+
+function initPlayerLobby(){
+    const input = document.getElementById("playerInput");
+    const shuffleBtn = document.getElementById("shufflePlayersBtn");
+    const countSelect = document.getElementById("numPlayers");
+
+    if(!input || !shuffleBtn || !countSelect) return;
+
+    input.addEventListener("keydown", function(e){
+        if(e.key === "Enter"){
+            e.preventDefault();
+            addDraftPlayerFromInput();
+        }
+
+        if(e.key === "Backspace" && input.value === "" && draftPlayers.length > 0){
+            draftPlayers.pop();
+            renderDraftPlayers();
+        }
+    });
+
+    shuffleBtn.addEventListener("click", function(){
+        shuffleDraftPlayers();
+    });
+
+    countSelect.addEventListener("change", function(){
+        const max = getSelectedPlayerCount();
+
+        if(draftPlayers.length > max){
+            const ok = confirm("Masz wpisanych więcej nicków niż wybrana liczba graczy. Obciąć listę do " + max + "?");
+
+            if(ok){
+                draftPlayers = draftPlayers.slice(0, max);
+            }else{
+                countSelect.value = String(Math.min(Math.max(draftPlayers.length, 2), 20));
+            }
+        }
+
+        renderDraftPlayers();
+    });
+
+    renderDraftPlayers();
+}
+
+function addDraftPlayerFromInput(){
+    const input = document.getElementById("playerInput");
+    if(!input) return;
+
+    const raw = input.value.trim();
+    if(!raw) return;
+
+    const max = getSelectedPlayerCount();
+    const names = raw
+        .split(/[,\n;]+/)
+        .map(name => name.trim())
+        .filter(Boolean);
+
+    for(const name of names){
+        if(draftPlayers.length >= max){
+            alert("Masz już komplet graczy dla wybranej liczby: " + max);
+            break;
+        }
+
+        draftPlayers.push(name);
+    }
+
+    input.value = "";
+    renderDraftPlayers();
+    input.focus();
+}
+
+function renderDraftPlayers(shuffling=false){
+    const list = document.getElementById("playersList");
+    const counter = document.getElementById("playerCounter");
+    if(!list || !counter) return;
+
+    const max = getSelectedPlayerCount();
+    list.innerHTML = "";
+    list.classList.toggle("compact", max > 10 || draftPlayers.length > 10);
+
+    draftPlayers.forEach((name, index) => {
+        const color = playerColors[index % playerColors.length];
+        const chip = document.createElement("div");
+        chip.className = "playerChip" + (shuffling ? " shuffling" : "");
+        chip.style.color = color;
+
+        chip.innerHTML = `
+            <span class="playerChipName">${index + 1}. ${escapeHtml(name)}</span>
+            <span class="playerChipRemove" title="Usuń gracza" onclick="removeDraftPlayer(${index})">✖</span>
+        `;
+
+        list.appendChild(chip);
+    });
+
+    counter.textContent = "Dodano: " + draftPlayers.length + " / " + max + " graczy";
+    counter.classList.toggle("warning", draftPlayers.length < max);
+}
+
+function removeDraftPlayer(index){
+    draftPlayers.splice(index, 1);
+    renderDraftPlayers();
+
+    const input = document.getElementById("playerInput");
+    if(input) input.focus();
+}
+
+function shuffleDraftPlayers(){
+    if(draftPlayers.length < 2) return;
+
+    let ticks = 0;
+    const interval = setInterval(function(){
+        draftPlayers = fisherYatesShuffle([...draftPlayers]);
+        renderDraftPlayers(true);
+        ticks++;
+
+        if(ticks >= 10){
+            clearInterval(interval);
+            draftPlayers = fisherYatesShuffle([...draftPlayers]);
+            renderDraftPlayers(false);
+        }
+    }, 120);
+}
+
+function fisherYatesShuffle(arr){
+    for(let i = arr.length - 1; i > 0; i--){
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+}
+
+function getFinalDraftPlayers(){
+    const count = getSelectedPlayerCount();
+    const finalPlayers = [...draftPlayers];
+
+    for(let i = finalPlayers.length; i < count; i++){
+        finalPlayers.push("Gracz " + (i + 1));
+    }
+
+    return finalPlayers.slice(0, count);
+}
+
+function escapeHtml(str){
+    return String(str).replace(/[&<>"']/g, function(m){
+        return {
+            "&":"&amp;",
+            "<":"&lt;",
+            ">":"&gt;",
+            "\"":"&quot;",
+            "'":"&#039;"
+        }[m];
+    });
+}
+
+initPlayerLobby();
+
 document.getElementById("top-logo").onclick = ()=>location.reload();
 
 function startDraft(){
     numPlayers=parseInt(document.getElementById("numPlayers").value);
-    const names=document.getElementById("playerNames").value.split(",");
-    players=[];
-    for(let i=0;i<numPlayers;i++){
-        players.push(names[i]?names[i].trim():"Gracz"+(i+1));
-    }
+    players=getFinalDraftPlayers();
+    numPlayers=players.length;
     decks=Array.from({length:numPlayers},()=>[]);
     draftFinished=false; packStartIndex=0; currentPickIndex=0; bannedCards=[];
 customPackUsed = false;
