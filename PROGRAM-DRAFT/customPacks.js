@@ -110,7 +110,12 @@ const customPacks = [
     id: "red_pack",
     name: "RED PACK 🔴",
     nameIncludes: "red"
-}
+},
+     {
+        id: "jubilee_2_5",
+        name: "JUBILEUSZ DRAFT 2 & 5 - Dejwidgakure & Xevo",
+        tags: ["wind5", "wind2"]
+    }
 
 
 ];
