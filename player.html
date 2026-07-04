@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -6,214 +5,480 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kroniki Wojownika</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
 <script src="database.js"></script>
 <script src="cardDatabase.js"></script>
 
 <style>
+:root{
+    --cyan:#00f0ff;
+    --violet:#8a2be2;
+    --purple:#7D3CFF;
+    --gold:#ffd700;
+}
+*{ box-sizing:border-box; }
 body{
     margin:0;
+    min-height:100vh;
     font-family:'Rajdhani', sans-serif;
-    background:#050816;
     color:white;
+    background:
+        linear-gradient(rgba(2,4,18,.66), rgba(2,4,18,.90)),
+        url("assets/cosmic-bg.png") no-repeat center center fixed,
+        #050816;
+    background-size:cover;
+    overflow-x:hidden;
+    position:relative;
+}
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:url("assets/cosmic_tlo.png") center no-repeat;
+    background-size:82%;
+    opacity:.48;
+    pointer-events:none;
+    z-index:0;
+    animation:floatGalaxy 18s ease-in-out infinite alternate;
+}
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:1;
+    background:
+        radial-gradient(circle at 15% 18%, rgba(0,240,255,.15), transparent 28%),
+        radial-gradient(circle at 84% 18%, rgba(255,0,255,.12), transparent 30%),
+        repeating-linear-gradient(0deg, rgba(120,248,255,.028) 0 1px, transparent 1px 42px),
+        repeating-linear-gradient(90deg, rgba(120,248,255,.020) 0 1px, transparent 1px 42px);
+}
+@keyframes floatGalaxy{
+    from{ transform:translateY(0) scale(1); }
+    to{ transform:translateY(-30px) scale(1.03); }
+}
+
+/* NAV */
+nav{
+    position:relative;
+    z-index:5;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:28px;
+    padding:18px 54px;
+    overflow:hidden;
+    backdrop-filter:blur(14px);
+    background:linear-gradient(90deg, rgba(5,10,25,.88), rgba(8,18,52,.78), rgba(24,8,56,.76));
+    border-bottom:1px solid rgba(120,248,255,.28);
+    box-shadow:0 0 28px rgba(0,240,255,.12), inset 0 0 28px rgba(0,240,255,.035);
+}
+nav::before{
+    content:"";
+    position:absolute;
+    inset:-80px -120px;
+    background:url("assets/cosmictool.png") center / 720px auto no-repeat;
+    opacity:.13;
+    filter:blur(1.2px);
+    pointer-events:none;
+    mix-blend-mode:screen;
+}
+.brand{
+    position:relative;
+    z-index:2;
+    display:flex;
+    align-items:center;
+    gap:16px;
+}
+.brand img{
+    height:60px;
+    object-fit:contain;
+    filter:drop-shadow(0 0 15px #00f0ff);
+}
+.brand .event-logo{ height:62px; }
+nav ul{
+    position:relative;
+    z-index:2;
+    list-style:none;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:flex-end;
+    gap:16px 22px;
+    margin:0;
+    padding:0;
+}
+nav a{
+    text-decoration:none;
+    color:#eaffff;
+    font-weight:800;
+    letter-spacing:.5px;
+    text-shadow:0 0 10px rgba(0,240,255,.25);
+    transition:.2s ease;
+    white-space:nowrap;
+}
+nav a:hover{
+    color:#8ff7ff;
+    text-shadow:0 0 16px rgba(0,240,255,.75);
 }
 
 .container{
-    max-width:1200px;
-    margin:auto;
-    padding:20px;
+    position:relative;
+    z-index:2;
+    max-width:1220px;
+    margin:0 auto;
+    padding:54px 22px 70px;
 }
-
+.back{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:22px;
+    padding:12px 18px;
+    border-radius:999px;
+    text-decoration:none;
+    color:#eaffff;
+    font-family:'Orbitron', sans-serif;
+    font-weight:800;
+    font-size:13px;
+    letter-spacing:1px;
+    background:rgba(4,14,36,.72);
+    border:1px solid rgba(120,248,255,.45);
+    box-shadow:0 0 16px rgba(0,240,255,.22), inset 0 0 20px rgba(0,240,255,.05);
+    backdrop-filter:blur(10px);
+}
+.back:hover{
+    color:#001018;
+    background:linear-gradient(90deg,#00f0ff,#b8ffff);
+}
+.hero{
+    position:relative;
+    overflow:hidden;
+    border-radius:30px;
+    padding:42px 38px;
+    margin-bottom:28px;
+    background:
+        linear-gradient(135deg, rgba(4,18,48,.86), rgba(9,22,68,.72) 42%, rgba(32,8,68,.68)),
+        radial-gradient(circle at 15% 25%, rgba(0,240,255,.20), transparent 30%),
+        radial-gradient(circle at 80% 30%, rgba(255,0,255,.13), transparent 28%);
+    border:1px solid rgba(136,250,255,.48);
+    box-shadow:0 0 30px rgba(0,240,255,.22), inset 0 0 70px rgba(0,240,255,.055);
+    backdrop-filter:blur(12px);
+}
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:-35%;
+    background:url("assets/cosmictool.png") center / 900px auto no-repeat;
+    opacity:.10;
+    pointer-events:none;
+    mix-blend-mode:screen;
+}
+.hero-content{ position:relative; z-index:2; }
+.kicker{
+    font-family:'Orbitron', sans-serif;
+    color:#b57cff;
+    font-weight:900;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    text-shadow:0 0 14px rgba(181,124,255,.65);
+    margin-bottom:10px;
+}
 h1{
-    font-size:42px;
-    margin-bottom:5px;
+    font-family:'Orbitron', sans-serif;
+    margin:0 0 10px;
+    font-size:clamp(36px, 5vw, 64px);
+    line-height:1.08;
+    letter-spacing:2px;
+    background:linear-gradient(90deg,#eaffff,#8ff7ff,#bfa2ff,#ffffff);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    text-shadow:0 0 16px rgba(0,240,255,.42);
 }
-
 .rank{
-    font-size:28px;
-    color:#00f0ff;
-    text-shadow:0 0 10px #00f0ff;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    margin-top:6px;
+    padding:10px 16px;
+    border-radius:999px;
+    background:rgba(255,215,0,.10);
+    border:1px solid rgba(255,215,0,.30);
+    color:#ffeaa6;
+    font-family:'Orbitron', sans-serif;
+    font-weight:900;
+    text-shadow:0 0 12px rgba(255,215,0,.45);
 }
 
 .section{
-    margin-top:40px;
-    padding:20px;
-    border-radius:16px;
-    background:rgba(255,255,255,0.03);
-    box-shadow:0 0 20px rgba(0,255,255,0.1);
+    position:relative;
+    margin-top:28px;
+    padding:26px;
+    border-radius:24px;
+    background:
+        linear-gradient(135deg, rgba(5,12,38,.80), rgba(9,21,55,.66)),
+        radial-gradient(circle at 12% 0%, rgba(0,240,255,.08), transparent 34%),
+        radial-gradient(circle at 96% 20%, rgba(255,0,255,.07), transparent 34%);
+    border:1px solid rgba(120,248,255,.30);
+    box-shadow:0 0 22px rgba(0,240,255,.12), inset 0 0 45px rgba(0,240,255,.035);
+    backdrop-filter:blur(12px);
 }
-
 .title{
-    font-size:20px;
-    margin-bottom:10px;
-    color:#00f0ff;
+    font-family:'Orbitron', sans-serif;
+    font-size:24px;
+    margin-bottom:16px;
+    color:#8ff7ff;
+    text-shadow:0 0 12px rgba(0,240,255,.45);
 }
-
 .grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
     gap:15px;
 }
-
 .card{
-    padding:15px;
-    border-radius:12px;
-    background:rgba(0,0,0,0.4);
-    box-shadow:0 0 10px rgba(0,255,255,0.2);
+    position:relative;
+    padding:18px;
+    min-height:96px;
+    border-radius:18px;
+    background:rgba(0,0,30,.38);
+    border:1px solid rgba(120,248,255,.22);
+    box-shadow:0 0 18px rgba(0,240,255,.08), inset 0 0 24px rgba(0,240,255,.03);
+    overflow:hidden;
+    font-size:19px;
+    font-weight:800;
+    color:#eaffff;
 }
-
+.card::before{
+    content:"";
+    position:absolute;
+    inset:-60px;
+    background:url("assets/cosmictool.png") center / 300px auto no-repeat;
+    opacity:.12;
+    mix-blend-mode:screen;
+    pointer-events:none;
+}
+.card span{
+    position:relative;
+    z-index:2;
+    display:block;
+}
+.card b{
+    display:block;
+    position:relative;
+    z-index:2;
+    font-family:'Orbitron', sans-serif;
+    color:#ffeaa6;
+    font-size:13px;
+    letter-spacing:1px;
+    margin-bottom:6px;
+}
 .badges{
     display:flex;
     flex-wrap:wrap;
     gap:10px;
 }
-
 .badge{
-    padding:10px 15px;
-    border-radius:10px;
-    background:rgba(0,255,255,0.1);
-    box-shadow:0 0 10px #00f0ff;
+    padding:12px 16px;
+    border-radius:999px;
+    background:rgba(255,215,0,.10);
+    border:1px solid rgba(255,215,0,.30);
+    color:#ffeaa6;
+    box-shadow:0 0 14px rgba(255,215,0,.18);
+    font-weight:900;
 }
-
 .deck-slider{
     display:flex;
     overflow-x:auto;
     gap:15px;
-    padding:10px;
+    padding:6px 4px 14px;
+    scroll-snap-type:x proximity;
+}
+.deck{
+    min-width:280px;
+    padding:18px;
+    border-radius:18px;
+    background:rgba(0,0,30,.42);
+    border:1px solid rgba(120,248,255,.22);
+    box-shadow:0 0 18px rgba(0,240,255,.08);
+    scroll-snap-align:start;
+    line-height:1.45;
+}
+.deck b{
+    font-family:'Orbitron', sans-serif;
+    color:#ffeaa6;
+    display:block;
+    margin-bottom:10px;
+}
+.empty-note{
+    color:#dffaff;
+    opacity:.8;
+    font-size:18px;
 }
 
-.deck{
-    min-width:250px;
-    padding:15px;
-    background:rgba(0,0,0,0.5);
-    border-radius:12px;
+@media(max-width:900px){
+    nav{ flex-direction:column; padding:20px; }
+    nav ul{ justify-content:center; }
+}
+@media(max-width:560px){
+    .brand img,.brand .event-logo{ height:48px; }
+    nav ul{ flex-direction:column; gap:12px; }
+    .container{ padding:40px 12px 54px; }
+    .hero{ padding:32px 22px; }
 }
 </style>
 </head>
 
 <body>
 
+<nav>
+    <div class="brand">
+        <img src="assets/msp-logo.png" alt="Marvel Snap Polska">
+        <img src="assets/draft-logo.png" alt="MSP Draft Event" class="event-logo">
+    </div>
+    <ul>
+        <li><a href="index.html">Centrum</a></li>
+        <li><a href="przewodnik.html">Przewodnik</a></li>
+        <li><a href="draft.html">Kroniki</a></li>
+        <li><a href="hallOfFame.html">Sala Chwały</a></li>
+        <li><a href="player-lobby.html">Baza Wojowników</a></li>
+        <li><a href="PROGRAM-DRAFT/snap-draft.html">Arena Draftu</a></li>
+    </ul>
+</nav>
+
 <div class="container">
-<h1 id="playerName"></h1>
-<div class="rank" id="rank"></div>
+    <a class="back" href="player-lobby.html">⬅ Powrót do Bazy Wojowników</a>
 
-<div class="section">
-<div class="title">Statystyki</div>
-<div class="grid" id="stats"></div>
-</div>
+    <header class="hero">
+        <div class="hero-content">
+            <div class="kicker">Kroniki Wojownika</div>
+            <h1 id="playerName"></h1>
+            <div class="rank" id="rank"></div>
+        </div>
+    </header>
 
-<div class="section">
-<div class="title">Rekordy</div>
-<div class="grid" id="records"></div>
-</div>
+    <div class="section">
+        <div class="title">Statystyki</div>
+        <div class="grid" id="stats"></div>
+    </div>
 
-<div class="section">
-<div class="title">Rywalizacja</div>
-<div class="grid" id="rivals"></div>
-</div>
+    <div class="section">
+        <div class="title">Rekordy</div>
+        <div class="grid" id="records"></div>
+    </div>
 
-<div class="section">
-<div class="title">Archiwum Draftów</div>
-<div class="deck-slider" id="decks"></div>
-</div>
+    <div class="section">
+        <div class="title">Rywalizacja</div>
+        <div class="grid" id="rivals"></div>
+    </div>
 
-<div class="section">
-<div class="title">Statystyki Kart</div>
-<div class="grid" id="cards"></div>
-</div>
+    <div class="section">
+        <div class="title">Archiwum Draftów</div>
+        <div class="deck-slider" id="decks"></div>
+    </div>
 
-<div class="section">
-<div class="title">Osiągnięcia</div>
-<div class="badges" id="badges"></div>
-</div>
+    <div class="section">
+        <div class="title">Statystyki Kart</div>
+        <div class="grid" id="cards"></div>
+    </div>
 
+    <div class="section">
+        <div class="title">Osiągnięcia</div>
+        <div class="badges" id="badges"></div>
+    </div>
 </div>
 
 <script>
+if(typeof database === "undefined"){
+    document.body.innerHTML = "<h1 style='color:white;text-align:center;margin-top:80px'>BŁĄD: database.js się nie załadowało</h1>";
+}
 
 const params = new URLSearchParams(window.location.search);
 const playerName = params.get("name");
 
-document.getElementById("playerName").innerText = playerName;
+document.getElementById("playerName").innerText = playerName || "Nieznany Wojownik";
 
 let draftsPlayed=0,totalPoints=0,wins=0,losses=0;
 let decks=[],vs={},cardCount={},cardWins={},cardGames={};
 
-let bestDraftPts=0,bestDraftId="";
-let mostWinsDraft=0,mostWinsDraftId="";
-let leastLossDraft=999,leastLossDraftId="";
-let maxLossPoints=0,maxLossDraft="";
-
+let bestDraftPts=0,bestDraftId="-";
+let mostWinsDraft=0,mostWinsDraftId="-";
+let leastLossDraft=999,leastLossDraftId="-";
+let maxLossPoints=0,maxLossDraft="-";
 let currentStreak=0,bestStreak=0;
 
+if(playerName){
 database.drafts.forEach(d=>{
+    const player=d.players.find(p=>p.name===playerName);
+    if(!player) return;
 
-const player=d.players.find(p=>p.name===playerName);
-if(!player) return;
+    draftsPlayed++;
+    decks.push({draft:d.id,deck:Array.isArray(player.deck) ? player.deck : []});
 
-draftsPlayed++;
-decks.push({draft:d.id,deck:player.deck});
+    if(Array.isArray(player.deck)){
+        player.deck.forEach(c=>{
+            cardCount[c]=(cardCount[c]||0)+1;
+        });
+    }
 
-player.deck.forEach(c=>{
-cardCount[c]=(cardCount[c]||0)+1;
+    let draftPts=0,draftWins=0,draftLoss=0,draftLossPts=0;
+
+    if(Array.isArray(d.matches)){
+        d.matches.forEach(m=>{
+            if(m.p1===playerName||m.p2===playerName){
+                const isP1=m.p1===playerName;
+                const myPts=Number(isP1?m.pts1:m.pts2) || 0;
+                const oppPts=Number(isP1?m.pts2:m.pts1) || 0;
+                const opp=isP1?m.p2:m.p1;
+
+                draftPts+=myPts;
+
+                if(!vs[opp]) vs[opp]={w:0,l:0};
+
+                if(myPts>oppPts){
+                    wins++; draftWins++; vs[opp].w++;
+                    currentStreak++;
+                    if(currentStreak>bestStreak) bestStreak=currentStreak;
+                }else if(myPts<oppPts){
+                    losses++; draftLoss++; vs[opp].l++;
+                    draftLossPts+=myPts;
+                    currentStreak=0;
+                }
+
+                if(Array.isArray(player.deck)){
+                    player.deck.forEach(c=>{
+                        cardGames[c]=(cardGames[c]||0)+1;
+                        if(myPts>oppPts) cardWins[c]=(cardWins[c]||0)+1;
+                    });
+                }
+            }
+        });
+    }
+
+    totalPoints+=draftPts;
+
+    if(draftPts>bestDraftPts){
+        bestDraftPts=draftPts;
+        bestDraftId=d.id;
+    }
+
+    if(draftWins>mostWinsDraft){
+        mostWinsDraft=draftWins;
+        mostWinsDraftId=d.id;
+    }
+
+    if(draftLoss<leastLossDraft){
+        leastLossDraft=draftLoss;
+        leastLossDraftId=d.id;
+    }
+
+    if(draftLossPts>maxLossPoints){
+        maxLossPoints=draftLossPts;
+        maxLossDraft=d.id;
+    }
 });
-
-let draftPts=0,draftWins=0,draftLoss=0,draftLossPts=0;
-
-d.matches.forEach(m=>{
-
-if(m.p1===playerName||m.p2===playerName){
-
-const isP1=m.p1===playerName;
-const myPts=isP1?m.pts1:m.pts2;
-const oppPts=isP1?m.pts2:m.pts1;
-const opp=isP1?m.p2:m.p1;
-
-draftPts+=myPts;
-
-if(!vs[opp]) vs[opp]={w:0,l:0};
-
-if(myPts>oppPts){
-wins++;draftWins++;vs[opp].w++;
-currentStreak++;
-if(currentStreak>bestStreak) bestStreak=currentStreak;
-}else if(myPts<oppPts){
-losses++;draftLoss++;vs[opp].l++;
-draftLossPts+=myPts;
-currentStreak=0;
 }
 
-player.deck.forEach(c=>{
-cardGames[c]=(cardGames[c]||0)+1;
-if(myPts>oppPts) cardWins[c]=(cardWins[c]||0)+1;
-});
-
-}
-
-});
-
-totalPoints+=draftPts;
-
-if(draftPts>bestDraftPts){
-bestDraftPts=draftPts;
-bestDraftId=d.id;
-}
-
-if(draftWins>mostWinsDraft){
-mostWinsDraft=draftWins;
-mostWinsDraftId=d.id;
-}
-
-if(draftLoss<leastLossDraft){
-leastLossDraft=draftLoss;
-leastLossDraftId=d.id;
-}
-
-if(draftLossPts>maxLossPoints){
-maxLossPoints=draftLossPts;
-maxLossDraft=d.id;
-}
-
-});
+if(leastLossDraft === 999) leastLossDraft = 0;
 
 const winrate = (wins+losses)?((wins/(wins+losses))*100).toFixed(1):0;
 const avgPts = draftsPlayed?(totalPoints/draftsPlayed).toFixed(1):0;
@@ -222,89 +487,97 @@ const avgPts = draftsPlayed?(totalPoints/draftsPlayed).toFixed(1):0;
 let mostPlayed="-",maxGames=0,nemesis="-",maxLoss=0,victim="-",maxWin=0;
 
 for(const p in vs){
-const g=vs[p].w+vs[p].l;
-if(g>maxGames){maxGames=g;mostPlayed=p}
-if(vs[p].l>maxLoss){maxLoss=vs[p].l;nemesis=p}
-if(vs[p].w>maxWin){maxWin=vs[p].w;victim=p}
+    const g=vs[p].w+vs[p].l;
+    if(g>maxGames){maxGames=g;mostPlayed=p}
+    if(vs[p].l>maxLoss){maxLoss=vs[p].l;nemesis=p}
+    if(vs[p].w>maxWin){maxWin=vs[p].w;victim=p}
 }
 
 /* KARTY */
 let bestCard="-",bestWR=0,worstCard="-",worstWR=999;
 
 for(const c in cardGames){
-const wr=(cardWins[c]||0)/cardGames[c];
-if(wr>bestWR){bestWR=wr;bestCard=c}
-if(wr<worstWR){worstWR=wr;worstCard=c}
+    const wr=(cardWins[c]||0)/cardGames[c];
+    if(wr>bestWR){bestWR=wr;bestCard=c}
+    if(wr<worstWR){worstWR=wr;worstCard=c}
 }
+if(worstWR === 999) worstWR = 0;
 
 /* RENDER */
 function add(list,id){
-const el=document.getElementById(id);
-list.forEach(t=>{
-const d=document.createElement("div");
-d.className="card";
-d.innerText=t;
-el.appendChild(d);
-});
+    const el=document.getElementById(id);
+    el.innerHTML = "";
+    list.forEach(item=>{
+        const d=document.createElement("div");
+        d.className="card";
+        d.innerHTML=`<b>${item.label}</b><span>${item.value}</span>`;
+        el.appendChild(d);
+    });
 }
 
 add([
-`Drafty: ${draftsPlayed}`,
-`Pkt: ${totalPoints}`,
-`Bilans: ${wins}W-${losses}L`,
-`Winrate: ${winrate}%`,
-`Śr pkt: ${avgPts}`
+    {label:"Drafty", value:draftsPlayed},
+    {label:"Punkty", value:totalPoints},
+    {label:"Bilans", value:`${wins}W-${losses}L`},
+    {label:"Winrate", value:`${winrate}%`},
+    {label:"Średnia punktów", value:avgPts}
 ],"stats");
 
 add([
-`Najwięcej pkt: ${bestDraftPts} (D${bestDraftId})`,
-`Najwięcej winów: ${mostWinsDraft} (D${mostWinsDraftId})`,
-`Najmniej porażek: ${leastLossDraft} (D${leastLossDraftId})`,
-`Pkt z porażek: ${maxLossPoints} (D${maxLossDraft})`,
-`Seria winów: ${bestStreak}`
+    {label:"Najwięcej punktów", value:`${bestDraftPts} (D${bestDraftId})`},
+    {label:"Najwięcej winów", value:`${mostWinsDraft} (D${mostWinsDraftId})`},
+    {label:"Najmniej porażek", value:`${leastLossDraft} (D${leastLossDraftId})`},
+    {label:"Punkty z porażek", value:`${maxLossPoints} (D${maxLossDraft})`},
+    {label:"Najlepsza seria", value:`${bestStreak} winów`}
 ],"records");
 
 add([
-`Najczęstszy: ${mostPlayed}`,
-`Pogromca: ${victim}`,
-`Nemesis: ${nemesis}`
+    {label:"Najczęstszy rywal", value:mostPlayed},
+    {label:"Pogromca", value:victim},
+    {label:"Nemesis", value:nemesis}
 ],"rivals");
 
 const decksEl=document.getElementById("decks");
+decksEl.innerHTML = "";
 
-decks.forEach(d=>{
-const div=document.createElement("div");
-div.className="deck";
-div.innerHTML=`<b>DRAFT ${d.draft}</b><br>${d.deck.join(", ")}`;
-decksEl.appendChild(div);
-});
+if(decks.length){
+    decks.forEach(d=>{
+        const div=document.createElement("div");
+        div.className="deck";
+        div.innerHTML=`<b>DRAFT ${d.draft}</b>${d.deck.length ? d.deck.join(", ") : "<span class='empty-note'>Brak decku w bazie</span>"}`;
+        decksEl.appendChild(div);
+    });
+}else{
+    decksEl.innerHTML = "<div class='empty-note'>Brak draftów tego wojownika w bazie.</div>";
+}
 
 add([
-`Najlepsza karta: ${bestCard}`,
-`Najgorsza karta: ${worstCard}`
+    {label:"Najlepsza karta", value:bestCard},
+    {label:"Najgorsza karta", value:worstCard}
 ],"cards");
 
 /* ODZNAKI */
 let badges=[];
-
 if(wins>10) badges.push("Weteran");
 if(bestStreak>=5) badges.push("Seria zwycięstw");
 if(bestDraftPts>100) badges.push("Dominacja");
 if(maxWin>=5) badges.push("Kat");
 
 const bEl=document.getElementById("badges");
+bEl.innerHTML = "";
 
-badges.forEach(b=>{
-const d=document.createElement("div");
-d.className="badge";
-d.innerText=b;
-bEl.appendChild(d);
-});
+if(badges.length){
+    badges.forEach(b=>{
+        const d=document.createElement("div");
+        d.className="badge";
+        d.innerText=b;
+        bEl.appendChild(d);
+    });
+}else{
+    bEl.innerHTML = "<div class='empty-note'>Osiągnięcia pojawią się wraz z kolejnymi wynikami.</div>";
+}
 
-/* RANK */
-document.getElementById("rank").innerText =
-`⭐ ${totalPoints} PKT`;
-
+document.getElementById("rank").innerText = `⭐ ${totalPoints} PKT`;
 </script>
 
 </body>
