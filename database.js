@@ -2019,7 +2019,7 @@ matches:[
 			   {"p1":"kamajot","p2":"Weregesu","pts1":24,"pts2":1},{"p1":"Supcio","p2":"Weregesu","pts1":23,"pts2":2},{"p1":"Raciatek","p2":"Maniek","pts1":22,"pts2":3},
 			   {"p1":"Raciatek","p2":"Weregesu","pts1":2,"pts2":23},{"p1":"Supcio","p2":"Maniek","pts1":0,"pts2":25},{"p1":"MatiMyHair","p2":"Budiso","pts1":20,"pts2":0},
 			   {"p1":"Budiso","p2":"Weregesu","pts1":0,"pts2":20},{"p1":"Supcio","p2":"Budiso","pts1":20,"pts2":0},{"p1":"Raciatek","p2":"Budiso","pts1":20,"pts2":0},
-			   {"p1":"Budiso","p2":"kamajot","pts1":0,"pts2":20},{"p1":"Dejwidgakure","p2":"Budiso","pts1":20,"pts2":0},{"p1":"Raciatek","p2":"Budiso","pts1":20,"pts2":0},
+			   {"p1":"Budiso","p2":"kamajot","pts1":0,"pts2":20},{"p1":"Dejwidgakure","p2":"Budiso","pts1":20,"pts2":0},
 			   {"p1":"Supcio","p2":"kamajot","pts1":25,"pts2":0},{"p1":"Supcio","p2":"Raciatek","pts1":21,"pts2":4},{"p1":"Dejwidgakure","p2":"Supcio","pts1":20,"pts2":5},
 			   {"p1":"Dejwidgakure","p2":"MatiMyHair","pts1":21,"pts2":4},{"p1":"MatiMyHair","p2":"Weregesu","pts1":25,"pts2":0},{"p1":"Dejwidgakure","p2":"kamajot","pts1":20,"pts2":0},
 			   {"p1":"MatiMyHair","p2":"kamajot","pts1":20,"pts2":0},{"p1":"MatiMyHair","p2":"Supcio","pts1":0,"pts2":0}
