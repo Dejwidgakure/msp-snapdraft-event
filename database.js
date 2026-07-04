@@ -2026,7 +2026,269 @@ matches:[
 		
 			]
 
+},
+
+	  
+{
+
+  "id": 25,
+  "title": "JUBILEUSZ 25 EDITION",
+  "startDate": "04.07.2026",
+  "endDate": "17.07.2026",
+  "mode": "Classic + Bany + Custom Paczki + Tematyczne Twisty",
+  "presetCard": null,
+  "playersCount": 12,
+  "winner": null,
+  "bans": [
+    "Aurora",
+    "Cosmic Ghost Rider",
+    "Fin Fang Foom",
+    "Gambit",
+    "Stardust",
+    "Wong",
+    "Zombie Galacti",
+	  "Arishem",
+	  "Loki"
+	  
+  ],
+  "players": [
+    {
+      "name": "Supcio",
+      "deck": [
+        "Cull Obsidian",
+        "Rescue",
+        "Giganto",
+        "Man-Thing",
+        "Ozymandias",
+        "Patriot",
+        "Zabu",
+        "Copycat",
+        "Namorita",
+        "Hawkeye",
+        "Skaar",
+        "Rhino"
+      ]
+    },
+    {
+      "name": "Raciatek",
+      "deck": [
+        "Sera",
+        "Titania",
+        "Kang",
+        "Agent Coulson",
+        "Negasonic Teenage Warhead",
+        "Nocturne",
+        "Nebula",
+        "Mysterio",
+        "Wolfsbane",
+        "Sword Master",
+        "Arnim Zola",
+        "Copycat"
+      ]
+    },
+    {
+      "name": "FizjoRadek",
+      "deck": [
+        "The Infinaut",
+        "Zero",
+        "Nightmare",
+        "Dracula",
+        "Red Skull",
+        "Sauron",
+        "Star-Lord, Master of the Sun",
+        "Shocker",
+        "War Machine",
+        "Ares",
+        "Agent Coulson",
+        "Sentry"
+      ]
+    },
+    {
+      "name": "Kmythic",
+      "deck": [
+        "Luke Cage",
+        "Caliban Horseman of Pestilence",
+        "Lady Bullseye",
+        "Ikari",
+        "Wilson Fisk",
+        "Rescue",
+        "Hazmat",
+        "Fantomex",
+        "Spider-Woman",
+        "Valkyrie",
+        "Zombie Power Man",
+        "Black Knight"
+      ]
+    },
+    {
+      "name": "Matixmgg",
+      "deck": [
+        "Spider-Man",
+        "Polaris",
+        "Peni Parker",
+        "Moon Knight",
+        "Batroc the Leaper",
+        "Bastion",
+        "Gorr the God Butcher",
+        "Ghost",
+        "Fenris Wolf",
+        "Onslaught",
+        "Black Bolt",
+        "America Chavez"
+      ]
+    },
+    {
+      "name": "I'm Batman",
+      "deck": [
+        "Cosmo",
+        "Kraven",
+        "Fan Fei",
+        "Mad Thinker",
+        "Sword Master",
+        "Sparky",
+        "Hellion",
+        "Victoria Hand",
+        "Gamora",
+        "Invisible Woman First Steps",
+        "Human Torch",
+        "Super-Adaptoid"
+      ]
+    },
+    {
+      "name": "MatiMyHair",
+      "deck": [
+        "Rocket Raccoon",
+        "Miles Morales Spider-Man",
+        "Jeff the Baby Dolphin!?",
+        "Jane Foster Mighty Thor",
+        "Spider-Man Brand New Day",
+        "Blob",
+        "Mercury",
+        "Agony",
+        "Agent Coulson",
+        "Hellion",
+        "Thanos",
+        "Vulture"
+      ]
+    },
+    {
+      "name": "Maniek",
+      "deck": [
+        "Shuri",
+        "Orka",
+        "Nico Minoru",
+        "Galactus First Steps",
+        "Shou-Lao the Undying",
+        "Chamber",
+        "Forge",
+        "Professor X",
+        "Gladiator",
+        "Victoria Hand",
+        "Symbiote Spider-Man",
+        "Jean Grey"
+      ]
+    },
+    {
+      "name": "Dejwidgakure",
+      "deck": [
+        "Sasquatch",
+        "Groot",
+        "Agamotto",
+        "Major Victory",
+        "Shadow King",
+        "Victoria Hand",
+        "Sandstorm",
+        "Wasp",
+        "Mother Askani",
+        "Mysterio",
+        "Frigga",
+        "Angela"
+      ]
+    },
+    {
+      "name": "wodolot",
+      "deck": [
+        "Angela",
+        "Kingpin",
+        "Thena",
+        "Killmonger",
+        "Peni Parker",
+        "Beast",
+        "Hulkbuster",
+        "Captain Carter",
+        "Hulk",
+        "Uatu the Watcher",
+        "Hope Summers",
+        "Agony"
+      ]
+    },
+    {
+      "name": "Detroj",
+      "deck": [
+        "Deadpool",
+        "Black Widow",
+        "Deathlok",
+        "Hobgoblin",
+        "Hellcow",
+        "Nova",
+        "Scorpion",
+        "Spider-Woman",
+        "Killmonger",
+        "Beast",
+        "Namor",
+        "Iceman"
+      ]
+    },
+    {
+      "name": "Weregesu",
+      "deck": [
+        "Goose",
+        "Dazzler",
+        "America Chavez",
+        "Negasonic Teenage Warhead",
+        "Punisher War Machine",
+        "Black Bolt",
+        "Debrii",
+        "Zombie Sentry",
+        "Mysterio",
+        "Shang-Chi, Master of the Rings",
+        "Iceman",
+        "Nakia"
+      ]
+    }
+  ],
+  "matches": [],
+  "draftInfo": {
+    "modeParts": [
+      "Classic",
+      "Custom Paczki",
+      "Tematyczne Twisty"
+    ],
+    "infoFlags": {
+      "mulligans": false,
+      "themeTwists": true,
+      "champions": false
+    },
+    "startOrder": [
+      "Supcio",
+      "Raciatek",
+      "FizjoRadek",
+      "Kmythic",
+      "Matixmgg",
+      "I'm Batman",
+      "MatiMyHair",
+      "Maniek",
+      "Dejwidgakure",
+      "wodolot",
+      "Detroj",
+      "Weregesu"
+    ],
+    "deckSize": 12,
+    "packsCount": 6
+  }
+
 }
+	  
 
   
     
