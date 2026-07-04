@@ -2257,32 +2257,10 @@ matches:[
       ]
     }
   ],
-  "matches": [],
-  "draftInfo": {
-    "modeParts": [
-      "Classic",
-      "Custom Paczki",
-      "Tematyczne Twisty"
-    ],
-    "infoFlags": {
-      "mulligans": false,
-      "themeTwists": true,
-      "champions": false
-    },
-    "startOrder": [
-      "Supcio",
-      "Raciatek",
-      "FizjoRadek",
-      "Kmythic",
-      "Matixmgg",
-      "I'm Batman",
-      "MatiMyHair",
-      "Maniek",
-      "Dejwidgakure",
-      "wodolot",
-      "Detroj",
-      "Weregesu"
-    ],
+  "matches": [{"p1":"MatiMyHair","p2":"Raciatek","pts1":20,"pts2":5},{"p1":"MatiMyHair","p2":"Maniek","pts1":20,"pts2":5}
+			 
+			 ],
+  
     "deckSize": 12,
     "packsCount": 6
   }
