@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Przewodnik MSP SnapDraft</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --cyan:#00f0ff;
+    --violet:#7D3CFF;
+    --purple:#8a2be2;
+    --magenta:#ff00ff;
+    --gold:#ffd700;
+    --dark:#050816;
+}
+
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+
+body{
+    margin:0;
+    font-family:'Rajdhani', sans-serif;
+    color:white;
+    background:
+        linear-gradient(rgba(2,4,18,0.72), rgba(2,4,18,0.88)),
+        url("assets/cosmic_tło.png") center center fixed,
+        url("assets/cosmic_tlo.png") center center fixed,
+        url("assets/cosmic-bg.png") center center fixed,
+        #050816;
+    background-size:cover;
+    overflow-x:hidden;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:url("assets/cosmictool.png") center center / 1150px auto no-repeat;
+    opacity:0.115;
+    pointer-events:none;
+    z-index:0;
+    animation:cosmicToolFloat 18s ease-in-out infinite alternate;
+    mix-blend-mode:screen;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:1;
+    background:
+        radial-gradient(circle at 18% 20%, rgba(0,240,255,0.16), transparent 28%),
+        radial-gradient(circle at 82% 12%, rgba(255,0,255,0.12), transparent 26%),
+        radial-gradient(circle at 52% 88%, rgba(125,60,255,0.13), transparent 35%),
+        repeating-linear-gradient(0deg, rgba(120,248,255,0.035) 0 1px, transparent 1px 42px),
+        repeating-linear-gradient(90deg, rgba(120,248,255,0.025) 0 1px, transparent 1px 42px);
+}
+
+@keyframes cosmicToolFloat{
+    from{ transform:translateY(0) scale(1); }
+    to{ transform:translateY(-26px) scale(1.04); }
+}
+
+.page{
+    position:relative;
+    z-index:2;
+    max-width:1180px;
+    margin:0 auto;
+    padding:24px 22px 70px;
+}
+
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:16px;
+    margin-bottom:28px;
+}
+
+.back-link{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:12px 18px;
+    border-radius:999px;
+    text-decoration:none;
+    color:#eaffff;
+    font-family:'Orbitron', sans-serif;
+    font-weight:800;
+    font-size:13px;
+    letter-spacing:1px;
+    background:rgba(4,14,36,0.72);
+    border:1px solid rgba(120,248,255,0.55);
+    box-shadow:0 0 16px rgba(0,240,255,0.32), inset 0 0 20px rgba(0,240,255,0.07);
+    backdrop-filter:blur(10px);
+    transition:0.22s ease;
+}
+.back-link:hover{
+    transform:translateY(-2px);
+    color:#001018;
+    background:linear-gradient(90deg,#00f0ff,#b8ffff);
+    box-shadow:0 0 28px rgba(0,240,255,0.75);
+}
+
+.mini-badge{
+    padding:10px 14px;
+    border-radius:999px;
+    color:#ffeaa6;
+    background:rgba(255,215,0,0.08);
+    border:1px solid rgba(255,215,0,0.30);
+    box-shadow:0 0 18px rgba(255,215,0,0.13);
+    font-weight:800;
+    letter-spacing:1px;
+}
+
+.hero{
+    position:relative;
+    overflow:hidden;
+    border-radius:30px;
+    padding:118px 300px 42px 40px;
+    margin-bottom:26px;
+    background:
+        linear-gradient(135deg, rgba(4,18,48,0.86), rgba(9,22,68,0.72) 42%, rgba(32,8,68,0.68)),
+        radial-gradient(circle at 15% 25%, rgba(0,240,255,0.22), transparent 28%),
+        radial-gradient(circle at 80% 30%, rgba(255,0,255,0.16), transparent 28%);
+    border:1px solid rgba(136,250,255,0.50);
+    box-shadow:0 0 30px rgba(0,240,255,0.26), 0 0 90px rgba(125,60,255,0.18), inset 0 0 70px rgba(0,240,255,0.06);
+    backdrop-filter:blur(12px);
+}
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:-30%;
+    background:url("assets/cosmictool.png") center / 850px auto no-repeat;
+    opacity:0.10;
+    pointer-events:none;
+    animation:heroToolDrift 16s ease-in-out infinite alternate;
+}
+.hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent) -50% 0 / 45% 100% no-repeat;
+    animation:shine 6s ease-in-out infinite;
+    pointer-events:none;
+}
+@keyframes heroToolDrift{
+    from{ transform:translate(-18px,0) rotate(-2deg); }
+    to{ transform:translate(24px,-20px) rotate(2deg); }
+}
+@keyframes shine{
+    0%,55%{ background-position:-55% 0; }
+    100%{ background-position:155% 0; }
+}
+
+.hero-logo{
+    position:absolute;
+    left:50%;
+    top:18px;
+    transform:translateX(-50%);
+    z-index:2;
+    width:min(170px, 34vw);
+    display:block;
+    margin:0;
+    filter:drop-shadow(0 0 18px rgba(0,240,255,0.65)) drop-shadow(0 0 26px rgba(255,0,255,0.28));
+}
+.hero-content{ position:relative; z-index:2; max-width:740px; }
+.hero-guide{
+    position:absolute;
+    right:26px;
+    top:92px;
+    width:min(280px, 25vw);
+    max-width:280px;
+    z-index:2;
+    pointer-events:none;
+    filter:drop-shadow(0 0 18px rgba(0,240,255,0.30)) drop-shadow(0 0 28px rgba(125,60,255,0.24));
+}
+
+.kicker{
+    font-family:'Orbitron', sans-serif;
+    color:#b57cff;
+    font-weight:900;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    text-shadow:0 0 14px rgba(181,124,255,0.65);
+    margin-bottom:10px;
+}
+h1{
+    font-family:'Orbitron', sans-serif;
+    font-size:clamp(38px, 7vw, 76px);
+    line-height:1.05;
+    margin:0 0 18px;
+    letter-spacing:2px;
+    background:linear-gradient(90deg,#eaffff,#8ff7ff,#bfa2ff,#ffffff);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    text-shadow:0 0 16px rgba(0,240,255,0.42), 0 0 30px rgba(125,60,255,0.24);
+}
+.lead{
+    max-width:900px;
+    font-size:22px;
+    line-height:1.55;
+    color:#dffaff;
+    margin:0 0 26px;
+}
+.quick-nav{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:22px;
+}
+.quick-nav a{
+    color:#eaffff;
+    text-decoration:none;
+    font-weight:800;
+    border:1px solid rgba(120,248,255,0.35);
+    background:rgba(0,0,30,0.34);
+    border-radius:14px;
+    padding:10px 14px;
+    transition:.2s ease;
+}
+.quick-nav a:hover{
+    transform:translateY(-2px);
+    background:rgba(0,240,255,0.16);
+    box-shadow:0 0 18px rgba(0,240,255,0.28);
+}
+
+.video-section{
+    margin:26px 0 34px;
+    border-radius:26px;
+    padding:24px;
+    background:rgba(5,10,30,0.74);
+    border:1px solid rgba(255,215,0,0.28);
+    box-shadow:0 0 24px rgba(255,215,0,0.13), 0 0 50px rgba(0,240,255,0.10);
+    backdrop-filter:blur(12px);
+}
+.video-placeholder{
+    position:relative;
+    min-height:360px;
+    border-radius:22px;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:30px;
+    background:
+        linear-gradient(135deg, rgba(0,0,0,0.62), rgba(12,20,62,0.62)),
+        radial-gradient(circle at 50% 45%, rgba(0,240,255,0.18), transparent 35%);
+    border:1px dashed rgba(255,215,0,0.55);
+}
+.video-placeholder::before{
+    content:"▶";
+    position:absolute;
+    font-size:96px;
+    color:rgba(255,215,0,0.28);
+    text-shadow:0 0 40px rgba(255,215,0,0.38);
+}
+.video-placeholder div{
+    position:relative;
+    z-index:2;
+    max-width:650px;
+}
+.video-placeholder h2{
+    margin:0 0 8px;
+    font-family:'Orbitron', sans-serif;
+    color:#ffeaa6;
+}
+.video-placeholder p{
+    font-size:20px;
+    line-height:1.45;
+    color:#eaffff;
+    margin:0;
+}
+
+.section{
+    position:relative;
+    margin:30px 0;
+    padding:34px;
+    border-radius:26px;
+    background:
+        linear-gradient(135deg, rgba(5,12,38,0.82), rgba(9,21,55,0.68)),
+        radial-gradient(circle at 10% 0%, rgba(0,240,255,0.08), transparent 34%),
+        radial-gradient(circle at 95% 20%, rgba(255,0,255,0.07), transparent 34%);
+    border:1px solid rgba(120,248,255,0.32);
+    box-shadow:0 0 22px rgba(0,240,255,0.13), inset 0 0 45px rgba(0,240,255,0.035);
+    backdrop-filter:blur(12px);
+}
+.section h2{
+    margin:0 0 18px;
+    font-family:'Orbitron', sans-serif;
+    font-size:clamp(28px, 4vw, 42px);
+    color:#eaffff;
+    text-shadow:0 0 14px rgba(0,240,255,0.55), 0 0 28px rgba(125,60,255,0.30);
+}
+.section h3{
+    margin:28px 0 10px;
+    font-family:'Orbitron', sans-serif;
+    font-size:22px;
+    color:#8ff7ff;
+    text-shadow:0 0 12px rgba(0,240,255,0.35);
+}
+.section p{
+    font-size:20px;
+    line-height:1.62;
+    margin:13px 0;
+    color:#e6fbff;
+}
+.section strong{
+    color:#ffffff;
+    text-shadow:0 0 8px rgba(0,240,255,0.35);
+}
+.callout{
+    margin:20px 0;
+    padding:18px 20px;
+    border-radius:18px;
+    background:rgba(0,240,255,0.08);
+    border-left:4px solid var(--cyan);
+    box-shadow:inset 0 0 20px rgba(0,240,255,0.05);
+    font-size:20px;
+    line-height:1.55;
+}
+.gold-callout{
+    background:rgba(255,215,0,0.08);
+    border-left-color:var(--gold);
+}
+ul{ margin:14px 0 0 0; padding-left:22px; }
+li{
+    font-size:20px;
+    line-height:1.55;
+    margin:8px 0;
+    color:#e6fbff;
+}
+.codebox{
+    margin:14px 0;
+    padding:15px 18px;
+    border-radius:16px;
+    font-family:'Orbitron', sans-serif;
+    font-weight:800;
+    color:#001018;
+    background:linear-gradient(90deg,#00f0ff,#b8ffff);
+    box-shadow:0 0 18px rgba(0,240,255,0.35);
+    display:inline-block;
+}
+.example{
+    margin:16px 0;
+    padding:17px 20px;
+    border-radius:18px;
+    background:rgba(0,0,0,0.34);
+    border:1px solid rgba(120,248,255,0.22);
+    color:#dffaff;
+    font-size:19px;
+}
+.grid-list{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:14px;
+    margin-top:16px;
+}
+.feature-card{
+    padding:18px;
+    border-radius:18px;
+    background:rgba(0,0,30,0.38);
+    border:1px solid rgba(120,248,255,0.22);
+    box-shadow:0 0 18px rgba(0,240,255,0.08);
+    font-size:18px;
+    line-height:1.45;
+}
+.feature-card b{
+    display:block;
+    margin-bottom:8px;
+    color:#ffeaa6;
+    font-family:'Orbitron', sans-serif;
+    font-size:15px;
+    letter-spacing:1px;
+}
+.final-cta{
+    text-align:center;
+    padding:44px 32px;
+    border-color:rgba(255,215,0,0.48);
+    box-shadow:0 0 30px rgba(255,215,0,0.14), 0 0 70px rgba(0,240,255,0.14);
+}
+.final-cta .cta-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:16px;
+    margin-top:24px;
+}
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:48px;
+    padding:14px 22px;
+    border-radius:15px;
+    text-decoration:none;
+    font-family:'Orbitron', sans-serif;
+    font-weight:900;
+    letter-spacing:1px;
+    color:#001018;
+    background:linear-gradient(90deg,#00f0ff,#b8ffff);
+    box-shadow:0 0 22px rgba(0,240,255,0.48);
+    transition:.22s ease;
+}
+.btn.gold{
+    background:linear-gradient(90deg,#ffd700,#fff1a8);
+    box-shadow:0 0 22px rgba(255,215,0,0.42);
+}
+.btn:hover{
+    transform:translateY(-3px) scale(1.02);
+    filter:brightness(1.1);
+}
+.footer-note{
+    text-align:center;
+    opacity:.75;
+    margin-top:34px;
+    font-size:16px;
+}
+@media(max-width:900px){
+    .hero{ padding:38px 24px 30px; }
+    .hero-content{ max-width:none; }
+    .hero-guide{
+        position:relative;
+        right:auto;
+        top:auto;
+        display:block;
+        margin:18px auto 0;
+        width:min(250px, 55vw);
+    }
+}
+@media(max-width:720px){
+    .page{ padding:16px 12px 50px; }
+    .topbar{ flex-direction:column; align-items:flex-start; }
+    .hero{ padding:36px 22px 30px; border-radius:22px; }
+    .section{ padding:24px 18px; border-radius:22px; }
+    .video-placeholder{ min-height:240px; }
+    .section p, li, .callout{ font-size:18px; }
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+    <div class="topbar">
+        <a class="back-link" href="index.html">⬅ Powrót do Kosmicznego Centrum Draftowego</a>
+        <div class="mini-badge">MSP SnapDraft Event</div>
+    </div>
+
+    <header class="hero">
+        <img class="hero-logo" src="assets/draft-logo.png" alt="MSP SnapDraft Logo">
+        <img class="hero-guide" src="assets/jeff_guide.png" alt="Jeff przewodnik">
+        <div class="hero-content">
+            <div class="kicker">Przewodnik dla nowych graczy</div>
+            <h1>Przewodnik MSP SnapDraft</h1>
+            <p class="lead">
+                Witaj w społecznościowej lidze draftowej Marvel Snap Polska. Ten przewodnik wyjaśnia, czym jest MSP SnapDraft,
+                jak wygląda wspólne draftowanie, jak rozgrywamy mecze po evencie oraz jak korzystać ze strony i jej narzędzi.
+            </p>
+            <nav class="quick-nav">
+                <a href="#czym-jest">🌌 Czym jest liga?</a>
+                <a href="#krok-po-kroku">🎴 Draft krok po kroku</a>
+                <a href="#rozgrywki">⚔️ Rozgrywki</a>
+                <a href="#strona">🌐 Strona i funkcje</a>
+                <a href="#dolacz">⭐ Dołącz</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="video-section" id="film">
+        <div class="video-placeholder">
+            <div>
+                <h2>🎥 Film instruktażowy</h2>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="czym-jest">
+        <h2>🌌 Czym jest liga MSP SnapDraft Event?</h2>
+        <p><strong>MSP SnapDraft Event</strong> to stała liga draftowa organizowana przez społeczność <strong>Marvel Snap Polska</strong>. Średnio co dwa tygodnie spotykamy się na wspólne wydarzenie, podczas którego gracze budują decki w formacie draftu, a następnie rozgrywają między sobą mecze.</p>
+        <p>To zupełnie inny sposób grania w Marvel Snap. Zamiast korzystać z gotowych talii z mety albo własnych sprawdzonych decków, uczestnicy tworzą swoje talie na podstawie kart wybieranych podczas draftowania. Każda edycja może wyglądać trochę inaczej — zmieniają się tryby, zasady losowania, dodatkowe mechaniki i specjalne twisty.</p>
+        <p>Do obsługi draftów używamy specjalnie przygotowanego programu, w którym otwieramy paczki, wybieramy karty, korzystamy z dodatkowych trybów i śledzimy tworzone decki. Całość uzupełnia strona MSP SnapDraft, gdzie można sprawdzać wyniki, statystyki, decki, historię eventów, Salę Chwały oraz profile graczy.</p>
+        <p>Z czasem pojedyncze eventy przerodziły się w stałą, społecznościową ligę z własną historią, rankingami i rywalizacją. Każdy może dołączyć, spróbować swoich sił i pobawić się Marvel Snapem w zupełnie innym formacie.</p>
+    </section>
+
+    <section class="section" id="krok-po-kroku">
+        <h2>🎴 Jak wygląda draft krok po kroku?</h2>
+        <p>Draft odbywa się zazwyczaj co około dwa tygodnie, najczęściej w weekend, na Discordzie <strong>Marvel Snap Polska</strong>. Spotykamy się na kanale głosowym, żeby wspólnie przejść przez ceremonię draftowania: pogadać, pośmiać się, zintegrować społeczność i przede wszystkim stworzyć swoje decki na nadchodzącą edycję.</p>
+        <p>Podczas draftu można normalnie rozmawiać na kanale głosowym, komentować wybory i mówić na streamie, którą kartę chce się wybrać. To część wspólnej zabawy i integracji. Jeśli jednak ktoś nie może albo nie chce mówić na głos, to również jest w porządku — wystarczy, że będzie obecny na streamie, będzie śledził przebieg draftu i będzie odpisywał na Discordzie, kiedy przyjdzie jego kolej wyboru.</p>
+        <p>Całość prowadzi organizator, który streamuje specjalny program draftowy. To właśnie w nim wpisywani są gracze, losowana jest kolejność, otwierane są paczki, wybierane karty i budowane są decki uczestników. Wszystko dzieje się na żywo, więc każdy może obserwować wybory innych graczy, reagować na sytuację i planować własną talię.</p>
+
+        <h3>Kolejność graczy i snake draft</h3>
+        <p>Na początku draftu do programu wpisywana jest lista uczestników. Następnie ustalana lub losowana jest kolejność wyboru kart.</p>
+        <p>Podstawowy system wyboru opiera się na zasadzie <strong>snake draftu</strong>. Oznacza to, że kolejność wyboru odwraca się co rundę — gracz, który wybierał jako pierwszy w jednej kolejce, w następnej będzie wybierał jako ostatni. Dzięki temu draft jest bardziej wyrównany i fair dla wszystkich uczestników.</p>
+        <p>Dodatkowo kolejka wyboru przesuwa się między paczkami, dzięki czemu gracze nie są przez cały draft przywiązani do jednej, stałej pozycji. To sprawia, że wybory stają się bardziej taktyczne: można planować swoje picki, obserwować potrzeby innych graczy, próbować podkraść komuś ważną kartę albo przewidywać, które karty z paczki mogą jeszcze do nas wrócić.</p>
+        <div class="example"><strong>Przykład snake draftu:</strong><br>Runda 1: Gracz 1 → Gracz 2 → Gracz 3 → Gracz 4<br>Runda 2: Gracz 4 → Gracz 3 → Gracz 2 → Gracz 1</div>
+
+        <h3>Rozmiar paczek i wyrównywanie szans</h3>
+        <p>W klasycznym draftowaniu każdy gracz wybiera z każdej paczki po dwie karty, a cały draft składa się z <strong>sześciu paczek</strong>. Dzięki temu na końcu każdy uczestnik ma pełny deck złożony z 12 kart.</p>
+        <p>Rozmiar paczki zależy od liczby graczy i liczony jest według zasady:</p>
+        <div class="codebox">liczba kart w paczce = liczba graczy × 2 + 1</div>
+        <p>Dodatkowe <strong>+1</strong> jest bardzo ważne. Dzięki niemu osoba wybierająca jako ostatnia w danej paczce nadal ma realny wybór z dwóch kart, zamiast dostać jedną kartę z przymusu. To kolejny element, który pomaga utrzymać draft możliwie fair dla wszystkich.</p>
+        <p>Program pokazuje na bieżąco wszystkie najważniejsze informacje: aktualną kolejkę wyboru, kto teraz pickuje, ile kart zostało w paczce, ile kart brakuje każdemu graczowi do pełnego decku oraz jak wyglądają obecne decki uczestników. Można też kontrolować swoje wybory, sprawdzać dotychczas dobrane karty i orientować się, czy deck ma sensowną krzywą many oraz czy zaczyna budować konkretny plan gry.</p>
+        <div class="callout">Jeżeli zdarzy się, że gracz musiałby wybrać kartę, której nie posiada w swojej kolekcji, można bez problemu zgłosić to organizatorowi. W takiej sytuacji karta może zostać przelosowana lub rozwiązana zgodnie z ustaleniami danej edycji, żeby nikt nie był karany za braki w kolekcji.</div>
+
+        <h3>Faza banowania</h3>
+        <p>W wielu edycjach przed właściwym draftowaniem pojawia się faza banowania. Każdy gracz może wtedy usunąć z puli jedną kartę.</p>
+        <p>Bany można wykorzystać taktycznie — na przykład po to, żeby pozbyć się wyjątkowo mocnej karty, karty niewygodnej dla własnej strategii albo takiej, której gracz nie posiada w swojej kolekcji. Dzięki temu draft może być bardziej zbalansowany i dopasowany do uczestników.</p>
+
+        <h3>Program draftowy</h3>
+        <p>Do draftowania używamy dedykowanego programu przygotowanego specjalnie pod <strong>MSP SnapDraft Event</strong>. Program obsługuje otwieranie paczek, wybieranie kart, kolejkę graczy, budowanie decków na żywo oraz dodatkowe tryby i zasady specjalne.</p>
+        <p>Każdy deck powstaje na ekranie w czasie rzeczywistym. Gracze widzą, jakie karty już wybrali, ile kart mają w decku i jak rozwija się ich strategia. Program jest sercem całego draftu — to tutaj odbywa się najważniejsza część wydarzenia.</p>
+
+        <h3>Różne tryby draftu</h3>
+        <p>MSP SnapDraft nie jest jednym sztywnym formatem. Każda edycja może korzystać z innych trybów, dodatków i zasad specjalnych, dzięki czemu drafty nie są powtarzalne i za każdym razem mogą wyglądać trochę inaczej.</p>
+        <div class="grid-list">
+            <div class="feature-card"><b>Jokery</b>Specjalne karty/efekty, które dają graczom bardziej elastyczne albo wyjątkowo mocne możliwości wyboru.</div>
+            <div class="feature-card"><b>Customowe paczki</b>Paczki tematyczne przygotowane pod konkretny event, na przykład paczka zwierzaków, Avengersów albo inne specjalne zestawy kart.</div>
+            <div class="feature-card"><b>Poker Draft</b>Osobny tryb, który całkowicie zmienia sposób draftowania. Zamiast klasycznego otwierania paczek pojawia się system licytacji.</div>
+            <div class="feature-card"><b>Save & Steal</b>Tryb, w którym na końcu draftu gracze chronią jedną ze swoich kart i kradną jedną kartę przeciwnikowi.</div>
+            <div class="feature-card"><b>Przelosowania</b>Dodatkowa opcja pozwalająca w określonych sytuacjach zmienić układ lub elementy draftu.</div>
+        </div>
+        <p>Tryby można łączyć, aktywować i dezaktywować zależnie od pomysłu na daną edycję. Dzięki temu każdy draft może mieć własny klimat, własne zasady i własne niespodzianki.</p>
+
+        <h3>Zakończenie draftu i screen decku</h3>
+        <p>Po zakończeniu draftowania każdy gracz ma gotowy deck, którym będzie grał w fazie rozgrywek.</p>
+        <p>Po spotkaniu każdy uczestnik powinien wrzucić screen swojego decku na odpowiedni kanał na Discordzie <strong>Marvel Snap Polska</strong>. Kanał znajduje się w zakładce związanej ze <strong>Snapventami</strong> i zwykle ma nazwę w stylu:</p>
+        <div class="codebox">decki draft [numer edycji]</div>
+        <p>Screen decku jest ważny, ponieważ pozwala organizatorowi i innym graczom sprawdzić, jakimi taliami uczestnicy będą grać w danej edycji.</p>
+    </section>
+
+    <section class="section" id="rozgrywki">
+        <h2>⚔️ Etap rozgrywania meczów i zasady eventu</h2>
+        <p>Po zakończeniu draftowania rozpoczyna się drugi etap wydarzenia, czyli rozgrywanie meczów między uczestnikami. Każdy gracz gra swoim wydraftowanym deckiem, a mecze rozgrywane są w trybie <strong>Battle</strong> w Marvel Snap.</p>
+        <p>Ten etap trwa zazwyczaj około <strong>dwóch tygodni</strong>. W tym czasie gracze umawiają się między sobą na pojedynki, rozgrywają mecze, zgłaszają wyniki i śledzą sytuację w tabeli aktualnego draftu.</p>
+
+        <h3>Tryb gry i umawianie meczów</h3>
+        <p>Mecze draftowe rozgrywamy w trybie Battle. Po zakończeniu draftu każdy gracz ma swój deck i w trakcie eventu rozgrywa nim mecze z pozostałymi uczestnikami zgodnie z zasadami danej edycji.</p>
+        <p>Na mecze można umawiać się prywatnie albo oficjalnie na Discordzie Marvel Snap Polska, w dziale związanym ze Snapventami i aktualnym draftem. Gracze biorący udział w wydarzeniu otrzymują rolę <strong>Draft</strong>, żeby widzieć oznaczenia i pingi dotyczące rozgrywek.</p>
+        <p>W praktyce najlepiej odzywać się do przeciwników jak najwcześniej — już w pierwszym tygodniu warto dać znać, kiedy można zagrać. Dzięki temu unikamy sytuacji, w której ktoś pojawia się dopiero pod koniec eventu i próbuje rozegrać wszystkie mecze na ostatnią chwilę.</p>
+
+        <h3>Punktacja</h3>
+        <p>Za zwycięstwo gracz otrzymuje:</p>
+        <div class="codebox">15 punktów podstawowych + 1 punkt za każde życie, które zostało mu po wygranej</div>
+        <div class="example"><strong>Przykład:</strong><br>Gracz A wygrywa mecz i zostaje mu 6 żyć. Otrzymuje 15 + 6 = 21 punktów.</div>
+        <p>Żeby porażki również miały znaczenie, przegrany gracz dostaje punkty za każde życie, które udało mu się urwać zwycięzcy.</p>
+        <div class="example"><strong>Przykład:</strong><br>Gracz A wygrywa 21 punktów, bo zostało mu 6 żyć. Gracz B przegrał, ale zabrał przeciwnikowi 4 życia, więc dostaje 4 punkty.</div>
+        <p>Dzięki temu warto walczyć do końca nawet w przegranym meczu, bo każdy zdobyty punkt może mieć znaczenie w tabeli.</p>
+
+        <h3>Zgłaszanie wyników</h3>
+        <p>Zwycięzca meczu ma obowiązek zrobić screen wyniku i wrzucić go na odpowiedni kanał draftowy na Discordzie.</p>
+        <p>Wynik powinien być oznaczony hashtagiem:</p>
+        <div class="codebox">#wynik</div>
+        <p>Dzięki temu organizator może łatwo znaleźć zgłoszone mecze i wpisać je do tabeli aktualnego draftu.</p>
+
+        <h3>Aktywność i walkowery</h3>
+        <p>W trakcie eventu każdy gracz powinien aktywnie umawiać swoje mecze. Najważniejsza zasada jest prosta: <strong>nie czekamy do ostatniej chwili</strong>.</p>
+        <p>Jeżeli ktoś przez większość czasu trwania draftu próbuje umawiać mecze, pisze do przeciwnika i wykazuje aktywność, a druga osoba odzywa się dopiero pod koniec rozgrywek, administracja może rozstrzygnąć sytuację na korzyść bardziej aktywnego gracza.</p>
+        <p>Unikamy sytuacji, w której ktoś „wyskakuje z kapelusza” pod sam koniec eventu, mimo że wcześniej przez długi czas nie odpowiadał albo nie próbował realnie umówić meczu. W razie sporu liczy się aktywność, kontakt i dowody, że gracz próbował rozegrać spotkanie.</p>
+        <div class="callout">Wszystkie nieścisłości, spory, problemy z terminami i ewentualne walkowery rozstrzyga administracja.</div>
+
+        <h3>Aktualna tabela i jawne decki</h3>
+        <p>Wyniki draftu są w miarę możliwości aktualizowane na stronie. Każda edycja ma swoją podstronę w <strong>Kronikach Draftowych</strong>, gdzie można sprawdzić tabelę, wyniki, uczestników i decki graczy.</p>
+        <p>Decki w drafcie są jawne, dlatego warto korzystać ze strony aktualnego draftu także taktycznie. Można sprawdzić, czym grają przeciwnicy, jakie mają karty, jakie wyniki już osiągnęli i jak wygląda sytuacja w tabeli.</p>
+        <p>Link do aktualnego draftu jest zwykle przypięty na Discordzie oraz publikowany w poście dotyczącym wydarzenia na grupie Marvel Snap Polska.</p>
+
+        <h3>Miejsca i punkty legend</h3>
+        <p>Na podstawie końcowej tabeli danego draftu ogłaszane są miejsca graczy. Wyniki pojedynczych edycji mają też wpływ na główny ranking MSP SnapDraft.</p>
+        <p>Za zajęte miejsca gracze zdobywają <strong>punkty legend</strong>, które liczą się do ogólnej klasyfikacji wielu draftów. To właśnie punkty legend są głównym sposobem klasyfikowania graczy w historii MSP SnapDraft — pokazują, kto regularnie osiągał wysokie miejsca na przestrzeni kolejnych edycji.</p>
+        <p>Wyniki, zwycięzcy i najważniejsze informacje o zakończonym drafcie są ogłaszane na kanałach społeczności: na Discordzie, Facebooku i stronie MSP SnapDraft.</p>
+    </section>
+
+    <section class="section" id="strona">
+        <h2>🌐 Strona MSP SnapDraft i jej funkcje</h2>
+        <p>Strona MSP SnapDraft jest centrum całego projektu. To tutaj znajdują się najważniejsze informacje, archiwum draftów, wyniki, decki, statystyki, rankingi oraz sam program służący do draftowania.</p>
+        <p>Warto korzystać ze strony zarówno podczas draftu, jak i po jego zakończeniu. Podczas eventu pomaga śledzić aktualną tabelę, decki przeciwników i wyniki. Po evencie zostaje jako archiwum historii całej ligi.</p>
+
+        <h3>Program draftowy</h3>
+        <p>Program draftowy to narzędzie używane podczas samego wydarzenia. To w nim otwieramy paczki, wybieramy karty, aktywujemy tryby specjalne i budujemy decki graczy na żywo.</p>
+        <p>Jeżeli bierzesz udział w drafcie, program jest miejscem, w którym rozgrywa się ceremonia draftowania. To tam widać kolejkę, paczki, aktualne wybory, decki oraz wszystkie najważniejsze informacje potrzebne w trakcie draftu.</p>
+
+        <h3>Kroniki Draftowe</h3>
+        <p><strong>Kroniki Draftowe</strong> to miejsce, w którym można przeglądać zarówno aktualny draft, jak i wcześniejsze edycje.</p>
+        <p>Na stronie konkretnego draftu znajdziesz między innymi:</p>
+        <ul>
+            <li>aktualną tabelę,</li>
+            <li>wyniki rozegranych meczów,</li>
+            <li>listę uczestników,</li>
+            <li>decki graczy,</li>
+            <li>statystyki i ciekawostki z danej edycji.</li>
+        </ul>
+        <p>Sekcja decków jest szczególnie przydatna podczas rozgrywania meczów. Ponieważ decki są jawne, można taktycznie sprawdzić deck przeciwnika przed pojedynkiem i lepiej przygotować się do gry.</p>
+        <p>Kroniki działają też jako archiwum. Jeśli chcesz zobaczyć, jak wyglądały poprzednie drafty, kto grał, jakie decki powstały i kto wygrał, wszystko znajduje się właśnie tam.</p>
+
+        <h3>Sala Chwały i Ranking Legend</h3>
+        <p><strong>Sala Chwały</strong> pokazuje ogólną klasyfikację graczy na przestrzeni wielu draftów.</p>
+        <p>Głównym rankingiem jest <strong>Ranking Legend</strong>. To zestawienie oparte na punktach legend zdobywanych za miejsca w kolejnych edycjach. Dzięki temu pojedynczy dobry wynik ma znaczenie, ale największą wartość mają regularność, wysokie miejsca i aktywność w kolejnych draftach.</p>
+        <p>W Sali Chwały możesz sprawdzić, jakie miejsce zajmujesz w ogólnej klasyfikacji, kto prowadzi, kto regularnie trafia do topki i jak wyniki z pojedynczych eventów przekładają się na historię całej ligi.</p>
+
+        <h3>Galaktyczna Baza Wojowników</h3>
+        <p><strong>Galaktyczna Baza Wojowników</strong> to miejsce poświęcone profilom graczy.</p>
+        <p>Docelowo każdy wojownik będzie mógł sprawdzić tam swoje statystyki ze wszystkich draftów: liczbę rozegranych edycji, bilans, punkty, najlepsze wyniki, historię decków, rywali, rekordy i osiągnięcia.</p>
+        <p>Ta sekcja jest rozwijana jako osobista baza każdego uczestnika — miejsce, w którym można zobaczyć swoją historię w MSP SnapDraft i porównać ją z innymi graczami.</p>
+
+        <h3>Statystyki, rekordy i karty</h3>
+        <p>Strona będzie rozwijana także o dodatkowe sekcje ze statystykami całej ligi. W planach są między innymi ogólne rekordy, ciekawostki, statystyki kart, historia najczęściej wybieranych kart oraz zestawienia pokazujące, które decki i strategie najlepiej radziły sobie na przestrzeni draftów.</p>
+        <p>Dzięki temu MSP SnapDraft ma być nie tylko narzędziem do organizowania eventów, ale też pełnym archiwum historii społeczności.</p>
+    </section>
+
+    <section class="section final-cta" id="dolacz">
+        <h2>⭐ Dołącz do MSP SnapDraft</h2>
+        <p>W MSP SnapDraft może zagrać każdy — niezależnie od doświadczenia, kolekcji czy poziomu rywalizacji. Staramy się tworzyć format, który jest ciekawy, taktyczny, ale też możliwie przystępny dla nowych graczy.</p>
+        <p>Draft to świetny sposób, żeby oderwać się od codziennej mety Marvel Snap, spróbować nietypowych kart, stworzyć kreatywne decki i zmierzyć się z innymi w bardziej nieprzewidywalnym formacie.</p>
+        <p>To rywalizacja, ale też wspólna zabawa, integracja społeczności i okazja do spojrzenia na Marvel Snap z zupełnie innej strony.</p>
+        <p>Jeśli chcesz dołączyć — obserwuj ogłoszenia na Discordzie i grupie <strong>Marvel Snap Polska</strong>, zapisz się na najbliższy draft i wejdź z nami na arenę.</p>
+        <div class="cta-buttons">
+            <a class="btn gold" href="index.html">Kosmiczne Centrum Draftowe</a>
+            <a class="btn" href="PROGRAM-DRAFT/snap-draft.html">Wejdź na Arenę Draftu</a>
+            <a class="btn" href="draft.html">Kroniki Draftowe</a>
+        </div>
+    </section>
+
+    <div class="footer-note">MSP SnapDraft Event • Marvel Snap Polska • Przewodnik społecznościowy</div>
+</div>
+</body>
+</html>
