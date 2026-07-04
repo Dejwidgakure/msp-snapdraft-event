@@ -5,138 +5,477 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Galaktyczna Baza Wojowników</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
 <script src="database.js"></script>
 
 <style>
-
+:root{
+    --cyan:#00f0ff;
+    --violet:#8a2be2;
+    --purple:#7D3CFF;
+    --gold:#ffd700;
+    --panel:rgba(5,12,38,0.78);
+}
+*{ box-sizing:border-box; }
 body{
     margin:0;
+    min-height:100vh;
     font-family:'Rajdhani', sans-serif;
-    background:url("assets/cosmic-bg.png") no-repeat center center fixed;
-    background-size:cover;
     color:white;
+    background:
+        linear-gradient(rgba(2,4,18,0.64), rgba(2,4,18,0.90)),
+        url("assets/cosmic-bg.png") no-repeat center center fixed,
+        #050816;
+    background-size:cover;
+    overflow-x:hidden;
+    position:relative;
+}
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:url("assets/cosmic_tlo.png") center no-repeat;
+    background-size:82%;
+    opacity:.54;
+    pointer-events:none;
+    z-index:0;
+    animation:floatGalaxy 18s ease-in-out infinite alternate;
+}
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:1;
+    background:
+        radial-gradient(circle at 18% 18%, rgba(0,240,255,.16), transparent 28%),
+        radial-gradient(circle at 84% 18%, rgba(255,0,255,.12), transparent 30%),
+        repeating-linear-gradient(0deg, rgba(120,248,255,.028) 0 1px, transparent 1px 42px),
+        repeating-linear-gradient(90deg, rgba(120,248,255,.020) 0 1px, transparent 1px 42px);
+}
+@keyframes floatGalaxy{
+    from{ transform:translateY(0) scale(1); }
+    to{ transform:translateY(-30px) scale(1.03); }
 }
 
 /* NAV */
 nav{
+    position:relative;
+    z-index:5;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:20px 60px;
-    backdrop-filter:blur(10px);
-    background:rgba(5,10,25,0.75);
+    gap:28px;
+    padding:18px 54px;
+    overflow:hidden;
+    backdrop-filter:blur(14px);
+    background:
+        linear-gradient(90deg, rgba(5,10,25,.88), rgba(8,18,52,.78), rgba(24,8,56,.76));
+    border-bottom:1px solid rgba(120,248,255,.28);
+    box-shadow:0 0 28px rgba(0,240,255,.12), inset 0 0 28px rgba(0,240,255,.035);
 }
-
-nav img{
+nav::before{
+    content:"";
+    position:absolute;
+    inset:-80px -120px;
+    background:url("assets/cosmictool.png") center / 720px auto no-repeat;
+    opacity:.13;
+    filter:blur(1.2px);
+    pointer-events:none;
+    mix-blend-mode:screen;
+}
+.brand{
+    position:relative;
+    z-index:2;
+    display:flex;
+    align-items:center;
+    gap:16px;
+}
+.brand img{
     height:60px;
+    object-fit:contain;
     filter:drop-shadow(0 0 15px #00f0ff);
 }
-
+.brand .event-logo{ height:62px; }
 nav ul{
+    position:relative;
+    z-index:2;
     list-style:none;
     display:flex;
-    gap:40px;
+    flex-wrap:wrap;
+    justify-content:flex-end;
+    gap:16px 22px;
+    margin:0;
+    padding:0;
 }
-
 nav a{
     text-decoration:none;
-    color:white;
-    font-weight:600;
+    color:#eaffff;
+    font-weight:800;
+    letter-spacing:.5px;
+    text-shadow:0 0 10px rgba(0,240,255,.25);
+    transition:.2s ease;
+    white-space:nowrap;
+}
+nav a:hover{
+    color:#8ff7ff;
+    text-shadow:0 0 16px rgba(0,240,255,.75);
+}
+nav a.active{
+    color:#001018;
+    padding:10px 14px;
+    border-radius:999px;
+    background:linear-gradient(90deg,#00f0ff,#b8ffff);
+    box-shadow:0 0 18px rgba(0,240,255,.38);
+    text-shadow:none;
 }
 
-/* HEADER */
-.header{
-    text-align:center;
-    margin-top:60px;
-    font-size:48px;
+.page{
+    position:relative;
+    z-index:2;
+    max-width:1220px;
+    margin:0 auto;
+    padding:64px 22px 70px;
+}
+.hero{
+    position:relative;
+    overflow:hidden;
+    border-radius:30px;
+    padding:48px 38px;
+    margin-bottom:28px;
+    background:
+        linear-gradient(135deg, rgba(4,18,48,.86), rgba(9,22,68,.72) 42%, rgba(32,8,68,.68)),
+        radial-gradient(circle at 15% 25%, rgba(0,240,255,.20), transparent 30%),
+        radial-gradient(circle at 80% 30%, rgba(255,0,255,.13), transparent 28%);
+    border:1px solid rgba(136,250,255,.48);
+    box-shadow:0 0 30px rgba(0,240,255,.22), inset 0 0 70px rgba(0,240,255,.055);
+    backdrop-filter:blur(12px);
+}
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:-35%;
+    background:url("assets/cosmictool.png") center / 900px auto no-repeat;
+    opacity:.10;
+    pointer-events:none;
+    mix-blend-mode:screen;
+}
+.hero-content{ position:relative; z-index:2; }
+.kicker{
     font-family:'Orbitron', sans-serif;
-    text-shadow:
-        0 0 20px #00f0ff,
-        0 0 40px #8a2be2;
+    color:#b57cff;
+    font-weight:900;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    text-shadow:0 0 14px rgba(181,124,255,.65);
+    margin-bottom:10px;
 }
-
-/* GRID */
-.grid{
-    max-width:1100px;
-    margin:50px auto;
+h1{
+    font-family:'Orbitron', sans-serif;
+    margin:0 0 16px;
+    font-size:clamp(34px, 5vw, 62px);
+    line-height:1.08;
+    letter-spacing:2px;
+    background:linear-gradient(90deg,#eaffff,#8ff7ff,#bfa2ff,#ffffff);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    text-shadow:0 0 16px rgba(0,240,255,.42);
+}
+.lead{
+    max-width:850px;
+    margin:0;
+    font-size:22px;
+    line-height:1.5;
+    color:#dffaff;
+}
+.stats-row{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:25px;
-    padding:20px;
+    grid-template-columns:repeat(3, minmax(180px,1fr));
+    gap:16px;
+    margin:22px 0 0;
 }
-
-/* PLAYER CARD */
-.player{
-    padding:25px;
+.stat-box{
+    padding:16px 18px;
     border-radius:18px;
-    background:rgba(255,255,255,0.05);
-    backdrop-filter:blur(10px);
-    text-align:center;
+    background:rgba(0,0,30,.36);
+    border:1px solid rgba(120,248,255,.24);
+    box-shadow:inset 0 0 22px rgba(0,240,255,.045);
+}
+.stat-box b{
+    display:block;
+    font-family:'Orbitron', sans-serif;
+    color:#ffeaa6;
+    font-size:13px;
+    letter-spacing:1px;
+    margin-bottom:4px;
+}
+.stat-box span{
+    font-size:28px;
+    font-weight:900;
+    color:#eaffff;
+}
+
+.toolbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:18px;
+    flex-wrap:wrap;
+    margin:28px 0 8px;
+}
+.search{
+    flex:1;
+    min-width:260px;
+    position:relative;
+}
+.search input{
+    width:100%;
+    padding:16px 18px;
+    border-radius:18px;
+    border:1px solid rgba(120,248,255,.38);
+    background:rgba(5,12,38,.72);
+    color:#eaffff;
+    font-family:'Rajdhani', sans-serif;
+    font-size:20px;
+    font-weight:700;
+    outline:none;
+    box-shadow:0 0 18px rgba(0,240,255,.10), inset 0 0 24px rgba(0,240,255,.04);
+}
+.search input::placeholder{ color:rgba(234,255,255,.55); }
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    margin-top:22px;
+}
+.player{
+    position:relative;
+    min-height:150px;
+    padding:22px;
+    border-radius:22px;
+    background:
+        linear-gradient(135deg, rgba(5,16,44,.88), rgba(20,12,58,.78)),
+        rgba(6,12,32,.80);
+    border:1px solid rgba(120,248,255,.34);
+    box-shadow:0 0 20px rgba(0,240,255,.14), inset 0 0 32px rgba(0,240,255,.04);
     cursor:pointer;
-    transition:0.3s;
-    box-shadow:0 0 20px rgba(0,240,255,0.2);
-    font-size:18px;
-    font-weight:600;
+    overflow:hidden;
+    transition:.25s ease;
 }
-
+.player::before{
+    content:"";
+    position:absolute;
+    inset:-70px;
+    background:url("assets/cosmictool.png") center / 350px auto no-repeat;
+    opacity:.18;
+    filter:blur(.5px);
+    mix-blend-mode:screen;
+    transition:.25s ease;
+}
 .player:hover{
-    transform:scale(1.05);
-    box-shadow:0 0 40px #00f0ff;
+    transform:translateY(-6px) scale(1.025);
+    border-color:rgba(255,255,255,.68);
+    box-shadow:0 0 30px rgba(0,240,255,.34), 0 0 50px rgba(125,60,255,.18);
+}
+.player:hover::before{
+    opacity:.30;
+    transform:rotate(4deg) scale(1.06);
+}
+.player-inner{
+    position:relative;
+    z-index:2;
+}
+.player-name{
+    font-family:'Orbitron', sans-serif;
+    font-size:20px;
+    line-height:1.2;
+    color:#eaffff;
+    text-shadow:0 0 12px rgba(0,240,255,.45);
+    margin-bottom:14px;
+}
+.player-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+.pill{
+    padding:6px 9px;
+    border-radius:999px;
+    background:rgba(0,240,255,.10);
+    border:1px solid rgba(120,248,255,.22);
+    font-size:14px;
+    font-weight:800;
+    color:#dffaff;
+}
+.empty{
+    display:none;
+    text-align:center;
+    padding:34px;
+    border-radius:24px;
+    background:rgba(5,12,38,.76);
+    border:1px solid rgba(120,248,255,.26);
+    font-size:22px;
+    color:#dffaff;
+    margin-top:22px;
+}
+.footer-note{
+    text-align:center;
+    opacity:.72;
+    margin-top:34px;
+    font-size:16px;
 }
 
+@media(max-width:900px){
+    nav{ flex-direction:column; padding:20px; }
+    nav ul{ justify-content:center; }
+    .stats-row{ grid-template-columns:1fr; }
+}
+@media(max-width:560px){
+    .brand img,.brand .event-logo{ height:48px; }
+    nav ul{ flex-direction:column; gap:12px; }
+    .page{ padding:44px 12px 54px; }
+    .hero{ padding:34px 22px; }
+    .lead{ font-size:19px; }
+}
 </style>
 </head>
 
 <body>
 
 <nav>
-    <img src="assets/msp-logo.png">
+    <div class="brand">
+        <img src="assets/msp-logo.png" alt="Marvel Snap Polska">
+        <img src="assets/draft-logo.png" alt="MSP Draft Event" class="event-logo">
+    </div>
     <ul>
-        <li><a href="index.html">Strona Główna</a></li>
-        <li><a href="draft.html">Drafty</a></li>
+        <li><a href="index.html">Centrum</a></li>
+        <li><a href="przewodnik.html">Przewodnik</a></li>
+        <li><a href="draft.html">Kroniki</a></li>
         <li><a href="hallOfFame.html">Sala Chwały</a></li>
+        <li><a class="active" href="player-lobby.html">Baza Wojowników</a></li>
+        <li><a href="PROGRAM-DRAFT/snap-draft.html">Arena Draftu</a></li>
     </ul>
 </nav>
 
-<div class="header">
-    Galaktyczna Baza Wojowników
+<div class="page">
+    <header class="hero">
+        <div class="hero-content">
+            <div class="kicker">Profile graczy MSP SnapDraft</div>
+            <h1>Galaktyczna Baza Wojowników</h1>
+            <p class="lead">
+                Wybierz wojownika i sprawdź jego kronikę: statystyki, drafty, decki, rywali, rekordy i osiągnięcia z historii MSP SnapDraft.
+            </p>
+
+            <div class="stats-row">
+                <div class="stat-box"><b>Wojownicy</b><span id="statPlayers">0</span></div>
+                <div class="stat-box"><b>Drafty w bazie</b><span id="statDrafts">0</span></div>
+                <div class="stat-box"><b>Rozegrane mecze</b><span id="statMatches">0</span></div>
+            </div>
+        </div>
+    </header>
+
+    <div class="toolbar">
+        <div class="search">
+            <input id="playerSearch" type="text" placeholder="🔎 Szukaj wojownika...">
+        </div>
+    </div>
+
+    <div class="grid" id="playersGrid"></div>
+    <div class="empty" id="emptyState">Nie znaleziono takiego wojownika w bazie.</div>
+
+    <div class="footer-note">Marvel Snap Polska • MSP SnapDraft Event • Galaktyczna Baza Wojowników</div>
 </div>
 
-<div class="grid" id="playersGrid"></div>
-
 <script>
-
-// 🔥 BEZPIECZEŃSTWO
 if(typeof database === "undefined"){
-    document.body.innerHTML = "<h1 style='color:white;text-align:center'>BŁĄD: database.js się nie załadowało</h1>";
+    document.body.innerHTML = "<h1 style='color:white;text-align:center;margin-top:80px'>BŁĄD: database.js się nie załadowało</h1>";
 }
 
-// 🔥 ZBIERANIE GRACZY
-let playersSet = new Set();
+const playerMap = new Map();
+let totalMatches = 0;
 
 database.drafts.forEach(d=>{
+    if(Array.isArray(d.matches)) totalMatches += d.matches.length;
+
     d.players.forEach(p=>{
-        playersSet.add(p.name);
+        if(!playerMap.has(p.name)){
+            playerMap.set(p.name, {
+                name:p.name,
+                drafts:0,
+                cards:0,
+                wins:0,
+                losses:0,
+                points:0
+            });
+        }
+
+        const data = playerMap.get(p.name);
+        data.drafts++;
+        data.cards += Array.isArray(p.deck) ? p.deck.length : 0;
+
+        if(Array.isArray(d.matches)){
+            d.matches.forEach(m=>{
+                if(m.p1 === p.name || m.p2 === p.name){
+                    const isP1 = m.p1 === p.name;
+                    const myPts = isP1 ? Number(m.pts1||0) : Number(m.pts2||0);
+                    const oppPts = isP1 ? Number(m.pts2||0) : Number(m.pts1||0);
+                    data.points += myPts;
+                    if(myPts > oppPts) data.wins++;
+                    else if(myPts < oppPts) data.losses++;
+                }
+            });
+        }
     });
 });
 
-const players = Array.from(playersSet);
+const players = Array.from(playerMap.values()).sort((a,b)=>a.name.localeCompare(b.name, "pl"));
 
-// 🔥 RENDER
+document.getElementById("statPlayers").innerText = players.length;
+document.getElementById("statDrafts").innerText = database.drafts.length;
+document.getElementById("statMatches").innerText = totalMatches;
+
 const grid = document.getElementById("playersGrid");
+const emptyState = document.getElementById("emptyState");
+const search = document.getElementById("playerSearch");
 
-players.forEach(name=>{
-    const div = document.createElement("div");
-    div.className = "player";
-    div.innerText = name;
+function renderPlayers(filter=""){
+    const phrase = filter.trim().toLowerCase();
+    grid.innerHTML = "";
 
-    div.onclick = () => {
-        window.location.href = `player.html?name=${name}`;
-    };
+    const visible = players.filter(p=>p.name.toLowerCase().includes(phrase));
 
-    grid.appendChild(div);
-});
+    visible.forEach(p=>{
+        const games = p.wins + p.losses;
+        const winrate = games ? Math.round((p.wins / games) * 100) : 0;
 
+        const div = document.createElement("div");
+        div.className = "player";
+        div.innerHTML = `
+            <div class="player-inner">
+                <div class="player-name">${p.name}</div>
+                <div class="player-meta">
+                    <span class="pill">Drafty: ${p.drafts}</span>
+                    <span class="pill">Bilans: ${p.wins}W-${p.losses}L</span>
+                    <span class="pill">WR: ${winrate}%</span>
+                    <span class="pill">Pkt: ${p.points}</span>
+                </div>
+            </div>
+        `;
+
+        div.onclick = () => {
+            window.location.href = `player.html?name=${encodeURIComponent(p.name)}`;
+        };
+
+        grid.appendChild(div);
+    });
+
+    emptyState.style.display = visible.length ? "none" : "block";
+}
+
+search.addEventListener("input", e=>renderPlayers(e.target.value));
+renderPlayers();
 </script>
 
 </body>
