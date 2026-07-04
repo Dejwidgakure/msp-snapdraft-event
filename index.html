@@ -3,145 +3,515 @@
 <head>
 <meta charset="UTF-8">
 <title>MSP SnapDraft Event</title>
-
-    <style>
-
-        body {
-  position: relative;
-}
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: url("assets/cosmic_tlo.png") center no-repeat;
-  background-size: 80%;
-  z-index: 1;
-  animation: floatGalaxy 18s ease-in-out infinite alternate;
-  pointer-events: none;
-  opacity: 0.73;
-}
-
-@keyframes floatGalaxy {
-  0% { transform: translateY(0px); }
-  100% { transform: translateY(-30px); }
-}
-
-/* GUI nad grafiką */
-nav,
-.hero {
-  position: relative;
-  z-index: 2;
-}
-
-</style>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
+:root{
+    --cyan:#00f0ff;
+    --violet:#8a2be2;
+    --purple:#7D3CFF;
+    --magenta:#ff00ff;
+    --gold:#ffd700;
+    --dark:#050816;
+}
+
+*{
+    box-sizing:border-box;
+}
+
 body{
     margin:0;
     font-family:'Rajdhani', sans-serif;
-    background:url("assets/cosmic-bg.png") no-repeat center center fixed;
+    background:
+        linear-gradient(rgba(2,4,18,0.62), rgba(2,4,18,0.86)),
+        url("assets/cosmic-bg.png") no-repeat center center fixed,
+        #050816;
     background-size:cover;
     color:white;
     overflow-x:hidden;
+    min-height:100vh;
+    position:relative;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:url("assets/cosmic_tlo.png") center no-repeat;
+    background-size:80%;
+    z-index:0;
+    animation:floatGalaxy 18s ease-in-out infinite alternate;
+    pointer-events:none;
+    opacity:0.64;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:1;
+    pointer-events:none;
+    background:
+        radial-gradient(circle at 15% 18%, rgba(0,240,255,0.18), transparent 28%),
+        radial-gradient(circle at 86% 18%, rgba(255,0,255,0.13), transparent 30%),
+        radial-gradient(circle at 50% 88%, rgba(125,60,255,0.15), transparent 34%),
+        repeating-linear-gradient(0deg, rgba(120,248,255,0.03) 0 1px, transparent 1px 42px),
+        repeating-linear-gradient(90deg, rgba(120,248,255,0.022) 0 1px, transparent 1px 42px);
+}
+
+@keyframes floatGalaxy{
+    0%{ transform:translateY(0px) scale(1); }
+    100%{ transform:translateY(-30px) scale(1.03); }
 }
 
 /* NAV */
 nav{
+    position:relative;
+    z-index:5;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:20px 60px;
-    backdrop-filter:blur(10px);
-    background:rgba(5,10,25,0.75);
+    gap:28px;
+    padding:18px 54px;
+    overflow:hidden;
+    backdrop-filter:blur(14px);
+    background:
+        linear-gradient(90deg, rgba(5,10,25,0.86), rgba(8,18,52,0.76), rgba(24,8,56,0.76)),
+        rgba(5,10,25,0.75);
+    border-bottom:1px solid rgba(120,248,255,0.28);
+    box-shadow:
+        0 0 28px rgba(0,240,255,0.12),
+        inset 0 0 28px rgba(0,240,255,0.035);
 }
 
-nav img{
-    height:60px;
+nav::before{
+    content:"";
+    position:absolute;
+    inset:-80px -120px;
+    background:url("assets/cosmictool.png") center / 720px auto no-repeat;
+    opacity:0.13;
+    filter:blur(1.2px);
+    pointer-events:none;
+    mix-blend-mode:screen;
+}
+
+nav::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent) -40% 0 / 35% 100% no-repeat;
+    animation:navShine 7s ease-in-out infinite;
+    pointer-events:none;
+}
+
+@keyframes navShine{
+    0%,60%{ background-position:-40% 0; }
+    100%{ background-position:140% 0; }
+}
+
+.brand{
+    position:relative;
+    z-index:2;
+    display:flex;
+    align-items:center;
+    gap:16px;
+    flex-shrink:0;
+}
+
+.brand img{
+    height:62px;
+    object-fit:contain;
     filter:drop-shadow(0 0 15px #00f0ff);
 }
 
+.brand img.event-logo{
+    height:64px;
+    filter:
+        drop-shadow(0 0 15px #00f0ff)
+        drop-shadow(0 0 22px rgba(125,60,255,0.45));
+}
+
 nav ul{
+    position:relative;
+    z-index:2;
     list-style:none;
     display:flex;
-    gap:40px;
+    align-items:center;
+    justify-content:flex-end;
+    flex-wrap:wrap;
+    gap:16px 22px;
+    margin:0;
+    padding:0;
 }
 
 nav a{
     text-decoration:none;
-    color:white;
-    font-weight:600;
+    color:#eaffff;
+    font-weight:800;
+    letter-spacing:.5px;
+    text-shadow:0 0 10px rgba(0,240,255,0.25);
+    transition:.2s ease;
+    white-space:nowrap;
+}
+
+nav a:hover{
+    color:#8ff7ff;
+    text-shadow:0 0 16px rgba(0,240,255,0.75);
+}
+
+nav a.arena-link{
+    color:#001018;
+    padding:10px 14px;
+    border-radius:999px;
+    background:linear-gradient(90deg,#00f0ff,#b8ffff);
+    box-shadow:0 0 18px rgba(0,240,255,0.38);
+    text-shadow:none;
+}
+
+nav a.arena-link:hover{
+    color:#001018;
+    transform:translateY(-1px);
+    box-shadow:0 0 28px rgba(0,240,255,0.7);
 }
 
 /* HERO */
 .hero{
     position:relative;
+    z-index:2;
     text-align:center;
-    padding:100px 20px 80px 20px;
+    padding:84px 24px 80px;
+    max-width:1280px;
+    margin:0 auto;
 }
 
-/* Cosmic overlay graphic */
 .hero-bg{
     position:absolute;
-    top:50%;
+    top:46%;
     left:50%;
     transform:translate(-50%,-50%);
-    width:90%;
-    max-width:1400px;
-    opacity:0.35;
+    width:94%;
+    max-width:1500px;
+    opacity:0.29;
     pointer-events:none;
     z-index:0;
+    filter:drop-shadow(0 0 40px rgba(0,240,255,0.25));
 }
 
-/* Logo */
 .hero-logo{
     position:relative;
     z-index:2;
-    height:260px;
-    filter:drop-shadow(0 0 60px #00f0ff);
-    margin-bottom:40px;
+    height:245px;
+    filter:
+        drop-shadow(0 0 42px #00f0ff)
+        drop-shadow(0 0 80px rgba(125,60,255,0.42));
+    margin-bottom:38px;
 }
 
-/* Big Title */
 .hero-title{
     position:relative;
     z-index:2;
     font-family:'Orbitron', sans-serif;
-    font-size:64px;
+    font-size:clamp(36px, 6vw, 72px);
+    line-height:1.12;
     text-align:center;
+    text-transform:uppercase;
+    letter-spacing:2px;
     text-shadow:
         0 0 20px #00f0ff,
         0 0 40px #8a2be2,
         0 0 80px #00f0ff;
-    margin-bottom:60px;
+    margin:0 auto 18px;
+    max-width:1100px;
 }
 
-/* Buttons */
+.hero-subtitle{
+    position:relative;
+    z-index:2;
+    max-width:850px;
+    margin:0 auto 42px;
+    font-size:24px;
+    line-height:1.5;
+    color:#dffaff;
+    text-shadow:0 0 12px rgba(0,240,255,0.18);
+}
+
+/* Portal Cards */
 .buttons{
     position:relative;
     z-index:2;
-    display:flex;
-    justify-content:center;
-    gap:40px;
-    flex-wrap:wrap;
+    display:grid;
+    grid-template-columns:repeat(5, minmax(170px, 1fr));
+    gap:18px;
+    max-width:1180px;
+    margin:0 auto 34px;
 }
 
 .buttons a{
-    padding:18px 40px;
-    border-radius:15px;
-    font-weight:bold;
+    position:relative;
+    min-height:128px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
+    padding:18px 16px;
+    border-radius:22px;
+    font-weight:900;
     text-decoration:none;
-    background:linear-gradient(45deg,#00f0ff,#8a2be2);
-    color:black;
-    box-shadow:0 0 25px #00f0ff;
-    transition:0.3s;
+    color:#eaffff;
+    overflow:hidden;
+    isolation:isolate;
+    background:
+        linear-gradient(135deg, rgba(5,16,44,0.88), rgba(20,12,58,0.78)),
+        rgba(6,12,32,0.80);
+    border:1px solid rgba(120,248,255,0.42);
+    box-shadow:
+        0 0 20px rgba(0,240,255,0.17),
+        inset 0 0 32px rgba(0,240,255,0.045);
+    backdrop-filter:blur(10px);
+    transition:.25s ease;
+}
+
+.buttons a::before{
+    content:"";
+    position:absolute;
+    inset:-65px;
+    z-index:-2;
+    background:url("assets/cosmictool.png") center / 360px auto no-repeat;
+    opacity:0.22;
+    filter:blur(.5px);
+    mix-blend-mode:screen;
+    transform:rotate(-6deg) scale(1);
+    transition:.28s ease;
+}
+
+.buttons a::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:-1;
+    background:
+        radial-gradient(circle at 50% 20%, rgba(0,240,255,0.22), transparent 34%),
+        linear-gradient(120deg, transparent, rgba(255,255,255,0.10), transparent) -80% 0 / 50% 100% no-repeat;
+    transition:.28s ease;
 }
 
 .buttons a:hover{
-    transform:scale(1.05);
-    box-shadow:0 0 50px #8a2be2;
+    transform:translateY(-6px) scale(1.025);
+    border-color:rgba(255,255,255,0.72);
+    box-shadow:
+        0 0 28px rgba(0,240,255,0.38),
+        0 0 48px rgba(125,60,255,0.22),
+        inset 0 0 42px rgba(0,240,255,0.08);
+}
+
+.buttons a:hover::before{
+    opacity:0.34;
+    transform:rotate(2deg) scale(1.08);
+}
+
+.buttons a:hover::after{
+    background-position:160% 0;
+}
+
+.card-icon{
+    font-size:30px;
+    line-height:1;
+    filter:drop-shadow(0 0 10px rgba(0,240,255,0.55));
+}
+
+.card-title{
+    font-family:'Orbitron', sans-serif;
+    font-size:16px;
+    letter-spacing:.8px;
+    line-height:1.25;
+    text-shadow:0 0 10px rgba(0,240,255,0.45);
+}
+
+.card-desc{
+    font-size:15px;
+    line-height:1.25;
+    opacity:.82;
+    font-weight:700;
+}
+
+.buttons a.guide-card{
+    border-color:rgba(181,124,255,0.58);
+    box-shadow:
+        0 0 22px rgba(181,124,255,0.25),
+        inset 0 0 32px rgba(181,124,255,0.05);
+}
+
+.buttons a.arena-card{
+    border-color:rgba(255,215,0,0.52);
+    box-shadow:
+        0 0 22px rgba(255,215,0,0.20),
+        inset 0 0 32px rgba(255,215,0,0.045);
+}
+
+.info-panel{
+    position:relative;
+    z-index:2;
+    max-width:980px;
+    margin:0 auto 20px;
+    padding:26px 30px;
+    border-radius:26px;
+    background:
+        linear-gradient(135deg, rgba(5,12,38,0.78), rgba(9,21,55,0.64)),
+        radial-gradient(circle at 20% 0%, rgba(0,240,255,0.10), transparent 34%),
+        radial-gradient(circle at 90% 30%, rgba(255,0,255,0.08), transparent 34%);
+    border:1px solid rgba(120,248,255,0.30);
+    box-shadow:
+        0 0 22px rgba(0,240,255,0.12),
+        inset 0 0 45px rgba(0,240,255,0.035);
+    backdrop-filter:blur(12px);
+}
+
+.info-panel h2{
+    margin:0 0 10px;
+    font-family:'Orbitron', sans-serif;
+    color:#eaffff;
+    font-size:28px;
+    text-shadow:0 0 14px rgba(0,240,255,0.48);
+}
+
+.info-panel p{
+    margin:0;
+    font-size:21px;
+    line-height:1.5;
+    color:#e6fbff;
+}
+
+.video-link{
+    position:relative;
+    z-index:2;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    margin-top:18px;
+    padding:14px 22px;
+    border-radius:16px;
+    font-family:'Orbitron', sans-serif;
+    font-weight:900;
+    letter-spacing:.8px;
+    text-decoration:none;
+    color:#001018;
+    background:linear-gradient(90deg,#b57cff,#00f0ff);
+    box-shadow:
+        0 0 22px rgba(181,124,255,0.36),
+        0 0 28px rgba(0,240,255,0.25);
+    transition:.22s ease;
+}
+
+.video-link:hover{
+    transform:translateY(-3px) scale(1.02);
+    filter:brightness(1.08);
+}
+
+.footer-note{
+    position:relative;
+    z-index:2;
+    margin-top:28px;
+    color:rgba(234,255,255,0.72);
+    font-size:16px;
+    letter-spacing:.5px;
+}
+
+@media(max-width:1120px){
+    .buttons{
+        grid-template-columns:repeat(3, minmax(190px, 1fr));
+    }
+}
+
+@media(max-width:900px){
+    nav{
+        flex-direction:column;
+        align-items:center;
+        padding:20px;
+    }
+
+    nav ul{
+        justify-content:center;
+        gap:18px;
+    }
+
+    .brand img,
+    .brand img.event-logo{
+        height:58px;
+    }
+
+    .hero{
+        padding:64px 18px 64px;
+    }
+
+    .hero-logo{
+        height:190px;
+    }
+
+    .hero-subtitle{
+        font-size:21px;
+    }
+
+    .buttons{
+        grid-template-columns:repeat(2, minmax(170px, 1fr));
+    }
+}
+
+@media(max-width:560px){
+    nav ul{
+        flex-direction:column;
+        gap:12px;
+    }
+
+    .brand{
+        gap:12px;
+    }
+
+    .brand img,
+    .brand img.event-logo{
+        height:48px;
+    }
+
+    .hero{
+        padding:48px 12px 54px;
+    }
+
+    .hero-logo{
+        height:145px;
+        margin-bottom:28px;
+    }
+
+    .hero-title{
+        font-size:32px;
+    }
+
+    .hero-subtitle{
+        font-size:18px;
+        margin-bottom:28px;
+    }
+
+    .buttons{
+        grid-template-columns:1fr;
+        gap:16px;
+    }
+
+    .buttons a{
+        min-height:112px;
+    }
+
+    .info-panel{
+        padding:22px 18px;
+    }
+
+    .info-panel h2{
+        font-size:23px;
+    }
+
+    .info-panel p{
+        font-size:18px;
+    }
 }
 </style>
 </head>
@@ -149,38 +519,389 @@ nav a{
 <body>
 
 <nav>
-    <img src="assets/msp-logo.png">
+    <div class="brand">
+        <img src="assets/msp-logo.png" alt="Marvel Snap Polska">
+        <img src="assets/draft-logo.png" alt="MSP Draft Event" class="event-logo">
+    </div>
+
     <ul>
-        <li><a href="draft.html">Kroniki Draftowe</a></li>
-        <li><a href="hallOfFame.html">Kosmiczna Sala Chwały</a></li>
-        <li><a href="player-lobby.html">Galaktyczna Baza Wojowników</a></li>
+        <li><a href="przewodnik.html">Przewodnik</a></li>
+        <li><a href="draft.html">Kroniki</a></li>
+        <li><a href="hallOfFame.html">Sala Chwały</a></li>
+        <li><a href="player-lobby.html">Baza Wojowników</a></li>
+        <li><a href="PROGRAM-DRAFT/snap-draft.html" class="arena-link">Arena Draftu</a></li>
     </ul>
 </nav>
 
-<div class="hero">
+<main class="hero">
 
-    <!-- Półprzezroczysta grafika -->
-    <img src="assets/hero-draft.png" class="hero-bg">
+    <img src="assets/hero-draft.png" class="hero-bg" alt="">
 
-    <!-- Duże logo eventu -->
-    <img src="assets/draft-logo.png" class="hero-logo">
+    <img src="assets/draft-logo.png" class="hero-logo" alt="MSP SnapDraft Event">
 
-    <!-- Wielki napis -->
-    <div class="hero-title">
-        Oficjalna Strona Eventów Draftowych MSP
-    </div>
+    <h1 class="hero-title">
+        OFICJALNA STRONA LIGI DRAFTOWEJ MSP
+    </h1>
+
+    <p class="hero-subtitle">
+        Kosmiczne Centrum Draftowe Marvel Snap Polska — przewodniki, kroniki eventów, rankingi, profile wojowników
+        i wejście na arenę draftowania.
+    </p>
 
     <div class="buttons">
-        <a href="draft.html">Zobacz aktualny draft</a>
-        <a href="draft.html">Kroniki Draftowe</a>
-        <a href="hallOfFame.html">Kosmiczna Sala Chwały</a>
-        <a href="player-lobby.html">Galaktyczna Baza Wojowników</a>
-        <a href="PROGRAM-DRAFT/snap-draft.html">
-🚀 WEJDŹ NA ARENĘ DRAFTU
-</a>
+        <a href="przewodnik.html" class="guide-card">
+            <span class="card-icon">📘</span>
+            <span class="card-title">Draftowy Przewodnik</span>
+            <span class="card-desc">Zasady, film i start dla nowych</span>
+        </a>
+
+        <a href="draft.html">
+            <span class="card-icon">📜</span>
+            <span class="card-title">Kroniki Draftowe</span>
+            <span class="card-desc">Aktualne i archiwalne edycje</span>
+        </a>
+
+        <a href="hallOfFame.html">
+            <span class="card-icon">🏆</span>
+            <span class="card-title">Kosmiczna Sala Chwały</span>
+            <span class="card-desc">Ranking Legend i historia topki</span>
+        </a>
+
+        <a href="player-lobby.html">
+            <span class="card-icon">👥</span>
+            <span class="card-title">Galaktyczna Baza Wojowników</span>
+            <span class="card-desc">Profile graczy i statystyki</span>
+        </a>
+
+        <a href="PROGRAM-DRAFT/snap-draft.html" class="arena-card">
+            <span class="card-icon">🚀</span>
+            <span class="card-title">Arena Draftu</span>
+            <span class="card-desc">Wejdź do programu draftowego</span>
+        </a>
     </div>
 
-</div>
+    <section class="info-panel">
+        <h2>🌌 Czym są drafty MSP?</h2>
+        <p>
+            MSP SnapDraft to społecznościowa liga draftowa Marvel Snap Polska. Gracze spotykają się na Discordzie,
+            wspólnie draftują decki w specjalnym programie, a potem przez około dwa tygodnie rozgrywają mecze,
+            zgłaszają wyniki i budują historię kolejnych eventów.
+        </p>
+        <a class="video-link" href="przewodnik.html#film">🎥 Zobacz filmowy przewodnik</a>
+    </section>
+
+    <div class="footer-note">
+        Marvel Snap Polska • MSP SnapDraft Event • Kosmiczne Centrum Draftowe
+    </div>
+
+</main>
+
+
+<script>
+// =============================
+// JEFF ENGINE 5.0 – INDEX PATCH
+// Latający Jeff na stronie głównej
+// =============================
+document.addEventListener("DOMContentLoaded", () => {
+    const JEFF_SIZE = 130;
+    const BASE_SPEED = 2.4;
+    const MAX_SPEED = 3;
+    const TRAIL_INTERVAL = 60;
+
+    // Pliki są w folderze programu draftowego, więc ścieżki muszą iść z poziomu index.html:
+    const JEFF_PATH = "PROGRAM-DRAFT/";
+
+    const jeffImages = [
+        JEFF_PATH + "jeff_love.png",
+        JEFF_PATH + "jeff_normal.png",
+        JEFF_PATH + "jeff_shocked.png",
+        JEFF_PATH + "jeff_angry.png",
+        JEFF_PATH + "jeff_thinking.png",
+        JEFF_PATH + "jeff_sleepy.png"
+    ];
+
+    const jeffLayer = document.createElement("div");
+    jeffLayer.id = "jeffLayer";
+    document.body.appendChild(jeffLayer);
+
+    const style = document.createElement("style");
+    style.innerHTML = `
+        #jeffLayer {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 99999;
+            overflow: hidden;
+        }
+
+        .jeff {
+            position: absolute;
+            width: ${JEFF_SIZE}px;
+            will-change: transform;
+            filter:
+                drop-shadow(0 0 12px rgba(0,240,255,0.65))
+                drop-shadow(0 0 22px rgba(181,124,255,0.35));
+        }
+
+        .jeffTrail, .jeffBurst {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .jeffZ {
+            position: absolute;
+            color: #9fd3ff;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 14px;
+            pointer-events: none;
+            opacity: 0.8;
+            text-shadow: 0 0 10px #9fd3ff;
+        }
+    `;
+    document.head.appendChild(style);
+
+    const jeff = document.createElement("img");
+    jeff.className = "jeff";
+    jeff.src = jeffImages[1];
+    jeff.alt = "";
+    jeffLayer.appendChild(jeff);
+
+    let x = Math.min(300, window.innerWidth - JEFF_SIZE - 10);
+    let y = Math.min(200, window.innerHeight - JEFF_SIZE - 10);
+    let vx = BASE_SPEED;
+    let vy = BASE_SPEED * 0.9;
+    let rotation = 0;
+
+    let lastFaceIndex = 1;
+    let lastTrailTime = 0;
+    let lastUserAction = Date.now();
+
+    window.setJeffState = function(state){
+        const states = {
+            love: 0,
+            normal: 1,
+            shocked: 2,
+            angry: 3,
+            thinking: 4,
+            sleepy: 5
+        };
+
+        if(states[state] !== undefined){
+            setFace(states[state]);
+            lastUserAction = Date.now();
+        }
+    };
+
+    function setFace(index){
+        if(index === lastFaceIndex) return;
+        lastFaceIndex = index;
+        jeff.src = jeffImages[index];
+    }
+
+    function randomBounceFace(){
+        let newIndex;
+        do {
+            newIndex = Math.floor(Math.random() * jeffImages.length);
+        } while (newIndex === lastFaceIndex);
+        setFace(newIndex);
+    }
+
+    function resetIdle(){
+        lastUserAction = Date.now();
+    }
+
+    ["click","keydown","touchstart"].forEach(e=>{
+        document.addEventListener(e, resetIdle);
+    });
+
+    function checkIdle(){
+        const idleTime = Date.now() - lastUserAction;
+
+        if(idleTime > 50000){
+            if(lastFaceIndex !== 5) setFace(5);
+            return;
+        }
+
+        if(idleTime > 10000){
+            if(lastFaceIndex !== 4) setFace(4);
+        }
+    }
+
+    function currentTrailColors() {
+        if (lastFaceIndex === 3) return ["#ff3b3b", "#ff6b6b", "#ff0000"];
+        return ["white", "#9fd3ff", "#caa6ff", "#fff3a1"];
+    }
+
+    function spawnTrail(timestamp){
+        if(timestamp - lastTrailTime < TRAIL_INTERVAL) return;
+        lastTrailTime = timestamp;
+
+        const colors = currentTrailColors();
+
+        for(let i=0;i<2;i++){
+            const star = document.createElement("div");
+            star.className = "jeffTrail";
+
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            const size = Math.random() * 3 + 2;
+
+            star.style.width = size+"px";
+            star.style.height = size+"px";
+            star.style.background = color;
+            star.style.boxShadow = `
+                0 0 ${size*6}px ${color},
+                0 0 ${size*12}px ${color}
+            `;
+
+            star.style.left = (x + JEFF_SIZE*0.4 + (Math.random()*20-10))+"px";
+            star.style.top = (y + JEFF_SIZE*0.7 + (Math.random()*20-10))+"px";
+
+            jeffLayer.appendChild(star);
+
+            star.animate(
+                [
+                    {opacity:1, transform:"scale(1)"},
+                    {opacity:0, transform:"scale(0.3)"}
+                ],
+                {duration:600, easing:"ease-out"}
+            );
+
+            setTimeout(()=>star.remove(),600);
+        }
+    }
+
+    function spawnBurst(){
+        const colors = currentTrailColors();
+
+        for(let i=0;i<12;i++){
+            const particle = document.createElement("div");
+            particle.className = "jeffBurst";
+
+            const color = colors[Math.floor(Math.random()*colors.length)];
+            const size = Math.random()*6+4;
+
+            particle.style.width=size+"px";
+            particle.style.height=size+"px";
+            particle.style.background=color;
+            particle.style.boxShadow = `
+                0 0 ${size*8}px ${color},
+                0 0 ${size*14}px ${color}
+            `;
+
+            const centerX = x + JEFF_SIZE/2;
+            const centerY = y + JEFF_SIZE/2;
+
+            particle.style.left=centerX+"px";
+            particle.style.top=centerY+"px";
+
+            const angle = Math.random()*Math.PI*2;
+            const distance = Math.random()*80+40;
+            const dx = Math.cos(angle)*distance;
+            const dy = Math.sin(angle)*distance;
+
+            jeffLayer.appendChild(particle);
+
+            particle.animate(
+                [
+                    {transform:"translate(0,0)", opacity:1},
+                    {transform:`translate(${dx}px,${dy}px)`, opacity:0}
+                ],
+                {duration:700, easing:"ease-out"}
+            );
+
+            setTimeout(()=>particle.remove(),700);
+        }
+    }
+
+    function spawnZ(){
+        const z = document.createElement("div");
+        z.className = "jeffZ";
+        z.innerText = "Z";
+
+        z.style.left = (x + JEFF_SIZE*0.6)+"px";
+        z.style.top = (y + 10)+"px";
+
+        jeffLayer.appendChild(z);
+
+        z.animate(
+            [
+                {transform:"translateY(0)", opacity:0},
+                {transform:"translateY(-40px)", opacity:1},
+                {transform:"translateY(-80px)", opacity:0}
+            ],
+            {duration:2000, easing:"ease-out"}
+        );
+
+        setTimeout(()=>z.remove(),2000);
+    }
+
+    function clampSpeed(){
+        vx = Math.max(-MAX_SPEED, Math.min(MAX_SPEED, vx));
+        vy = Math.max(-MAX_SPEED, Math.min(MAX_SPEED, vy));
+    }
+
+    function bounce(){
+        const w = window.innerWidth;
+        const h = window.innerHeight;
+        let bounced = false;
+
+        if(x <= 0){
+            x = 0;
+            vx *= -1;
+            bounced = true;
+        } else if(x + JEFF_SIZE >= w){
+            x = w - JEFF_SIZE;
+            vx *= -1;
+            bounced = true;
+        }
+
+        if(y <= 0){
+            y = 0;
+            vy *= -1;
+            bounced = true;
+        } else if(y + JEFF_SIZE >= h){
+            y = h - JEFF_SIZE;
+            vy *= -1;
+            bounced = true;
+        }
+
+        if(bounced){
+            randomBounceFace();
+            spawnBurst();
+
+            vx += (Math.random()-0.5)*0.2;
+            vy += (Math.random()-0.5)*0.2;
+
+            clampSpeed();
+            rotation += (Math.random()-0.5)*20;
+        }
+    }
+
+    function animate(timestamp){
+        x += vx;
+        y += vy;
+        rotation += 0.3;
+
+        bounce();
+        checkIdle();
+
+        if(lastFaceIndex === 5 && Math.random() < 0.03){
+            spawnZ();
+        }
+
+        jeff.style.transform = `
+            translate(${x}px, ${y}px)
+            rotate(${rotation}deg)
+        `;
+
+        spawnTrail(timestamp);
+        requestAnimationFrame(animate);
+    }
+
+    requestAnimationFrame(animate);
+});
+</script>
 
 </body>
 </html>
