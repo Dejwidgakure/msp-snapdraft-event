@@ -2,1862 +2,1663 @@
 <html lang="pl">
 <head>
 <meta charset="UTF-8">
-<title>MSP SnapDraft</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<title>MSP SnapDraft – Kroniki Draftowe</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
-
 <style>
+:root{
+  --bg:#050816;
+  --panel:rgba(8,14,40,0.74);
+  --panel-strong:rgba(9,16,48,0.88);
+  --line:rgba(120,220,255,0.24);
+  --cyan:#00f0ff;
+  --aqua:#6fe9ff;
+  --violet:#8a2be2;
+  --pink:#ff4fd8;
+  --text:#f7fbff;
+  --muted:#b9c8df;
+  --gold:#ffd54a;
+  --draft-accent:#00f0ff;
+  --draft-accent-soft:rgba(0,240,255,.28);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
-    margin:0;
-    font-family:'Rajdhani', sans-serif;
-    background:url("assets/cosmic-bg.png") no-repeat center center fixed;
-    background-size:cover;
-    color:white;
+  margin:0;
+  color:var(--text);
+  font-family:'Rajdhani',sans-serif;
+  background:var(--bg) url('assets/cosmic-bg.png') center/cover fixed no-repeat;
+  overflow-x:hidden;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:url('assets/cosmictool.png') center/cover no-repeat;
+  opacity:.09;
+  mix-blend-mode:screen;
+  pointer-events:none;
+  z-index:0;
+  animation:overlayFloat 26s ease-in-out infinite alternate;
+}
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+  background:
+    radial-gradient(circle at 20% 15%, rgba(0,240,255,.12), transparent 18%),
+    radial-gradient(circle at 80% 22%, rgba(138,43,226,.12), transparent 18%),
+    radial-gradient(circle at 50% 85%, rgba(255,79,216,.08), transparent 20%);
+}
+@keyframes overlayFloat{
+  0%{transform:translateY(0) scale(1)}
+  100%{transform:translateY(-24px) scale(1.03)}
 }
 
-    .winner-bg{
-    position:absolute;
-    top:260px;
-    left:50%;
-    transform:translateX(-50%);
-    width:1100px;
-    height:650px;
+.page-shell{position:relative;z-index:1}
 
-    opacity:0.30;
-    filter:blur(3px);
-
-    z-index:0;
-
-    border-radius: 50% / 35%;
-
-
-    animation: deckFloat 18s ease-in-out infinite alternate;
-
-    background-position:center;
-    background-size:cover;
-    background-repeat:no-repeat;
-}
-
-@keyframes deckFloat{
-    0%{ transform:translateX(-50%) translateY(0px); }
-    100%{ transform:translateX(-50%) translateY(-35px); }
-}
-
-    @keyframes gradientMove{
-0%{
-background-position:0% 50%;
-}
-100%{
-background-position:200% 50%;
-}
-}
-
-    @keyframes galaxyMove{
-0%{ background-position:0% 0%; }
-100%{ background-position:100% 100%; }
-}
-/* NAV */
 nav{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 60px;
-    backdrop-filter:blur(10px);
-    background:rgba(5,10,25,0.75);
+  position:sticky;
+  top:0;
+  z-index:30;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:18px;
+  padding:14px 26px;
+  backdrop-filter:blur(14px);
+  background:
+    linear-gradient(rgba(6,10,30,.90), rgba(7,12,34,.82)),
+    url('assets/cosmictool.png') center/cover no-repeat;
+  border-bottom:1px solid rgba(111,233,255,.18);
+  box-shadow:0 8px 30px rgba(0,0,0,.28);
 }
-nav img{
-    height:60px;
-    filter:drop-shadow(0 0 15px #00f0ff);
+.nav-brand{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  min-width:0;
 }
-nav ul{
-    list-style:none;
-    display:flex;
-    gap:40px;
+.nav-brand img{
+  height:52px;
+  width:auto;
+  filter:drop-shadow(0 0 12px rgba(0,240,255,.45));
 }
-nav a{
-    text-decoration:none;
-    color:white;
-    font-weight:600;
+.nav-brand-text{
+  font-family:'Orbitron',sans-serif;
+  font-size:14px;
+  line-height:1.15;
+  letter-spacing:1px;
+  color:#e9f8ff;
 }
-
-/* TOP NAV BUTTONS – FIX */
-.top-draft-nav{
-    position:relative;
-    height:0;
+.nav-links{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+  gap:14px;
 }
-.top-draft-nav button{
-    position:absolute;
-    top:10px;
-    padding:10px 18px;
-    border:none;
-    border-radius:10px;
-    background:#00f0ff;
-    font-weight:bold;
-    cursor:pointer;
-    z-index:100;
-    box-shadow:0 0 15px #00f0ff;
+.nav-links a{
+  color:#f7fbff;
+  text-decoration:none;
+  font-weight:700;
+  padding:8px 14px;
+  border-radius:999px;
+  border:1px solid rgba(111,233,255,.18);
+  background:rgba(255,255,255,.04);
+  transition:.22s ease;
+  white-space:nowrap;
 }
-#prevDraft{ left:20px; }
-#nextDraft{ right:20px; }
-
-/* HEADER */
-.header{
-    position:relative;
-    isolation: isolate;
-    z-index:2;
-    text-align:center;
-    padding:30px 20px 10px 20px;
-
-    background: linear-gradient(
-        to bottom,
-        rgba(0,0,20,0.85),
-        rgba(0,0,20,0.65),
-        rgba(0,0,20,0)
-    );
-
-    backdrop-filter: blur(2px);
-}
-.header img{
-    height:180px;
-    display:block;
-    margin:0 auto 20px;
-    filter:drop-shadow(0 0 40px #00f0ff);
-}
-.header h1{
-
-position:relative;
-z-index:1;
-
-font-family:'Orbitron', sans-serif;
-font-size:72px;
-font-weight:900;
-margin:0;
-letter-spacing:3px;
-
-/* 🔥 gradient */
-background: linear-gradient(
-90deg,
-#00f0ff,
-#4b00ff,
-#ff00ff,
-#00f0ff
-);
-
-background-size:200%;
-animation:gradientMove 6s linear infinite;
-
-/* 🔥 KLUCZ */
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-
-/* 🔥 outline żeby było czytelne */
--webkit-text-stroke:1px rgba(255,255,255,0.35);
-
-/* 🔥 glow */
-text-shadow:
-0 0 4px #ffffff,
-0 0 10px #00f0ff,
-0 0 18px #00f0ff,
-0 0 22px #8a2be2;
-
+.nav-links a:hover{
+  transform:translateY(-2px);
+  border-color:rgba(111,233,255,.42);
+  box-shadow:0 0 18px rgba(0,240,255,.16);
 }
 
-.header h1::before{
-
-content: attr(data-text);
-
-position:absolute;
-left:0;
-top:0;
-width:100%;
-
-background:url("assets/galaxytool.png");
-background-size:cover;
-background-position:center;
-
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-
-opacity:0.8;
-
-z-index:0;
-
-pointer-events:none;
-
-animation:galaxyMove 20s linear infinite;
-
+.header-wrap{
+  position:relative;
+  padding:28px 20px 16px;
+}
+.header-wrap::before{
+  content:"";
+  position:absolute;
+  inset:0 0 auto 0;
+  height:420px;
+  background:linear-gradient(to bottom, rgba(4,8,26,.82), rgba(4,8,26,.44), rgba(4,8,26,0));
+  pointer-events:none;
+}
+.hero{
+  position:relative;
+  max-width:1320px;
+  margin:0 auto;
+  text-align:center;
+  padding:18px 0 8px;
+}
+.hero-logo{
+  width:min(360px,65vw);
+  height:auto;
+  filter:drop-shadow(0 0 28px rgba(0,240,255,.32));
+  margin:0 auto 12px;
+  display:block;
+}
+.draft-title{
+  margin:0;
+  display:inline-block;
+  padding:0;
+  border-radius:0;
+  background:none;
+  backdrop-filter:none;
+  box-shadow:none;
+  font-family:'Orbitron',sans-serif;
+  font-size:clamp(2.8rem, 7vw, 5.15rem);
+  line-height:.98;
+  letter-spacing:3px;
+  text-transform:uppercase;
+}
+.draft-title .title-core{
+  position:relative;
+  display:inline-block;
+  padding:.05em .08em .08em;
+  background:
+    linear-gradient(115deg, rgba(255,255,255,.40), rgba(255,255,255,.14) 18%, rgba(255,255,255,.44) 34%, rgba(255,255,255,.14) 52%, rgba(255,255,255,.38) 72%, rgba(255,255,255,.12)),
+    url('assets/cosmictool.png') center/cover no-repeat;
+  background-size:240% 240%, cover;
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  -webkit-text-fill-color:transparent;
+  -webkit-text-stroke:1.4px rgba(255,255,255,.68);
+  filter:drop-shadow(0 0 14px rgba(4,10,30,.92)) drop-shadow(0 0 12px rgba(255,255,255,.16)) drop-shadow(0 0 30px var(--draft-accent-soft));
+  animation:titleTextureShift 14s ease-in-out infinite alternate;
+}
+.draft-title .title-core .title-sheen{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(100deg, transparent 18%, rgba(255,255,255,.56) 47%, rgba(255,255,255,.08) 54%, transparent 72%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  -webkit-text-fill-color:transparent;
+  mix-blend-mode:screen;
+  opacity:.48;
+  animation:titleSheen 5.8s ease-in-out infinite;
+  pointer-events:none;
+}
+.draft-title .title-core::before{
+  content:attr(data-title);
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  color:transparent;
+  -webkit-text-stroke:7px var(--draft-accent);
+  filter:blur(.8px) drop-shadow(0 0 13px var(--draft-accent)) drop-shadow(0 0 36px var(--draft-accent));
+  opacity:.76;
+}
+.draft-title .title-core::after{
+  content:attr(data-title);
+  position:absolute;
+  inset:0;
+  z-index:-2;
+  color:transparent;
+  -webkit-text-stroke:15px var(--draft-accent);
+  filter:blur(11px);
+  opacity:.48;
+  animation:titleGlowPulse 3.8s ease-in-out infinite alternate;
+}
+@keyframes titleTextureShift{
+  0%{background-position:0% 50%, center}
+  100%{background-position:100% 50%, center}
+}
+@keyframes titleGlowPulse{
+  0%{opacity:.24; transform:scale(1)}
+  100%{opacity:.52; transform:scale(1.012)}
+}
+@keyframes titleSheen{
+  0%,62%{transform:translateX(-28%); opacity:0}
+  74%{opacity:.62}
+  100%{transform:translateX(28%); opacity:0}
+}
+.draft-subtitle{
+  margin:10px 0 0;
+  font-family:'Orbitron',sans-serif;
+  font-size:clamp(1rem,2.2vw,1.5rem);
+  letter-spacing:2px;
+  color:#e8f9ff;
+  text-shadow:0 0 14px rgba(0,240,255,.34);
+}
+.meta-grid{
+  margin:26px auto 0;
+  display:grid;
+  grid-template-columns:1.15fr 1fr .75fr 1.25fr;
+  gap:10px 22px;
+  max-width:1180px;
+  padding:18px 24px;
+  border-radius:26px;
+  background:
+    linear-gradient(90deg, rgba(4,8,26,.78), rgba(8,16,44,.88), rgba(4,8,26,.78)),
+    url('assets/cosmic-bg.png') center/cover no-repeat;
+  border:1px solid rgba(111,233,255,.16);
+  box-shadow:0 0 28px rgba(0,240,255,.08), inset 0 0 34px rgba(111,233,255,.05);
+  backdrop-filter:blur(12px);
+}
+.meta-card{
+  position:relative;
+  min-width:0;
+  padding:6px 2px 8px 14px;
+  border-left:2px solid rgba(111,233,255,.34);
+  background:transparent;
+}
+.meta-card::before{
+  content:"";
+  position:absolute;
+  left:-2px;
+  top:12px;
+  bottom:12px;
+  width:2px;
+  background:linear-gradient(to bottom, transparent, var(--draft-accent), transparent);
+  box-shadow:0 0 14px var(--draft-accent);
+  opacity:.72;
+}
+.meta-label{
+  font-size:12px;
+  letter-spacing:1.6px;
+  text-transform:uppercase;
+  color:#9ddff5;
+  margin-bottom:4px;
+  text-shadow:0 0 9px rgba(0,240,255,.22);
+}
+.meta-value{
+  font-family:'Orbitron',sans-serif;
+  font-size:clamp(17px,1.8vw,22px);
+  font-weight:700;
+  line-height:1.18;
+  color:#fff;
+  text-shadow:0 0 12px rgba(0,240,255,.25);
+}
+.meta-winner{
+  padding:6px 2px 8px 14px;
+  border-left:2px solid rgba(255,213,74,.42);
+  border-radius:0;
+  background:transparent;
+  border-top:0;
+  border-right:0;
+  border-bottom:0;
+  box-shadow:none;
+  overflow:visible;
+}
+.meta-winner::before{
+  background:linear-gradient(to bottom, transparent, var(--gold), transparent);
+  box-shadow:0 0 18px rgba(255,213,74,.92);
+  opacity:.9;
+}
+.meta-winner::after{
+  content:"";
+  position:absolute;
+  inset:-16px -14px -12px -10px;
+  background-image:
+    radial-gradient(circle, rgba(255,239,160,.95) 0 1.5px, transparent 2.3px),
+    radial-gradient(circle, rgba(255,213,74,.70) 0 1.2px, transparent 2px),
+    radial-gradient(circle, rgba(255,255,255,.75) 0 .8px, transparent 1.6px);
+  background-size:38px 46px, 62px 58px, 74px 68px;
+  opacity:.42;
+  filter:drop-shadow(0 0 6px rgba(255,213,74,.5));
+  animation:winnerSparkleField 7.5s linear infinite;
+  pointer-events:none;
+}
+.meta-winner .meta-label{color:#ffeaa0; text-shadow:0 0 12px rgba(255,213,74,.38)}
+.meta-winner .meta-value{
+  color:#fff3ad;
+  font-size:clamp(21px,2.25vw,30px);
+  text-shadow:0 0 10px rgba(255,213,74,.70), 0 0 26px rgba(255,213,74,.42), 0 0 44px rgba(255,213,74,.20);
+  animation:winnerNamePulse 2.8s ease-in-out infinite alternate;
+}
+.meta-bans{
+  grid-column:1 / -1;
+  padding-top:12px;
+  margin-top:2px;
+  border-left:0;
+  border-top:1px solid rgba(111,233,255,.13);
+  text-align:center;
+}
+.meta-bans::before{display:none}
+.meta-bans .meta-label{display:inline; margin-right:10px}
+.meta-bans .meta-value{
+  display:inline;
+  font-size:17px;
+  line-height:1.4;
+  color:#dffbff;
+}
+@keyframes winnerSparkleField{
+  0%{background-position:0 0, 0 0, 0 0; opacity:.30}
+  50%{opacity:.56}
+  100%{background-position:38px 46px, -62px 58px, 74px -68px; opacity:.30}
+}
+@keyframes winnerNamePulse{
+  0%{filter:brightness(1); transform:translateY(0)}
+  100%{filter:brightness(1.18); transform:translateY(-1px)}
 }
 
-    #draftSubtitle{
-
-position:relative;
-z-index:2;
-
-margin-top:10px;
-margin-bottom:12px;
-
-font-family:'Orbitron', sans-serif;
-
-font-size:28px;
-font-weight:700;
-
-letter-spacing:2px;
-
-opacity:0.95;
-
-/* 🌈 neon gradient */
-background:linear-gradient(
-90deg,
-#ff00ff,
-#00f0ff,
-#8a2be2,
-#ff00ff
-);
-
-background-size:200%;
-
-animation:
-gradientMove 8s linear infinite,
-subtitleGlow 2s ease-in-out infinite alternate;
-
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-
-text-shadow:
-0 0 10px rgba(255,0,255,0.7),
-0 0 20px rgba(0,240,255,0.5);
-
+.toolbar{
+  position:absolute;
+  top:98px;
+  left:50%;
+  transform:translateX(-50%);
+  width:min(1320px,100%);
+  margin:0 auto;
+  padding:0 20px;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  gap:14px;
+  align-items:center;
+  z-index:5;
+  pointer-events:none;
+}
+.toolbar-left, .toolbar-right{pointer-events:auto}
+.toolbar-left,
+.toolbar-right{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  align-items:center;
+}
+.toolbar-btn,
+.toolbar select,
+.toolbar input{
+  font:700 15px 'Rajdhani',sans-serif;
+  border-radius:14px;
+  border:1px solid rgba(111,233,255,.22);
+  color:#fff;
+  background:
+    linear-gradient(rgba(10,18,48,.88), rgba(8,15,40,.88)),
+    url('assets/cosmictool.png') center/cover no-repeat;
+  padding:11px 16px;
+  outline:none;
+  box-shadow:0 0 16px rgba(0,240,255,.08);
+}
+.toolbar select,
+.toolbar input{min-width:180px}
+.toolbar-btn{
+  cursor:pointer;
+  transition:.22s ease;
+}
+.toolbar-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 0 18px rgba(0,240,255,.16);
+}
+.quick-jump-label{
+  font-size:13px;
+  color:#9ddff5;
+  text-transform:uppercase;
+  letter-spacing:1px;
 }
 
-/* ✨ subtelny puls */
-@keyframes subtitleGlow{
-
-0%{
-filter:
-drop-shadow(0 0 4px #ff00ff)
-drop-shadow(0 0 10px #00f0ff);
+.winner-bg{
+  position:absolute;
+  left:50%;
+  top:310px;
+  transform:translateX(-50%);
+  width:min(1100px,92vw);
+  height:min(650px,62vw);
+  opacity:.10;
+  filter:blur(3px);
+  border-radius:50% / 36%;
+  background-position:center;
+  background-size:cover;
+  background-repeat:no-repeat;
+  z-index:0;
+  pointer-events:none;
+  animation:winnerFloat 18s ease-in-out infinite alternate;
+}
+@keyframes winnerFloat{
+  0%{transform:translateX(-50%) translateY(0)}
+  100%{transform:translateX(-50%) translateY(-28px)}
 }
 
-100%{
-filter:
-drop-shadow(0 0 8px #00f0ff)
-drop-shadow(0 0 20px #8a2be2);
+.content{
+  max-width:1320px;
+  margin:0 auto;
+  padding:18px 20px 96px;
+  position:relative;
+  z-index:2;
 }
-
+.section-card{
+  position:relative;
+  background:linear-gradient(rgba(8,14,40,.88), rgba(8,14,40,.80));
+  border:1px solid rgba(111,233,255,.22);
+  border-radius:28px;
+  backdrop-filter:blur(12px);
+  box-shadow:0 0 28px rgba(0,240,255,.16), 0 0 70px rgba(111,233,255,.07), inset 0 0 0 1px rgba(255,255,255,.03);
+  overflow:hidden;
 }
-/* PURPLE HEADER GLOW */
+.section-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url('assets/cosmictool.png') center/cover no-repeat;
+  opacity:.06;
+  mix-blend-mode:screen;
+  pointer-events:none;
+}
+.section-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(transparent calc(100% - 1px), rgba(111,233,255,.05) calc(100% - 1px)),
+    linear-gradient(90deg, transparent calc(100% - 1px), rgba(111,233,255,.045) calc(100% - 1px));
+  background-size:100% 32px, 32px 100%;
+  opacity:.20;
+  pointer-events:none;
+}
+.section-inner{position:relative;z-index:1;padding:28px}
 .section-title{
-    text-align:center;
-    font-family:'Orbitron';
-    text-shadow:0 0 15px #8a2be2,0 0 30px #8a2be2;
+  margin:0 0 18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  gap:10px;
+  font-family:'Orbitron',sans-serif;
+  font-size:clamp(1.2rem, 2.4vw, 1.75rem);
+  letter-spacing:1.5px;
+  color:#ecfbff;
+  text-shadow:0 0 12px rgba(0,240,255,.26),0 0 20px rgba(138,43,226,.14);
+}
+.section-title .title-icon{font-size:1.15em}
+
+
+.podium-section{margin-top:44px}
+.podium-section .section-title{margin-bottom:20px}
+.podium-shell{position:relative;padding:0 4px}
+.podium-grid{
+  display:grid;
+  grid-template-columns:minmax(0,.88fr) minmax(0,1.30fr) minmax(0,.88fr);
+  gap:28px;
+  align-items:end;
+}
+.podium-card{
+  position:relative;
+  padding:20px 18px 18px;
+  border-radius:28px;
+  text-align:center;
+  min-height:205px;
+  overflow:hidden;
+  background:linear-gradient(rgba(10,16,48,.90), rgba(10,14,35,.88));
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.14);
+  box-shadow:0 0 28px rgba(0,0,0,.18);
+  transition:.22s ease;
+}
+.podium-card:hover{transform:translateY(-4px)}
+.podium-bg{
+  position:absolute;
+  inset:0;
+  background-position:center;
+  background-size:cover;
+  background-repeat:no-repeat;
+  filter:blur(3px) saturate(1.18) brightness(.97);
+  transform:scale(1.05);
+  opacity:.60;
+}
+.podium-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, rgba(5,10,28,.14), rgba(8,14,40,.38), rgba(8,14,34,.62));
+}
+.podium-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url('assets/cosmictool.png') center/cover no-repeat;
+  opacity:.07;
+  mix-blend-mode:screen;
+  pointer-events:none;
+}
+.podium-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at 20% 18%, rgba(255,255,255,.12), transparent 26%), radial-gradient(circle at 82% 18%, rgba(255,255,255,.08), transparent 20%);
+  pointer-events:none;
+}
+.podium-first{order:2; min-height:320px; transform:translateY(-16px)}
+.podium-second{order:1; min-height:228px}
+.podium-third{order:3; min-height:220px}
+.podium-first .podium-badge{box-shadow:0 0 0 1px rgba(255,213,74,.55), 0 0 20px rgba(255,213,74,.30), 0 0 44px rgba(255,213,74,.16)}
+.podium-second .podium-badge{box-shadow:0 0 0 1px rgba(214,228,255,.45), 0 0 18px rgba(214,228,255,.24), 0 0 36px rgba(214,228,255,.10)}
+.podium-third .podium-badge{box-shadow:0 0 0 1px rgba(215,146,90,.42), 0 0 18px rgba(215,146,90,.20), 0 0 34px rgba(215,146,90,.10)}
+.podium-sparkles{position:absolute; inset:-10px 0 0; pointer-events:none; overflow:hidden; z-index:0; opacity:.9;}
+.podium-sparkles::before,
+.podium-sparkles::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    radial-gradient(circle, rgba(255,235,140,.95) 0 1.7px, transparent 2.4px),
+    radial-gradient(circle, rgba(255,213,74,.68) 0 1.3px, transparent 1.9px),
+    radial-gradient(circle, rgba(255,255,255,.84) 0 .9px, transparent 1.5px);
+  background-size:72px 82px, 108px 118px, 62px 72px;
+  animation:goldFloatParticles 9.2s linear infinite;
+  filter:drop-shadow(0 0 7px rgba(255,213,74,.35));
+}
+.podium-sparkles::after{animation-duration:12.4s; animation-delay:-4.2s; opacity:.56;}
+@keyframes goldFloatParticles{
+  0%{transform:translateY(0) translateX(0)}
+  50%{transform:translateY(-12px) translateX(8px)}
+  100%{transform:translateY(-22px) translateX(-6px)}
+}
+.podium-content{position:relative; z-index:1}
+.podium-badge{
+  display:inline-flex; align-items:center; justify-content:center;
+  min-width:76px; padding:8px 16px; border-radius:999px;
+  font-family:'Orbitron',sans-serif; font-size:20px; font-weight:900; letter-spacing:1px; margin-bottom:10px;
+  background:rgba(8,16,42,.56); backdrop-filter:blur(8px);
+}
+.podium-medal{
+  margin:2px 0 8px;
+  font-size:22px;
+  line-height:1;
+  filter:drop-shadow(0 0 10px rgba(255,255,255,.28));
+}
+.podium-first .podium-medal{filter:drop-shadow(0 0 10px rgba(255,213,74,.75)) drop-shadow(0 0 20px rgba(255,213,74,.45));}
+.podium-second .podium-medal{filter:drop-shadow(0 0 10px rgba(214,228,255,.75)) drop-shadow(0 0 20px rgba(214,228,255,.42));}
+.podium-third .podium-medal{filter:drop-shadow(0 0 10px rgba(215,146,90,.75)) drop-shadow(0 0 20px rgba(215,146,90,.40));}
+.podium-name{margin:10px 0 8px; font-size:31px; font-weight:700; line-height:1.04;}
+.podium-first .podium-name{font-size:35px}
+.podium-points{font-size:20px; font-weight:700}
+.podium-balance{margin-top:8px; color:#d9e7f6; opacity:.92}
+.legend-rank{
+  display:inline-flex; align-items:center; gap:8px; margin-top:8px; padding:8px 14px;
+  border-radius:999px; font-family:'Orbitron',sans-serif; font-size:13px; font-weight:800; letter-spacing:1px;
+  color:#fff1ad; background:rgba(255,213,74,.12); border:1px solid rgba(255,213,74,.28);
+  box-shadow:0 0 16px rgba(255,213,74,.12); text-shadow:0 0 8px rgba(255,213,74,.34);
+}
+.legend-rank::before{content:'✦'; font-size:14px; line-height:1}
+.podium-first .legend-rank{box-shadow:0 0 18px rgba(255,213,74,.18), 0 0 40px rgba(255,213,74,.08)}
+.podium-second .legend-rank{color:#edf5ff; background:rgba(214,228,255,.10); border-color:rgba(214,228,255,.24); text-shadow:0 0 8px rgba(214,228,255,.30)}
+.podium-third .legend-rank{color:#f4d9c6; background:rgba(215,146,90,.11); border-color:rgba(215,146,90,.26); text-shadow:0 0 8px rgba(215,146,90,.24)}
+
+.overview-grid{
+  display:grid;
+  grid-template-columns:minmax(0, 1.55fr) minmax(300px, .85fr);
+  gap:28px;
+  margin-top:38px;
+}
+.table-wrap{overflow:auto; border-radius:18px; border:1px solid rgba(111,233,255,.10)}
+.table-wrap table{
+  width:100%;
+  min-width:720px;
+  border-collapse:collapse;
+}
+.table-wrap th,
+.table-wrap td{
+  padding:13px 14px;
+  text-align:center;
+  border-bottom:1px solid rgba(111,233,255,.12);
+}
+.table-wrap th{
+  position:sticky;
+  top:0;
+  z-index:1;
+  background:
+    linear-gradient(90deg, rgba(6,20,44,.88), rgba(16,12,46,.88)),
+    url('assets/galaxytool.png') center/cover no-repeat;
+  color:#fff;
+  font-family:'Orbitron',sans-serif;
+  font-size:14px;
+  letter-spacing:1px;
+  text-shadow:0 0 10px rgba(255,255,255,.08), 0 0 16px rgba(111,233,255,.18);
+}
+.table-wrap tbody tr:hover{background:rgba(255,255,255,.035)}
+.player-link{
+  cursor:pointer;
+  font-weight:700;
+  transition:.2s ease;
+}
+.player-link:hover{
+  filter:brightness(1.2);
+  text-shadow:0 0 10px currentColor;
+}
+.results-list{display:flex;flex-direction:column;gap:10px;max-height:580px;overflow:auto;padding-right:6px}
+.result-item,
+.unplayed-item{
+  padding:12px 14px;
+  border-radius:14px;
+  background:rgba(255,255,255,.045);
+  border:1px solid rgba(111,233,255,.10);
+  line-height:1.4;
+}
+.result-note{opacity:.66;font-size:12px}
+.result-block-title{
+  margin:8px 0 2px;
+  font-family:'Orbitron',sans-serif;
+  font-size:15px;
+  color:#c8f7ff;
+  letter-spacing:1px;
 }
 
-/* PODIUM */
-.podium-wrapper{
-    display:flex;
-    justify-content:center;
-    align-items:flex-end;
-    gap:40px;
-    margin:40px 0 20px 0;
-}
-.podium{
-    width:160px;
-    text-align:center;
-    border-radius:20px;
-    padding:20px;
-    backdrop-filter:blur(10px);
-    background:rgba(0,0,40,0.7);
-    transition:0.3s;
-}
-.podium:hover{ transform:translateY(-6px); }
-.first{ height:200px; }
-.second{ height:160px; }
-.third{ height:140px; }
-
-/* MAIN */
-.main-row{
-    display:flex;
-    justify-content:center;
-    gap:60px;
-    padding:40px;
-    align-items:flex-start;
-}
-.panel{
-    background:rgba(0,0,40,0.75);
-    backdrop-filter:blur(12px);
-    border-radius:20px;
-    padding:30px;
-    box-shadow:0 0 30px rgba(0,240,255,0.3);
-}
-.panel h2{ margin-top:0; }
-
-table{
-    border-collapse:collapse;
-    min-width:700px;
-}
-th, td{
-    padding:12px 18px;
-    border:1px solid rgba(0,255,255,0.3);
-    text-align:center;
-}
-th{
-    background:linear-gradient(45deg,#00f0ff,#8a2be2);
-    color:black;
-}
-.results{
-    max-height:420px;
-    overflow-y:auto;
-    width:280px;
-}
-
-/* STATS – FIX */
-/* ========================= */
-/* ===== STATYSTYKI ======== */
-/* ========================= */
-
-.draft-stats{
-margin:90px auto;
-max-width:1100px;
-padding:0 40px;
-}
-
-/* układ 3 + 2 */
-
+.stats-section{margin-top:40px}
 .stats-grid{
-display:grid;
-grid-template-columns:repeat(6,1fr);
-gap:35px;
-max-width:1100px;
-margin:40px auto 0 auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
 }
-
-/* górny rząd */
-
-.stats-grid .stat-box:nth-child(1){grid-column:1/3;}
-.stats-grid .stat-box:nth-child(2){grid-column:3/5;}
-.stats-grid .stat-box:nth-child(3){grid-column:5/7;}
-
-/* dolny rząd */
-
-.stats-grid .stat-box:nth-child(4){grid-column:2/4;}
-.stats-grid .stat-box:nth-child(5){grid-column:4/6;}
-
-/* kafelki */
-
 .stat-box{
-
-padding:22px;
-
-border-radius:20px;
-
-background:rgba(0,0,40,0.65);
-
-backdrop-filter:blur(8px);
-
-box-shadow:0 0 25px rgba(0,240,255,0.35);
-
-border:1px solid rgba(0,255,255,0.25);
-
-text-align:center;
-
-font-size:18px;
-
-line-height:1.6;
-
-min-height:90px;
-
+  min-height:118px;
+  padding:18px 16px;
+  border-radius:20px;
+  border:1px solid rgba(111,233,255,.14);
+  background:rgba(255,255,255,.04);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.015),0 0 18px rgba(0,240,255,.06);
 }
-
-/* tytuł */
-
 .stat-box strong{
-
-display:block;
-
-font-family:'Rajdhani', sans-serif;
-
-font-size:20px;
-font-weight:700;
-
-margin-bottom:10px;
-
-text-shadow:0 0 10px #8a2be2;
-
+  display:block;
+  margin-bottom:10px;
+  font-size:18px;
+  color:#dffbff;
 }
-/* DECKS */
-.decks-section{ padding:60px; }
+.stat-box div{line-height:1.45;color:#f7fbff}
+
+.decks-section{margin-top:40px}
 .decks-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:40px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+  gap:20px;
 }
 .deck-card{
-    padding:30px;
-    border-radius:20px;
-    background:rgba(0,0,30,0.8);
-    position:relative;
+  position:relative;
+  overflow:hidden;
+  border-radius:26px;
+  padding:20px 18px 18px;
+  background:linear-gradient(rgba(8,18,46,.88), rgba(9,16,42,.82));
+  border:1px solid rgba(111,233,255,.30);
+  backdrop-filter:blur(10px);
+  box-shadow:0 0 28px rgba(0,0,0,.16), 0 0 68px rgba(111,233,255,.10);
 }
+.deck-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url('assets/cosmictool.png') center/cover no-repeat;
+  opacity:.12;
+  mix-blend-mode:screen;
+  pointer-events:none;
+}
+.deck-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(transparent calc(100% - 1px), rgba(111,233,255,.05) calc(100% - 1px)),
+    linear-gradient(90deg, transparent calc(100% - 1px), rgba(111,233,255,.05) calc(100% - 1px));
+  background-size:100% 28px, 28px 100%;
+  opacity:.18;
+  pointer-events:none;
+}
+.deck-card-inner{position:relative;z-index:1}
+.deck-top{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:14px;
+  margin-bottom:14px;
+}
+.deck-player-wrap{min-width:0}
+.deck-player{
+  margin:0;
+  font-size:28px;
+  font-weight:700;
+  line-height:1.05;
+  cursor:pointer;
+  text-shadow:0 0 12px currentColor, 0 0 22px color-mix(in srgb, currentColor 35%, transparent);
+}
+.deck-player small{
+  display:block;
+  margin-top:6px;
+  font-size:13px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  color:#b9c8df;
+}
+.deck-mini-stats{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:10px;
+}
+.deck-badge{
+  padding:5px 10px;
+  border-radius:999px;
+  font-size:13px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.09);
+}
+.deck-badge.legend{
+  color:#fff2af;
+  background:rgba(255,213,74,.12);
+  border-color:rgba(255,213,74,.34);
+  box-shadow:0 0 14px rgba(255,213,74,.14), inset 0 0 12px rgba(255,255,255,.03);
+  text-shadow:0 0 10px rgba(255,213,74,.42);
+  font-family:'Orbitron',sans-serif;
+  letter-spacing:.6px;
+}
+.deck-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.icon-btn{
+  width:44px;height:44px;border-radius:14px;border:1px solid rgba(111,233,255,.18);
+  background:rgba(255,255,255,.06);
+  display:grid;place-items:center;cursor:pointer;transition:.2s ease; color:#fff;
+  box-shadow:0 0 16px rgba(0,240,255,.08);
+}
+.icon-btn img{width:32px;height:32px;object-fit:contain;filter:drop-shadow(0 0 8px rgba(0,240,255,.5));}
+.icon-btn:hover{transform:translateY(-2px) scale(1.04)}
 .cards-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:8px;
-    margin-top:20px;
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:8px;
+  margin-top:14px;
 }
 .card-tile{
-    padding:6px;
-    font-size:13px;
-    border-radius:8px;
-    text-align:center;
+  min-height:52px;
+  padding:8px 6px;
+  border-radius:13px;
+  text-align:center;
+  font-size:13.5px;
+  line-height:1.15;
+  background:rgba(255,255,255,.05);
+  border:1px solid currentColor;
+  box-shadow:inset 0 0 10px rgba(255,255,255,.02);
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
-
-    /* JEFF ZOOM BUTTON */
-
-.deck-zoom-btn{
-position:absolute;
-bottom:10px;
-right:10px;
-
-width:42px;
-height:42px;
-
-cursor:pointer;
-z-index:5;
+.deck-image{
+  display:block;
+  width:100%;
+  max-width:290px;
+  height:190px;
+  object-fit:contain;
+  margin:18px auto 0;
+  border-radius:16px;
+  padding:8px;
+  background:rgba(4,10,28,.58);
+  border:1px solid rgba(255,255,255,.07);
+  box-shadow:0 0 18px rgba(0,240,255,.10);
 }
-
-.deck-zoom-btn img{
-width:100%;
-transition:0.25s;
-
-filter:
-drop-shadow(0 0 6px #00f0ff)
-drop-shadow(0 0 10px #8a2be2);
-}
-
-.deck-zoom-btn:hover img{
-
-transform:scale(1.2) rotate(6deg);
-
-filter:
-drop-shadow(0 0 10px #00f0ff)
-drop-shadow(0 0 25px #8a2be2)
-drop-shadow(0 0 40px #8a2be2);
-
-}
-
-    /* ZOOM MODAL */
 
 .deckZoomOverlay{
-
-position:fixed;
-inset:0;
-
-background:rgba(0,0,40,0.9);
-
-display:flex;
-justify-content:center;
-align-items:center;
-
-z-index:9999;
-
+  position:fixed;
+  inset:0;
+  background:rgba(3,7,22,.88);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:9998;
+  padding:20px;
 }
-
 .deckZoomModal img{
-
-width:520px;
-
-border-radius:18px;
-
-box-shadow:
-0 0 20px #00f0ff,
-0 0 40px #00f0ff,
-0 0 70px #8a2be2;
-
-animation:neonPulse 1.2s infinite alternate;
-
+  width:min(92vw, 620px);
+  max-height:92vh;
+  border-radius:18px;
+  box-shadow:0 0 28px rgba(0,240,255,.35),0 0 70px rgba(138,43,226,.24);
 }
 
-@keyframes neonPulse{
-
-0%{
-box-shadow:
-0 0 20px #00f0ff,
-0 0 40px #00f0ff,
-0 0 70px #8a2be2;
+.player-modal-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(5,10,26,.52);
+  backdrop-filter:blur(8px);
+  z-index:9999;
+  display:none;
 }
-
-100%{
-box-shadow:
-0 0 30px #00f0ff,
-0 0 60px #00f0ff,
-0 0 120px #8a2be2;
+.player-modal-overlay.show{display:block}
+.player-modal{
+  position:fixed;
+  left:50%;
+  top:50%;
+  transform:translate(-50%, -50%);
+  width:min(460px, calc(100vw - 28px));
+  max-height:min(86vh, 860px);
+  border-radius:26px;
+  overflow:hidden;
+  z-index:10000;
+  display:none;
+  background:linear-gradient(rgba(8,15,42,.96), rgba(8,15,42,.88)), url('assets/cosmictool.png') center/cover no-repeat;
+  border:1px solid rgba(111,233,255,.2);
+  box-shadow:0 0 32px rgba(0,240,255,.22), 0 0 80px rgba(138,43,226,.16);
 }
-
-}
-    
-.deck-card > img:first-of-type{
-
-display:block;
-
-width:260px;
-height:170px;
-
-object-fit:contain;
-
-margin:20px auto 0 auto;
-
-border-radius:12px;
-
-box-shadow:0 0 15px rgba(0,240,255,0.6);
-
-background:rgba(0,0,20,0.6);
-
-padding:6px;
-
-}
-
-/* CREATOR PANEL */
-.creator-panel{
-    margin-top:80px;
-    padding:30px 60px;
-    background:rgba(5,10,25,0.75);
-    backdrop-filter:blur(10px);
-    border-top:2px solid #00f0ff;
-}
-.creator-panel h3{
-    text-align:center;
-    font-family:'Orbitron';
-}
-.creator-panel button{
-    margin:10px;
-    padding:10px 20px;
-    border:none;
-    border-radius:8px;
-    background:#00f0ff;
-    font-weight:bold;
-    cursor:pointer;
-}
-textarea{
-    width:100%;
-    height:150px;
-    margin-top:20px;
-}
-
-  /* ===== NIEROZEGRANE MECZE ===== */
-
-.unplayed-section{
-    margin-top:20px;
-    padding-top:15px;
-    border-top:1px solid rgba(0,255,255,0.3);
-}
-
-.unplayed-section h3{
-    margin-bottom:10px;
-    font-size:18px;
-    text-align:center;
-}
-
-.unplayed-match{
-    font-size:14px;
-    opacity:0.85;
-    padding:3px 0;
-}
-
-.main-row,
-.draft-stats,
-.decks-section{
-    position:relative;
-    z-index:2;
-}
-@keyframes rainbowPlus{
-
-0%{ color:#00f0ff; text-shadow:0 0 10px #00f0ff;}
-25%{ color:#ff00ff; text-shadow:0 0 10px #ff00ff;}
-50%{ color:#8a2be2; text-shadow:0 0 10px #8a2be2;}
-75%{ color:#00ff88; text-shadow:0 0 10px #00ff88;}
-100%{ color:#00f0ff; text-shadow:0 0 10px #00f0ff;}
-
-}
-
-    .player-modal{
-position:fixed;
-top:80px;
-left:80px;
-
-width:380px;
-max-height:75vh;
-animation:modalAppear 0.35s ease;
-
-background:
-linear-gradient(rgba(0,0,30,0.75), rgba(0,0,50,0.8)),
-url("assets/prompt-bg.png");
-
-background-size:cover;
-
-border-radius:20px;
-box-shadow:
-0 0 20px #00f0ff,
-0 0 40px #8a2be2;
-
-z-index:99999;
-
-display:flex;
-flex-direction:column;
-
-overflow:hidden;
-}
-
-.hidden{
-display:none;
-}
-
-    .player-modal::before{
-content:"";
-position:absolute;
-inset:-3px;
-
-border-radius:20px;
-
-background:linear-gradient(
-90deg,
-transparent,
-#00f0ff,
-#8a2be2,
-transparent
-);
-
-opacity:0;
-
-filter:blur(8px);
-
-animation:portalRing 0.8s ease forwards;
-
-pointer-events:none;
-}
-
-@keyframes portalRing{
-0%{
-opacity:0;
-transform:scale(0.6);
-}
-50%{
-opacity:1;
-transform:scale(1.1);
-}
-100%{
-opacity:0;
-transform:scale(1.2);
-}
-}
-
-/* HEADER */
+.player-modal.show{display:flex;flex-direction:column}
 .player-modal-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-
-cursor:grab;
-
-padding:12px 18px;
-
-font-family:'Orbitron';
-font-size:18px;
-
-background:rgba(0,0,40,0.8);
-
-border-bottom:1px solid rgba(0,255,255,0.3);
+  padding:14px 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  cursor:grab;
+  border-bottom:1px solid rgba(111,233,255,.16);
+  background:rgba(255,255,255,.04);
 }
-
-.player-modal-header:active{
-cursor:grabbing;
+.player-modal-title{
+  font-family:'Orbitron',sans-serif;
+  font-size:18px;
+  color:#effbff;
+  text-shadow:0 0 12px rgba(0,240,255,.24);
 }
-padding:12px 18px;
-
-font-family:'Orbitron';
-font-size:18px;
-
-background:rgba(0,0,40,0.8);
-
-border-bottom:1px solid rgba(0,255,255,0.3);
-}
-
-/* CLOSE */
 .close-btn{
-cursor:pointer;
-font-size:18px;
+  border:none;
+  background:transparent;
+  color:#fff;
+  cursor:pointer;
+  font-size:20px;
 }
-
-/* CONTENT */
 .player-modal-content{
-padding:15px;
-overflow-y:auto;
-flex:1;
+  padding:16px;
+  overflow:auto;
 }
-
-/* INFO */
 .player-info{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:10px;
-margin-bottom:15px;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+  margin-bottom:16px;
 }
-
-    .player-info div{
-background:rgba(0,0,40,0.6);
-padding:8px;
-border-radius:10px;
-text-align:center;
-
-box-shadow:0 0 10px rgba(0,240,255,0.2);
+.player-info-box{
+  padding:10px 10px;
+  border-radius:14px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(111,233,255,.12);
+  text-align:center;
+  min-height:72px;
 }
-
-.player-info b{
-font-size:18px;
+.player-info-box span{display:block;color:#a9e6f2;font-size:13px;margin-bottom:4px}
+.player-info-box b{font-size:18px}
+.modal-subtitle{
+  margin:12px 0 10px;
+  font-family:'Orbitron',sans-serif;
+  font-size:15px;
+  color:#d7fbff;
 }
-
-.player-info div{
-text-align:center;
+.player-section-list{display:flex;flex-direction:column;gap:8px}
+.player-line{
+  padding:9px 11px;
+  border-radius:12px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(111,233,255,.08);
 }
-
-/* MATCHES */
-.player-matches{
-font-size:14px;
-line-height:1.6;
-}
-
-/* FOOTER */
 .player-modal-footer{
-padding:12px;
-
-background:rgba(0,0,40,0.9);
-
-border-top:1px solid rgba(0,255,255,0.3);
-
-position:sticky;
-bottom:0;
+  padding:14px 16px 16px;
+  border-top:1px solid rgba(111,233,255,.16);
+  background:rgba(255,255,255,.04);
+}
+.modal-btn{
+  width:100%;
+  padding:12px 16px;
+  border:none;
+  border-radius:16px;
+  font:700 15px 'Rajdhani',sans-serif;
+  color:#fff;
+  cursor:pointer;
+  background:linear-gradient(90deg, rgba(0,240,255,.22), rgba(138,43,226,.26));
+  border:1px solid rgba(111,233,255,.18);
+  box-shadow:0 0 18px rgba(0,240,255,.10);
 }
 
-    .player-deck-grid{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:8px;
-margin-bottom:15px;
-}
-
-.player-deck-grid img{
-width:100%;
-border-radius:8px;
-box-shadow:0 0 10px rgba(0,240,255,0.5);
-transition:0.2s;
-cursor:pointer;
-}
-
-.player-deck-grid img:hover{
-transform:scale(1.15);
-z-index:2;
-}
-.player-modal-footer button{
-width:100%;
-padding:10px;
-
-border:none;
-border-radius:10px;
-
-font-weight:bold;
-cursor:pointer;
-
-background:#00f0ff;
-
-box-shadow:
-0 0 10px #00f0ff,
-0 0 20px #8a2be2;
-
-transition:0.2s;
-}
-
-    .player-modal-header span{
-color:#00f0ff;
-
-text-shadow:
-0 0 6px #00f0ff,
-0 0 12px #00f0ff,
-0 0 20px #8a2be2;
-}
-
-    .player-name{
-transition:0.25s;
-}
-
-.player-name:hover{
-transform:scale(1.12);
-
-text-shadow:
-0 0 8px currentColor,
-0 0 16px currentColor,
-0 0 30px #8a2be2;
-
-filter:brightness(1.4);
-}
-
-.player-modal-footer button:hover{
-transform:scale(1.05);
-}
 .highlight{
-animation:glowPulse 0.8s infinite alternate;
+  box-shadow:0 0 0 1px rgba(0,240,255,.24),0 0 20px rgba(0,240,255,.10);
+  animation:highlightPulse .85s ease-in-out infinite alternate;
+}
+@keyframes highlightPulse{
+  0%{transform:translateY(0)}
+  100%{transform:translateY(-1px)}
 }
 
-    @keyframes modalAppear{
+.empty-note{color:#b9c8df; opacity:.92}
 
-0%{
-opacity:0;
-transform:scale(0.7) rotateX(40deg);
-filter:blur(10px) brightness(2);
-box-shadow:
-0 0 0px #00f0ff,
-0 0 0px #8a2be2;
+@media (max-width: 1150px){
+  .meta-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .overview-grid{grid-template-columns:1fr}
+}
+@media (max-width: 900px){
+  nav{padding:14px 16px; flex-direction:column; align-items:stretch}
+  .nav-brand{justify-content:center}
+  .nav-links{justify-content:center}
+  .toolbar{padding:0 16px}
+  .hero{padding-top:10px}
+  .content{padding:16px 16px 78px}
+  .podium-grid{grid-template-columns:1fr; align-items:stretch}
+  .podium-first,.podium-second,.podium-third{order:initial; min-height:unset; transform:none}
+  .podium-grid{grid-template-columns:1fr}
+}
+@media (max-width: 720px){
+  .header-wrap{padding-inline:14px}
+  .meta-grid{grid-template-columns:1fr}
+  .toolbar-left,.toolbar-right{width:100%}
+  .toolbar-right > *{flex:1}
+  .toolbar-left .toolbar-btn{flex:1}
+  .section-inner{padding:18px}
+  .decks-grid{grid-template-columns:1fr}
+  .cards-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .player-info{grid-template-columns:1fr 1fr}
+  .winner-bg{top:240px;height:360px}
+}
+@media (max-width: 460px){
+  .draft-title{letter-spacing:1px}
+  .cards-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .player-info{grid-template-columns:1fr}
+  .nav-brand img{height:44px}
+  .hero-logo{width:min(290px,72vw)}
 }
 
-40%{
-opacity:1;
-transform:scale(1.05) rotateX(0deg);
-filter:blur(0) brightness(1.5);
-
-box-shadow:
-0 0 40px #00f0ff,
-0 0 80px #8a2be2;
+@media (max-width:768px){
+  .toolbar{position:static; transform:none; width:auto; margin:12px auto 4px; justify-content:center; pointer-events:auto;}
+  .toolbar-left,.toolbar-right{justify-content:center}
+  .draft-title .title-core::before{ -webkit-text-stroke:5px var(--draft-accent); filter:blur(.5px) drop-shadow(0 0 12px var(--draft-accent)); }
+  .draft-title .title-core::after{ -webkit-text-stroke:9px var(--draft-accent); filter:blur(6px); }
+  .meta-grid{padding:16px 16px; gap:10px; background-attachment:scroll;}
+  .meta-card{padding-left:12px;}
+  .meta-winner{padding:10px 14px;}
+  .podium-first .gold-confetti::before, .podium-first .gold-confetti::after{animation-duration:9s; opacity:.55;}
+}
+@media (prefers-reduced-motion:reduce){
+  *, *::before, *::after{animation-duration:.001ms!important; animation-iteration-count:1!important; scroll-behavior:auto!important;}
 }
 
-70%{
-transform:scale(0.98);
-}
-
-100%{
-transform:scale(1);
-}
-}
-
-@keyframes glowPulse{
-0%{
-text-shadow:
-0 0 5px #00f0ff,
-0 0 10px #00f0ff;
-}
-100%{
-text-shadow:
-0 0 15px #00f0ff,
-0 0 25px #00f0ff,
-0 0 35px #8a2be2;
-}
-}
 </style>
 </head>
-
 <body>
-
-<nav>
-    <img src="assets/msp-logo.png">
-    <ul>
-        <li><a href="index.html">Draftowe Centrum Kosmosu</a></li>
-        <li><a href="draft.html">Kroniki Draftowe</a></li>
-        <li><a href="player-lobby.html">Galaktyczna Baza Wojowników</a></li>
+<div class="page-shell">
+  <nav>
+    <div class="nav-brand">
+      <img src="assets/msp-logo.png" alt="MSP">
+      <div class="nav-brand-text">MSP SNAPDRAFT<br>KOSMICZNE KRONIKI</div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Centrum Draftowe</a></li>
+      <li><a href="przewodnik.html">Przewodnik</a></li>
+      <li><a href="draft.html">Kroniki Draftowe</a></li>
+      <li><a href="hallOfFame.html">Sala Chwały</a></li>
+      <li><a href="player-lobby.html">Baza Wojowników</a></li>
     </ul>
-</nav>
+  </nav>
 
-<div class="top-draft-nav">
-    <button id="prevDraft">⬅ Poprzedni</button>
-    <button id="nextDraft">Następny ➡</button>
-</div>
+  <div class="header-wrap">
+    <div class="hero">
+      <img src="assets/draft-logo.png" alt="Draft Logo" class="hero-logo">
+      <h1 class="draft-title" id="draftTitle"><span class="title-core">DRAFT</span></h1>
+      <div class="draft-subtitle" id="draftSubtitle"></div>
+      <div class="meta-grid" id="metaGrid"></div>
+    </div>
+  </div>
 
-<div class="header">
-    <img src="assets/draft-logo.png">
-    <h1 id="draftTitle" data-text=""></h1>
-    <h2 id="draftSubtitle"></h2>
-    <div class="meta" id="draftMeta"></div>
-</div>
-    
-<div class="winner-bg"></div>
+  <div class="toolbar">
+    <div class="toolbar-left">
+      <button class="toolbar-btn" id="prevDraft">⬅ Poprzedni draft</button>
+      <button class="toolbar-btn" id="nextDraft">Następny draft ➡</button>
+    </div>
+    <div class="toolbar-right">
+      <div class="quick-jump-label">Szybki skok do draftu</div>
+      <select id="draftJumpSelect"></select>
+      <button class="toolbar-btn" id="jumpDraftBtn">Przejdź</button>
+    </div>
+  </div>
 
-<div class="podium-wrapper" id="podium"></div>
+  <div class="winner-bg" id="winnerBg"></div>
 
-<div class="main-row">
-    <div class="panel">
-        <h2 class="section-title">AKTUALNA TABELA</h2>
-        <table id="rankingTable">
-            <thead>
+  <main class="content">
+    <section class="podium-section">
+      <h2 class="section-title"><span class="title-icon">🏆</span> Podium draftu</h2>
+      <div class="podium-shell">
+        <div class="podium-grid" id="podium"></div>
+      </div>
+    </section>
+
+    <section class="overview-grid">
+      <div class="section-card">
+        <div class="section-inner">
+          <h2 class="section-title"><span class="title-icon">📊</span> Aktualna tabela</h2>
+          <div class="table-wrap">
+            <table id="rankingTable">
+              <thead>
                 <tr>
-                    <th>#</th>
-                    <th>Gracz</th>
-                    <th>Bilans</th>
-                    <th>Pkt</th>
-                   <th>Pkt W.</th>
-                   <th>Pkt P.</th>
+                  <th>#</th>
+                  <th>Gracz</th>
+                  <th>Bilans</th>
+                  <th>Pkt</th>
+                  <th>Pkt W.</th>
+                  <th>Pkt P.</th>
                 </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
-    </div>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
 
-    <div class="panel results" id="resultsBox">
-        <h2 class="section-title">WYNIKI</h2>
-    </div>
+      <div class="section-card">
+        <div class="section-inner">
+          <h2 class="section-title"><span class="title-icon">📜</span> Wyniki i terminarz</h2>
+          <div class="results-list" id="resultsList"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-card stats-section">
+      <div class="section-inner">
+        <h2 class="section-title"><span class="title-icon">✨</span> Statystyki draftu</h2>
+        <div class="stats-grid" id="statsGrid"></div>
+      </div>
+    </section>
+
+    <section class="section-card decks-section">
+      <div class="section-inner">
+        <h2 class="section-title"><span class="title-icon">🃏</span> Decki wojowników</h2>
+        <div class="decks-grid" id="decksContainer"></div>
+      </div>
+    </section>
+  </main>
 </div>
 
-<div class="draft-stats">
-    <h2 class="section-title">STATYSTYKI DRAFTU</h2>
-    <div class="stats-grid" id="statsGrid"></div>
+<div class="player-modal-overlay" id="playerModalOverlay"></div>
+<div id="playerModal" class="player-modal">
+  <div class="player-modal-header" id="playerModalHeader">
+    <div class="player-modal-title" id="modalTitle"></div>
+    <button class="close-btn" type="button" onclick="closePlayerModal()">✖</button>
+  </div>
+  <div class="player-modal-content">
+    <div class="player-info" id="playerInfo"></div>
+    <h3 class="modal-subtitle">Deck</h3>
+    <div id="playerDeckPreview"></div>
+
+    <h3 class="modal-subtitle">Wyniki</h3>
+    <div class="player-section-list" id="playerPlayed"></div>
+
+    <h3 class="modal-subtitle">Nierozgrane</h3>
+    <div class="player-section-list" id="playerUnplayed"></div>
+  </div>
+  <div class="player-modal-footer">
+    <button class="modal-btn" onclick="openPlayerPage(activePlayer)">WYŚWIETL BAZĘ DRAFTOWĄ WOJOWNIKA</button>
+  </div>
 </div>
 
-<div class="decks-section">
-    <h2 class="section-title">DECKI GRACZY</h2>
-    <div class="decks-grid" id="decksContainer"></div>
-</div>
-
-<div class="creator-panel">
-    <h3>PANEL TWÓRCY</h3>
-    <button onclick="addMatch()">Dodaj mecz</button>
-    <button onclick="generateMatchesCode()">Generuj kod matches</button>
-    <button onclick="generateDecksCode()">Generuj kod players</button>
-    <textarea id="codeOutput"></textarea>
-    <hr style="margin:30px 0">
-
-</div>
 <script src="cards.js"></script>
 <script src="database.js"></script>
 <script>
-
-    function sortDeck(deck){
-
-  return [...deck].sort((a,b)=>{
-
-    const cardA = cardDatabase.find(c => c.name === a);
-    const cardB = cardDatabase.find(c => c.name === b);
-
-    const costA = cardA ? cardA.cost : 999;
-    const costB = cardB ? cardB.cost : 999;
-
-    // 1️⃣ COST
-    if(costA !== costB){
-      return costA - costB;
-    }
-
-    const powerA = cardA ? cardA.power : 999;
-    const powerB = cardB ? cardB.power : 999;
-
-    // 2️⃣ POWER
-    if(powerA !== powerB){
-      return powerA - powerB;
-    }
-
-    // 3️⃣ ALFABET
-    return a.localeCompare(b);
-  });
-
-}
-    
 let activePlayer = null;
 
-const urlParams = new URLSearchParams(window.location.search);
-const idParam = parseInt(urlParams.get("id"));
-
-let draftsSorted = [...database.drafts].sort((a,b)=>b.id-a.id);
-let draft = idParam 
-  ? database.drafts.find(d=>d.id===idParam) 
-  : draftsSorted[0];
-
-if(!draft){
-  document.getElementById("draftTitle").textContent = "Brak draftu";
-  throw new Error("Draft not found");
-}
-
-/* META */
-const title = "DRAFT " + draft.id;
-const titleEl = document.getElementById("draftTitle");
-
-titleEl.textContent = title;
-titleEl.setAttribute("data-text", title);
-
-    const subtitleEl = document.getElementById("draftSubtitle");
-
-if(draft.title && draft.title.trim() !== ""){
-
-    subtitleEl.textContent = draft.title;
-
-}else{
-
-    subtitleEl.style.display = "none";
-
-}
-
-let metaText = `Tryb: ${draft.mode}<br>`;
-if(draft.startDate) metaText += `${draft.startDate}`;
-if(draft.endDate) metaText += ` – ${draft.endDate}`;
-metaText += `<br>Gracze: ${draft.players.length}`;
-if(draft.bans && draft.bans.length>0)
-  metaText += `<br>Bany: ${draft.bans.join(", ")}`;
-
-document.getElementById("draftMeta").innerHTML = metaText;
-
-/* NAV */
-const ids = database.drafts.map(d=>d.id).sort((a,b)=>a-b);
-const currentIndex = ids.indexOf(draft.id);
-
-if(currentIndex>0)
-  document.getElementById("prevDraft").onclick =
-    ()=>window.location.href=`draft.html?id=${ids[currentIndex-1]}`;
-else document.getElementById("prevDraft").style.display="none";
-
-if(currentIndex<ids.length-1)
-  document.getElementById("nextDraft").onclick =
-    ()=>window.location.href=`draft.html?id=${ids[currentIndex+1]}`;
-else document.getElementById("nextDraft").style.display="none";
-
-/* KOLORY */
 const playerColors = [
-    "#3B82F6", // 1. Niebieski
-    "#FF00CC", // 2. Magenta
-    "#8B5CF6", // 3. Fioletowy
-    "#22C55E", // 4. Zielony
-    "#22D3EE", // 5. Cyan
-    "#E11D48", // 6. Karmazyn
-    "#FB7185", // 7. Koralowy
-    "#F8FAFC", // 8. Biały
-    "#FFF176", // 9. Jasny żółty
-    "#FF9AD5", // 10. Light Pink
-    "#A3E635", // 11. Seledyn
-    "#F97316", // 12. Pomarańczowy
-    "#818CF8", // 13. Periwinkle
-    "#FACC15", // 14. Żółty / Złoty
-    "#14B8A6", // 15. Morski
-    "#F5E6C8", // 16. Kremowy / Beżowy
-    "#D1D5DB", // 17. Jasny szary
-    "#C084FC", // 18. Lawenda
-    "#60A5FA", // 19. Błękit
-    "#6EE7B7"  // 20. Miętowy
+  '#3B82F6', '#FF00CC', '#8B5CF6', '#22C55E', '#22D3EE', '#E11D48', '#FB7185', '#F8FAFC',
+  '#FFF176', '#FF9AD5', '#A3E635', '#F97316', '#818CF8', '#FACC15', '#14B8A6', '#F5E6C8',
+  '#D1D5DB', '#C084FC', '#60A5FA', '#6EE7B7'
 ];
 
-/* STATY */
-let stats={};
+const titlePalettes = [
+  ['#00f0ff','#67e8f9','#8b5cf6'],
+  ['#ff4fd8','#ff7fe8','#8a2be2'],
+  ['#7dd3fc','#00f0ff','#60a5fa'],
+  ['#ffd54a','#ffe98f','#ff7b54'],
+  ['#6ee7b7','#22d3ee','#8b5cf6'],
+  ['#f472b6','#c084fc','#67e8f9']
+];
 
+function sortDeck(deck){
+  return [...deck].sort((a,b)=>{
+    const cardA = cardDatabase.find(c => c.name === a);
+    const cardB = cardDatabase.find(c => c.name === b);
+    const costA = cardA ? cardA.cost : 999;
+    const costB = cardB ? cardB.cost : 999;
+    if(costA !== costB) return costA - costB;
+    const powerA = cardA ? cardA.power : 999;
+    const powerB = cardB ? cardB.power : 999;
+    if(powerA !== powerB) return powerA - powerB;
+    return a.localeCompare(b);
+  });
+}
+
+function sanitizeName(name){
+  return name.toLowerCase().replace(/ /g,'').replace(/\./g,'');
+}
+
+function getDeckImagePath(name, draftId){
+  return `assets/decks/${sanitizeName(name)}_${draftId}.jpg`;
+}
+
+function getUnplayedMatches(draft){
+  const played = new Set(draft.matches.map(m => [m.p1, m.p2].sort().join('-')));
+  const missing = [];
+  for(let i=0;i<draft.players.length;i++){
+    for(let j=i+1;j<draft.players.length;j++){
+      const p1 = draft.players[i].name;
+      const p2 = draft.players[j].name;
+      const key = [p1,p2].sort().join('-');
+      if(!played.has(key)) missing.push({p1,p2});
+    }
+  }
+  return missing;
+}
+
+function getDraftRanking(d){
+  const local = {};
+  d.players.forEach(p=>{
+    local[p.name] = {name:p.name, total:0, wins:0, losses:0, winPoints:0, lossPoints:0};
+  });
+  (d.matches || []).forEach(m=>{
+    if(!local[m.p1]) local[m.p1] = {name:m.p1,total:0,wins:0,losses:0,winPoints:0,lossPoints:0};
+    if(!local[m.p2]) local[m.p2] = {name:m.p2,total:0,wins:0,losses:0,winPoints:0,lossPoints:0};
+    const isDoubleWalkover = (m.pts1 === 0 && m.pts2 === 0);
+    if(isDoubleWalkover){
+      local[m.p1].losses++;
+      local[m.p2].losses++;
+    }else if(m.pts1 > m.pts2){
+      local[m.p1].wins++; local[m.p2].losses++;
+      local[m.p1].winPoints += m.pts1; local[m.p2].lossPoints += m.pts2;
+    }else if(m.pts2 > m.pts1){
+      local[m.p2].wins++; local[m.p1].losses++;
+      local[m.p2].winPoints += m.pts2; local[m.p1].lossPoints += m.pts1;
+    }
+    local[m.p1].total += Number(m.pts1 || 0);
+    local[m.p2].total += Number(m.pts2 || 0);
+  });
+  return Object.values(local).sort((a,b)=>b.total-a.total || b.wins-a.wins || a.name.localeCompare(b.name));
+}
+
+function buildLegendRanks(){
+  const legendPointsByPlace = [7,4,3,2,1];
+  const all = {};
+  (database.drafts || []).forEach(d=>{
+    getDraftRanking(d).slice(0,5).forEach((p,idx)=>{
+      if(!all[p.name]) all[p.name] = {name:p.name, legend:0, draftPoints:0, drafts:0};
+      all[p.name].legend += legendPointsByPlace[idx] || 0;
+    });
+    (d.players || []).forEach(p=>{
+      if(!all[p.name]) all[p.name] = {name:p.name, legend:0, draftPoints:0, drafts:0};
+      all[p.name].drafts++;
+    });
+    getDraftRanking(d).forEach(p=>{
+      if(!all[p.name]) all[p.name] = {name:p.name, legend:0, draftPoints:0, drafts:0};
+      all[p.name].draftPoints += p.total;
+    });
+  });
+  const sorted = Object.values(all).sort((a,b)=>b.legend-a.legend || b.draftPoints-a.draftPoints || b.drafts-a.drafts || a.name.localeCompare(b.name));
+  const ranks = {};
+  sorted.forEach((p,idx)=>{ ranks[p.name] = idx + 1; });
+  return ranks;
+}
+
+const legendRanks = buildLegendRanks();
+
+function legendBadge(rank){
+  return rank ? 'RANGA LEGEND #' + rank : 'RANGA LEGEND —';
+}
+
+function openDeckZoom(imgSrc){
+  const overlay = document.createElement('div');
+  overlay.className = 'deckZoomOverlay';
+  overlay.innerHTML = `<div class="deckZoomModal"><img src="${imgSrc}" alt="Deck"></div>`;
+  overlay.onclick = ()=>overlay.remove();
+  document.body.appendChild(overlay);
+}
+
+const urlParams = new URLSearchParams(window.location.search);
+const idParam = parseInt(urlParams.get('id'));
+const draftsSorted = [...database.drafts].sort((a,b)=>b.id-a.id);
+const draft = idParam ? database.drafts.find(d=>d.id===idParam) : draftsSorted[0];
+
+if(!draft){
+  document.body.innerHTML = '<div style="padding:40px;color:white;font-family:Rajdhani,sans-serif">Nie znaleziono draftu.</div>';
+  throw new Error('Draft not found');
+}
+
+const palette = titlePalettes[draft.id % titlePalettes.length];
+document.documentElement.style.setProperty('--title-a', palette[0]);
+document.documentElement.style.setProperty('--title-b', palette[1]);
+document.documentElement.style.setProperty('--title-c', palette[2]);
+document.documentElement.style.setProperty('--draft-accent', palette[0]);
+document.documentElement.style.setProperty('--draft-accent-soft', palette[0] + '55');
+
+const titleEl = document.getElementById('draftTitle');
+titleEl.innerHTML = `<span class="title-core" data-title="DRAFT ${draft.id}">DRAFT ${draft.id}<span class="title-sheen">DRAFT ${draft.id}</span></span>`;
+
+const subtitleEl = document.getElementById('draftSubtitle');
+if(draft.title && draft.title.trim()){
+  subtitleEl.textContent = draft.title;
+}else{
+  subtitleEl.style.display = 'none';
+}
+
+function renderMeta(){
+  const grid = document.getElementById('metaGrid');
+  const cards = [
+    {label:'Tryb', value:draft.mode || '-'},
+    {label:'Termin', value:(draft.startDate || '-') + (draft.endDate ? ` – ${draft.endDate}` : '')},
+    {label:'Liczba graczy', value:String(draft.players.length)},
+    {label:'Zwycięzca', value:draft.winner || 'Jeszcze nie wyłoniono'}
+  ];
+
+  grid.innerHTML = cards.map(card => `
+    <div class="meta-card ${card.label === 'Zwycięzca' ? 'meta-winner' : ''}">
+      <div class="meta-label">${card.label}</div>
+      <div class="meta-value">${card.value}</div>
+    </div>
+  `).join('');
+
+  if(draft.bans && draft.bans.length){
+    grid.innerHTML += `
+      <div class="meta-card meta-bans">
+        <div class="meta-label">Bany</div>
+        <div class="meta-value">${draft.bans.join(', ')}</div>
+      </div>
+    `;
+  }
+}
+renderMeta();
+
+function buildNavigation(){
+  const idsAsc = [...database.drafts].map(d=>d.id).sort((a,b)=>a-b);
+  const currentIndex = idsAsc.indexOf(draft.id);
+  const prevBtn = document.getElementById('prevDraft');
+  const nextBtn = document.getElementById('nextDraft');
+
+  if(currentIndex > 0){
+    prevBtn.onclick = ()=>window.location.href = `draft.html?id=${idsAsc[currentIndex-1]}`;
+  }else{
+    prevBtn.style.opacity = '.45';
+    prevBtn.disabled = true;
+    prevBtn.style.cursor = 'default';
+  }
+
+  if(currentIndex < idsAsc.length - 1){
+    nextBtn.onclick = ()=>window.location.href = `draft.html?id=${idsAsc[currentIndex+1]}`;
+  }else{
+    nextBtn.style.opacity = '.45';
+    nextBtn.disabled = true;
+    nextBtn.style.cursor = 'default';
+  }
+
+  const jumpSelect = document.getElementById('draftJumpSelect');
+  jumpSelect.innerHTML = draftsSorted.map(d => `<option value="${d.id}" ${d.id===draft.id ? 'selected' : ''}>DRAFT ${d.id}${d.title ? ' — ' + d.title : ''}</option>`).join('');
+  document.getElementById('jumpDraftBtn').onclick = ()=>{
+    const value = jumpSelect.value;
+    window.location.href = `draft.html?id=${value}`;
+  };
+}
+buildNavigation();
+
+const stats = {};
 draft.players.forEach((p,i)=>{
-
-stats[p.name]={
-wins:0,
-losses:0,
-total:0,
-winPoints:0,
-lossPoints:0,
-color:playerColors[i%playerColors.length]
-};
-
+  stats[p.name] = {
+    wins:0,
+    losses:0,
+    total:0,
+    winPoints:0,
+    lossPoints:0,
+    color:playerColors[i % playerColors.length]
+  };
 });
 
-
 draft.matches.forEach(m=>{
-
-  let isDoubleWalkover = (m.pts1 === 0 && m.pts2 === 0);
-  let isWalkover = (m.pts1 === 20 && m.pts2 === 0) || (m.pts2 === 20 && m.pts1 === 0);
-
+  const isDoubleWalkover = (m.pts1 === 0 && m.pts2 === 0);
   if(isDoubleWalkover){
-
-    // 🔴 PODWÓJNY WALKOWER
     stats[m.p1].losses++;
     stats[m.p2].losses++;
-
   }else if(m.pts1 > m.pts2){
-
     stats[m.p1].wins++;
     stats[m.p2].losses++;
-
     stats[m.p1].winPoints += m.pts1;
     stats[m.p2].lossPoints += m.pts2;
-
   }else if(m.pts2 > m.pts1){
-
     stats[m.p2].wins++;
     stats[m.p1].losses++;
-
     stats[m.p2].winPoints += m.pts2;
     stats[m.p1].lossPoints += m.pts1;
-
   }
-
-  // punkty zawsze lecą
   stats[m.p1].total += m.pts1;
   stats[m.p2].total += m.pts2;
-
-  // ✨ DOPISEK
-  let note = "";
-
-  if(isDoubleWalkover){
-    note = " <span style='opacity:0.6;font-size:12px'>(pod. walk.)</span>";
-  }else if(isWalkover){
-    note = " <span style='opacity:0.6;font-size:12px'>(walk.)</span>";
-  }
-
-  const p1Color = stats[m.p1].color;
-  const p2Color = stats[m.p2].color;
-
-  document.getElementById("resultsBox")
-    .innerHTML += `
-    <p>
-      <span style="color:${p1Color};font-weight:bold;">${m.p1}</span> 
-      ${m.pts1} – ${m.pts2} 
-      <span style="color:${p2Color};font-weight:bold;">${m.p2}</span>
-      ${note}
-    </p>`;
 });
 
-    const unplayed = getUnplayedMatches(draft);
-
-if(unplayed.length>0){
-
-  document.getElementById("resultsBox").innerHTML += `
-    <div class="unplayed-section">
-      <h3>🕓 Nierozgrane mecze</h3>
-      ${unplayed.map(m=>{
-
-  const p1Color = stats[m.p1].color;
-  const p2Color = stats[m.p2].color;
-
-  return `
-  <div class="unplayed-match">
-    <span style="color:${p1Color};font-weight:bold;">${m.p1}</span>
-    vs
-    <span style="color:${p2Color};font-weight:bold;">${m.p2}</span>
-  </div>
-  `;
-}).join("")}
-    </div>
-  `;
-
-}else{
-
-  document.getElementById("resultsBox").innerHTML += `
-    <div class="unplayed-section">
-      <h3>🔥 Wszystkie mecze rozegrane</h3>
-    </div>
-  `;
-
-}
-
-/* RANKING */
-let ranking=Object.keys(stats).map(n=>({name:n,...stats[n]}));
+let ranking = Object.keys(stats).map(name => ({name, ...stats[name]}));
 ranking.sort((a,b)=>b.total-a.total);
 
-    /* ===== TŁO ZWYCIĘZCY ===== */
-
-if(ranking.length > 0){
-
-  const winner = ranking[0].name;
-  const draftId = draft.id;
-
-  const winnerBg = document.querySelector(".winner-bg");
-
-  const imagePath =
-    "assets/decks/" +
-    winner.toLowerCase().replace(/ /g,"").replace(/\./g,"") +
-    "_" + draftId + ".jpg";
-
-  winnerBg.style.backgroundImage = `url("${imagePath}")`;
-
+if(ranking.length){
+  const winnerImg = getDeckImagePath(ranking[0].name, draft.id);
+  const bg = document.getElementById('winnerBg');
+  bg.style.backgroundImage = `url('${winnerImg}')`;
 }
-    
 
-ranking.forEach((p,i)=>{
-  document.querySelector("#rankingTable tbody").innerHTML+=`
-  <tr>
-    <td>${i+1}</td>
-<td 
-class="player-name"
-style="color:${p.color};font-weight:bold;cursor:pointer;"
-onclick="selectPlayer('${p.name}')"
->
-${p.name}
-</td>
-    <td>${p.wins}-${p.losses}</td>
-    <td>${p.total}</td>
-    <td>${p.winPoints}</td>
-    <td>${p.lossPoints}</td>
-  </tr>`;
-});
+function renderRanking(){
+  const tbody = document.querySelector('#rankingTable tbody');
+  tbody.innerHTML = ranking.map((p,i)=>`
+    <tr>
+      <td>${i+1}</td>
+      <td class="player-link" style="color:${p.color}" onclick="selectPlayer('${p.name.replace(/'/g, "\\'")}')">${p.name}</td>
+      <td>${p.wins}-${p.losses}</td>
+      <td>${p.total}</td>
+      <td>${p.winPoints}</td>
+      <td>${p.lossPoints}</td>
+    </tr>
+  `).join('');
+}
+renderRanking();
 
-/* PODIUM */
-const medals=["🥇","🥈","🥉"];
-const classes=["first","second","third"];
+function renderPodium(){
+  const podium = document.getElementById('podium');
+  if(!ranking.length){
+    podium.innerHTML = '<div class="empty-note">Brak danych do podium.</div>';
+    return;
+  }
 
-ranking.slice(0,3).forEach((p,i)=>{
-  document.getElementById("podium").innerHTML+=`
-  <div class="podium ${classes[i]}" style="border:2px solid ${p.color};box-shadow:0 0 25px ${p.color}">
-    <div style="font-size:28px">${medals[i]}</div>
-    <h3 style="color:${p.color}">${p.name}</h3>
-    <div>${p.total} pkt</div>
-  </div>`;
-});
+  const top3 = [];
+  if(ranking[1]) top3.push({player:ranking[1], cls:'podium-second', badge:'#2', medal:'🥈', glow:'rgba(214,228,255,.88)', tierBorder:'rgba(214,228,255,.40)', overlay:'linear-gradient(180deg, rgba(255,255,255,.08), rgba(214,228,255,.12) 38%, rgba(10,16,40,.42) 100%)'});
+  if(ranking[0]) top3.push({player:ranking[0], cls:'podium-first', badge:'#1', medal:'🥇', glow:'rgba(255,213,74,.92)', tierBorder:'rgba(255,213,74,.60)', overlay:'linear-gradient(180deg, rgba(255,226,120,.12), rgba(255,213,74,.14) 38%, rgba(12,18,44,.40) 100%)'});
+  if(ranking[2]) top3.push({player:ranking[2], cls:'podium-third', badge:'#3', medal:'🥉', glow:'rgba(215,146,90,.88)', tierBorder:'rgba(215,146,90,.40)', overlay:'linear-gradient(180deg, rgba(234,188,154,.09), rgba(215,146,90,.12) 38%, rgba(12,18,44,.42) 100%)'});
 
-    /* STATYSTYKI DRAFTU */
+  podium.innerHTML = top3.map(({player, cls, badge, medal, glow, tierBorder, overlay})=>{
+    const legendRank = legendBadge(legendRanks[player.name]);
+    const deckImg = getDeckImagePath(player.name, draft.id);
+    const baseShadow = cls === 'podium-first'
+      ? `0 0 0 1px rgba(255,213,74,.82), 0 0 30px rgba(255,213,74,.48), 0 0 86px rgba(255,213,74,.24)`
+      : `0 0 0 1px ${tierBorder}, 0 0 22px ${glow.replace('.88','.34')}, 0 0 58px ${glow.replace('.88','.18')}`;
+    const nameColor = player.color;
+    return `
+      <div class="podium-card ${cls}" style="border-color:${tierBorder}; box-shadow:${baseShadow};">
+        <div class="podium-bg" style="background-image:url('${deckImg}')"></div>
+        <div class="podium-overlay" style="background:${overlay};"></div>
+        ${cls === 'podium-first' ? '<div class="podium-sparkles"></div>' : ''}
+        <div class="podium-content">
+          <div class="podium-badge" style="color:${glow}; border:1px solid ${tierBorder};">${badge}</div>
+          <div class="podium-medal">${medal}</div>
+          <div class="podium-name" style="color:${nameColor}; text-shadow:0 0 14px ${nameColor}cc, 0 0 28px ${nameColor}55;">${player.name}</div>
+          <div class="legend-rank">${legendRank}</div>
+          <div class="podium-points">${player.total} pkt</div>
+          <div class="podium-balance">Bilans ${player.wins}-${player.losses}</div>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+renderPodium();
+
+function renderResults(){
+  const box = document.getElementById('resultsList');
+  const items = [];
+
+  if(draft.matches.length){
+    draft.matches.forEach(m=>{
+      const p1Color = stats[m.p1]?.color || '#fff';
+      const p2Color = stats[m.p2]?.color || '#fff';
+      const isDoubleWalkover = (m.pts1 === 0 && m.pts2 === 0);
+      const isWalkover = (m.pts1 === 20 && m.pts2 === 0) || (m.pts2 === 20 && m.pts1 === 0);
+      const note = isDoubleWalkover ? '<span class="result-note">(podwójny walkower)</span>' : (isWalkover ? '<span class="result-note">(walkower)</span>' : '');
+      items.push(`
+        <div class="result-item">
+          <span style="color:${p1Color};font-weight:700">${m.p1}</span>
+          ${m.pts1} – ${m.pts2}
+          <span style="color:${p2Color};font-weight:700">${m.p2}</span>
+          ${note}
+        </div>
+      `);
+    });
+  } else {
+    items.push('<div class="result-item empty-note">Na razie brak rozegranych meczów.</div>');
+  }
+
+  const unplayed = getUnplayedMatches(draft);
+  items.push('<div class="result-block-title">🕓 Nierozgrane mecze</div>');
+  if(unplayed.length){
+    unplayed.forEach(m=>{
+      const p1Color = stats[m.p1]?.color || '#fff';
+      const p2Color = stats[m.p2]?.color || '#fff';
+      items.push(`
+        <div class="unplayed-item">
+          <span style="color:${p1Color};font-weight:700">${m.p1}</span>
+          vs
+          <span style="color:${p2Color};font-weight:700">${m.p2}</span>
+        </div>
+      `);
+    });
+  } else {
+    items.push('<div class="unplayed-item">🔥 Wszystkie mecze rozegrane</div>');
+  }
+
+  box.innerHTML = items.join('');
+}
+renderResults();
 
 function addStat(title, value){
-  document.getElementById("statsGrid").innerHTML += `
+  document.getElementById('statsGrid').innerHTML += `
     <div class="stat-box">
       <strong>${title}</strong>
-      <div style="margin-top:10px">${value}</div>
+      <div>${value}</div>
     </div>
   `;
 }
 
-/* Najwięcej zwycięstw */
-let maxWins = Math.max(...ranking.map(p=>p.wins));
-let winLeaders = ranking
-  .filter(p=>p.wins===maxWins)
-  .map(p=>p.name)
-  .sort()
-  .slice(0,5);
+function renderStats(){
+  const grid = document.getElementById('statsGrid');
+  grid.innerHTML = '';
 
-addStat("🏆 Najwięcej zwycięstw",
-  winLeaders.join(", ") + ` (${maxWins})`
-);
+  const maxWins = Math.max(...ranking.map(p=>p.wins), 0);
+  const winLeaders = ranking.filter(p=>p.wins===maxWins).map(p=>p.name).sort().slice(0,5);
+  addStat('🏆 Najwięcej zwycięstw', `${winLeaders.join(', ') || '-'} (${maxWins})`);
 
-/* Wygrane do 0 */
-let cleanWins = {};
-draft.players.forEach(p=>cleanWins[p.name]=0);
-
-draft.matches.forEach(m=>{
-  if(m.pts1>m.pts2 && m.pts2===0) cleanWins[m.p1]++;
-  if(m.pts2>m.pts1 && m.pts1===0) cleanWins[m.p2]++;
-});
-
-let maxClean = Math.max(...Object.values(cleanWins));
-let cleanLeaders = Object.keys(cleanWins)
-  .filter(n=>cleanWins[n]===maxClean)
-  .sort()
-  .slice(0,5);
-
-addStat("🔥 Najwięcej wygranych do 0",
-  cleanLeaders.join(", ") + ` (${maxClean})`
-);
-
-/* Najwięcej pkt z porażek */
-let lossPointsStat = {};
-draft.players.forEach(p=>lossPointsStat[p.name]=0);
-
-draft.matches.forEach(m=>{
-  if(m.pts1>m.pts2){
-    lossPointsStat[m.p2]+=m.pts2;
-  }else{
-    lossPointsStat[m.p1]+=m.pts1;
-  }
-});
-
-let maxLoss = Math.max(...Object.values(lossPointsStat));
-
-let lossLeaders = Object.keys(lossPointsStat)
-  .filter(n=>lossPointsStat[n]===maxLoss)
-  .sort()
-  .slice(0,5);
-
-addStat("💀 Najwięcej pkt z porażek",
-  lossLeaders.join(", ") + ` (${maxLoss})`
-);
-
-/* Najmniej porażek */
-let minLoss = Math.min(...ranking.map(p=>p.losses));
-let leastLoss = ranking
-  .filter(p=>p.losses===minLoss)
-  .map(p=>p.name)
-  .sort()
-  .slice(0,5);
-
-addStat("🛡 Najmniej porażek",
-  leastLoss.join(", ") + ` (${minLoss})`
-);
-
-/* Najczęściej wybierana karta */
-let cardCount = {};
-draft.players.forEach(p=>{
-  p.deck.forEach(c=>{
-    cardCount[c] = (cardCount[c]||0)+1;
+  const cleanWins = {};
+  draft.players.forEach(p=>cleanWins[p.name]=0);
+  draft.matches.forEach(m=>{
+    if(m.pts1>m.pts2 && m.pts2===0) cleanWins[m.p1]++;
+    if(m.pts2>m.pts1 && m.pts1===0) cleanWins[m.p2]++;
   });
-});
+  const maxClean = Math.max(...Object.values(cleanWins), 0);
+  const cleanLeaders = Object.keys(cleanWins).filter(n=>cleanWins[n]===maxClean).sort().slice(0,5);
+  addStat('🔥 Najwięcej wygranych do 0', `${cleanLeaders.join(', ') || '-'} (${maxClean})`);
 
-if(Object.keys(cardCount).length>0){
-  let maxPick = Math.max(...Object.values(cardCount));
-  let mostPicked = Object.keys(cardCount)
-    .filter(c=>cardCount[c]===maxPick)
-    .sort()
-    .slice(0,5);
+  const lossPointsStat = {};
+  draft.players.forEach(p=>lossPointsStat[p.name]=0);
+  draft.matches.forEach(m=>{
+    if(m.pts1>m.pts2) lossPointsStat[m.p2]+=m.pts2;
+    else if(m.pts2>m.pts1) lossPointsStat[m.p1]+=m.pts1;
+  });
+  const maxLoss = Math.max(...Object.values(lossPointsStat), 0);
+  const lossLeaders = Object.keys(lossPointsStat).filter(n=>lossPointsStat[n]===maxLoss).sort().slice(0,5);
+  addStat('💀 Najwięcej pkt z porażek', `${lossLeaders.join(', ') || '-'} (${maxLoss})`);
 
-  addStat("🃏 Najczęściej wybierana karta",
-    mostPicked.join(", ") + ` (${maxPick})`
-  );
+  const minLoss = Math.min(...ranking.map(p=>p.losses), 0);
+  const leastLoss = ranking.filter(p=>p.losses===minLoss).map(p=>p.name).sort().slice(0,5);
+  addStat('🛡 Najmniej porażek', `${leastLoss.join(', ') || '-'} (${minLoss})`);
+
+  const cardCount = {};
+  draft.players.forEach(p=>p.deck.forEach(c=>cardCount[c]=(cardCount[c]||0)+1));
+  if(Object.keys(cardCount).length){
+    const maxPick = Math.max(...Object.values(cardCount));
+    const mostPicked = Object.keys(cardCount).filter(c=>cardCount[c]===maxPick).sort().slice(0,5);
+    addStat('🃏 Najczęściej wybierana karta', `${mostPicked.join(', ')} (${maxPick})`);
+  }
 }
+renderStats();
 
-/* DECKI */
-draft.players.forEach((p,i)=>{
+function renderDecks(){
+  const container = document.getElementById('decksContainer');
+  container.innerHTML = draft.players.map((p,i)=>{
+    const color = playerColors[i % playerColors.length];
+    const playerRank = ranking.findIndex(r=>r.name===p.name) + 1;
+    const legendRank = legendBadge(legendRanks[p.name]);
+    const playerStat = ranking.find(r=>r.name===p.name);
+    const imagePath = getDeckImagePath(p.name, draft.id);
+    const sorted = sortDeck(p.deck);
 
-  const color=playerColors[i%playerColors.length];
+    return `
+      <article class="deck-card" style="border-color:${color}88; box-shadow:0 0 0 1px ${color}88, 0 0 18px ${color}55, 0 0 42px ${color}30, 0 0 78px ${color}18;">
+        <div class="deck-card-inner">
+          <div class="deck-top">
+            <div class="deck-player-wrap">
+              <h3 class="deck-player player-link" style="color:${color}" onclick="selectPlayer('${p.name.replace(/'/g, "\\'")}')">${p.name}<small>Miejsce w tabeli draftu: #${playerRank}</small></h3>
+              <div class="deck-mini-stats">
+                <span class="deck-badge legend">✦ ${legendRank}</span>
+                <span class="deck-badge">${playerStat ? `${playerStat.total} pkt` : '0 pkt'}</span>
+                <span class="deck-badge">${playerStat ? `${playerStat.wins}-${playerStat.losses}` : '0-0'}</span>
+              </div>
+            </div>
+            <div class="deck-actions">
+              <button class="icon-btn" type="button" onclick="selectPlayer('${p.name.replace(/'/g, "\\'")}')" title="Szczegóły gracza">👁</button>
+              <button class="icon-btn" type="button" onclick="openDeckZoom('${imagePath}')" title="Powiększ deck"><img src="assets/jefflupa.png" alt="Lupa" onerror="this.parentElement.innerHTML='🔎'"></button>
+            </div>
+          </div>
 
-  let imagePath =
-  "assets/decks/" +
-  p.name.toLowerCase().replace(/ /g,"").replace(/\./g,"") +
-  "_" + draft.id + ".jpg";
+          <div class="cards-grid">
+            ${sorted.map(c=>`<div class="card-tile" style="color:${color}; box-shadow:inset 0 0 10px rgba(255,255,255,.02), 0 0 10px ${color}20;">${c}</div>`).join('')}
+          </div>
 
-  let html=`
-  <div class="deck-card" style="border:2px solid ${color};box-shadow:0 0 30px ${color}">
-    
-    <h3 
-class="player-name"
-style="color:${color};text-align:center;cursor:pointer;"
-onclick="selectPlayer('${p.name}')"
->
-${p.name}
-</h3>
-  
-
-    <div class="cards-grid">
-
-      ${sortDeck(p.deck).map(c=>`
-        <div class="card-tile"
-        style="color:${color};border:1px solid ${color};">
-        ${c}
+          <img class="deck-image" src="${imagePath}" alt="Deck ${p.name}" onerror="this.style.display='none'">
         </div>
-      `).join("")}
-
-    </div>
-
-    <img src="${imagePath}"
-    onerror="this.style.display='none'">
-
-  </div>
-  `;
-
-  document.getElementById("decksContainer")
-  .innerHTML+=html;
-
-});
-
-function addMatch(){
-  const p1=prompt("Gracz 1:");
-  const p2=prompt("Gracz 2:");
-  const pts1=parseInt(prompt("Pkt 1:"));
-  const pts2=parseInt(prompt("Pkt 2:"));
-  draft.matches.push({p1,p2,pts1,pts2});
-  alert("Dodano (odśwież i wygeneruj kod)");
+      </article>
+    `;
+  }).join('');
 }
-function generateMatchesCode(){
-  document.getElementById("codeOutput").value=
-  JSON.stringify(draft.matches);
-}
-
-function generateDecksCode(){
-  document.getElementById("codeOutput").value=
-  JSON.stringify(draft.players);
-}
-    function initDeckBuilder(){
-
-const creatorPanel = document.querySelector(".creator-panel");
-
-creatorPanel.insertAdjacentHTML("beforeend",`
-
-<h3>Dodaj Deck</h3>
-
-<select id="deckPlayerSelect"></select>
-
-<br><br>
-
-<select id="cardSelect"></select>
-<button onclick="addCardToDeck()">Dodaj kartę</button>
-
-<br><br>
-
-<div id="deckPreview"
-style="
-margin-top:10px;
-padding:10px;
-background:rgba(0,0,40,0.6);
-border-radius:10px;
-min-height:40px;
-">
-</div>
-
-<button onclick="saveDeckToPlayer()">
-Zapisz deck do gracza
-</button>
-
-`);
-    
-
-/* lista graczy */
-
-const playerSelect=document.getElementById("deckPlayerSelect");
-
-draft.players.forEach(p=>{
-playerSelect.innerHTML+=`
-<option value="${p.name}">
-${p.name}
-</option>`;
-});
-
-
-/* lista kart */
-
-const cardSelect=document.getElementById("cardSelect");
-
-cards.forEach(c=>{
-cardSelect.innerHTML+=`
-<option value="${c}">
-${c}
-</option>`;
-});
-
-
-}
-
-
-
-let tempDeck=[];
-
-
-
-function addCardToDeck(){
-
-const card=document.getElementById("cardSelect").value;
-
-if(tempDeck.length>=12){
-alert("Deck ma max 12 kart");
-return;
-}
-
-tempDeck.push(card);
-
-renderDeckPreview();
-
-}
-
-
-
-function renderDeckPreview(){
-
-document.getElementById("deckPreview").innerHTML=
-tempDeck.join(", ");
-
-}
-
-
-
-function saveDeckToPlayer(){
-
-const playerName=
-document.getElementById("deckPlayerSelect").value;
-
-const player=
-draft.players.find(p=>p.name===playerName);
-
-player.deck=[...tempDeck];
-
-tempDeck=[];
-
-renderDeckPreview();
-
-alert("Deck zapisany");
-
-}
-function getUnplayedMatches(draft){
-
-    const played = new Set(
-        draft.matches.map(m => 
-            [m.p1, m.p2].sort().join("-")
-        )
-    );
-
-    const missing = [];
-
-    for(let i=0;i<draft.players.length;i++){
-        for(let j=i+1;j<draft.players.length;j++){
-
-            const p1 = draft.players[i].name;
-            const p2 = draft.players[j].name;
-
-            const key = [p1,p2].sort().join("-");
-
-            if(!played.has(key)){
-                missing.push({p1,p2});
-            }
-        }
-    }
-
-    return missing;
-}
-
-    function openDeckZoom(imgSrc){
-
-const overlay = document.createElement("div");
-overlay.className="deckZoomOverlay";
-
-overlay.innerHTML=`
-<div class="deckZoomModal">
-<img src="${imgSrc}">
-</div>
-`;
-
-overlay.onclick=()=>{
-document.body.removeChild(overlay);
-};
-
-document.body.appendChild(overlay);
-
-}
-/* JEFF ZOOM SAFE VERSION */
-
-window.addEventListener("load", function(){
-
-document.querySelectorAll(".deck-card").forEach(card => {
-
-const deckImg = card.querySelector("img");
-
-if(!deckImg) return;
-
-const btn = document.createElement("img");
-btn.src = "assets/jefflupa.png";
-
-btn.style.position = "absolute";
-btn.style.bottom = "10px";
-btn.style.right = "10px";
-btn.style.width = "70px";
-btn.style.cursor = "pointer";
-btn.style.filter = "drop-shadow(0 0 15px #00f0ff)";
-btn.style.transition = "0.2s";
-
-btn.onmouseenter = () => {
-btn.style.transform = "scale(1.25) rotate(-5deg)";
-};
-
-btn.onmouseleave = () => {
-btn.style.transform = "scale(1)";
-};
-
-btn.onclick = function(e){
-
-e.stopPropagation();
-
-const overlay = document.createElement("div");
-
-overlay.style.position="fixed";
-overlay.style.inset="0";
-overlay.style.background="rgba(0,0,40,0.9)";
-overlay.style.display="flex";
-overlay.style.alignItems="center";
-overlay.style.justifyContent="center";
-overlay.style.zIndex="9999";
-
-overlay.innerHTML = `
-<img src="${deckImg.src}" style="
-width:520px;
-border-radius:18px;
-box-shadow:
-0 0 20px #00f0ff,
-0 0 40px #00f0ff,
-0 0 70px #8a2be2;
-">
-`;
-
-overlay.onclick = () => overlay.remove();
-
-document.body.appendChild(overlay);
-
-};
-
-card.appendChild(btn);
-
-    const plus = document.createElement("div");
-
-plus.innerHTML = "+";
-
-plus.style.position = "absolute";
-plus.style.bottom = "40px";
-plus.style.right = "5px";
-
-plus.style.fontSize = "26px";
-plus.style.fontWeight = "bold";
-
-plus.style.fontFamily = "Orbitron";
-
-plus.style.animation = "rainbowPlus 1.2s infinite";
-
-card.appendChild(plus);
-
-});
-
-});
+renderDecks();
 
 function selectPlayer(name){
-
-if(activePlayer === name){
-closePlayerModal();
-activePlayer = null;
-return;
-}
-
-activePlayer = name;
-
-openPlayerModal(name);
-highlightMatches(name);
+  if(activePlayer === name && document.getElementById('playerModal').classList.contains('show')){
+    closePlayerModal();
+    activePlayer = null;
+    return;
+  }
+  activePlayer = name;
+  openPlayerModal(name);
+  highlightMatches(name);
 }
 
 function closePlayerModal(){
-document.getElementById("playerModal").classList.add("hidden");
-
-document.querySelectorAll(".highlight").forEach(el=>{
-el.classList.remove("highlight");
-});
+  document.getElementById('playerModal').classList.remove('show');
+  document.getElementById('playerModalOverlay').classList.remove('show');
+  document.querySelectorAll('.highlight').forEach(el=>el.classList.remove('highlight'));
 }
+
+document.getElementById('playerModalOverlay').addEventListener('click', closePlayerModal);
 
 function openPlayerModal(name){
+  const modal = document.getElementById('playerModal');
+  const overlay = document.getElementById('playerModalOverlay');
+  modal.classList.add('show');
+  overlay.classList.add('show');
 
-const modal = document.getElementById("playerModal");
-modal.classList.remove("hidden");
+  document.getElementById('modalTitle').textContent = `DRAFT ${draft.id} — ${name}`;
+  const player = ranking.find(p=>p.name===name);
+  const playerMatches = draft.matches.filter(m=>m.p1===name || m.p2===name);
 
-document.getElementById("modalTitle").innerHTML =
-`DRAFT ${draft.id} — ${name}`;
+  const lastMatches = playerMatches.slice(-5);
+  let form = '';
+  lastMatches.forEach(m=>{
+    const isWin = (m.p1===name && m.pts1>m.pts2) || (m.p2===name && m.pts2>m.pts1);
+    form += isWin ? '🟢' : '🔴';
+  });
 
-const player = ranking.find(p=>p.name===name);
+  let streak = 0;
+  for(let i=playerMatches.length-1;i>=0;i--){
+    const m = playerMatches[i];
+    const isWin = (m.p1===name && m.pts1>m.pts2) || (m.p2===name && m.pts2>m.pts1);
+    if(isWin) streak++; else break;
+  }
 
-    const playerMatches = draft.matches
-.filter(m=>m.p1===name || m.p2===name);
+  let momentum = '⚪ Neutralny';
+  let momentumColor = '#cfd8e5';
+  if(streak >= 3){ momentum = '🔥 HOT'; momentumColor = '#ff4fd8'; }
+  else if(streak === 2){ momentum = '⚡ Rośnie'; momentumColor = '#00f0ff'; }
+  else if(streak === 1){ momentum = '🟢 Plus'; momentumColor = '#4ade80'; }
+  else if(playerMatches.length){ momentum = '❄️ Spadek'; momentumColor = '#cbd5e1'; }
 
-/* FORMA */
-const lastMatches = playerMatches.slice(-5);
+  const totalMatches = playerMatches.length;
+  const avgPoints = totalMatches ? (player.total / totalMatches).toFixed(1) : '0.0';
+  const remaining = (draft.players.length - 1) - totalMatches;
+  const predicted = Math.round(player.total + (Number(avgPoints) * remaining));
+  const simulated = ranking.map(p=> p.name===name ? {...p, total:predicted} : {...p}).sort((a,b)=>b.total-a.total);
+  const predictedPlace = simulated.findIndex(p=>p.name===name)+1;
 
-let form = "";
-lastMatches.forEach(m=>{
-let isWin =
-(m.p1===name && m.pts1>m.pts2) ||
-(m.p2===name && m.pts2>m.pts1);
+  const infoItems = [
+    ['Pozycja', ranking.indexOf(player)+1],
+    ['Punkty', player.total],
+    ['Bilans', `${player.wins}-${player.losses}`],
+    ['Śr. pkt', avgPoints],
+    ['Prognoza', predicted],
+    ['Prog. miejsce', predictedPlace],
+    ['Forma', form || '-'],
+    ['Momentum', `<span style="color:${momentumColor}">${momentum}</span>`]
+  ];
+  document.getElementById('playerInfo').innerHTML = infoItems.map(([label,val])=>`<div class="player-info-box"><span>${label}</span><b>${val}</b></div>`).join('');
 
-form += isWin ? "🟢" : "🔴";
-});
+  const fullPlayer = draft.players.find(p=>p.name===name);
+  const imagePath = getDeckImagePath(fullPlayer.name, draft.id);
+  document.getElementById('playerDeckPreview').innerHTML = `
+    <img src="${imagePath}" alt="Deck ${name}" style="width:100%; border-radius:16px; box-shadow:0 0 20px rgba(0,240,255,.18); cursor:pointer;" onclick="openDeckZoom('${imagePath}')" onerror="this.style.display='none'">
+  `;
 
-/* STREAK */
-let streak = 0;
+  const playedBox = document.getElementById('playerPlayed');
+  playedBox.innerHTML = playerMatches.length ? playerMatches.map(m=>`<div class="player-line">${m.p1} ${m.pts1} – ${m.pts2} ${m.p2}</div>`).join('') : '<div class="player-line empty-note">Brak rozegranych meczów.</div>';
 
-for(let i = playerMatches.length - 1; i >= 0; i--){
-const m = playerMatches[i];
+  const unplayed = getUnplayedMatches(draft).filter(m=>m.p1===name || m.p2===name);
+  document.getElementById('playerUnplayed').innerHTML = unplayed.length ? unplayed.map(m=>`<div class="player-line">${m.p1} vs ${m.p2}</div>`).join('') : '<div class="player-line">Wszystkie mecze rozegrane.</div>';
 
-let isWin =
-(m.p1===name && m.pts1>m.pts2) ||
-(m.p2===name && m.pts2>m.pts1);
-
-if(isWin){
-streak++;
-}else{
-break;
-}
-}
-
-/* MOMENTUM */
-let momentum = "⚪ Neutralny";
-let momentumColor = "#aaa";
-
-if(streak >= 3){
-momentum = "🔥 HOT";
-momentumColor = "#ff00ff";
-}
-else if(streak === 2){
-momentum = "⚡ Rośnie";
-momentumColor = "#00f0ff";
-}
-else if(streak === 1){
-momentum = "🟢 Plus";
-momentumColor = "#00ff88";
-}
-else if(playerMatches.length){
-momentum = "❄️ Spadek";
-momentumColor = "#888";
-}
-
-const matchesPlayed = draft.matches.filter(m=>m.p1===name || m.p2===name);
-
-const totalMatches = matchesPlayed.length;
-
-const avgPoints = totalMatches
-? (player.total / totalMatches).toFixed(1)
-: 0;
-
-/* przewidywane */
-const remaining = (draft.players.length - 1) - totalMatches;
-
-const predicted = Math.round(player.total + (avgPoints * remaining));
-
-/* przewidywane miejsce */
-let simulated = ranking.map(p=>{
-if(p.name === name){
-return {...p, total:predicted};
-}
-return p;
-}).sort((a,b)=>b.total-a.total);
-
-const predictedPlace = simulated.findIndex(p=>p.name===name)+1;
-
-document.getElementById("playerInfo").innerHTML = `
-<div>Pozycja<br><b>${ranking.indexOf(player)+1}</b></div>
-<div>Punkty<br><b>${player.total}</b></div>
-<div>Bilans<br><b>${player.wins}-${player.losses}</b></div>
-<div>Śr. pkt<br><b>${avgPoints}</b></div>
-<div>Prognoza<br><b>${predicted}</b></div>
-<div>Prog. miejsce<br><b>${predictedPlace}</b></div>
-<div>Forma<br><b>${form || "-"}</b></div>
-<div>Momentum<br><b style="color:${momentumColor}">${momentum}</b></div>
-`;
-
-let playedHTML = "";
-draft.matches.forEach(m=>{
-if(m.p1===name || m.p2===name){
-playedHTML += `<div>${m.p1} ${m.pts1} – ${m.pts2} ${m.p2}</div>`;
-}
-});
-
-document.getElementById("playerPlayed").innerHTML = playedHTML;
-
-const unplayed = getUnplayedMatches(draft);
-
-let unplayedHTML = "";
-unplayed.forEach(m=>{
-if(m.p1===name || m.p2===name){
-unplayedHTML += `<div>${m.p1} vs ${m.p2}</div>`;
-}
-});
-
-document.getElementById("playerUnplayed").innerHTML = unplayedHTML;
-
-    
-// 🃏 DECK OBRAZKOWY (TEN SAM CO NA DOLE)
-const fullPlayer = draft.players.find(p => p.name === name);
-
-if(fullPlayer){
-
-const imagePath =
-"assets/decks/" +
-fullPlayer.name.toLowerCase().replace(/ /g,"").replace(/\./g,"") +
-"_" + draft.id + ".jpg";
-
-document.getElementById("playerDeckPreview").innerHTML = `
-<img 
-src="${imagePath}"
-style="
-width:100%;
-border-radius:12px;
-box-shadow:0 0 20px #00f0ff;
-cursor:pointer;
-transition:0.25s;
-"
-onclick="openDeckZoom('${imagePath}')"
-onmouseover="this.style.transform='scale(1.03)'"
-onmouseout="this.style.transform='scale(1)'"
-onerror="this.style.display='none'"
->
-`;
-
+  if(window.innerWidth <= 900){
+    modal.style.left = '50%';
+    modal.style.top = '50%';
+    modal.style.transform = 'translate(-50%, -50%)';
+  }
 }
 
-    }
-
- 
-
-    // 🃏 DECK OBRAZKOWY
-   // 🃏 DECK OBRAZKOWY
-
-    
-
-    
 function highlightMatches(name){
-
-document.querySelectorAll("#resultsBox p").forEach(p=>{
-if(p.innerText.includes(name)){
-p.classList.add("highlight");
-}else{
-p.classList.remove("highlight");
-}
-});
-
-document.querySelectorAll(".unplayed-match").forEach(el=>{
-if(el.innerText.includes(name)){
-el.classList.add("highlight");
-}else{
-el.classList.remove("highlight");
-}
-});
-
+  document.querySelectorAll('.result-item, .unplayed-item').forEach(el=>{
+    if(el.innerText.includes(name)) el.classList.add('highlight');
+    else el.classList.remove('highlight');
+  });
 }
 
-function openPlayerPage(){
-alert("Tu będzie strona gracza 😈");
+function openPlayerPage(name){
+  if(!name) return;
+  window.location.href = `player.html?name=${encodeURIComponent(name)}`;
 }
 
-window.addEventListener("load", ()=>{
+(function initPlayerModalDrag(){
+  const modal = document.getElementById('playerModal');
+  const header = document.getElementById('playerModalHeader');
+  let isDragging = false;
+  let offsetX = 0, offsetY = 0;
 
-const modal = document.getElementById("playerModal");
-const header = document.querySelector(".player-modal-header");
+  header.addEventListener('mousedown', (e)=>{
+    if(window.innerWidth <= 900) return;
+    isDragging = true;
+    modal.style.transform = 'none';
+    const rect = modal.getBoundingClientRect();
+    offsetX = e.clientX - rect.left;
+    offsetY = e.clientY - rect.top;
+    modal.style.left = rect.left + 'px';
+    modal.style.top = rect.top + 'px';
+    header.style.cursor = 'grabbing';
+  });
 
-let isDragging = false;
-let offsetX, offsetY;
+  document.addEventListener('mousemove', (e)=>{
+    if(!isDragging) return;
+    const maxLeft = window.innerWidth - modal.offsetWidth - 8;
+    const maxTop = window.innerHeight - modal.offsetHeight - 8;
+    const nextLeft = Math.min(Math.max(8, e.clientX - offsetX), maxLeft);
+    const nextTop = Math.min(Math.max(8, e.clientY - offsetY), maxTop);
+    modal.style.left = nextLeft + 'px';
+    modal.style.top = nextTop + 'px';
+  });
 
-header.addEventListener("mousedown", (e)=>{
-isDragging = true;
-offsetX = e.clientX - modal.offsetLeft;
-offsetY = e.clientY - modal.offsetTop;
-});
+  document.addEventListener('mouseup', ()=>{
+    isDragging = false;
+    header.style.cursor = 'grab';
+  });
 
-document.addEventListener("mousemove", (e)=>{
-if(!isDragging) return;
-
-modal.style.left = (e.clientX - offsetX) + "px";
-modal.style.top = (e.clientY - offsetY) + "px";
-});
-
-document.addEventListener("mouseup", ()=>{
-isDragging = false;
-});
-
-});
-    function openPlayerPage(name){
-    if(!name) return;
-    window.location.href = `player.html?name=${name}`;
-}
-    
-initDeckBuilder();
-    
+  window.addEventListener('resize', ()=>{
+    if(window.innerWidth <= 900){
+      modal.style.left = '50%';
+      modal.style.top = '50%';
+      modal.style.transform = 'translate(-50%, -50%)';
+    }
+  });
+})();
 </script>
-<div id="playerModal" class="player-modal hidden">
-
-  <div class="player-modal-header">
-    <span id="modalTitle"></span>
-    <span class="close-btn" onclick="closePlayerModal()">✖</span>
-  </div>
-
-  <div class="player-modal-content">
-
-    <div class="player-info" id="playerInfo"></div>
-      
-<h3>Deck</h3>
-<div id="playerDeckPreview" class="player-deck-grid"></div>
-    <div class="player-matches">
-      <h3>Wyniki</h3>
-      <div id="playerPlayed"></div>
-
-      <h3>Nierozgrane</h3>
-      <div id="playerUnplayed"></div>
-    </div>
-
-  </div>
-
-  <div class="player-modal-footer">
-   <button onclick="openPlayerPage(activePlayer)">
-      WYŚWIETL BAZĘ DRAFTOWĄ WOJOWNIKA
-    </button>
-  </div>
-
-</div>
-
-
-   
 </body>
 </html>
