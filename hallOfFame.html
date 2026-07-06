@@ -2,212 +2,420 @@
 <html lang="pl">
 <head>
 <meta charset="UTF-8">
-<title>Sala Chwały - MSP Draft</title>
+<title>Ranking Legend - MSP SnapDraft</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
-
 <style>
-
-body{
-    margin:0;
-    font-family:'Rajdhani', sans-serif;
-    background:url("assets/sala.png") no-repeat center center fixed;
-    background-size:cover;
-    color:white;
-    position:relative;
+:root{
+    --gold:#f5c55a;
+    --gold-soft:#ffdf8a;
+    --violet:#b28cff;
+    --violet-soft:#d7c4ff;
+    --deep:#0a0c23;
+    --panel:rgba(10,12,35,0.78);
+    --line:rgba(245,197,90,0.68);
 }
 
-/* LEKKIE PRZYCIEMNIENIE DLA CZYTELNOŚCI */
-
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+    font-family:'Rajdhani',sans-serif;
+    color:#fff;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(178,140,255,0.14), transparent 28%),
+      radial-gradient(circle at 80% 10%, rgba(245,197,90,0.12), transparent 22%),
+      url("assets/sala.png") center/cover fixed no-repeat;
+    min-height:100vh;
+    overflow-x:hidden;
+    position:relative;
+}
 body::before{
     content:"";
     position:fixed;
     inset:0;
-    background:rgba(5,10,25,0.65);
-    backdrop-filter:blur(3px);
+    background:
+      linear-gradient(180deg, rgba(7,8,24,0.56), rgba(7,8,24,0.84)),
+      url("assets/cosmictool.png") center/900px repeat;
+    opacity:.23;
+    pointer-events:none;
+    z-index:-2;
+    animation: cosmicFloat 26s linear infinite;
+}
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:rgba(4,6,18,0.34);
+    backdrop-filter: blur(2px);
     z-index:-1;
 }
 
-/* NAV */
+@keyframes cosmicFloat{
+    0%{background-position:center 0px, center 0px}
+    100%{background-position:center 0px, center 180px}
+}
+@keyframes galaxyShift{
+    0%{background-position:0 0}
+    100%{background-position:160px 120px}
+}
+@keyframes shimmer{
+    0%,100%{opacity:.45; transform:scale(1)}
+    50%{opacity:.95; transform:scale(1.15)}
+}
 
 nav{
+    position:sticky;
+    top:0;
+    z-index:20;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:20px 60px;
-    background:rgba(5,10,25,0.75);
-    backdrop-filter:blur(10px);
+    gap:18px;
+    padding:16px 28px;
+    background:linear-gradient(180deg, rgba(9,10,28,.92), rgba(9,10,28,.72));
+    backdrop-filter: blur(12px);
+    border-bottom:1px solid rgba(245,197,90,.38);
+    box-shadow:0 8px 30px rgba(0,0,0,.28), 0 0 22px rgba(178,140,255,.18);
 }
-
+nav .brand{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    font-family:'Orbitron',sans-serif;
+    font-weight:800;
+    letter-spacing:.08em;
+    color:var(--gold-soft);
+    text-shadow:0 0 12px rgba(245,197,90,.35);
+}
+nav .nav-links{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
 nav a{
     text-decoration:none;
-    color:white;
-    font-weight:600;
+    color:#fff;
+    font-weight:700;
+    padding:10px 16px;
+    border-radius:14px;
+    border:1px solid rgba(178,140,255,.3);
+    background:linear-gradient(180deg, rgba(18,20,48,.68), rgba(12,14,36,.72));
+    box-shadow:0 0 0 1px rgba(245,197,90,.08) inset, 0 0 16px rgba(178,140,255,.15);
+    transition:.25s ease;
 }
-
-/* MAIN */
+nav a:hover{
+    transform:translateY(-2px);
+    border-color:rgba(245,197,90,.55);
+    box-shadow:0 0 20px rgba(245,197,90,.18),0 0 20px rgba(178,140,255,.18);
+}
 
 .container{
-    max-width:1200px;
-    margin:auto;
-    padding:60px 20px 100px 20px;
+    max-width:1280px;
+    margin:0 auto;
+    padding:42px 20px 90px;
 }
 
-h1{
+.hero{
     text-align:center;
-    font-family:'Orbitron', sans-serif;
-    font-size:64px;
-    margin-bottom:50px;
-    text-shadow:
-        0 0 20px #8a2be2,
-        0 0 40px #00f0ff,
-        0 0 80px #00f0ff;
-}
-
-h2{
-    margin-top:70px;
     margin-bottom:30px;
-    font-size:32px;
-    border-bottom:2px solid rgba(255,255,255,0.2);
-    padding-bottom:10px;
+}
+.hero .eyebrow{
+    font-family:'Orbitron',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:.22em;
+    font-size:13px;
+    color:var(--gold-soft);
+    margin-bottom:12px;
+    text-shadow:0 0 10px rgba(245,197,90,.38);
+}
+.hero h1{
+    margin:0;
+    font-family:'Orbitron',sans-serif;
+    font-weight:900;
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    line-height:1.02;
+    font-size:clamp(44px,7vw,84px);
+    color:#f7ebba;
+    text-shadow:
+        0 0 16px rgba(245,197,90,.42),
+        0 0 28px rgba(178,140,255,.34),
+        0 0 54px rgba(178,140,255,.24);
+}
+.hero h1 .accent{color:var(--violet-soft)}
+.hero .subtitle{
+    margin-top:12px;
+    font-family:'Orbitron',sans-serif;
+    font-size:clamp(13px,2vw,20px);
+    color:rgba(255,255,255,.88);
+    letter-spacing:.05em;
+}
+.hero .subtitle .dash,
+.hero .subtitle .small-accent{color:var(--gold-soft)}
+
+.section-title{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin:38px 0 18px;
+    font-family:'Orbitron',sans-serif;
+    font-size:clamp(22px,3vw,34px);
+    color:#fff2c1;
+    text-shadow:0 0 12px rgba(245,197,90,.28);
+}
+.section-title .bullet{
+    color:var(--gold);
+    font-size:.88em;
 }
 
-/* TABLE */
+.table-shell{
+    position:relative;
+    border-radius:30px;
+    padding:22px;
+    overflow:hidden;
+    border:1px solid rgba(245,197,90,.72);
+    box-shadow:
+      0 0 0 1px rgba(245,197,90,.18) inset,
+      0 0 26px rgba(245,197,90,.28),
+      0 0 70px rgba(245,197,90,.18),
+      0 0 45px rgba(178,140,255,.14);
+    background:rgba(8,10,28,.52);
+}
+.table-shell::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      linear-gradient(180deg, rgba(10,12,35,.84), rgba(10,12,35,.78)),
+      url("assets/galaxytool.png") center/540px repeat;
+    animation:galaxyShift 28s linear infinite;
+    opacity:.98;
+}
+.table-shell::after{
+    content:"";
+    position:absolute;
+    inset:10px;
+    border-radius:22px;
+    pointer-events:none;
+    border:1px solid rgba(245,197,90,.18);
+    box-shadow:0 0 18px rgba(245,197,90,.14) inset;
+}
+.table-shell > *{position:relative; z-index:1}
 
-table{
+.table-wrap{overflow-x:auto;border-radius:20px}
+.table-wrap::-webkit-scrollbar{height:10px}
+.table-wrap::-webkit-scrollbar-thumb{background:rgba(245,197,90,.35); border-radius:999px}
+
+#rankingTable{
     width:100%;
     border-collapse:collapse;
-    margin-bottom:40px;
-    background:rgba(255,255,255,0.05);
-    border-radius:15px;
+    min-width:980px;
+    background:rgba(8,10,28,.28);
     overflow:hidden;
-    backdrop-filter:blur(10px);
+    border-radius:20px;
 }
-
-th, td{
-    padding:14px;
+#rankingTable th,
+#rankingTable td{
+    padding:14px 12px;
     text-align:center;
+    border-bottom:1px solid rgba(178,140,255,.16);
 }
-
-th{
-    background:rgba(138,43,226,0.35);
+#rankingTable th{
+    font-family:'Orbitron',sans-serif;
+    font-size:15px;
+    letter-spacing:.04em;
+    color:#fff3ce;
+    background:
+      linear-gradient(180deg, rgba(245,197,90,.2), rgba(178,140,255,.16)),
+      url("assets/galaxytool.png") center/460px repeat;
+    box-shadow: inset 0 -1px 0 rgba(245,197,90,.16);
+}
+#rankingTable td{
+    font-size:25px;
+    font-weight:600;
+    background:rgba(10,12,35,.22);
+}
+#rankingTable tr:nth-child(even) td{
+    background:rgba(255,255,255,.02);
+}
+#rankingTable tbody tr:hover td{
+    background:rgba(245,197,90,.09);
+}
+#rankingTable td:nth-child(2){
     font-weight:700;
+    font-size:27px;
+}
+#rankingTable td:nth-child(3){
+    font-weight:900;
+    color:var(--gold-soft);
+    text-shadow:0 0 12px rgba(245,197,90,.38);
 }
 
-tr:nth-child(even){
-    background:rgba(255,255,255,0.06);
+.legend-rules,
+.record-box{
+    position:relative;
+    overflow:hidden;
+    border-radius:24px;
+    border:1px solid rgba(178,140,255,.28);
+    background:linear-gradient(180deg, rgba(12,14,36,.82), rgba(12,14,36,.72));
+    box-shadow:0 0 22px rgba(178,140,255,.16),0 0 24px rgba(245,197,90,.12);
 }
-
-tr:hover{
-    background:rgba(0,240,255,0.12);
-    transition:0.3s;
+.legend-rules::before,
+.record-box::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      linear-gradient(180deg, rgba(12,14,36,.62), rgba(12,14,36,.72)),
+      url("assets/cosmictool.png") center/470px repeat;
+    opacity:.28;
+    animation: cosmicFloat 24s linear infinite reverse;
 }
+.legend-rules > *, .record-box > *{position:relative; z-index:1}
 
-/* REKORDY GRID */
+.legend-rules{
+    margin-top:24px;
+    padding:22px 24px;
+}
+.legend-rules h3{
+    margin:0 0 14px;
+    font-family:'Orbitron',sans-serif;
+    color:#fff0be;
+    text-shadow:0 0 10px rgba(245,197,90,.3);
+}
+.legend-rules .rules-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+    gap:12px;
+}
+.legend-rules .rule{
+    padding:12px 14px;
+    border-radius:14px;
+    background:rgba(255,255,255,.03);
+    border:1px solid rgba(178,140,255,.16);
+    font-size:20px;
+}
+.legend-rules .footnote{
+    margin-top:14px;
+    opacity:.85;
+    font-size:16px;
+}
 
 .records{
     display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
-    gap:25px;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:20px;
 }
-
 .record-box{
-    background:rgba(255,255,255,0.07);
-    padding:25px;
-    border-radius:18px;
+    padding:24px 20px;
     text-align:center;
-    backdrop-filter:blur(10px);
-    box-shadow:0 0 25px rgba(0,240,255,0.25);
-    transition:0.3s;
 }
-
-.record-box:hover{
-    transform:translateY(-5px);
-    box-shadow:0 0 40px rgba(138,43,226,0.4);
+.record-box::after{
+    content:"";
+    position:absolute;
+    width:6px;
+    height:6px;
+    top:14px;
+    left:18px;
+    border-radius:50%;
+    background:var(--gold-soft);
+    box-shadow:
+      0 0 10px rgba(245,197,90,.85),
+      28px 12px 0 -1px rgba(178,140,255,.7),
+      170px 18px 0 -1px rgba(245,197,90,.52),
+      120px 48px 0 -1px rgba(178,140,255,.55),
+      210px 80px 0 -1px rgba(245,197,90,.42);
+    animation:shimmer 4.5s ease-in-out infinite;
 }
-
 .record-box h3{
-    margin-bottom:12px;
+    margin:0 0 10px;
+    font-family:'Orbitron',sans-serif;
     font-size:18px;
+    color:#fff1c6;
 }
-
 .record-box p{
-    font-size:22px;
+    margin:0;
+    font-size:30px;
     font-weight:700;
+    color:#fff;
+    text-shadow:0 0 12px rgba(178,140,255,.24);
 }
 
-    #rankingTable td:nth-child(3){
-    font-weight:900;
-    color:#00f0ff;
-    text-shadow:0 0 12px #00f0ff;
+@media (max-width: 900px){
+    nav{padding:14px 16px; flex-direction:column; align-items:stretch}
+    nav .brand{justify-content:center}
+    nav .nav-links{justify-content:center}
+    .container{padding:28px 14px 70px}
+    .table-shell{padding:14px}
+    #rankingTable td{font-size:21px}
+    #rankingTable td:nth-child(2){font-size:23px}
 }
-    
+
+@media (max-width: 560px){
+    .hero .subtitle{line-height:1.45}
+    .legend-rules .rule{font-size:18px}
+    .record-box p{font-size:26px}
+}
 </style>
 </head>
-
 <body>
-
 <nav>
-    <a href="index.html">Strona Główna</a>
-    <a href="draft.html">Drafty</a>
+    <div class="brand">🏆 Ranking Legend</div>
+    <div class="nav-links">
+        <a href="index.html">Strona Główna</a>
+        <a href="draft.html">Kroniki Draftowe</a>
+        <a href="player-lobby.html">Baza Wojowników</a>
+    </div>
 </nav>
 
 <div class="container">
+    <section class="hero">
+        <div class="eyebrow">MSP SnapDraft Hall of Fame</div>
+        <h1>RANKING <span class="accent">LEGEND</span></h1>
+        <div class="subtitle"><span class="dash">—</span> główny ranking ligi draftowej <span class="small-accent">MSP SNAPDRAFT</span></div>
+    </section>
 
-    <h1>🏆 SALA CHWAŁY</h1>
+    <div class="section-title"><span class="bullet">✦</span> Tabela rankingowa</div>
+    <div class="table-shell">
+        <div class="table-wrap">
+            <table id="rankingTable">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Gracz</th>
+                        <th>Pkt Legend</th>
+                        <th>🥇</th>
+                        <th>🥈</th>
+                        <th>🥉</th>
+                        <th>4</th>
+                        <th>5</th>
+                        <th>Drafty</th>
+                        <th>Pkt Draftowe</th>
+                        <th>Śr. pkt</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
 
-   <h2>GŁÓWNY RANKING DRAFTÓW MSP</h2>
+    <div class="legend-rules">
+        <h3>Zasady przyznawania punktów legend</h3>
+        <div class="rules-grid">
+            <div class="rule">🥇 1 miejsce — <strong>7 pkt</strong></div>
+            <div class="rule">🥈 2 miejsce — <strong>4 pkt</strong></div>
+            <div class="rule">🥉 3 miejsce — <strong>3 pkt</strong></div>
+            <div class="rule">4 miejsce — <strong>2 pkt</strong></div>
+            <div class="rule">5 miejsce — <strong>1 pkt</strong></div>
+        </div>
+        <div class="footnote">* Do rankingu liczeni są gracze, którzy rozegrali minimum 2 drafty.</div>
+    </div>
 
-<table id="rankingTable">
-<thead>
-<tr>
-<th>#</th>
-<th>Gracz</th>
-<th>Pkt Legend</th>
-<th>🥇</th>
-<th>🥈</th>
-<th>🥉</th>
-<th>4</th>
-<th>5</th>
-<th>Drafty</th>
-<th>Pkt Draftowe</th>
-<th>Śr. pkt</th>
-</tr>
-</thead>
-<tbody></tbody>
-</table>
-
-<div style="
-margin-top:30px;
-background:rgba(138,43,226,0.15);
-padding:20px;
-border-radius:15px;
-box-shadow:0 0 25px rgba(0,240,255,0.3);
-">
-
-<h3 style="font-family:'Orbitron';margin-bottom:15px;">
-ZASADY PRZYZNAWANIA PUNKTÓW LEGEND
-</h3>
-
-<p>🥇 1 miejsce – 7 pkt</p>
-<p>🥈 2 miejsce – 4 pkt</p>
-<p>🥉 3 miejsce – 3 pkt</p>
-<p>4 miejsce – 2 pkt</p>
-<p>5 miejsce – 1 pkt</p>
-
-<p style="margin-top:10px;font-size:14px;opacity:0.8;">
-* Liczeni są gracze, którzy rozegrali min. 2 Drafty.
-</p>
-
-</div>
-
-<h2>Rekordy</h2>
-<div class="records" id="recordsContainer"></div>
+    <div class="section-title"><span class="bullet">✦</span> Rekordy</div>
+    <div class="records" id="recordsContainer"></div>
 </div>
 
 <script src="database.js"></script>
 <script src="hallOfFame.js" defer></script>
-
 </body>
 </html>
