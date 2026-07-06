@@ -2257,7 +2257,13 @@ matches:[
       ]
     }
   ],
-  "matches": [{"p1":"MatiMyHair","p2":"Raciatek","pts1":20,"pts2":5},{"p1":"MatiMyHair","p2":"Maniek","pts1":20,"pts2":5}
+  "matches": [{"p1":"MatiMyHair","p2":"Raciatek","pts1":20,"pts2":5},{"p1":"MatiMyHair","p2":"Maniek","pts1":20,"pts2":5},
+			  {"p1":"Supcio","p2":"FizjoRadek","pts1":16,"pts2":9},{"p1":"Dejwidgakure","p2":"Maniek","pts1":20,"pts2":5},
+			  {"p1":"Weregesu","p2":"Maniek","pts1":25,"pts2":0},{"p1":"Maniek","p2":"Kmythic","pts1":2,"pts2":23},
+			  {"p1":"Supcio","p2":"Maniek","pts1":23,"pts2":2},{"p1":"Weregesu","p2":"Kmythic","pts1":17,"pts2":8}
+			  
+			  
+		
 			 
 			 ]
 } 
