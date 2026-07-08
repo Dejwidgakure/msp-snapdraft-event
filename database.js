@@ -2267,7 +2267,7 @@ matches:[
 			  {"p1":"Maniek","p2":"FizjoRadek","pts1":6,"pts2":19},{"p1":"Supcio","p2":"Raciatek","pts1":20,"pts2":5},
 			  {"p1":"I'm Batman","p2":"Supcio","pts1":17,"pts2":8},{"p1":"Supcio","p2":"Weregesu","pts1":24,"pts2":1},
 			  {"p1":"wodolot","p2":"Supcio","pts1":22,"pts2":3},{"p1":"wodolot","p2":"Maniek","pts1":21,"pts2":4},
-			  {"p1":"I'm Batman","p2":"FizjoRadek","pts1":4,"pts2":21}
+			  {"p1":"I'm Batman","p2":"FizjoRadek","pts1":4,"pts2":21},{"p1":"I'm Batman","p2":"wodolot","pts1":0,"pts2":25}
 			  
 			  
 		
