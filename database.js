@@ -1524,7 +1524,7 @@ matches:[
 "Maverick",
 "Mole Man",
 "Hobgoblin",
-"Black Panther",
+"Loki",
 "Red Skull"
       ]
     },
