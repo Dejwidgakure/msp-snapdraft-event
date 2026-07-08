@@ -1312,6 +1312,51 @@ body::after{
     }
 }
 
+
+/* ========================================================= */
+/* NAVBAR FINAL TUNING v10d                                 */
+/* 1) PC: prawe kafelki linków +3.4% względem v9             */
+/* 2) Mobile: wyłączony biały przejeżdżający shine          */
+/* ========================================================= */
+
+/* PC / desktop only — kosmetyczne powiększenie */
+@media(min-width:901px){
+    .nav-link{
+        transform:scale(1.034);
+        transform-origin:center;
+    }
+}
+
+/* Mobile / tablet only — zero białego przejeżdżającego paska */
+@media(max-width:900px){
+    .nav-link::before,
+    .nav-link::after,
+    .hero::before,
+    .hero::after,
+    .buttons a::before,
+    .buttons a::after,
+    .info-panel::before,
+    .info-panel::after,
+    .cards-hero::before,
+    .cards-hero::after,
+    .nav-current::before,
+    .nav-current::after{
+        animation:none !important;
+        transition:none !important;
+    }
+
+    .nav-link::before,
+    .nav-link::after,
+    .buttons a::before,
+    .buttons a::after,
+    .hero::after,
+    .cards-hero::after{
+        opacity:0 !important;
+        display:none !important;
+        content:none !important;
+    }
+}
+
 </style>
 </head>
 
