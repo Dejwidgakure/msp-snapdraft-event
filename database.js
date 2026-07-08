@@ -2260,7 +2260,15 @@ matches:[
   "matches": [{"p1":"MatiMyHair","p2":"Raciatek","pts1":20,"pts2":5},{"p1":"MatiMyHair","p2":"Maniek","pts1":20,"pts2":5},
 			  {"p1":"Supcio","p2":"FizjoRadek","pts1":16,"pts2":9},{"p1":"Dejwidgakure","p2":"Maniek","pts1":20,"pts2":5},
 			  {"p1":"Weregesu","p2":"Maniek","pts1":25,"pts2":0},{"p1":"Maniek","p2":"Kmythic","pts1":2,"pts2":23},
-			  {"p1":"Supcio","p2":"Maniek","pts1":23,"pts2":2},{"p1":"Weregesu","p2":"Kmythic","pts1":17,"pts2":8}
+			  {"p1":"Supcio","p2":"Maniek","pts1":23,"pts2":2},{"p1":"Weregesu","p2":"Kmythic","pts1":17,"pts2":8},
+			  {"p1":"Kmythic","p2":"I'm Batman","pts1":21,"pts2":4},{"p1":"Matixmgg","p2":"I'm Batman","pts1":24,"pts2":1},
+			  {"p1":"Kmythic","p2":"Matixmgg","pts1":0,"pts2":25},{"p1":"Matixmgg","p2":"Maniek","pts1":25,"pts2":0},
+			  {"p1":"Kmythic","p2":"Matixmgg","pts1":0,"pts2":25},{"p1":"Matixmgg","p2":"Maniek","pts1":25,"pts2":0},
+			  {"p1":"Maniek","p2":"Detroj","pts1":25,"pts2":0},{"p1":"I'm Batman","p2":"Maniek","pts1":0,"pts2":25},
+			  {"p1":"Maniek","p2":"FizjoRadek","pts1":6,"pts2":19},{"p1":"Supcio","p2":"Raciatek","pts1":20,"pts2":5},
+			  {"p1":"I'm Batman","p2":"Supcio","pts1":17,"pts2":8},{"p1":"Supcio","p2":"Weregesu","pts1":24,"pts2":1},
+			  {"p1":"wodolot","p2":"Supcio","pts1":22,"pts2":3},{"p1":"wodolot","p2":"Maniek","pts1":21,"pts2":4},
+			  {"p1":"I'm Batman","p2":"FizjoRadek","pts1":4,"pts2":21}
 			  
 			  
 		
