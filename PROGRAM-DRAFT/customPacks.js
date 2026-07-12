@@ -115,7 +115,12 @@ const customPacks = [
         id: "jubilee_2_5",
         name: "JUBILEUSZ DRAFT 2 & 5 - Dejwidgakure & Xevo",
         tags: ["wind5", "wind2"]
-    }
+    },
+{
+    id: "spider_pack",
+    name: "PACZKA SPIDERVERSE 🕷️",
+    tags: ["spider-verse"] 
+}
 
 
 ];
