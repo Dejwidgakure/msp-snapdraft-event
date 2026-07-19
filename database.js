@@ -2289,7 +2289,8 @@ matches:[
 			  {"p1":"Detroj","p2":"MatiMyHair","pts1":0,"pts2":20},{"p1":"Detroj","p2":"I'm Batman","pts1":0,"pts2":20},
 			  {"p1":"Detroj","p2":"FizjoRadek","pts1":0,"pts2":20},{"p1":"Detroj","p2":"Matixmgg","pts1":0,"pts2":20},
 			  {"p1":"Detroj","p2":"Raciatek","pts1":0,"pts2":20},{"p1":"Detroj","p2":"Supcio","pts1":0,"pts2":20},
-			  {"p1":"Dejwidgakure","p2":"MatiMyHair","pts1":4,"pts2":21},{"p1":"Detroj","p2":"I'm Batman","pts1":0,"pts2":20}
+			  {"p1":"Dejwidgakure","p2":"MatiMyHair","pts1":4,"pts2":21},{"p1":"Detroj","p2":"I'm Batman","pts1":0,"pts2":20},
+			  {"p1":"Raciatek","p2":"Matixmgg","pts1":20,"pts2":0}
 			  
 		
 			 
