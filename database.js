@@ -2038,7 +2038,7 @@ matches:[
   "mode": "Classic + Bany + Custom Paczki + Tematyczne Twisty",
   "presetCard": null,
   "playersCount": 12,
-  "winner": null,
+  "winner": "MatiMyHair",
   "bans": [
     "Aurora",
     "Cosmic Ghost Rider",
