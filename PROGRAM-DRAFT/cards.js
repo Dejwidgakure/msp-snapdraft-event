@@ -7,7 +7,7 @@ const cardDatabase = [
   { name: "Agatha Harkness", cost: 6, power: 12, tags: ["wind18"] },
   { name: "Agony", cost: 1, power: 2, tags: ["zoo","spider-verse"] },
   { name: "Air-Walker", cost: 3, power: 4, tags: ["destro"] },
-  { name: "Aero", cost: 5, power: 9, tags: [] },
+  { name: "Aero", cost: 5, power: 9, tags: ["move"] },
   { name: "Ajax", cost: 5, power: 7, tags: [] },
   { name: "Agent 13", cost: 1, power: 3, tags: ["zoo","cardgen"] },
   { name: "Agent Coulson", cost: 3, power: 5, tags: ["wind9","cardgen"] },
