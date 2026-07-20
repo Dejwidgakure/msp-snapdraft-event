@@ -815,6 +815,170 @@ const jokers = [
 
     minPower:null,
     maxPower:null
+},
+  {
+  id:"choice_location_control",
+  type:"choice",
+  rarity:"rare",
+
+  name:"Reality Control",
+
+  desc:"Dowolna karta z kontrolą lokacji",
+
+  tags:["location"],
+
+  minCost:null,
+  maxCost:null,
+
+  minPower:null,
+  maxPower:null
+},
+
+{
+  id:"choice_tech_card",
+  type:"choice",
+  rarity:"rare",
+
+  name:"Tech Override Protocol",
+
+  desc:"Dowolna karta Tech",
+
+  tags:["tech"],
+
+  minCost:null,
+  maxCost:null,
+
+  minPower:null,
+  maxPower:null
+},
+
+{
+  id:"choice_destro_card",
+  type:"choice",
+  rarity:"common",
+
+  name:"Destro Protocol",
+
+  desc:'Dowolna karta z "Destroy"',
+
+  tags:["destro"],
+
+  minCost:null,
+  maxCost:null,
+
+  minPower:null,
+  maxPower:null
+},
+
+// =========================
+// NOWE SURPRISE JOKERS — DRAFT 26
+// =========================
+
+{
+  id:"surprise_location_control",
+  type:"surprise",
+  rarity:"rare",
+
+  name:"Reality Glitch",
+
+  desc:"Losowa karta z kontrolą lokacji",
+
+  tags:["location"],
+
+  minCost:null,
+  maxCost:null,
+
+  minPower:null,
+  maxPower:null
+},
+
+{
+  id:"surprise_tech_card",
+  type:"surprise",
+  rarity:"rare",
+
+  name:"Tech Glitch",
+
+  desc:"Losowa karta Tech",
+
+  tags:["tech"],
+
+  minCost:null,
+  maxCost:null,
+
+  minPower:null,
+  maxPower:null
+},
+
+{
+  id:"surprise_cheap_tech_card",
+  type:"surprise",
+  rarity:"epic",
+
+  name:"Cheap Countermeasure",
+
+  desc:"Losowa karta Tech 2 lub mniej kosztu",
+
+  tags:["tech"],
+
+  minCost:null,
+  maxCost:2,
+
+  minPower:null,
+  maxPower:null
+},
+
+{
+  id:"surprise_destro_card",
+  type:"surprise",
+  rarity:"common",
+
+  name:"Destro Glitch",
+
+  desc:'Losowa karta z "Destroy"',
+
+  tags:["destro"],
+
+  minCost:null,
+  maxCost:null,
+
+  minPower:null,
+  maxPower:null
+},
+  {
+  id:"choice_cardgen_card",
+  type:"choice",
+  rarity:"rare",
+
+  name:"Generator Protocol",
+
+  desc:"Dowolna karta generująca karty",
+
+  tags:["cardgen"],
+
+  minCost:null,
+  maxCost:null,
+
+  minPower:null,
+  maxPower:null
+},
+
+{
+  id:"surprise_cardgen_card",
+  type:"surprise",
+  rarity:"rare",
+
+  name:"Generator Glitch",
+
+  desc:"Losowa karta generująca karty",
+
+  tags:["cardgen"],
+
+  minCost:null,
+  maxCost:null,
+
+  minPower:null,
+  maxPower:null
 }
 
 ];
