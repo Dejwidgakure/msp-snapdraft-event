@@ -5517,6 +5517,137 @@ body.draft-transitioning #packChestOpen{
     font-size:18px !important;
 }
 
+/* === DRAFT 26: odświeżony modal Jokerów + suwaki === */
+#jokerModal .jokerModesGridV2{
+    grid-template-columns:repeat(3, minmax(0, 1fr)) !important;
+}
+
+#jokerModal .jokerModeCard{
+    isolation:isolate;
+}
+
+#jokerModal .jokerModeCard::after{
+    content:"";
+    position:absolute;
+    inset:auto 14px 10px 14px;
+    height:2px;
+    border-radius:999px;
+    background:linear-gradient(90deg, transparent, rgba(0,240,255,0.95), rgba(255,0,255,0.85), transparent);
+    opacity:0.55;
+    box-shadow:0 0 10px rgba(0,240,255,0.8);
+}
+
+#jokerModal .jokerModeBadge{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    margin-top:8px;
+    padding:4px 9px;
+    border-radius:999px;
+    font-family:'Orbitron', sans-serif;
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:#06111d;
+    background:linear-gradient(90deg,#00f0ff,#dfffff);
+    box-shadow:0 0 10px rgba(0,240,255,0.65);
+}
+
+#jokerModal .jokerModeBadge.danger{
+    background:linear-gradient(90deg,#ff00ff,#ffd1ff);
+    box-shadow:0 0 12px rgba(255,0,255,0.75);
+}
+
+#jokerModal .jokerControlPanel{
+    width:min(760px, 100%);
+    margin:12px auto 4px !important;
+    padding:13px 16px;
+    border-radius:18px;
+    background:
+        linear-gradient(rgba(0,0,35,0.74), rgba(12,0,44,0.78)),
+        repeating-linear-gradient(90deg, rgba(0,240,255,0.055) 0 1px, transparent 1px 26px),
+        repeating-linear-gradient(0deg, rgba(255,0,255,0.045) 0 1px, transparent 1px 26px);
+    border:1px solid rgba(0,240,255,0.34);
+    box-shadow:0 0 16px rgba(0,240,255,0.28), inset 0 0 18px rgba(255,0,255,0.06);
+    box-sizing:border-box;
+}
+
+#jokerModal .jokerControlHeader{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:12px;
+    margin-bottom:10px;
+    color:#eaffff;
+    font-family:'Orbitron', sans-serif;
+    font-weight:900;
+    letter-spacing:1px;
+    text-shadow:0 0 10px rgba(0,240,255,0.8);
+}
+
+#jokerModal .jokerControlHeader small{
+    max-width:360px;
+    font-family:'Segoe UI', sans-serif;
+    font-size:11px;
+    line-height:1.25;
+    font-weight:700;
+    letter-spacing:0;
+    text-align:right;
+    color:rgba(225,255,255,0.72);
+    text-shadow:none;
+}
+
+#jokerModal .jokerSliderRow{
+    display:grid;
+    grid-template-columns:260px 1fr;
+    align-items:center;
+    gap:14px;
+    margin:9px 0;
+    color:#eaffff;
+    font-size:13px;
+    font-weight:800;
+    text-align:left;
+}
+
+#jokerModal .jokerSliderRow span{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:8px;
+}
+
+#jokerModal .jokerSliderRow b{
+    min-width:72px;
+    padding:3px 7px;
+    border-radius:999px;
+    color:#06111d;
+    background:linear-gradient(90deg,#00f0ff,#ff9bff);
+    box-shadow:0 0 10px rgba(255,0,255,0.5);
+    text-align:center;
+    font-family:'Orbitron', sans-serif;
+    font-size:11px;
+}
+
+#jokerModal .jokerSliderRow input[type="range"]{
+    width:100%;
+    accent-color:#ff00ff;
+    cursor:pointer;
+    filter:drop-shadow(0 0 6px rgba(0,240,255,0.55));
+}
+
+#jokerModal .jokerInfoBoxV2 b{
+    color:#9ffcff;
+    text-shadow:0 0 8px rgba(0,240,255,0.75);
+}
+
+@media (max-width:720px){
+    #jokerModal .jokerModesGridV2{ grid-template-columns:1fr !important; }
+    #jokerModal .jokerControlHeader{ display:block; text-align:center; }
+    #jokerModal .jokerControlHeader small{ display:block; margin-top:5px; text-align:center; max-width:none; }
+    #jokerModal .jokerSliderRow{ grid-template-columns:1fr; gap:6px; }
+}
+
 @media (max-height:760px){
     #jokerModal .jokerChaosContent{ padding:14px 18px !important; }
     #jokerModal .jokerChaosJeff{ width:62px !important; }
@@ -7073,6 +7204,39 @@ function updateInfoPanel(){
 
 document.addEventListener("DOMContentLoaded", ()=>{
 
+    function updateJokerModalValues(){
+        const chance = document.getElementById("jokerPackChance");
+        const intensity = document.getElementById("jokerIntensity");
+        const maxShare = document.getElementById("jokerMaxShare");
+
+        const chanceValue = document.getElementById("jokerPackChanceValue");
+        const intensityValue = document.getElementById("jokerIntensityValue");
+        const maxShareValue = document.getElementById("jokerMaxShareValue");
+
+        if(chanceValue && chance) chanceValue.textContent = chance.value + "%";
+        if(intensityValue && intensity) intensityValue.textContent = Number(intensity.value).toString() + "x gracza";
+        if(maxShareValue && maxShare) maxShareValue.textContent = maxShare.value + "%";
+    }
+
+    function applyJokerModePreset(card){
+        const chance = document.getElementById("jokerPackChance");
+        const intensity = document.getElementById("jokerIntensity");
+        const maxShare = document.getElementById("jokerMaxShare");
+
+        if(chance && card.dataset.packChance) chance.value = card.dataset.packChance;
+        if(intensity && card.dataset.intensity) intensity.value = card.dataset.intensity;
+        if(maxShare && card.dataset.maxShare) maxShare.value = card.dataset.maxShare;
+
+        updateJokerModalValues();
+    }
+
+    ["jokerPackChance","jokerIntensity","jokerMaxShare"].forEach(id=>{
+        const slider = document.getElementById(id);
+        if(slider) slider.addEventListener("input", updateJokerModalValues);
+    });
+
+    updateJokerModalValues();
+
     /* SELECT MODE */
 
     document.querySelectorAll(".jokerModeCard")
@@ -7088,6 +7252,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
             jokerSettings.mode =
             card.dataset.mode;
+
+            applyJokerModePreset(card);
         };
 
     });
@@ -7128,6 +7294,14 @@ document.querySelectorAll(".jokerTypeCard")
     document
     .getElementById("confirmJokerSettings")
     .onclick = ()=>{
+
+        const chance = document.getElementById("jokerPackChance");
+        const intensity = document.getElementById("jokerIntensity");
+        const maxShare = document.getElementById("jokerMaxShare");
+
+        if(chance) jokerSettings.packChance = Number(chance.value);
+        if(intensity) jokerSettings.jokerIntensity = Number(intensity.value);
+        if(maxShare) jokerSettings.maxJokerShare = Number(maxShare.value);
 
         document
         .getElementById("jokerModal")
@@ -7956,52 +8130,108 @@ customPackQueueBuilt = true;
             WYBIERZ POZIOM CHAOSU
         </h3>
 
-        <div class="jokerModesGrid">
+        <div class="jokerModesGrid jokerModesGridV2">
 
             <button
-            class="jokerModeCard"
-            data-mode="classic">
+            class="jokerModeCard active"
+            data-mode="classic"
+            data-pack-chance="25"
+            data-intensity="0.5"
+            data-max-share="60">
 
                 <div class="jokerModeName">
                     🎭 CLASSIC
                 </div>
 
                 <div class="jokerModeDesc">
-                    Sporadyczne jokery.<br>
-                    Klasyczny draft chaosu.
+                    25% paczek Jokerowych<br>
+                    0.5x Jokera na gracza
+                </div>
+
+                <div class="jokerModeBadge">
+                    stabilny chaos
                 </div>
 
             </button>
 
             <button
             class="jokerModeCard rareMode"
-            data-mode="rare">
+            data-mode="rare"
+            data-pack-chance="40"
+            data-intensity="0.75"
+            data-max-share="60">
 
                 <div class="jokerModeName">
                     🌌 RARE
                 </div>
 
                 <div class="jokerModeDesc">
-                    Więcej jokerów.<br>
-                    Wyższe rarity.
+                    40% paczek Jokerowych<br>
+                    0.75x Jokera na gracza
+                </div>
+
+                <div class="jokerModeBadge">
+                    więcej glitchy
                 </div>
 
             </button>
 
             <button
             class="jokerModeCard madnessMode"
-            data-mode="madness">
+            data-mode="madness"
+            data-pack-chance="55"
+            data-intensity="1"
+            data-max-share="60">
 
                 <div class="jokerModeName">
                     🃏 MADNESS
                 </div>
 
                 <div class="jokerModeDesc">
-                    Połowa paczek<br>
-                    zostaje skorumpowana.
+                    55% paczek Jokerowych<br>
+                    1x Joker na gracza
+                </div>
+
+                <div class="jokerModeBadge danger">
+                    draftowy hazard
                 </div>
 
             </button>
+
+        </div>
+
+        <!-- SUWAKI -->
+
+        <div class="jokerControlPanel">
+
+            <div class="jokerControlHeader">
+                <span>⚙️ Precyzyjne ustawienia</span>
+                <small>Preset ustawia suwaki, ale możesz je ręcznie dopalić.</small>
+            </div>
+
+            <label class="jokerSliderRow">
+                <span>
+                    Szansa na paczkę Jokerową
+                    <b id="jokerPackChanceValue">25%</b>
+                </span>
+                <input id="jokerPackChance" type="range" min="0" max="100" step="5" value="25">
+            </label>
+
+            <label class="jokerSliderRow">
+                <span>
+                    Natężenie Jokerów w paczce
+                    <b id="jokerIntensityValue">0.5x gracza</b>
+                </span>
+                <input id="jokerIntensity" type="range" min="0.25" max="1.5" step="0.25" value="0.5">
+            </label>
+
+            <label class="jokerSliderRow">
+                <span>
+                    Limit Jokerów w jednej paczce
+                    <b id="jokerMaxShareValue">60%</b>
+                </span>
+                <input id="jokerMaxShare" type="range" min="25" max="80" step="5" value="60">
+            </label>
 
         </div>
 
@@ -8011,7 +8241,7 @@ customPackQueueBuilt = true;
             TYPY JOKERÓW
         </h3>
 
-        <div class="jokerTypesGrid">
+        <div class="jokerTypesGrid jokerTypesGridV2">
 
             <div
             class="jokerTypeCard active"
@@ -8023,8 +8253,8 @@ customPackQueueBuilt = true;
 
                 <div class="jokerTypeDesc">
 
-                    Pełna kontrola.<br>
-                    Sam wybierasz kartę.
+                    GM wpisuje kartę.<br>
+                    Pełna kontrola wyboru.
 
                 </div>
 
@@ -8040,8 +8270,8 @@ customPackQueueBuilt = true;
 
                 <div class="jokerTypeDesc">
 
-                    Glitch pack.<br>
-                    Losowy chaos.
+                    3 losowe opcje.<br>
+                    Pula z tagów i filtrów.
 
                 </div>
 
@@ -8051,13 +8281,11 @@ customPackQueueBuilt = true;
 
         <!-- INFO -->
 
-        <div class="jokerInfoBox">
+        <div class="jokerInfoBox jokerInfoBoxV2">
 
-            ⚠️ Jokery mogą całkowicie zmienić draft.<br><br>
-
-            Legendary Jokers pojawiają się bardzo rzadko.<br><br>
-
-            Madness Mode destabilizuje balans gry 😈
+            <b>🃏 Paczka Jokerowa</b> = paczka, w której pojawia się minimum jeden Joker.<br>
+            <b>Natężenie</b> liczy liczbę Jokerów względem liczby graczy.<br>
+            <b>Choice</b> to ręczny wybór GM, a <b>Surprise</b> losuje 3 karty z legalnej puli.
 
         </div>
 
