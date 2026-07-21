@@ -2295,7 +2295,230 @@ matches:[
 		
 			 
 			 ]
-} 
+} ,
+	  
+{
+
+  "id": 26,
+  "title": "",
+  "startDate": "20.07.2026",
+  "endDate": "",
+  "mode": "Classic + Jokery + Custom Paczki + Mulligany",
+  "presetCard": null,
+  "playersCount": 11,
+  "winner": null,
+  "bans": [
+    "Arishem",
+    "Aurora",
+    "Cosmic Ghost Rider",
+    "Fin Fang Foom",
+    "Gambit",
+    "Gladiator",
+    "Loki",
+    "Shang-Chi",
+    "Thanos",
+    "The Thing First Steps",
+    "Victoria Hand"
+  ],
+  "players": [
+    {
+      "name": "wodolot",
+      "deck": [
+        "America Chavez",
+        "Air-Walker",
+        "Kingpin",
+        "Agent 13",
+        "Venom",
+        "Juggernaut",
+        "Firehair",
+        "Knull",
+        "Jubilee",
+        "Moira X",
+        "Tombstone",
+        "Electro"
+      ]
+    },
+    {
+      "name": "Budiso",
+      "deck": [
+        "Copycat",
+        "Fastball Special",
+        "Iron Man",
+        "Aero",
+        "She-Hulk",
+        "Luna Snow",
+        "America Chavez",
+        "Beta Ray Bill",
+        "Iceman",
+        "Leech",
+        "Doctor Octopus",
+        "Green Goblin"
+      ]
+    },
+    {
+      "name": "MatiMyHair",
+      "deck": [
+        "Heimdall",
+        "Zombie Mister Fantastic",
+        "Spider-Man",
+        "Prodigy",
+        "Merlin",
+        "Zero",
+        "Human Torch First Steps",
+        "Ant-Man",
+        "Human Torch",
+        "Hercules",
+        "Vulture",
+        "Kraven"
+      ]
+    },
+    {
+      "name": "Kmythic",
+      "deck": [
+        "Hela",
+        "Miles Morales Spider-Man",
+        "Baron Zemo",
+        "Morbius",
+        "Zombie Power Man",
+        "Black Bolt",
+        "Iron Man",
+        "Weapon H",
+        "Onslaught",
+        "Shadow King",
+        "Black Cat",
+        "Klaw"
+      ]
+    },
+    {
+      "name": "weregesu",
+      "deck": [
+        "She-Hulk",
+        "Kitty Pryde",
+        "Anti-Venom",
+        "Howard the Duck",
+        "Sunspot",
+        "Invisible Woman First Steps",
+        "Galactus First Steps",
+        "Baron Mordo",
+        "Adam Warlock",
+        "Namor",
+        "Superior Spider-Man",
+        "Agony"
+      ]
+    },
+    {
+      "name": "Supcio",
+      "deck": [
+        "Venom",
+        "Knull",
+        "Negasonic Teenage Warhead",
+        "Galactus",
+        "Killmonger",
+        "Uncle Ben",
+        "Death",
+        "Electro",
+        "Carnage",
+        "Yellowjacket",
+        "Symbiote Spider-Man",
+        "Fenris Wolf"
+      ]
+    },
+    {
+      "name": "Matixmgg",
+      "deck": [
+        "Blink",
+        "Boomerang",
+        "Emperor Hulkling",
+        "Punisher War Machine",
+        "The Hood",
+        "Aero",
+        "Debrii",
+        "Electro",
+        "Cable",
+        "Jim Hammond Human Torch",
+        "Tarantula",
+        "Hobgoblin"
+      ]
+    },
+    {
+      "name": "Dejwidgakure",
+      "deck": [
+        "Werewolf By Night",
+        "Batroc the Leaper",
+        "Merlin",
+        "Crossbones",
+        "The Hood",
+        "Hellion",
+        "Kraven",
+        "Hit-Monkey",
+        "Infinity Ultron",
+        "Mary Jane",
+        "Spider-Man 2099",
+        "Shadowlands Daredevil"
+      ]
+    },
+    {
+      "name": "I'm Batman",
+      "deck": [
+        "Sub-Mariner",
+        "Elektra",
+        "War Machine",
+        "Rhino",
+        "Sentry",
+        "Star-Lord",
+        "Malekith",
+        "Black Widow",
+        "Caiera",
+        "Namora",
+        "Spider-Punk",
+        "Mysterio"
+      ]
+    },
+    {
+      "name": "Qrls",
+      "deck": [
+        "Klaw",
+        "The Collector",
+        "Agent Venom",
+        "Wolfsbane",
+        "White Tiger",
+        "Iceman",
+        "Ironheart",
+        "Mystique",
+        "Iron Man",
+        "Medusa",
+        "Silver Sable",
+        "Boomerang"
+      ]
+    },
+    {
+      "name": "Maniek",
+      "deck": [
+        "Forge",
+        "Starhawk",
+        "Odin",
+        "Zombie Giant-Man",
+        "Mother Askani",
+        "Zabu",
+        "She-Hulk",
+        "Shuri",
+        "Mole Man",
+        "Groot",
+        "Spider-Ham",
+        "Cloak"
+      ]
+    }
+  ],
+  "matches": [{"p1":"Budiso","p2":"Maniek","pts1":21,"pts2":4},{"p1":"Qrls","p2":"Supcio","pts1":17,"pts2":8},
+			  {"p1":"wodolot","p2":"Kmythic","pts1":23,"pts2":2}
+			 
+			 
+			 
+			 
+			 ]
+  
+
+}
 	
 	  
 
