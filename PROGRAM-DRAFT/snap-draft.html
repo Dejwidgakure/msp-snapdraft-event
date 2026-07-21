@@ -6230,6 +6230,7 @@ let customPackSettings = {
 
 let customPackQueue = [];
 let customPackQueueBuilt = false;
+let draftPackPlansPrepared = false;
 let currentPackName = "STANDARD PACK";
 let deckEditMode = {};
 
@@ -6793,14 +6794,18 @@ function startDraft(){
     decks=Array.from({length:numPlayers},()=>[]);
     draftFinished=false; packStartIndex=0; currentPickIndex=0; bannedCards=[]; deckEditMode={};
 customPackUsed = false;
+customPackQueue = [];
+customPackQueueBuilt = false;
+draftPackPlansPrepared = false;
+if(typeof resetJokerPackPlan === "function"){
+    resetJokerPackPlan();
+}
 if(
     document.getElementById("enableCustomPacks").checked &&
     !document.getElementById("enablePokerDraft").checked
 ){
 
     customPackSettings.enabled = true;
-
-    customPackQueue = [];
 
 }else{
       customPackSettings.enabled = false; 
@@ -7019,6 +7024,32 @@ function goToNextPack(){
     }
 }
 
+function prepareDraftPackPlans(){
+
+    if(draftPackPlansPrepared){
+        return;
+    }
+
+    const packsCount = totalPacks();
+
+    // Custom Packi muszą mieć plan PIERWSZE, bo Jokery nie mogą wejść w ich sloty.
+    // Ważne: robimy to dopiero po zamknięciu modala Custom Packów, kiedy wybrane paczki są już zapisane.
+    if(!customPackQueueBuilt){
+        customPackQueue = buildCustomPackSlotPlan(packsCount);
+        customPackQueueBuilt = true;
+    }
+
+    // Joker plan bazuje na pełnej kolejce customów PRZED rozpoczęciem shiftowania paczek.
+    if(
+        document.getElementById("enableJokers").checked &&
+        typeof prepareJokerPackPlan === "function"
+    ){
+        prepareJokerPackPlan(packsCount, customPackQueue);
+    }
+
+    draftPackPlansPrepared = true;
+}
+
 function startDraftFlow(){
 
     // 🎴 CUSTOM PACKS (tylko raz!)
@@ -7035,6 +7066,7 @@ function startDraftFlow(){
     }
 
     // 🚀 START DRAFTU
+    prepareDraftPackPlans();
     nextPack();
 }
 
@@ -7204,109 +7236,109 @@ function updateInfoPanel(){
 
 document.addEventListener("DOMContentLoaded", ()=>{
 
+    const JOKER_UI_PRESETS = {
+        classic: { mode: "fixed", fixedPacks: 2, chance: 25, intensity: 0.5, maxShare: 60 },
+        rare: { mode: "chance", fixedPacks: 2, chance: 40, intensity: 0.75, maxShare: 60 },
+        madness: { mode: "fixed", fixedPacks: 4, chance: 55, intensity: 1, maxShare: 70 }
+    };
+
+    function getByIdSafe(id){
+        return document.getElementById(id);
+    }
+
+    function updateJokerPackModeVisibility(){
+        const fixedPanel = getByIdSafe("jokerFixedPackPanel");
+        const chancePanel = getByIdSafe("jokerChancePanel");
+        const selected = document.querySelector('input[name="jokerPackMode"]:checked');
+        const mode = selected ? selected.value : "fixed";
+        if(fixedPanel) fixedPanel.style.display = mode === "fixed" ? "block" : "none";
+        if(chancePanel) chancePanel.style.display = mode === "chance" ? "block" : "none";
+    }
+
     function updateJokerModalValues(){
-        const chance = document.getElementById("jokerPackChance");
-        const intensity = document.getElementById("jokerIntensity");
-        const maxShare = document.getElementById("jokerMaxShare");
-
-        const chanceValue = document.getElementById("jokerPackChanceValue");
-        const intensityValue = document.getElementById("jokerIntensityValue");
-        const maxShareValue = document.getElementById("jokerMaxShareValue");
-
+        const fixedPacks = getByIdSafe("jokerFixedPacks");
+        const chance = getByIdSafe("jokerPackChance");
+        const intensity = getByIdSafe("jokerIntensity");
+        const maxShare = getByIdSafe("jokerMaxShare");
+        const fixedValue = getByIdSafe("jokerFixedPacksValue");
+        const chanceValue = getByIdSafe("jokerPackChanceValue");
+        const intensityValue = getByIdSafe("jokerIntensityValue");
+        const maxShareValue = getByIdSafe("jokerMaxShareValue");
+        if(fixedValue && fixedPacks) fixedValue.textContent = fixedPacks.value + "/6";
         if(chanceValue && chance) chanceValue.textContent = chance.value + "%";
         if(intensityValue && intensity) intensityValue.textContent = Number(intensity.value).toString() + "x gracza";
         if(maxShareValue && maxShare) maxShareValue.textContent = maxShare.value + "%";
+        updateJokerPackModeVisibility();
     }
 
-    function applyJokerModePreset(card){
-        const chance = document.getElementById("jokerPackChance");
-        const intensity = document.getElementById("jokerIntensity");
-        const maxShare = document.getElementById("jokerMaxShare");
-
-        if(chance && card.dataset.packChance) chance.value = card.dataset.packChance;
-        if(intensity && card.dataset.intensity) intensity.value = card.dataset.intensity;
-        if(maxShare && card.dataset.maxShare) maxShare.value = card.dataset.maxShare;
-
+    function setJokerPackMode(mode){
+        const radio = document.querySelector('input[name="jokerPackMode"][value="' + mode + '"]');
+        if(radio) radio.checked = true;
         updateJokerModalValues();
     }
 
-    ["jokerPackChance","jokerIntensity","jokerMaxShare"].forEach(id=>{
-        const slider = document.getElementById(id);
+    function applyJokerModePreset(card){
+        const preset = JOKER_UI_PRESETS[card.dataset.mode] || JOKER_UI_PRESETS.classic;
+        const fixedPacks = getByIdSafe("jokerFixedPacks");
+        const chance = getByIdSafe("jokerPackChance");
+        const intensity = getByIdSafe("jokerIntensity");
+        const maxShare = getByIdSafe("jokerMaxShare");
+        setJokerPackMode(preset.mode);
+        if(fixedPacks) fixedPacks.value = preset.fixedPacks;
+        if(chance) chance.value = preset.chance;
+        if(intensity) intensity.value = preset.intensity;
+        if(maxShare) maxShare.value = preset.maxShare;
+        updateJokerModalValues();
+    }
+
+    ["jokerFixedPacks","jokerPackChance","jokerIntensity","jokerMaxShare"].forEach(id=>{
+        const slider = getByIdSafe(id);
         if(slider) slider.addEventListener("input", updateJokerModalValues);
+    });
+
+    document.querySelectorAll('input[name="jokerPackMode"]').forEach(radio=>{
+        radio.addEventListener("change", updateJokerModalValues);
     });
 
     updateJokerModalValues();
 
-    /* SELECT MODE */
-
-    document.querySelectorAll(".jokerModeCard")
-    .forEach(card=>{
-
+    document.querySelectorAll(".jokerModeCard").forEach(card=>{
         card.onclick = ()=>{
-
-            document
-            .querySelectorAll(".jokerModeCard")
-            .forEach(c=>c.classList.remove("active"));
-
+            document.querySelectorAll(".jokerModeCard").forEach(c=>c.classList.remove("active"));
             card.classList.add("active");
-
-            jokerSettings.mode =
-            card.dataset.mode;
-
+            jokerSettings.mode = card.dataset.mode;
             applyJokerModePreset(card);
         };
-
     });
 
- /* TOGGLE TYPES */
+    document.querySelectorAll(".jokerTypeCard[data-type]").forEach(card=>{
+        card.onclick = ()=>{
+            card.classList.toggle("active");
+            jokerSettings.allowedTypes = [];
+            const choiceCard = document.querySelector('.jokerTypeCard[data-type="choice"]');
+            const surpriseCard = document.querySelector('.jokerTypeCard[data-type="surprise"]');
+            if(choiceCard && choiceCard.classList.contains("active")) jokerSettings.allowedTypes.push("choice");
+            if(surpriseCard && surpriseCard.classList.contains("active")) jokerSettings.allowedTypes.push("surprise");
+            if(jokerSettings.allowedTypes.length === 0){
+                card.classList.add("active");
+                jokerSettings.allowedTypes.push(card.dataset.type);
+            }
+        };
+    });
 
-document.querySelectorAll(".jokerTypeCard")
-.forEach(card=>{
-
-    card.onclick = ()=>{
-
-        card.classList.toggle("active");
-
-        jokerSettings.allowedTypes = [];
-
-        if(
-        document.querySelector(
-        '.jokerTypeCard[data-type="choice"]'
-        ).classList.contains("active")
-        ){
-            jokerSettings.allowedTypes.push("choice");
-        }
-
-        if(
-        document.querySelector(
-        '.jokerTypeCard[data-type="surprise"]'
-        ).classList.contains("active")
-        ){
-            jokerSettings.allowedTypes.push("surprise");
-        }
-
-    };
-
-});
-
-    /* CONFIRM */
-
-    document
-    .getElementById("confirmJokerSettings")
-    .onclick = ()=>{
-
-        const chance = document.getElementById("jokerPackChance");
-        const intensity = document.getElementById("jokerIntensity");
-        const maxShare = document.getElementById("jokerMaxShare");
-
-        if(chance) jokerSettings.packChance = Number(chance.value);
+    document.getElementById("confirmJokerSettings").onclick = ()=>{
+        const selectedPackMode = document.querySelector('input[name="jokerPackMode"]:checked');
+        const fixedPacks = getByIdSafe("jokerFixedPacks");
+        const chance = getByIdSafe("jokerPackChance");
+        const intensity = getByIdSafe("jokerIntensity");
+        const maxShare = getByIdSafe("jokerMaxShare");
+        jokerSettings.enabled = true;
+        jokerSettings.jokerPackMode = selectedPackMode ? selectedPackMode.value : "fixed";
+        if(fixedPacks) jokerSettings.fixedJokerPacks = Number(fixedPacks.value);
+        if(chance) jokerSettings.packChance = Number(chance.value) / 100;
         if(intensity) jokerSettings.jokerIntensity = Number(intensity.value);
-        if(maxShare) jokerSettings.maxJokerShare = Number(maxShare.value);
-
-        document
-        .getElementById("jokerModal")
-        .style.display = "none";
-
+        if(maxShare) jokerSettings.maxJokerPackRatio = Number(maxShare.value) / 100;
+        document.getElementById("jokerModal").style.display = "none";
         startDraftFlow();
     };
 
@@ -7422,7 +7454,11 @@ function nextPack(){
 
     if(
 document.getElementById("enableJokers").checked &&
-currentPackName === "STANDARD PACK"
+currentPackName === "STANDARD PACK" &&
+(
+    typeof shouldInjectJokersForPack !== "function" ||
+    shouldInjectJokersForPack(packStartIndex, true)
+)
 ){
 
     jokerSettings.enabled = true;
@@ -8021,52 +8057,56 @@ function generateNormalPack(packSize){
     return shuffleArray(cardDatabase).slice(0, packSize);
 }
 
+function buildCustomPackSlotPlan(maxPacks){
+    const total = Math.max(0, Number(maxPacks) || 0);
+
+    if(!customPackSettings.enabled){
+        return new Array(total).fill(null);
+    }
+
+    let pool = [];
+
+    customPackSettings.selectedPacks.forEach(p => {
+        for(let i=0; i<p.count; i++){
+            pool.push(p.id);
+        }
+    });
+
+    if(customPackSettings.order === "random"){
+        pool = shuffleArray(pool);
+    }
+
+    if(customPackSettings.distribution === "random"){
+        let slots = new Array(total).fill(null);
+        for(let i = 0; i < pool.length && i < total; i++){
+            let index;
+            let guard = 0;
+            do{
+                index = Math.floor(Math.random() * total);
+                guard++;
+            } while(slots[index] !== null && guard < 500);
+            if(slots[index] === null){
+                slots[index] = pool[i];
+            }
+        }
+        return slots;
+    }
+
+    const queue = pool.slice(0, total);
+    while(queue.length < total){
+        queue.push(null);
+    }
+    return queue;
+}
+
 function resolvePack(packSize){
+
+    const maxPacks = typeof totalPacks === "function" ? totalPacks() : 6;
 
     // 🔥 budujemy kolejkę tylko raz
     if(!customPackQueueBuilt){
-
-        let pool = [];
-
-customPackSettings.selectedPacks.forEach(p => {
-    for(let i=0; i<p.count; i++){
-        pool.push(p.id);
-    }
-});
-
-// 🎯 KOLEJNOŚĆ
-if(customPackSettings.order === "random"){
-    pool = shuffleArray(pool);
-}
-
-const maxPacks = 6;
-
-if(customPackSettings.distribution === "random"){
-
-    // 🔥 LOSOWE SLOTY W DRAFcie
-    let slots = new Array(maxPacks).fill(null);
-
-    // losujemy sloty dla customów
-    for(let i = 0; i < pool.length && i < maxPacks; i++){
-        let index;
-
-        do{
-            index = Math.floor(Math.random() * maxPacks);
-        } while(slots[index] !== null);
-
-        slots[index] = pool[i];
-    }
-
-    customPackQueue = slots;
-
-}else{
-
-    // 🔵 NA POCZĄTKU
-    customPackQueue = pool.slice(0, maxPacks);
-
-}
-
-customPackQueueBuilt = true;
+        customPackQueue = buildCustomPackSlotPlan(maxPacks);
+        customPackQueueBuilt = true;
     }
 
     // ❌ brak paczek → fallback
@@ -8075,8 +8115,13 @@ customPackQueueBuilt = true;
         return generateNormalPack(packSize);
     }
 
-    // 🎴 bierzemy kolejną paczkę
+    // 🎴 bierzemy kolejny slot
     const packId = customPackQueue.shift();
+
+    if(!packId){
+        currentPackName = "STANDARD PACK";
+        return generateNormalPack(packSize);
+    }
 
     const packDef = customPacks.find(p => p.id === packId);
 
@@ -8110,194 +8155,98 @@ customPackQueueBuilt = true;
 
     <div id="jokerModal" class="customModal jokerChaosModal" style="display:none;">
 
-    <div class="customModalContent jokerChaosContent">
-
-        <!-- HEADER -->
+    <div class="jokerChaosWrapper">
 
         <div class="jokerChaosHeader">
-
-            <img src="jeff_joker.png" class="jokerChaosJeff">
-
-            <h2 class="jokerChaosTitle">
-                JOKER MADNESS
-            </h2>
-
+            <img src="jeff_joker.png" class="jokerChaosJeff" alt="Joker Jeff">
+            <h2 class="jokerChaosTitle">JOKER SYSTEM</h2>
         </div>
 
-        <!-- TRYB -->
-
-        <h3 class="jokerSectionTitle">
-            WYBIERZ POZIOM CHAOSU
-        </h3>
+        <h3 class="jokerSectionTitle">PRESETY CHAOSU</h3>
 
         <div class="jokerModesGrid jokerModesGridV2">
-
-            <button
-            class="jokerModeCard active"
-            data-mode="classic"
-            data-pack-chance="25"
-            data-intensity="0.5"
-            data-max-share="60">
-
-                <div class="jokerModeName">
-                    🎭 CLASSIC
-                </div>
-
-                <div class="jokerModeDesc">
-                    25% paczek Jokerowych<br>
-                    0.5x Jokera na gracza
-                </div>
-
-                <div class="jokerModeBadge">
-                    stabilny chaos
-                </div>
-
+            <button class="jokerModeCard active" data-mode="classic">
+                <div class="jokerModeName">🎭 CLASSIC</div>
+                <div class="jokerModeDesc">Dokładnie 2 paczki Jokerowe<br>0.5x Jokera na gracza</div>
+                <div class="jokerModeBadge">kontrolowany draft</div>
             </button>
 
-            <button
-            class="jokerModeCard rareMode"
-            data-mode="rare"
-            data-pack-chance="40"
-            data-intensity="0.75"
-            data-max-share="60">
-
-                <div class="jokerModeName">
-                    🌌 RARE
-                </div>
-
-                <div class="jokerModeDesc">
-                    40% paczek Jokerowych<br>
-                    0.75x Jokera na gracza
-                </div>
-
-                <div class="jokerModeBadge">
-                    więcej glitchy
-                </div>
-
+            <button class="jokerModeCard rareMode" data-mode="rare">
+                <div class="jokerModeName">🌌 CHAOS</div>
+                <div class="jokerModeDesc">40% szansy na każdy standardowy slot<br>0.75x Jokera na gracza</div>
+                <div class="jokerModeBadge">losowe paczki</div>
             </button>
 
-            <button
-            class="jokerModeCard madnessMode"
-            data-mode="madness"
-            data-pack-chance="55"
-            data-intensity="1"
-            data-max-share="60">
-
-                <div class="jokerModeName">
-                    🃏 MADNESS
-                </div>
-
-                <div class="jokerModeDesc">
-                    55% paczek Jokerowych<br>
-                    1x Joker na gracza
-                </div>
-
-                <div class="jokerModeBadge danger">
-                    draftowy hazard
-                </div>
-
+            <button class="jokerModeCard madnessMode" data-mode="madness">
+                <div class="jokerModeName">🃏 MADNESS</div>
+                <div class="jokerModeDesc">Dokładnie 4 paczki Jokerowe<br>1x Joker na gracza</div>
+                <div class="jokerModeBadge danger">draftowy hazard</div>
             </button>
-
         </div>
 
-        <!-- SUWAKI -->
-
         <div class="jokerControlPanel">
-
             <div class="jokerControlHeader">
-                <span>⚙️ Precyzyjne ustawienia</span>
-                <small>Preset ustawia suwaki, ale możesz je ręcznie dopalić.</small>
+                <span>🎯 Wybór paczek Jokerowych</span>
+                <small>Custom Packi mają priorytet. Joker może wejść tylko w standardowy slot.</small>
+            </div>
+
+            <label class="jokerTypeCard active" style="display:block; margin-bottom:10px;">
+                <input type="radio" name="jokerPackMode" value="fixed" checked>
+                <b>Dokładna liczba paczek</b><br>
+                <span>Program losuje konkretne sloty. Wiesz z góry, ile paczek będzie Jokerowych.</span>
+            </label>
+
+            <label class="jokerTypeCard" style="display:block; margin-bottom:10px;">
+                <input type="radio" name="jokerPackMode" value="chance">
+                <b>Losowa szansa na każdą paczkę</b><br>
+                <span>Każdy standardowy slot osobno rzuca procentem.</span>
+            </label>
+
+            <div id="jokerFixedPackPanel">
+                <label class="jokerSliderRow">
+                    <span>Liczba paczek Jokerowych <b id="jokerFixedPacksValue">2/6</b></span>
+                    <input id="jokerFixedPacks" type="range" min="0" max="6" step="1" value="2">
+                </label>
+            </div>
+
+            <div id="jokerChancePanel" style="display:none;">
+                <label class="jokerSliderRow">
+                    <span>Szansa na paczkę Jokerową <b id="jokerPackChanceValue">40%</b></span>
+                    <input id="jokerPackChance" type="range" min="0" max="100" step="5" value="40">
+                </label>
             </div>
 
             <label class="jokerSliderRow">
-                <span>
-                    Szansa na paczkę Jokerową
-                    <b id="jokerPackChanceValue">25%</b>
-                </span>
-                <input id="jokerPackChance" type="range" min="0" max="100" step="5" value="25">
-            </label>
-
-            <label class="jokerSliderRow">
-                <span>
-                    Natężenie Jokerów w paczce
-                    <b id="jokerIntensityValue">0.5x gracza</b>
-                </span>
+                <span>Natężenie Jokerów w paczce <b id="jokerIntensityValue">0.5x gracza</b></span>
                 <input id="jokerIntensity" type="range" min="0.25" max="1.5" step="0.25" value="0.5">
             </label>
 
             <label class="jokerSliderRow">
-                <span>
-                    Limit Jokerów w jednej paczce
-                    <b id="jokerMaxShareValue">60%</b>
-                </span>
-                <input id="jokerMaxShare" type="range" min="25" max="80" step="5" value="60">
+                <span>Limit Jokerów w jednej paczce <b id="jokerMaxShareValue">60%</b></span>
+                <input id="jokerMaxShare" type="range" min="10" max="80" step="5" value="60">
             </label>
-
         </div>
 
-        <!-- TYPY -->
-
-        <h3 class="jokerSectionTitle">
-            TYPY JOKERÓW
-        </h3>
+        <h3 class="jokerSectionTitle">TYPY JOKERÓW</h3>
 
         <div class="jokerTypesGrid jokerTypesGridV2">
-
-            <div
-            class="jokerTypeCard active"
-            data-type="choice">
-
-                <div class="jokerTypeName">
-                    ✨ CHOICE
-                </div>
-
-                <div class="jokerTypeDesc">
-
-                    GM wpisuje kartę.<br>
-                    Pełna kontrola wyboru.
-
-                </div>
-
+            <div class="jokerTypeCard active" data-type="choice">
+                <div class="jokerTypeName">✨ CHOICE</div>
+                <div class="jokerTypeDesc">GM wpisuje kartę.<br>Pełna kontrola wyboru.</div>
             </div>
-
-            <div
-            class="jokerTypeCard active"
-            data-type="surprise">
-
-                <div class="jokerTypeName">
-                    🎲 SURPRISE
-                </div>
-
-                <div class="jokerTypeDesc">
-
-                    3 losowe opcje.<br>
-                    Pula z tagów i filtrów.
-
-                </div>
-
+            <div class="jokerTypeCard active" data-type="surprise">
+                <div class="jokerTypeName">🎲 SURPRISE</div>
+                <div class="jokerTypeDesc">3 losowe opcje.<br>Pula z tagów i filtrów.</div>
             </div>
-
         </div>
-
-        <!-- INFO -->
 
         <div class="jokerInfoBox jokerInfoBoxV2">
-
-            <b>🃏 Paczka Jokerowa</b> = paczka, w której pojawia się minimum jeden Joker.<br>
-            <b>Natężenie</b> liczy liczbę Jokerów względem liczby graczy.<br>
-            <b>Choice</b> to ręczny wybór GM, a <b>Surprise</b> losuje 3 karty z legalnej puli.
-
+            <b>Dokładna liczba</b> daje kontrolę turniejową: np. dokładnie 2 sloty Jokerowe z 6.<br>
+            <b>Losowa szansa</b> działa chaosowo: każdy standardowy slot osobno rzuca procentem.<br>
+            <b>Custom Pack</b> blokuje slot — Joker nie nadpisze paczki specjalnej.
         </div>
 
-        <!-- START -->
-
-        <button
-        id="confirmJokerSettings"
-        class="jokerStartBtn">
-
-            AKTYWUJ JOKERY
-
-        </button>
+        <button id="confirmJokerSettings" class="jokerStartBtn">AKTYWUJ JOKERY</button>
 
     </div>
 
