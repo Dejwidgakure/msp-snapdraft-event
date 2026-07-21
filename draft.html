@@ -2103,15 +2103,20 @@ if(draft.title && draft.title.trim()){
 
 function renderMeta(){
   const grid = document.getElementById('metaGrid');
+  const rankingReady = Array.isArray(ranking) && ranking.length;
+  const leaderName = rankingReady ? ranking[0].name : null;
+  const winnerValue = leaderName || draft.winner || 'Jeszcze nie wyłoniono';
+  const winnerLabel = draft.winner ? 'Zwycięzca' : 'Aktualny lider';
+
   const cards = [
     {label:'Tryb', value:draft.mode || '-'},
     {label:'Termin', value:(draft.startDate || '-') + (draft.endDate ? ` – ${draft.endDate}` : '')},
     {label:'Liczba graczy', value:String(draft.players.length)},
-    {label:'Zwycięzca', value:draft.winner || 'Jeszcze nie wyłoniono'}
+    {label:winnerLabel, value:winnerValue, winner:true}
   ];
 
   grid.innerHTML = cards.map(card => `
-    <div class="meta-card ${card.label === 'Zwycięzca' ? 'meta-winner' : ''}">
+    <div class="meta-card ${card.winner ? 'meta-winner' : ''}">
       <div class="meta-label">${card.label}</div>
       <div class="meta-value">${card.value}</div>
     </div>
@@ -2126,7 +2131,6 @@ function renderMeta(){
     `;
   }
 }
-renderMeta();
 
 function buildNavigation(){
   const idsAsc = [...database.drafts].map(d=>d.id).sort((a,b)=>a-b);
@@ -2192,7 +2196,8 @@ draft.matches.forEach(m=>{
 });
 
 let ranking = Object.keys(stats).map(name => ({name, ...stats[name]}));
-ranking.sort((a,b)=>b.total-a.total);
+ranking.sort((a,b)=>b.total-a.total || b.wins-a.wins || a.name.localeCompare(b.name));
+renderMeta();
 
 if(ranking.length){
   const winnerImg = getDeckImagePath(ranking[0].name, draft.id);
@@ -2336,7 +2341,7 @@ function renderStats(){
   const lossLeaders = Object.keys(lossPointsStat).filter(n=>lossPointsStat[n]===maxLoss).sort().slice(0,5);
   addStat('💀 Najwięcej pkt z porażek', `${lossLeaders.join(', ') || '-'} (${maxLoss})`);
 
-  const minLoss = Math.min(...ranking.map(p=>p.losses), 0);
+  const minLoss = ranking.length ? Math.min(...ranking.map(p=>p.losses)) : 0;
   const leastLoss = ranking.filter(p=>p.losses===minLoss).map(p=>p.name).sort().slice(0,5);
   addStat('🛡 Najmniej porażek', `${leastLoss.join(', ') || '-'} (${minLoss})`);
 
