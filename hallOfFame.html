@@ -2645,11 +2645,11 @@ body::after{
             // musi istnieć lista meczów, musi być przynajmniej 1 mecz
             // i żaden mecz nie może zostać jako 0-0 (nierozegrany / podwójny walkower oznacza, że draft nie jest ukończony do tej sekcji).
             const hasMatches = Array.isArray(draft.matches) && draft.matches.length > 0;
-            const allMatchesResolved = hasMatches && draft.matches.every(match => {
-                const pts1 = Number(match.pts1 || 0);
-                const pts2 = Number(match.pts2 || 0);
-                return !(pts1 === 0 && pts2 === 0);
-            });
+
+const allMatchesResolved = hasMatches && draft.matches.every(match => {
+    return Number.isFinite(Number(match.pts1)) &&
+           Number.isFinite(Number(match.pts2));
+});
 
             if (ranking[0] && allMatchesResolved) {
                 goldenDecks.push({
