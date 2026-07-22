@@ -1626,7 +1626,7 @@ matches:[
   "mode": "Classic + Bany + Jokery + Mulligan",
   "presetCard": null,
   "playersCount": 11,
-  "winner": null,
+  "winner": "MatiMyHair",
   "bans": [],
   "players": [
     {
