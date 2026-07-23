@@ -2510,7 +2510,7 @@ matches:[
     }
   ],
   "matches": [{"p1":"Budiso","p2":"Maniek","pts1":21,"pts2":4},{"p1":"Qrls","p2":"Supcio","pts1":17,"pts2":8},
-			  {"p1":"wodolot","p2":"Kmythic","pts1":23,"pts2":2}
+			  {"p1":"wodolot","p2":"Kmythic","pts1":23,"pts2":2},{"p1":"wodolot","p2":"Qrls","pts1":2,"pts2":23},
 			 
 			 
 			 
