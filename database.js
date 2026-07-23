@@ -2510,8 +2510,18 @@ matches:[
     }
   ],
   "matches": [{"p1":"Budiso","p2":"Maniek","pts1":21,"pts2":4},{"p1":"Qrls","p2":"Supcio","pts1":17,"pts2":8},
-			  {"p1":"wodolot","p2":"Kmythic","pts1":23,"pts2":2}
-			 
+			  {"p1":"wodolot","p2":"Kmythic","pts1":23,"pts2":2},{"p1":"wodolot","p2":"Qrls","pts1":2,"pts2":23},
+			  {"p1":"wodolot","p2":"Maniek","pts1":4,"pts2":21},{"p1":"Qrls","p2":"Maniek","pts1":21,"pts2":4},
+			  {"p1":"I'm Batman","p2":"Weregesu","pts1":23,"pts2":2},{"p1":"I'm Batman","p2":"Maniek","pts1":21,"pts2":4},
+			  {"p1":"I'm Batman","p2":"Budiso","pts1":19,"pts2":6},{"p1":"MatiMyHair","p2":"Weregesu","pts1":21,"pts2":4},
+			  {"p1":"MatiMyHair","p2":"wodolot","pts1":23,"pts2":2},{"p1":"Supcio","p2":"Maniek","pts1":23,"pts2":2},
+			  {"p1":"Supcio","p2":"Kmythic","pts1":25,"pts2":0},{"p1":"Kmythic","p2":"Maniek","pts1":23,"pts2":2},
+			  {"p1":"Qrls","p2":"I'm Batman","pts1":21,"pts2":4},{"p1":"I'm Batman","p2":"Supcio","pts1":25,"pts2":0},
+			  {"p1":"wodolot","p2":"I'm Batman","pts1":1,"pts2":24},{"p1":"Kmythic","p2":"Weregesu","pts1":21,"pts2":4},
+			  {"p1":"Qrls","p2":"Kmythic","pts1":17,"pts2":8},{"p1":"wodolot","p2":"Weregesu","pts1":17,"pts2":8},
+			  {"p1":"Qrls","p2":"Weregesu","pts1":25,"pts2":0},{"p1":"Weregesu","p2":"Maniek","pts1":23,"pts2":2},
+			  {"p1":"Maniek","p2":"Dejwidgakure","pts1":1,"pts2":24}
+			  
 			 
 			 
 			 
