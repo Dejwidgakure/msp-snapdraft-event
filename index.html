@@ -132,7 +132,7 @@ body::after{
     display:grid;
     grid-template-columns:auto minmax(610px,1.28fr) minmax(680px,1.15fr);
     align-items:center;
-    gap:18px;
+    gap:16px;
 }
 
 .nav-logos{
@@ -484,21 +484,22 @@ body::after{
     position:relative;
     z-index:2;
     display:grid;
-    grid-template-columns:repeat(5, minmax(170px, 1fr));
-    gap:18px;
-    max-width:1180px;
+    grid-template-columns:repeat(5, minmax(160px, 1fr));
+    justify-content:center;
+    gap:16px;
+    max-width:1080px;
     margin:0 auto 34px;
 }
 
 .buttons a{
     position:relative;
-    min-height:128px;
+    min-height:118px;
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
     gap:8px;
-    padding:18px 16px;
+    padding:16px 14px;
     border-radius:22px;
     font-weight:900;
     text-decoration:none;
@@ -510,8 +511,9 @@ body::after{
         rgba(6,12,32,0.80);
     border:1px solid rgba(120,248,255,0.42);
     box-shadow:
-        0 0 20px rgba(0,240,255,0.17),
-        inset 0 0 32px rgba(0,240,255,0.045);
+        0 0 34px rgba(0,240,255,0.32),
+        0 0 18px rgba(125,60,255,.18),
+        inset 0 0 40px rgba(0,240,255,0.08);
     backdrop-filter:blur(10px);
     transition:.25s ease;
 }
@@ -558,22 +560,19 @@ body::after{
     background-position:160% 0;
 }
 
-.card-icon{
-    font-size:30px;
-    line-height:1;
-    filter:drop-shadow(0 0 10px rgba(0,240,255,0.55));
-}
+.card-icon{display:flex;align-items:center;justify-content:center;height:74px;}
+.card-icon img{max-height:74px;max-width:100%;filter:drop-shadow(0 0 10px rgba(0,240,255,.45));object-fit:contain;}
 
 .card-title{
     font-family:'Orbitron', sans-serif;
-    font-size:16px;
+    font-size:14px;
     letter-spacing:.8px;
     line-height:1.25;
     text-shadow:0 0 10px rgba(0,240,255,0.45);
 }
 
 .card-desc{
-    font-size:15px;
+    font-size:14px;
     line-height:1.25;
     opacity:.82;
     font-weight:700;
@@ -657,9 +656,13 @@ body::after{
     z-index:2;
     margin-top:28px;
     color:rgba(234,255,255,0.72);
-    font-size:16px;
+    font-size:14px;
     letter-spacing:.5px;
 }
+
+/* === Last row centered === */
+.buttons a:nth-child(6){grid-column:2;}
+.buttons a:nth-child(7){grid-column:4;}
 
 @media(max-width:1120px){
     .buttons{
@@ -676,7 +679,7 @@ body::after{
 
     nav ul{
         justify-content:center;
-        gap:18px;
+        gap:16px;
     }
 
     .brand img,
@@ -760,7 +763,7 @@ body::after{
     .nav-shell{
         width:calc(100% - 44px);
         grid-template-columns:auto 1fr;
-        gap:18px;
+        gap:16px;
     }
 
     .nav-links{
@@ -854,7 +857,7 @@ body::after{
     bottom:18px;
     z-index:20;
     width:82px;
-    height:82px;
+    height:74px;
     object-fit:contain;
     opacity:.92;
     filter:
@@ -1102,7 +1105,7 @@ body::after{
     }
 
     .current-title{
-        font-size:16px;
+        font-size:14px;
     }
 
     .current-jeff{
@@ -1435,31 +1438,44 @@ body::after{
 
     <div class="buttons">
         <a href="przewodnik.html" class="guide-card">
-            <span class="card-icon">📘</span>
+            <span class="card-icon"><img src="assets/jeff_guide.png" alt=""></span>
             <span class="card-title">Draftowy Przewodnik</span>
             <span class="card-desc">Zasady, film i start dla nowych</span>
         </a>
 
         <a href="draft.html">
-            <span class="card-icon">📜</span>
+            <span class="card-icon"><img src="assets/jeff_kroniki.png" alt=""></span>
             <span class="card-title">Kroniki Draftowe</span>
             <span class="card-desc">Aktualne i archiwalne edycje</span>
         </a>
 
         <a href="hallOfFame.html">
-            <span class="card-icon">🏆</span>
+            <span class="card-icon"><img src="assets/jeff_king.png" alt=""></span>
             <span class="card-title">Kosmiczna Sala Chwały</span>
             <span class="card-desc">Ranking Legend i historia topki</span>
         </a>
 
         <a href="player-lobby.html">
-            <span class="card-icon">👥</span>
+            <span class="card-icon"><img src="assets/jeff_2champ.png" alt=""></span>
             <span class="card-title">Galaktyczna Baza Wojowników</span>
             <span class="card-desc">Profile graczy i statystyki</span>
         </a>
 
-        <a href="PROGRAM-DRAFT/snap-draft.html" class="arena-card">
-            <span class="card-icon">🚀</span>
+        
+        <a href="cards.html">
+            <span class="card-icon"><img src="assets/jeff_cards.png" alt=""></span>
+            <span class="card-title">Kolekcja Kart Wszechświata</span>
+            <span class="card-desc">Przegląd wszystkich kart</span>
+        </a>
+
+        <a href="stats.html">
+            <span class="card-icon"><img src="assets/jeff_3champ.png" alt=""></span>
+            <span class="card-title">Gwiezdne Archiwum Danych</span>
+            <span class="card-desc">Statystyki i analizy draftów</span>
+        </a>
+
+        <a href="PROGRAM-DRAFT/snap-draft.html" class="arena-card" style="background-image:linear-gradient(rgba(5,8,22,.45),rgba(5,8,22,.75)),url('assets/galaxytool.png');background-size:cover;background-position:center;">
+            <span class="card-icon"><img src="assets/hakerJeff.png" alt=""></span>
             <span class="card-title">Arena Draftu</span>
             <span class="card-desc">Wejdź do programu draftowego</span>
         </a>
