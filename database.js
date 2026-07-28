@@ -2525,7 +2525,7 @@ matches:[
 			  {"p1":"I'm Batman","p2":"Kmythic","pts1":25,"pts2":0},{"p1":"Dejwidgakure","p2":"Supcio","pts1":23,"pts2":2},
 			  {"p1":"I'm Batman","p2":"Matixmgg","pts1":4,"pts2":21},{"p1":"Matixmgg","p2":"Maniek","pts1":21,"pts2":4},
 			  {"p1":"Weregesu","p2":"Matixmgg","pts1":19,"pts2":6},{"p1":"MatiMyHair","p2":"Maniek","pts1":25,"pts2":0},
-			   {"p1":"Weregesu","p2":"Supcio","pts1":1,"pts2":24},{"p1":"MatiMyHair","p2":"Maniek","pts1":25,"pts2":0}
+			   {"p1":"Weregesu","p2":"Supcio","pts1":1,"pts2":24}
 			 
 			 
 			 
