@@ -2306,7 +2306,7 @@ matches:[
   "mode": "Classic + Jokery + Custom Paczki + Mulligany",
   "presetCard": null,
   "playersCount": 11,
-  "winner": null,
+  "winner": "Qrls",
   "bans": [
     "Arishem",
     "Aurora",
