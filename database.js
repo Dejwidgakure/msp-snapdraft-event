@@ -2535,7 +2535,7 @@ matches:[
 			  {"p1":"Matixmgg","p2":"Kmythic","pts1":24,"pts2":1}, {"p1":"Matixmgg","p2":"Supcio","pts1":0,"pts2":25},
 			  {"p1":"Matixmgg","p2":"Dejwidgakure","pts1":0,"pts2":20}, {"p1":"Matixmgg","p2":"wodolot","pts1":0,"pts2":0},
 			  {"p1":"Weregesu","p2":"Dejwidgakure","pts1":0,"pts2":25}, {"p1":"Budiso","p2":"wodolot","pts1":0,"pts2":0},
-			  {"p1":"Matixmgg","p2":"Budiso","pts1":0,"pts2":20}, {"p1":"wodolot","p2":"Dejwidgakure","pts1":0,"pts2":20}
+			  {"p1":"Matixmgg","p2":"Budiso","pts1":0,"pts2":20}, {"p1":"wodolot","p2":"Dejwidgakure","pts1":0,"pts2":0}
 			  
 			  
 			 
