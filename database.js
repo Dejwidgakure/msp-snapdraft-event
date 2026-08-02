@@ -2532,7 +2532,10 @@ matches:[
 			  {"p1":"Dejwidgakure","p2":"MatiMyHair","pts1":23,"pts2":2}, {"p1":"Budiso","p2":"Kmythic","pts1":8,"pts2":17},
 			  {"p1":"Dejwidgakure","p2":"Kmythic","pts1":5,"pts2":20}, {"p1":"Budiso","p2":"Dejwidgakure","pts1":1,"pts2":24},
 			  {"p1":"Budiso","p2":"MatiMyHair","pts1":0,"pts2":25}, {"p1":"MatiMyHair","p2":"Kmythic","pts1":20,"pts2":5},
-			  {"p1":"Matixmgg","p2":"Kmythic","pts1":24,"pts2":1}, {"p1":"Matixmgg","p2":"Supcio","pts1":0,"pts2":25}
+			  {"p1":"Matixmgg","p2":"Kmythic","pts1":24,"pts2":1}, {"p1":"Matixmgg","p2":"Supcio","pts1":0,"pts2":25},
+			  {"p1":"Matixmgg","p2":"Dejwidgakure","pts1":0,"pts2":20}, {"p1":"Matixmgg","p2":"wodolot","pts1":0,"pts2":0},
+			  {"p1":"Weregesu","p2":"Dejwidgakure","pts1":0,"pts2":25}, {"p1":"Budiso","p2":"wodolot","pts1":0,"pts2":0},
+			  {"p1":"Matixmgg","p2":"Budiso","pts1":0,"pts2":20}
 			  
 			  
 			 
