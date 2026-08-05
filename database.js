@@ -2546,253 +2546,241 @@ matches:[
 
 },
 
-	  {
-
-  "id": 27,
+	"id": 27,
   "title": "",
-  "startDate": "20.07.2026",
+  "startDate": "02.08.2026",
   "endDate": "",
-  "mode": "Classic + Jokery + Custom Paczki + Mulligany",
+  "mode": "Wielki Draft Supermocy",
   "presetCard": null,
-  "playersCount": 11,
-  "winner": "Qrls",
-  "bans": [
-    "Arishem",
-    "Aurora",
-    "Cosmic Ghost Rider",
-    "Fin Fang Foom",
-    "Gambit",
-    "Gladiator",
-    "Loki",
-    "Shang-Chi",
-    "Thanos",
-    "The Thing First Steps",
-    "Victoria Hand"
-  ],
+  "playersCount": 13,
+  "winner": "",
+  "bans": [],
   "players": [
     {
-      "name": "wodolot",
+      "name": "Dawid Ak. Void",
       "deck": [
-        "America Chavez",
-        "Air-Walker",
-        "Kingpin",
-        "Agent 13",
-        "Venom",
+        "The Hood",
+        "Carnage",
+        "Toxin",
+        "Grand Master",
+        "Scorpion",
+        "Angel",
+        "Killmonger",
+        "Hope Summers",
+        "Kang",
+        "Viper",
+        "Shang-Chi, Master of the Rings",
+        "Man-Spider"
+      ]
+    },
+    {
+      "name": "FizjoRadek",
+      "deck": [
+        "Quicksilver",
+        "King Eitri",
+        "Surge",
+        "Lockjaw",
+        "U.S. Agent",
+        "Rogue",
+        "Wave",
         "Juggernaut",
-        "Firehair",
-        "Knull",
-        "Jubilee",
-        "Moira X",
-        "Tombstone",
-        "Electro"
-      ]
-    },
-    {
-      "name": "Budiso",
-      "deck": [
-        "Copycat",
-        "Fastball Special",
-        "Iron Man",
-        "Aero",
-        "She-Hulk",
-        "Luna Snow",
-        "America Chavez",
-        "Beta Ray Bill",
-        "Iceman",
-        "Leech",
-        "Doctor Octopus",
-        "Green Goblin"
-      ]
-    },
-    {
-      "name": "MatiMyHair",
-      "deck": [
-        "Heimdall",
-        "Zombie Mister Fantastic",
-        "Spider-Man",
-        "Prodigy",
-        "Merlin",
-        "Zero",
-        "Human Torch First Steps",
-        "Ant-Man",
-        "Human Torch",
-        "Hercules",
-        "Vulture",
-        "Kraven"
-      ]
-    },
-    {
-      "name": "Kmythic",
-      "deck": [
-        "Hela",
-        "Miles Morales Spider-Man",
-        "Baron Zemo",
-        "Morbius",
-        "Zombie Power Man",
-        "Black Bolt",
-        "Iron Man",
-        "Weapon H",
-        "Onslaught",
-        "Shadow King",
-        "Black Cat",
-        "Klaw"
-      ]
-    },
-    {
-      "name": "Weregesu",
-      "deck": [
-        "She-Hulk",
-        "Kitty Pryde",
-        "Anti-Venom",
-        "Howard the Duck",
-        "Sunspot",
-        "Invisible Woman First Steps",
-        "Galactus First Steps",
-        "Baron Mordo",
-        "Adam Warlock",
-        "Namor",
-        "Superior Spider-Man",
-        "Agony"
+        "Wiccan",
+        "Cannonball",
+        "Gorr the God Butcher",
+        "Red Hulk"
       ]
     },
     {
       "name": "Supcio",
       "deck": [
-        "Venom",
-        "Knull",
-        "Negasonic Teenage Warhead",
-        "Galactus",
-        "Killmonger",
-        "Uncle Ben",
-        "Death",
-        "Electro",
+        "Miek",
+        "Spider-Man Brand New Day",
+        "Morbius",
         "Carnage",
-        "Yellowjacket",
-        "Symbiote Spider-Man",
-        "Fenris Wolf"
+        "Jeff the Baby Dolphin!?",
+        "Wade Wilson",
+        "Venom",
+        "Deathlok",
+        "Silver Samurai",
+        "Hellcow",
+        "Doctor Octopus",
+        "Khonshu"
       ]
     },
     {
       "name": "Matixmgg",
       "deck": [
-        "Blink",
-        "Boomerang",
-        "Emperor Hulkling",
-        "Punisher War Machine",
-        "The Hood",
-        "Aero",
-        "Debrii",
-        "Electro",
-        "Cable",
-        "Jim Hammond Human Torch",
-        "Tarantula",
-        "Hobgoblin"
-      ]
-    },
-    {
-      "name": "Dejwidgakure",
-      "deck": [
-        "Werewolf By Night",
-        "Batroc the Leaper",
-        "Merlin",
-        "Crossbones",
-        "The Hood",
-        "Hellion",
-        "Kraven",
-        "Hit-Monkey",
-        "Infinity Ultron",
-        "Mary Jane",
-        "Spider-Man 2099",
-        "Shadowlands Daredevil"
+        "Deafening Chord",
+        "Nico Minoru",
+        "Selene",
+        "Spider-Man Brand New Day",
+        "Goose",
+        "Valentina",
+        "Mobius M. Mobius",
+        "Mole Man",
+        "Copycat",
+        "Super-Adaptoid",
+        "Ghost Rider",
+        "Juggernaut"
       ]
     },
     {
       "name": "I'm Batman",
       "deck": [
-        "Sub-Mariner",
-        "Elektra",
-        "War Machine",
-        "Rhino",
-        "Sentry",
-        "Star-Lord",
-        "Malekith",
-        "Black Widow",
-        "Caiera",
-        "Namora",
-        "Spider-Punk",
-        "Mysterio"
+        "Snowguard",
+        "Ebony Maw",
+        "Awesome Andy",
+        "Okoye",
+        "Aunt May",
+        "Captain America",
+        "Major Victory",
+        "Fan Fei",
+        "Karen Page",
+        "High Evolutionary",
+        "Eson",
+        "Galactus First Steps"
       ]
     },
     {
-      "name": "Qrls",
+      "name": "MatiMyHair",
       "deck": [
-        "Klaw",
-        "The Collector",
-        "Agent Venom",
-        "Wolfsbane",
-        "White Tiger",
-        "Iceman",
-        "Ironheart",
-        "Mystique",
-        "Iron Man",
-        "Medusa",
-        "Silver Sable",
-        "Boomerang"
+        "Hawkeye",
+        "Elektra",
+        "Nico Minoru",
+        "Boomerang",
+        "Bishop",
+        "Chameleon",
+        "Hit-Monkey",
+        "Beast",
+        "Caiera",
+        "Spider-Man 2099",
+        "Man-Spider",
+        "Sasquatch"
+      ]
+    },
+    {
+      "name": "Kmythic",
+      "deck": [
+        "America Chavez",
+        "Chamber",
+        "Cassandra Nova",
+        "Chameleon",
+        "Caliban Horseman of Pestilence",
+        "Namorita",
+        "Dracula",
+        "Jubilee",
+        "Shang-Chi",
+        "Absorbing Man",
+        "Sera",
+        "The Infinaut"
       ]
     },
     {
       "name": "Maniek",
       "deck": [
-        "Forge",
-        "Starhawk",
-        "Odin",
+        "The Hunger",
+        "Nicholas Scratch",
+        "Dazzler",
+        "Luke Cage",
+        "Medusa",
+        "Askani'son",
+        "Mystique",
+        "Human Torch",
+        "Wong",
+        "Valkyrie",
+        "Cannonball",
+        "Thanos"
+      ]
+    },
+    {
+      "name": "Budiso",
+      "deck": [
+        "The Hood",
+        "Hawkeye",
+        "Agent 13",
+        "Zombie Sentry",
+        "Sage",
+        "Black Widow",
+        "Cosmo",
+        "Spider-Punk",
+        "Super-Skrull",
+        "Spider-Man 2099",
         "Zombie Giant-Man",
-        "Mother Askani",
-        "Zabu",
-        "She-Hulk",
-        "Shuri",
-        "Mole Man",
-        "Groot",
-        "Spider-Ham",
-        "Cloak"
+        "Death"
+      ]
+    },
+    {
+      "name": "Dejwidgakure",
+      "deck": [
+        "Elektra",
+        "Sub-Mariner",
+        "Storm Horseman of Famine",
+        "Maverick",
+        "Baron Zemo",
+        "Caiera",
+        "Elsa Bloodstone",
+        "Bastion",
+        "Enchantress",
+        "Agamotto",
+        "Aurora",
+        "Odin"
+      ]
+    },
+    {
+      "name": "Qrls",
+      "deck": [
+        "Wasp",
+        "Bucky Barnes",
+        "Carnage",
+        "Hulkbuster",
+        "Cloak",
+        "Beast",
+        "Crystal",
+        "Adamantium Infusion",
+        "Lady Deathstrike",
+        "Arnim Zola",
+        "Dormammu",
+        "Death"
+      ]
+    },
+    {
+      "name": "Weregesu",
+      "deck": [
+        "Quinjet",
+        "Maria Hill",
+        "The Collector",
+        "Bishop",
+        "Agent Coulson",
+        "Gambit Horseman of Death",
+        "Major Victory",
+        "Starbrand",
+        "Bastion",
+        "Moon Girl",
+        "Cannonball",
+        "Eson"
+      ]
+    },
+    {
+      "name": "troyak",
+      "deck": [
+        "Ant-Man",
+        "Nico Minoru",
+        "Nightcrawler",
+        "Techno-Organic Virus",
+        "Mojo",
+        "Captain America",
+        "Jean Grey",
+        "Doctor Octopus",
+        "Typhoid Mary",
+        "Professor X",
+        "Darkhawk",
+        "Spider-Woman"
       ]
     }
   ],
-  "matches": [{"p1":"Budiso","p2":"Maniek","pts1":21,"pts2":4},{"p1":"Qrls","p2":"Supcio","pts1":17,"pts2":8},
-			  {"p1":"wodolot","p2":"Kmythic","pts1":23,"pts2":2},{"p1":"wodolot","p2":"Qrls","pts1":2,"pts2":23},
-			  {"p1":"wodolot","p2":"Maniek","pts1":4,"pts2":21},{"p1":"Qrls","p2":"Maniek","pts1":21,"pts2":4},
-			  {"p1":"I'm Batman","p2":"Weregesu","pts1":23,"pts2":2},{"p1":"I'm Batman","p2":"Maniek","pts1":21,"pts2":4},
-			  {"p1":"I'm Batman","p2":"Budiso","pts1":19,"pts2":6},{"p1":"MatiMyHair","p2":"Weregesu","pts1":21,"pts2":4}, {"p1":"MatiMyHair","p2":"wodolot","pts1":23,"pts2":2},
-			  {"p1":"Supcio","p2":"Maniek","pts1":23,"pts2":2}, {"p1":"Supcio","p2":"Kmythic","pts1":25,"pts2":0},
-			  {"p1":"Kmythic","p2":"Maniek","pts1":23,"pts2":2}, {"p1":"Qrls","p2":"I'm Batman","pts1":21,"pts2":4},
-			  {"p1":"I'm Batman","p2":"Supcio","pts1":25,"pts2":0}, {"p1":"wodolot","p2":"I'm Batman","pts1":1,"pts2":24},
-			  {"p1":"Kmythic","p2":"Weregesu","pts1":21,"pts2":4}, {"p1":"Qrls","p2":"Kmythic","pts1":17,"pts2":8},
-			  {"p1":"wodolot","p2":"Weregesu","pts1":17,"pts2":8}, {"p1":"Qrls","p2":"Weregesu","pts1":25,"pts2":0},
-			  {"p1":"Weregesu","p2":"Maniek","pts1":23,"pts2":2}, {"p1":"Maniek","p2":"Dejwidgakure","pts1":1,"pts2":24},
-			  {"p1":"I'm Batman","p2":"Dejwidgakure","pts1":3,"pts2":22},{"p1":"wodolot","p2":"Supcio","pts1":1,"pts2":24},
-			  {"p1":"I'm Batman","p2":"MatiMyHair","pts1":9,"pts2":16},{"p1":"Qrls","p2":"MatiMyHair","pts1":22,"pts2":3},
-			  {"p1":"I'm Batman","p2":"Kmythic","pts1":25,"pts2":0},{"p1":"Dejwidgakure","p2":"Supcio","pts1":23,"pts2":2},
-			  {"p1":"I'm Batman","p2":"Matixmgg","pts1":4,"pts2":21},{"p1":"Matixmgg","p2":"Maniek","pts1":21,"pts2":4},
-			  {"p1":"Weregesu","p2":"Matixmgg","pts1":19,"pts2":6},{"p1":"MatiMyHair","p2":"Maniek","pts1":25,"pts2":0},
-			  {"p1":"Weregesu","p2":"Supcio","pts1":1,"pts2":24}, {"p1":"Qrls","p2":"Dejwidgakure","pts1":18,"pts2":7},
-			  {"p1":"Budiso","p2":"Supcio","pts1":7,"pts2":18}, {"p1":"Qrls","p2":"Budiso","pts1":21,"pts2":4},
-			  {"p1":"Supcio","p2":"MatiMyHair","pts1":16,"pts2":9}, {"p1":"Matixmgg","p2":"Qrls","pts1":21,"pts2":4},
-			  {"p1":"Matixmgg","p2":"MatiMyHair","pts1":0,"pts2":25}, {"p1":"Budiso","p2":"Weregesu","pts1":21,"pts2":4},
-			  {"p1":"Dejwidgakure","p2":"MatiMyHair","pts1":23,"pts2":2}, {"p1":"Budiso","p2":"Kmythic","pts1":8,"pts2":17},
-			  {"p1":"Dejwidgakure","p2":"Kmythic","pts1":5,"pts2":20}, {"p1":"Budiso","p2":"Dejwidgakure","pts1":1,"pts2":24},
-			  {"p1":"Budiso","p2":"MatiMyHair","pts1":0,"pts2":25}, {"p1":"MatiMyHair","p2":"Kmythic","pts1":20,"pts2":5},
-			  {"p1":"Matixmgg","p2":"Kmythic","pts1":24,"pts2":1}, {"p1":"Matixmgg","p2":"Supcio","pts1":0,"pts2":25},
-			  {"p1":"Matixmgg","p2":"Dejwidgakure","pts1":0,"pts2":20}, {"p1":"Matixmgg","p2":"wodolot","pts1":0,"pts2":0},
-			  {"p1":"Weregesu","p2":"Dejwidgakure","pts1":0,"pts2":25}, {"p1":"Budiso","p2":"wodolot","pts1":0,"pts2":0},
-			  {"p1":"Matixmgg","p2":"Budiso","pts1":0,"pts2":20}, {"p1":"wodolot","p2":"Dejwidgakure","pts1":0,"pts2":0}
-			  
-			  
-			 
-			 
-			 
-			 ]
-  
-
+  "matches": [
+    {"p1":"Dawid Ak. Void","p2":"FizjoRadek","pts1":15,"pts2":10}
+  ]
 }
 	
 	  
