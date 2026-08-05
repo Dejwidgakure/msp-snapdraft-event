@@ -2779,7 +2779,7 @@ matches:[
     }
   ],
   "matches": [
-    {"p1":"Dawid Ak. Void","p2":"FizjoRadek","pts1":15,"pts2":10}
+    {"p1":"Dawid Ak. Void","p2":"FizjoRadek","pts1":25,"pts2":0}
   ]
 }
 	
