@@ -2558,7 +2558,7 @@ matches:[
   "bans": [],
   "players": [
     {
-      "name": "Dawid Ak. Void",
+      "name": "Dawid ak. Void",
       "deck": [
         "The Hood",
         "Carnage",
