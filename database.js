@@ -78,7 +78,7 @@ deck: [
 "Wong",
 "Magik",
 "Bast",
-"Black Swann",
+"Black Swan",
 "America Chavez",
 "Knull"
 ]
@@ -209,7 +209,7 @@ deck: [
 name: "Xevo",
 deck: [
 "Lady Deathstrike",
-"M'baku",
+"M'Baku",
 "Sentinel",
 "Knull",
 "Hope Summers",
@@ -249,7 +249,7 @@ deck: [
 "Psylocke",
 "Sandman",
 "Juggernaut",
-"Black Swann",
+"Black Swan",
 "Quinjet",
 "Namora",
 "Armor",
@@ -282,7 +282,7 @@ name: "FizjoRadek",
 deck: [
 "Beta Ray Bill",
 "Havok",
-"Jane Foster",
+"Jane Foster Mighty Thor",
 "Invisible Woman",
 "Rogue",
 "Jubilee",
@@ -304,7 +304,7 @@ deck: [
 "Mantis",
 "Absorbing Man",
 "Forge",
-"Jane Foster",
+"Jane Foster Mighty Thor",
 "Hulk",
 "Beta Ray Bill",
 "Apocalypse",
@@ -466,7 +466,7 @@ players:[
 {name:"Budiso",deck:["Nova","Selene","Baron Mordo","Scarlet Witch","Electro","Strong Guy","Viper","Ka-Zar","Silver Samurai","Blink","Sersi","She-Hulk"]},
 {name:"kb",deck:["Kitty Pryde","Angel","Iron Fist","U.S. Agent","Cloak","Hit-Monkey","Rhino","Rock Slide","Attuma","Cannonball","Spider-Man 2099","Hulk"]},
 {name:"Killjoy",deck:["Hazmat","Cloak","Ironheart","Brood","Killmonger","Mister Negative","Wong","Valkyrie","Black Panther","Blink","Spectrum","Onslaught"]},
-{name:"kolo313",deck:["Sunspot","Scorpion","Storm","Cyclops","Spider-Man","Iron Lad","White Queen","Hell Cow","Sandman","Heimdall","She-Hulk","Magneto"]},
+{name:"kolo313",deck:["Sunspot","Scorpion","Storm","Cyclops","Spider-Man","Iron Lad","White Queen","Hellcow","Sandman","Heimdall","She-Hulk","Magneto"]},
 {name:"LukeTrustsGod",deck:["The Hood","Quicksilver","Beast","Falcon","Thor","Viper","Mister Negative","Supergiant","Attuma","Abomination","Spider-Man 2099","Orka"]},
 {name:"Dejwidgakure",deck:["Yellowjacket","Hawkeye","Human Torch","Iron Fist","Snowguard","Falcon","Sage","Bishop","Nakia","Caiera","Jessica Jones","The Living Tribunal"]},
 {name:"FizjoRadek",deck:["Howard the Duck","Master Mold","Black Widow","Killmonger","Mobius M. Mobius","Moon Knight","Rescue","Phoenix Force","White Queen","Cannonball","Vision","Helicarrier"]}
@@ -547,13 +547,13 @@ matches:[
       ],
 
       players: [
-        { name: "Dejwidgakure", deck: ["Ant-Man","Nightcrawler","Pixie","Quake","Maximus","Mystique","Cyclops","Super Skrull","Ms. Marvel","Beta Ray Bill","Ronan","Thor"] },
-        { name: "Dawid ak. Void", deck: ["America Chavez","Misty Knight","Uatu","Pixie","Elsa Bloodstone","Kazar","Adam Warlock","Sasquatch","Invisible Woman","Captain America","Thanos","The Infinaut"] },
-        { name: "Hardkor", deck: ["Maria Hill","Quinjet","Zabu","Rock Slide","Lady Silk","Rescure","Captain Marvel","Man-Thing","Omega Red","Beta Ray Bill","Spider-Woman","Heimdall"] },
-        { name: "99iant", deck: ["Hawkaye","Iron Fist","Korg","Baron Mordo","Quake","Storm","Spider-Man","Mockingbird","Darkhawk","Annihilus","Modok","Doctor Doom"] },
+        { name: "Dejwidgakure", deck: ["Ant-Man","Nightcrawler","Pixie","Quake","Maximus","Mystique","Cyclops","Super Skrull","Ms. Marvel","Beta Ray Bill","Ronan the Accuser","Thor"] },
+        { name: "Dawid ak. Void", deck: ["America Chavez","Misty Knight","Uatu the Watcher","Pixie","Elsa Bloodstone","Ka-Zar","Adam Warlock","Sasquatch","Invisible Woman","Captain America","Thanos","The Infinaut"] },
+        { name: "Hardkor", deck: ["Maria Hill","Quinjet","Zabu","Rock Slide","Lady Sif","Rescure","Captain Marvel","Man-Thing","Omega Red","Beta Ray Bill","Spider-Woman","Heimdall"] },
+        { name: "99iant", deck: ["Hawkeye","Iron Fist","Korg","Baron Mordo","Quake","Storm","Spider-Man","Mockingbird","Darkhawk","Annihilus","Modok","Doctor Doom"] },
         { name: "LukeTrustsGod", deck: ["Spider-Ham","Elektra","Zero","Beast","Ghost","Omega Red","Typhoid Mary","Sandman","Mojo","Green Goblin","Blob","Giganto"] },
         { name: "Killjoy", deck: ["Yondu","Bucky Barnes","Shadow King","Multiple Man","Magik","Gambit","Venom","Viper","Phoenix Force","Knull","Orka","Death"] },
-        { name: "FizjoRadek", deck: ["Rocket Raccon","Ebony Maw","Grand Master","Mojo","Electro","Absorbing Man","Captain Marvel","White Queen","Wolverine","Cloak","Hobgoblin","Black Panther"] },
+        { name: "FizjoRadek", deck: ["Rocket Raccoon","Ebony Maw","Grand Master","Mojo","Electro","Absorbing Man","Captain Marvel","White Queen","Wolverine","Cloak","Hobgoblin","Black Panther"] },
       ],
 
       matches: [
@@ -597,21 +597,20 @@ matches:[
       ],
 
       players: [
-        { name: "Pluton32", deck: ["Quicksilver","Domino","Scarlet Witch","Silver Surfer","Mobius M. Mobius","Megasonic","Red Guardian","Makkari","Leech","Stature","Galactus","Red Hulk"] },
-        { name: "Weregesu", deck: ["Hawkeye","Black Knight","Cerebro","Swarm","Colleen Wing","Morphy","Sabretooth","Sword Master","Blackcat","Crossbones","Klaw","Red Hulk"] },
-        { name: "Raciatek", deck: ["echo","King Eitri","Squirrel Girl","Forge","Grandmaster","Iron Patriot","Brood","Silver Surfer","Strong Guy","Corvus Glave","Red Skull","Taskmaster"] },
-		{ name: "Dejwidgakure", deck: ["Ghost Spider","Human Torch","Iron Fist","Bucky Barnes","Falcon","USA Agent","Valentina","Werewolf","Groot","Phoenix Force","Klaw","Destroyer"] },
-        { name: "Polop", deck: ["Mister Sinister","Colossus","Sentinel","Victoria Hand","Silk","Bishop","Storm","Supergiant","Jane Foster Thor","Mockingbird","Thanos","Death"] },
+        { name: "Pluton32", deck: ["Quicksilver","Domino","Scarlet Witch","Silver Surfer","Mobius M. Mobius","Negasonic Teenage Warhead","Red Guardian","Makkari","Leech","Stature","Galactus","Red Hulk"] },
+        { name: "Weregesu", deck: ["Hawkeye","Black Knight","Cerebro","Swarm","Colleen Wing","Morphy","Sabretooth","Sword Master","Black Cat","Crossbones","Klaw","Red Hulk"] },
+        { name: "Raciatek", deck: ["Echo","King Eitri","Squirrel Girl","Forge","Grand Master","Iron Patriot","Brood","Silver Surfer","Strong Guy","Corvus Glaive","Red Skull","Taskmaster"] },
+		{ name: "Dejwidgakure", deck: ["Ghost-Spider","Human Torch","Iron Fist","Bucky Barnes","Falcon","U.S. Agent","Valentina","Werewolf By Night","Groot","Phoenix Force","Klaw","Destroyer"] },
+        { name: "Polop", deck: ["Mister Sinister","Colossus","Sentinel","Victoria Hand","Silk","Bishop","Storm","Supergiant","Jane Foster Mighty Thor","Mockingbird","Thanos","Death"] },
         { name: "Supcio", deck: ["Zero","Titania","Mirage","Baron Mordo","Cable","Victoria Hand","Maximus","Jean Grey","Man-Thing","Typhoid Mary","Namora","Doctor Doom"] },
         { name: "Skaje", deck: ["Sunspot","Mantis","Dazzler","Colossus","Daredevil","Iron Fist","Cyclops","Malekith","Crossbones","Cull Obsidian","Gamora","Thanos"] },
-        { name: "Dawid ak. Void", deck: ["Nico Minoru","Bruce Banner","Angela","Spider-Man","Wolfsbane","Luna Snow","Mister Negative","Kazar","Moon Girl","Iron Lad","Black Panther","Arnim Zola"] },
+        { name: "Dawid ak. Void", deck: ["Nico Minoru","Bruce Banner","Angela","Spider-Man","Wolfsbane","Luna Snow","Mister Negative","Ka-Zar","Moon Girl","Iron Lad","Black Panther","Arnim Zola"] },
       ],
 
       matches: [
         { p1: "Dejwidgakure", p2: "Raciatek", pts1: 21, pts2: 4 },
         { p1: "Weregesu", p2: "Raciatek", pts1: 20, pts2: 5 },
         { p1: "Raciatek", p2: "Pluton32", pts1: 4, pts2: 21 },
-	    { p1: "Raciatek", p2: "Polop", pts1: 8, pts2: 17 },
 	    { p1: "Raciatek", p2: "Dawid ak. Void", pts1: 20, pts2: 0 },
 	    { p1: "Raciatek", p2: "Supcio", pts1: 5, pts2: 20 },
 	    { p1: "Raciatek", p2: "Skaje", pts1: 6, pts2: 19 },
@@ -653,11 +652,11 @@ matches:[
       ],
 
       players: [
-        { name: "Pluton32", deck: ["Black King","Squirrel Girl","Zabu","Scorpion","Caiera","Nocturne","Dracula","Silver Samurai","Professor X","Stature","Galactus","Giganto"] },
-        { name: "Weregesu", deck: ["Scorn","Ebony Maw","Lasher","Maximus","Silver Surfer","Sebastina Shaw","Baron Zemo","Wave","Drax","Scarlet Spider","Ronan","Heimdall"] },
+        { name: "Pluton32", deck: ["Black Knight","Squirrel Girl","Zabu","Scorpion","Caiera","Nocturne","Dracula","Silver Samurai","Professor X","Stature","Galactus","Giganto"] },
+        { name: "Weregesu", deck: ["Scorn","Ebony Maw","Lasher","Maximus","Silver Surfer","Sebastian Shaw","Baron Zemo","Wave","Drax","Scarlet Spider","Ronan the Accuser","Heimdall"] },
         { name: "Raciatek", deck: ["America Chavez","Mantis","Misty Knight","Forge","Beast","Deathlok","Lockjaw","Beta Ray Bill","Iron Man","Stature","Arnim Zola","Heimdall"] },
-		{ name: "Dejwidgakure", deck: ["Blade","Angela","Sam Wilson Captain America","Captain America","Red Guardian","Shanna","Sword Master","Kazar","Cull Obsidian","Professor X","Heimdall","Red Hulk"] },
-        { name: "Polop852", deck: ["Sunspot","Iceman","Forge","Hulk Buster","Morphy","Black Widow","Baron Zemo","Gladiator","Supergiant","Blink","Gamora","Blob"] },
+		{ name: "Dejwidgakure", deck: ["Blade","Angela","Sam Wilson Captain America","Captain America","Red Guardian","Shanna","Sword Master","Ka-Zar","Cull Obsidian","Professor X","Heimdall","Red Hulk"] },
+        { name: "Polop852", deck: ["Sunspot","Iceman","Forge","Hulkbuster","Morphy","Black Widow","Baron Zemo","Gladiator","Supergiant","Blink","Gamora","Blob"] },
       ],
 
       matches: [
@@ -666,7 +665,7 @@ matches:[
         { p1: "Raciatek", p2: "Pluton32", pts1: 17, pts2: 8 },
 		{ p1: "Raciatek", p2: "Polop852", pts1: 2, pts2: 23 },
 		{ p1: "Weregesu", p2: "Pluton32", pts1: 7, pts2: 18 },
-		{ p1: "Raciatek", p2: "Polop852", pts1: 25, pts2: 0 },
+		{ p1: "Weregesu", p2: "Polop852", pts1: 25, pts2: 0 },
 		{ p1: "Polop852", p2: "Pluton32", pts1: 23, pts2: 2 },
 ]
         },
@@ -685,9 +684,9 @@ matches:[
       ],
 
       players: [
-        { name: "Supcio", deck: ["Squireel Girl","Doctor Strange","Patriot","Groot","Rocket Raccon And Groot","Beast","Surtur","Doctor Octopus","Ronan","Knull","Doctor Doom","Death"] },
-        { name: "Weregesu", deck: ["Misty Knight","Scorn","Hazmat","Swarm","Colleen Wing","Cassandra Nova","Debrii","Werewolf","Corvus Glaive","Devil Dinosaur","Nimrod","Abomination"] },
-        { name: "Raciatek", deck: ["Yondu","Hazmat","Shadow King","Armor","Rocket Raccon And Groot","Elsa Bloodstone","Jean Grey","Proxima Midnight","Symbiote Spider-Man","Lady Deathstrike","Abomination","Odin"] },
+        { name: "Supcio", deck: ["Squirrel Girl","Doctor Strange","Patriot","Groot","Rocket and Groot","Beast","Surtur","Doctor Octopus","Ronan the Accuser","Knull","Doctor Doom","Death"] },
+        { name: "Weregesu", deck: ["Misty Knight","Scorn","Hazmat","Swarm","Colleen Wing","Cassandra Nova","Debrii","Werewolf By Night","Corvus Glaive","Devil Dinosaur","Nimrod","Abomination"] },
+        { name: "Raciatek", deck: ["Yondu","Hazmat","Shadow King","Armor","Rocket and Groot","Elsa Bloodstone","Jean Grey","Proxima Midnight","Symbiote Spider-Man","Lady Deathstrike","Abomination","Odin"] },
       ],
 
       matches: [
@@ -725,9 +724,9 @@ matches:[
         { name: "Pluton32", deck: ["Sauron","Ghost-Spider","Vulture","Merlin","U.S. Agent","Brood","Nocturne","Prodigy","Dracula","Misery","Galactus","The Infinaut"] },
         { name: "Raciatek", deck: ["Agony","Fastball Special","Morbius","Lasher","The First Ghost Rider","Human Torch","Gambit","Silver Surfer First Steps","Cull Obsidian","Legion","Blob","Hulk"] },
         { name: "Supcio", deck: ["Martyr","Domino","Carnage","Mojo","Debrii","Phastos","Sword Master","Sandman","Crossbones","Black Bolt","Hobgoblin","Thanos"] },
-        { name: "Weregesu", deck: ["Arana","Nico Minoru","Squirrel Girl","Hydra Bob","Mister Sinister","Scarlet Witch","Colossus","Marvel Boy","Copycat","Redwing","Sword Master","Giganto"] },
+        { name: "Weregesu", deck: ["Araña ","Nico Minoru","Squirrel Girl","Hydra Bob","Mister Sinister","Scarlet Witch","Colossus","Marvel Boy","Copycat","Redwing","Sword Master","Giganto"] },
         { name: "Matixmgg", deck: ["Vulture","Forge","Lockjaw","Domino","Brood","Human Torch First Steps","Black Widow","Gladiator","Jessica Jones","Laufey","Stardust","Hellion"] },
-        { name: "FizjoRadek", deck: ["Elektra","Misty Knight","Victoria Hand","Jennifer Kale","Crystal","Kang The Conqueror","Zombie Scarlet Witch","Fan Fei","Negasonic Teenage Warhead","Anti-Venom","Cosmic Ghost Rider","Ajax"] },
+        { name: "FizjoRadek", deck: ["Elektra","Misty Knight","Victoria Hand","Jennifer Kale","Crystal","Kang","Zombie Scarlet Witch","Fan Fei","Negasonic Teenage Warhead","Anti-Venom","Cosmic Ghost Rider","Ajax"] },
         { name: "Kmythic", deck: ["Forge","Jennifer Kale","Red Shift","Toxie Doxie","Kraglin","Mister Negative","Ghost Rider","Darkhawk","M.O.D.O.K.","Apocalypse","Agatha Harkness","Zombie Galacti"] },
         { name: "Maniek", deck: ["Ghost-Spider","Grand Master","Sentinel","Cable","Captain America","Rogue","Mole Man","Nakia","Gladiator","Namor","Mockingbird","Odin"] }
       ],
@@ -903,10 +902,10 @@ matches:[
     {
       "name": "Matixmgg",
       "deck": [
-        "Gorr",
+        "Gorr the God Butcher",
         "Doctor Octopus",
         "Thor",
-        "Drax Avatar of Life",
+        "Drax, Avatar of Life",
         "Shuri",
         "Zero",
         "Quake",
@@ -1074,7 +1073,7 @@ matches:[
       "name": "Dejwidgakure",
       "deck": [
         "Iron Man",
-        "Ancient One",
+        "The Ancient One",
         "Surge",
         "Elektra",
         "Ms. Marvel",
@@ -1167,7 +1166,7 @@ matches:[
         "Agamotto",
         "Nicholas Scratch",
         "Luna Snow",
-        "Drax Avatar of Life"
+        "Drax, Avatar of Life"
       ]
     },
     {
@@ -1231,7 +1230,7 @@ matches:[
         "Galactus",
         "Angel",
         "Bastion",
-        "Ancient One",
+        "The Ancient One",
         "Fastball Special",
         "Adamantium Infusion",
         "Jim Hammond Human Torch",
@@ -1480,7 +1479,7 @@ matches:[
     {
       "name": "Kmythic",
       "deck": [
-        "Wild-Child",
+        "Wild Child",
         "Colleen Wing",
         "Magus",
         "Marrow",
@@ -1633,7 +1632,7 @@ matches:[
       "name": "Budiso",
       "deck": [
         "Typhoid Mary",
-        "M'baku",
+        "M'Baku",
         "Super-Skrull",
         "Ares",
         "Lockjaw",
@@ -1701,7 +1700,7 @@ matches:[
       "name": "FizjoRadek",
       "deck": [
         "Nico Minoru",
-        "Jeff the Baby Land Shark",
+        "Jeff!",
         "Shadowlands Daredevil",
         "Wong",
         "Angela",
@@ -1879,12 +1878,12 @@ matches:[
     {
       "name": "Weregesu",
       "deck": [
-        "Yellow Jacket",
+        "Yellowjacket",
         "Mad Thinker",
         "Surge",
         "Morph",
         "Black Widow",
-        "Werewolf by Night",
+        "Werewolf By Night",
         "Warlock",
         "Copycat",
         "Danger",
@@ -2289,7 +2288,7 @@ matches:[
 			  {"p1":"Detroj","p2":"MatiMyHair","pts1":0,"pts2":20},{"p1":"Detroj","p2":"I'm Batman","pts1":0,"pts2":20},
 			  {"p1":"Detroj","p2":"FizjoRadek","pts1":0,"pts2":20},{"p1":"Detroj","p2":"Matixmgg","pts1":0,"pts2":20},
 			  {"p1":"Detroj","p2":"Raciatek","pts1":0,"pts2":20},{"p1":"Detroj","p2":"Supcio","pts1":0,"pts2":20},
-			  {"p1":"Dejwidgakure","p2":"MatiMyHair","pts1":4,"pts2":21},{"p1":"Detroj","p2":"I'm Batman","pts1":0,"pts2":20},
+			  {"p1":"Dejwidgakure","p2":"MatiMyHair","pts1":4,"pts2":21},
 			  {"p1":"Raciatek","p2":"Matixmgg","pts1":20,"pts2":0}
 			  
 		
