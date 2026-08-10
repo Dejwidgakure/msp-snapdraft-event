@@ -1695,6 +1695,7 @@ matches:[
       },
       bans: [
         "Arishem",
+		  "Loki",
         "Shang-Chi",
         "Cosmo",
         "Echo",
