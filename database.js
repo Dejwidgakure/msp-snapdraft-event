@@ -1847,7 +1847,7 @@ matches:[
     "singleWalkover": "20:0",
     "doubleWalkover": "0:0"
   },
-  "bans": [],
+  "bans": ["Arishem","Loki"],
   "players": [
     {
       "name": "Supcio",
@@ -2645,7 +2645,7 @@ matches:[
     "singleWalkover": "20:0",
     "doubleWalkover": "0:0"
   },
-  "bans": [],
+  "bans": ["Arishem","Loki"],
   "players": [
     {
       "name": "Budiso",
@@ -3332,7 +3332,7 @@ matches:[
   "id": 26,
   "title": "",
   "startDate": "20.07.2026",
-  "endDate": "",
+  "endDate": "02.08.2026",
   "status": "finished",
   "mode": "Classic + Jokery + Custom Paczki + Mulligany",
   "presetCard": null,
@@ -3345,12 +3345,12 @@ matches:[
   },
   "bans": [
     "Arishem",
-    "Aurora",
+    "Loki",
     "Cosmic Ghost Rider",
     "Fin Fang Foom",
     "Gambit",
     "Gladiator",
-    "Loki",
+    "Aurora",
     "Shang-Chi",
     "Thanos",
     "The Thing First Steps",
