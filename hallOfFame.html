@@ -2523,7 +2523,7 @@ body::after{
             <div class="hof-panel legend-rules">
                 <h3>Zasady przyznawania punktów legend</h3>
                 <div class="rules-grid">
-                    <div class="rule">🥇 1 miejsce — <strong>7 pkt</strong></div>
+                    <div class="rule">🥇 1 miejsce — <strong>8 pkt</strong></div>
                     <div class="rule">🥈 2 miejsce — <strong>4 pkt</strong></div>
                     <div class="rule">🥉 3 miejsce — <strong>3 pkt</strong></div>
                     <div class="rule">4 miejsce — <strong>2 pkt</strong></div>
@@ -2554,30 +2554,19 @@ body::after{
 </main>
 
 <script src="database.js"></script>
+<script src="draft-stats-engine.js"></script>
 <script>
 // =====================================================
-// SALA CHWAŁY — ENGINE 3.0
-// Fundament: oryginalny hallOfFame.js + zasady z draft.html
-// Źródło prawdy: database.drafts[].players + database.drafts[].matches
+// SALA CHWAŁY — ENGINE-BACKED LEGEND VIEW
+// Źródło faktów: database.js
+// Źródło interpretacji/statystyk: draft-stats-engine.js
 //
-// Różnice względem starego hallOfFame.js:
-// - 0–0 = podwójny walkower = 2 porażki, bez zwycięzcy; walkowery liczą się do winrate/bilansu
-// - ranking draftu/punkty Legend: dokładnie jak w starym hallOfFame.js — tylko suma punktów draftowych
-// - rekordy: najwięcej wygranych draftów, najwięcej pkt draftowych,
-//   największy winrate / bilans
-// - Złote Decki: zwycięzca wyliczony z rankingu draftu,
-//   obrazek: assets/decks/{nick_clean}_{draftId}.jpg
+// Ta strona NIE definiuje własnego systemu Punktów Legend,
+// statusów draftów, winnerów, W/L ani rankingu draftu.
+// Renderuje dane dostarczone przez kanoniczny engine.
 // =====================================================
 (function(){
     const $ = (id) => document.getElementById(id);
-
-    const LEGEND_POINTS = {
-        1: 7,
-        2: 4,
-        3: 3,
-        4: 2,
-        5: 1
-    };
 
     const esc = (value) => String(value ?? "").replace(/[&<>"']/g, (m) => ({
         "&":"&amp;", "<":"&lt;", ">":"&gt;", "\"":"&quot;", "'":"&#039;"
@@ -2585,7 +2574,7 @@ body::after{
 
     const escAttr = (value) => esc(value).replace(/`/g, "&#096;");
 
-    // Dokładnie jak w draft.html: małe litery, bez spacji i kropek.
+    // Zgodnie z resolverem decków używanym w Kronikach.
     function sanitizeName(name){
         return String(name || "").toLowerCase().replace(/ /g, "").replace(/\./g, "");
     }
@@ -2601,212 +2590,45 @@ body::after{
         return database.drafts;
     }
 
-    function isDraftFinished(draft){
-        const players = (draft?.players || [])
-            .map(player => String(player?.name || "").trim())
-            .filter(Boolean);
-        if (players.length < 2) return false;
-
-        const expectedPairs = new Set();
-        for (let first = 0; first < players.length; first++) {
-            for (let second = first + 1; second < players.length; second++) {
-                expectedPairs.add([players[first], players[second]].sort().join("::"));
-            }
-        }
-
-        const resolvedPairs = new Set();
-        (draft.matches || []).forEach(match => {
-            const p1 = String(match?.p1 || "").trim();
-            const p2 = String(match?.p2 || "").trim();
-            if (!p1 || !p2 || p1 === p2) return;
-            if (!Number.isFinite(Number(match.pts1)) || !Number.isFinite(Number(match.pts2))) return;
-            resolvedPairs.add([p1, p2].sort().join("::"));
-        });
-
-        const fullRoundRobin = expectedPairs.size > 0 &&
-            [...expectedPairs].every(pairKey => resolvedPairs.has(pairKey));
-        if (fullRoundRobin) return true;
-
-        // Starsze wpisy bazy nie zawsze mają kompletny terminarz.
-        // Zachowujemy ich ręcznie zapisanych zwycięzców, ale nigdy nie
-        // używamy tego skrótu dla najnowszej, aktualnie rozgrywanej edycji.
-        const latestDraftId = Math.max(...getDrafts().map(item => Number(item?.id) || 0), 0);
-        return Number(draft?.id) !== latestDraftId &&
-            Boolean(String(draft?.winner || "").trim());
-    }
-
-    function createDraftPlayer(name){
-        return {
-            name,
-            total: 0,
-            wins: 0,
-            losses: 0,
-            winPoints: 0,
-            lossPoints: 0
-        };
-    }
-
-    function ensureDraftPlayer(map, name){
-        if (!name) return null;
-        if (!map[name]) map[name] = createDraftPlayer(name);
-        return map[name];
-    }
-
-    function getDraftRanking(draft){
-        const local = {};
-
-        (draft.players || []).forEach(player => {
-            ensureDraftPlayer(local, player.name);
-        });
-
-        (draft.matches || []).forEach(match => {
-            const p1 = String(match.p1 || "").trim();
-            const p2 = String(match.p2 || "").trim();
-            if (!p1 || !p2) return;
-
-            const pts1 = Number(match.pts1 || 0);
-            const pts2 = Number(match.pts2 || 0);
-
-            const s1 = ensureDraftPlayer(local, p1);
-            const s2 = ensureDraftPlayer(local, p2);
-            if (!s1 || !s2) return;
-
-            s1.total += pts1;
-            s2.total += pts2;
-
-            const isDoubleWalkover = pts1 === 0 && pts2 === 0;
-
-            if (isDoubleWalkover) {
-                s1.losses++;
-                s2.losses++;
-                return;
-            }
-
-            if (pts1 > pts2) {
-                s1.wins++;
-                s2.losses++;
-                s1.winPoints += pts1;
-                s2.lossPoints += pts2;
-                return;
-            }
-
-            if (pts2 > pts1) {
-                s2.wins++;
-                s1.losses++;
-                s2.winPoints += pts2;
-                s1.lossPoints += pts1;
-            }
-        });
-
-        // Punkty Legend muszą być liczone jak w oryginalnym hallOfFame.js:
-        // TOP 5 draftu wynika wyłącznie z sumy punktów draftowych.
-        // Bilans/winrate liczymy osobno, ale NIE używamy go jako tie-breakera do Legend.
-        return Object.values(local).sort((a,b) => b.total - a.total);
-    }
-
-    function createHallPlayer(name){
-        return {
-            name,
-            legendPoints: 0,
-            first: 0,
-            second: 0,
-            third: 0,
-            fourth: 0,
-            fifth: 0,
-            drafts: 0,
-            points: 0,
-            matches: 0,
-            wins: 0,
-            losses: 0,
-            winPoints: 0,
-            lossPoints: 0,
-            avg: 0,
-            winrate: 0,
-            balance: 0
-        };
-    }
-
-    function ensureHallPlayer(map, name){
-        if (!name) return null;
-        if (!map[name]) map[name] = createHallPlayer(name);
-        return map[name];
+    function getEngine(){
+        return (typeof DraftStatsEngine !== "undefined" && DraftStatsEngine) ? DraftStatsEngine : null;
     }
 
     function calculateHallOfFame(){
-        const players = {};
-        const goldenDecks = [];
-        // Ranking Legend i Złote Decki obejmują wyłącznie zakończone edycje.
-        const drafts = getDrafts().filter(isDraftFinished);
+        const engine = getEngine();
+        if (!engine) return { ranking: [], goldenDecks: [], engineMissing: true };
 
-        drafts.forEach((draft, index) => {
-            const draftId = draft.id ?? (index + 1);
-            const ranking = getDraftRanking(draft);
+        const drafts = getDrafts();
+        const legend = engine.calculateLegendStandings(drafts);
 
-            // Liczba draftów liczona z oficjalnej listy uczestników players[].
-            (draft.players || []).forEach(player => {
-                const hallPlayer = ensureHallPlayer(players, player.name);
-                if (hallPlayer) hallPlayer.drafts++;
-            });
+        const goldenDecks = drafts
+            .filter(draft => engine.isDraftFinished(draft))
+            .map((draft, index) => {
+                const draftId = draft.id ?? (index + 1);
+                const winnerName = engine.getDraftWinner(draft);
+                if (!winnerName) return null;
 
-            // Globalne punkty/bilans z meczów.
-            ranking.forEach(draftPlayer => {
-                const hallPlayer = ensureHallPlayer(players, draftPlayer.name);
-                if (!hallPlayer) return;
+                const draftStats = engine.calculateDraftStats(draft);
+                const winnerStats = draftStats.byName[winnerName];
+                if (!winnerStats) return null;
 
-                hallPlayer.points += draftPlayer.total;
-                hallPlayer.wins += draftPlayer.wins;
-                hallPlayer.losses += draftPlayer.losses;
-                hallPlayer.winPoints += draftPlayer.winPoints;
-                hallPlayer.lossPoints += draftPlayer.lossPoints;
-                hallPlayer.matches += draftPlayer.wins + draftPlayer.losses;
-            });
-
-            // Punkty Legend jak w starej Sali Chwały: TOP 5 draftu.
-            ranking.slice(0, 5).forEach((draftPlayer, index) => {
-                const place = index + 1;
-                const hallPlayer = ensureHallPlayer(players, draftPlayer.name);
-                if (!hallPlayer) return;
-
-                hallPlayer.legendPoints += LEGEND_POINTS[place] || 0;
-                if (place === 1) hallPlayer.first++;
-                if (place === 2) hallPlayer.second++;
-                if (place === 3) hallPlayer.third++;
-                if (place === 4) hallPlayer.fourth++;
-                if (place === 5) hallPlayer.fifth++;
-            });
-
-            if (ranking[0]) {
-                goldenDecks.push({
+                return {
                     draftId,
                     title: draft.title || "",
                     mode: draft.mode || "",
                     startDate: draft.startDate || "",
                     endDate: draft.endDate || "",
-                    winner: ranking[0],
-                    imagePath: getDeckImagePath(ranking[0].name, draftId)
-                });
-            }
-        });
-
-        const ranking = Object.values(players)
-            .filter(player => player.drafts >= 2)
-            .map(player => {
-                const matches = player.wins + player.losses;
-                return {
-                    ...player,
-                    avg: player.drafts ? Math.round(player.points / player.drafts) : 0,
-                    winrate: matches ? player.wins / matches : 0,
-                    balance: player.wins - player.losses
+                    winner: winnerStats,
+                    imagePath: getDeckImagePath(winnerName, draftId)
                 };
             })
-            .sort((a,b) =>
-                b.legendPoints - a.legendPoints ||
-                b.points - a.points ||
-                b.drafts - a.drafts ||
-                a.name.localeCompare(b.name, "pl")
-            );
+            .filter(Boolean);
 
-        return { ranking, goldenDecks };
+        return {
+            ranking: legend.ranking,
+            goldenDecks,
+            engineMissing: false
+        };
     }
 
     function fmtNumber(value){
@@ -2818,14 +2640,13 @@ body::after{
         return `${fmtNumber(Number(value || 0) * 100)}%`;
     }
 
-
     function renderPodium(data){
         const container = $("podiumContainer");
         if (!container) return;
 
         const top = data.ranking.slice(0, 3);
         if (!top.length) {
-            container.innerHTML = `<div class="empty-state">Brak danych do podium mistrzów.</div>`;
+            container.innerHTML = `<div class="empty-state">${data.engineMissing ? "Nie udało się załadować draft-stats-engine.js." : "Brak danych do podium mistrzów."}</div>`;
             return;
         }
 
@@ -2834,22 +2655,19 @@ body::after{
                 place: 2,
                 role: "Mistrz Drafta",
                 image: "assets/jeff_2champ.png",
-                cls: "place-2",
-                accent: "srebrny"
+                cls: "place-2"
             },
             {
                 place: 1,
                 role: "Król Draftu",
                 image: "assets/jeff_dking.png",
-                cls: "place-1",
-                accent: "złoty"
+                cls: "place-1"
             },
             {
                 place: 3,
                 role: "Mistrz Drafta",
                 image: "assets/jeff_3champ.png",
-                cls: "place-3",
-                accent: "brązowy"
+                cls: "place-3"
             }
         ];
 
@@ -2870,10 +2688,10 @@ body::after{
                         <div class="podium-player">${esc(player.name)}</div>
                         <div class="podium-stats">
                             <span><strong>${player.legendPoints}</strong><small>pkt Legend</small></span>
-                            <span><strong>${player.first}</strong><small>wygrane drafty</small></span>
-                            <span><strong>${fmtWinrate(player.winrate)}</strong><small>winrate</small></span>
+                            <span><strong>${player.draftWins}</strong><small>wygrane drafty</small></span>
+                            <span><strong>${fmtWinrate(player.winRate)}</strong><small>winrate</small></span>
                         </div>
-                        <div class="podium-meta">Bilans ${player.wins}-${player.losses} • ${fmtNumber(player.points)} pkt draftowych • ${player.drafts} drafty</div>
+                        <div class="podium-meta">Bilans ${player.wins}-${player.losses} • ${fmtNumber(player.draftPoints)} pkt draftowych • ${player.drafts} drafty</div>
                     </div>
                 </article>
             `;
@@ -2887,7 +2705,7 @@ body::after{
         if (!data.ranking.length) {
             tbody.innerHTML = `
                 <tr class="loading-row">
-                    <td colspan="12">Brak danych do rankingu. Sprawdź, czy obok pliku jest database.js z database.drafts.</td>
+                    <td colspan="12">${data.engineMissing ? "Brak draft-stats-engine.js — ranking nie może zostać policzony." : "Brak danych do rankingu."}</td>
                 </tr>
             `;
             return;
@@ -2895,7 +2713,7 @@ body::after{
 
         tbody.innerHTML = data.ranking.map((player, index) => `
             <tr class="${index === 0 ? 'rank-place-1' : index === 1 ? 'rank-place-2' : index === 2 ? 'rank-place-3' : ''}">
-                <td>${index + 1}</td>
+                <td>${player.rank}</td>
                 <td>${esc(player.name)}</td>
                 <td><strong>${player.legendPoints}</strong></td>
                 <td>${player.first}</td>
@@ -2904,9 +2722,9 @@ body::after{
                 <td>${player.fourth}</td>
                 <td>${player.fifth}</td>
                 <td>${player.drafts}</td>
-                <td>${fmtNumber(player.points)}</td>
-                <td>${player.avg}</td>
-                <td>${fmtWinrate(player.winrate)}</td>
+                <td>${fmtNumber(player.draftPoints)}</td>
+                <td>${Math.round(player.avgDraftPoints)}</td>
+                <td>${fmtWinrate(player.winRate)}</td>
             </tr>
         `).join("");
     }
@@ -2922,15 +2740,15 @@ body::after{
         if (!container) return;
 
         const ranking = data.ranking;
-        const mostDraftWins = bestBy(ranking, player => player.first);
-        const mostDraftPoints = bestBy(ranking, player => player.points);
+        const mostDraftWins = bestBy(ranking, player => player.draftWins);
+        const mostDraftPoints = bestBy(ranking, player => player.draftPoints);
         const bestWinrate = [...ranking]
             .filter(player => player.matches > 0)
             .sort((a,b) =>
-                b.winrate - a.winrate ||
+                b.winRate - a.winRate ||
                 b.balance - a.balance ||
                 b.wins - a.wins ||
-                b.points - a.points ||
+                b.draftPoints - a.draftPoints ||
                 a.name.localeCompare(b.name, "pl")
             )[0] || null;
 
@@ -2938,19 +2756,19 @@ body::after{
             <article class="record-card">
                 <p class="record-label">Najwięcej wygranych draftów</p>
                 <p class="record-value">${mostDraftWins ? esc(mostDraftWins.name) : "—"}</p>
-                <p class="record-extra">${mostDraftWins ? `${mostDraftWins.first}× 🥇 • ${mostDraftWins.legendPoints} pkt Legend` : "Brak danych"}</p>
+                <p class="record-extra">${mostDraftWins ? `${mostDraftWins.draftWins}× 🥇 • ${mostDraftWins.legendPoints} pkt Legend` : "Brak danych"}</p>
             </article>
 
             <article class="record-card">
                 <p class="record-label">Najwięcej pkt draftowych</p>
                 <p class="record-value">${mostDraftPoints ? esc(mostDraftPoints.name) : "—"}</p>
-                <p class="record-extra">${mostDraftPoints ? `${fmtNumber(mostDraftPoints.points)} pkt • ${mostDraftPoints.drafts} draftów` : "Brak danych"}</p>
+                <p class="record-extra">${mostDraftPoints ? `${fmtNumber(mostDraftPoints.draftPoints)} pkt • ${mostDraftPoints.drafts} draftów` : "Brak danych"}</p>
             </article>
 
             <article class="record-card">
                 <p class="record-label">Największy winrate / bilans</p>
                 <p class="record-value">${bestWinrate ? esc(bestWinrate.name) : "—"}</p>
-                <p class="record-extra">${bestWinrate ? `${fmtWinrate(bestWinrate.winrate)} • bilans ${bestWinrate.wins}-${bestWinrate.losses} (${bestWinrate.balance >= 0 ? "+" : ""}${bestWinrate.balance})` : "Brak danych meczowych"}</p>
+                <p class="record-extra">${bestWinrate ? `${fmtWinrate(bestWinrate.winRate)} • bilans ${bestWinrate.wins}-${bestWinrate.losses} (${bestWinrate.balance >= 0 ? "+" : ""}${bestWinrate.balance})` : "Brak danych meczowych"}</p>
             </article>
         `;
     }
@@ -2978,7 +2796,7 @@ body::after{
         const decks = [...data.goldenDecks].reverse();
 
         if (!decks.length) {
-            container.innerHTML = `<div class="empty-state">Brak zwycięskich decków — database.js nie zwrócił rankingów draftów.</div>`;
+            container.innerHTML = `<div class="empty-state">${data.engineMissing ? "Brak engine — nie można ustalić zwycięskich decków." : "Brak zwycięskich decków."}</div>`;
             return;
         }
 
