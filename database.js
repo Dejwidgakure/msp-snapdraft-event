@@ -5,11 +5,17 @@ const database = {
       id: 1,
       startDate: "2024-06-02",
       endDate: "2024-06-08",
+      status: "finished",
       mode: "Classic (Stary System punktów)",
       presetCard: null,
       playersCount: 6,
       winner: "Hahke",
-      bans: ["Kang","Loki"],
+      bans: [],
+      scoring: {
+        system: "legacy10",
+        singleWalkover: null,
+        doubleWalkover: null
+      },
 
       players: [
     {
@@ -179,11 +185,17 @@ deck: [
 id: 2,
 startDate: "2024-06-09",
 endDate: "2024-06-14",
+status: "finished",
 mode: "Classic (Stary System Punktów)",
 presetCard: null,
 playersCount: 9,
 winner: "Dejwidgakure",
-bans: ["Kang","Loki"],
+bans: [],
+scoring: {
+  system: "legacy10",
+  singleWalkover: null,
+  doubleWalkover: null
+},
 
 players: [
 
@@ -381,7 +393,7 @@ matches: [
 { p1:"kb", p2:"Dawid ak. Void", pts1:17, pts2:0 },
 { p1:"Xevo", p2:"kb", pts1:13, pts2:0 },
 { p1:"Dejwidgakure", p2:"kb", pts1:11, pts2:0 },
-{ p1:"kb", p2:"FizjoRadek", pts1:14, pts2:0 },
+{ p1:"FizjoRadek", p2:"kb", pts1:14, pts2:0 },
 
 { p1:"LukeTrustsGod", p2:"Dawid ak. Void", pts1:14, pts2:0 },
 { p1:"Xevo", p2:"LukeTrustsGod", pts1:16, pts2:0 },
@@ -404,11 +416,17 @@ matches: [
 id: 3,
 startDate: "2024-06-15",
 endDate: "2024-06-22",
-mode:"Classic",
+status: "finished",
+mode:"Classic + Bany",
 presetCard:null,
 playersCount:10,
 winner:"kb",
-bans:["Kang","Loki"],
+bans:[],
+scoring:{
+  system:"standard25",
+  singleWalkover:null,
+  doubleWalkover:null
+},
 
 players:[
 
@@ -464,7 +482,7 @@ players:[
     ]
       },
 {name:"Budiso",deck:["Nova","Selene","Baron Mordo","Scarlet Witch","Electro","Strong Guy","Viper","Ka-Zar","Silver Samurai","Blink","Sersi","She-Hulk"]},
-{name:"kb",deck:["Kitty Pryde","Angel","Iron Fist","U.S. Agent","Cloak","Hit-Monkey","Rhino","Rock Slide","Attuma","Cannonball","Spider-Man 2099","Hulk"]},
+{name:"kb",deck:["Kitty Pryde","Angel","Iron Fist","U.S. Agent","Cloak","Hit-Monkey","Rhino","Rockslide","Attuma","Cannonball","Spider-Man 2099","Hulk"]},
 {name:"Killjoy",deck:["Hazmat","Cloak","Ironheart","Brood","Killmonger","Mister Negative","Wong","Valkyrie","Black Panther","Blink","Spectrum","Onslaught"]},
 {name:"kolo313",deck:["Sunspot","Scorpion","Storm","Cyclops","Spider-Man","Iron Lad","White Queen","Hellcow","Sandman","Heimdall","She-Hulk","Magneto"]},
 {name:"LukeTrustsGod",deck:["The Hood","Quicksilver","Beast","Falcon","Thor","Viper","Mister Negative","Supergiant","Attuma","Abomination","Spider-Man 2099","Orka"]},
@@ -535,22 +553,23 @@ matches:[
       id: 4,
       startDate: "2024-06-23",
       endDate: "2024-06-30",
+      status: "finished",
       mode: "Classic + Bany",
       presetCard: null,
       playersCount: 7,
       winner: "Dejwidgakure",
-      bans: [
-        "Arishem",
-        "Loki",
-        "Kang"
-        
-      ],
+      bans: ["Agatha Harkness", "Loki"],
+      scoring: {
+        system: "legacy23",
+        singleWalkover: null,
+        doubleWalkover: null
+      },
 
       players: [
-        { name: "Dejwidgakure", deck: ["Ant-Man","Nightcrawler","Pixie","Quake","Maximus","Mystique","Cyclops","Super Skrull","Ms. Marvel","Beta Ray Bill","Ronan the Accuser","Thor"] },
+        { name: "Dejwidgakure", deck: ["Ant-Man","Nightcrawler","Pixie","Quake","Maximus","Mystique","Cyclops","Super-Skrull","Ms. Marvel","Beta Ray Bill","Ronan the Accuser","Thor"] },
         { name: "Dawid ak. Void", deck: ["America Chavez","Misty Knight","Uatu the Watcher","Pixie","Elsa Bloodstone","Ka-Zar","Adam Warlock","Sasquatch","Invisible Woman","Captain America","Thanos","The Infinaut"] },
-        { name: "Hardkor", deck: ["Maria Hill","Quinjet","Zabu","Rock Slide","Lady Sif","Rescure","Captain Marvel","Man-Thing","Omega Red","Beta Ray Bill","Spider-Woman","Heimdall"] },
-        { name: "99iant", deck: ["Hawkeye","Iron Fist","Korg","Baron Mordo","Quake","Storm","Spider-Man","Mockingbird","Darkhawk","Annihilus","Modok","Doctor Doom"] },
+        { name: "Hardkor", deck: ["Maria Hill","Quinjet","Zabu","Rockslide","Lady Sif","Rescue","Captain Marvel","Man-Thing","Omega Red","Beta Ray Bill","Spider-Woman","Heimdall"] },
+        { name: "99iant", deck: ["Hawkeye","Iron Fist","Korg","Baron Mordo","Quake","Storm","Spider-Man","Mockingbird","Darkhawk","Annihilus","M.O.D.O.K.","Doctor Doom"] },
         { name: "LukeTrustsGod", deck: ["Spider-Ham","Elektra","Zero","Beast","Ghost","Omega Red","Typhoid Mary","Sandman","Mojo","Green Goblin","Blob","Giganto"] },
         { name: "Killjoy", deck: ["Yondu","Bucky Barnes","Shadow King","Multiple Man","Magik","Gambit","Venom","Viper","Phoenix Force","Knull","Orka","Death"] },
         { name: "FizjoRadek", deck: ["Rocket Raccoon","Ebony Maw","Grand Master","Mojo","Electro","Absorbing Man","Captain Marvel","White Queen","Wolverine","Cloak","Hobgoblin","Black Panther"] },
@@ -582,128 +601,1098 @@ matches:[
 ]
         },
 
+    {
+      id: 5,
+      startDate: "2024-06-30",
+      endDate: "2024-07-07",
+      status: "finished",
+      mode: "Classic + Bany",
+      presetCard: null,
+      playersCount: 8,
+      winner: "Xevo",
+      bans: ["Agatha Harkness", "Loki"],
+      scoring: {
+        system: "standard25",
+        singleWalkover: "20:5",
+        doubleWalkover: null
+      },
+
+      players: [
+        {
+          name: "99iant",
+          deck: [
+            "Rocket Raccoon",
+            "America Chavez",
+            "Elektra",
+            "Blade",
+            "Daredevil",
+            "Mister Fantastic",
+            "Shanna",
+            "Ghost Rider",
+            "Ka-Zar",
+            "Captain Marvel",
+            "Leech",
+            "Black Bolt"
+          ]
+        },
+        {
+          name: "Dawid ak. Void",
+          deck: [
+            "The Hood",
+            "Nova",
+            "Angel",
+            "Beast",
+            "Carnage",
+            "Angela",
+            "Falcon",
+            "Negasonic Teenage Warhead",
+            "Venom",
+            "Blue Marvel",
+            "M.O.D.O.K.",
+            "Death"
+          ]
+        },
+        {
+          name: "kb",
+          deck: [
+            "Agent 13",
+            "Ghost-Spider",
+            "Human Torch",
+            "Brood",
+            "Storm",
+            "Nakia",
+            "Punisher",
+            "Viper",
+            "Sentry",
+            "Sandman",
+            "Jane Foster Mighty Thor",
+            "Ultron"
+          ]
+        },
+        {
+          name: "LukeTrustsGod",
+          deck: [
+            "Yellowjacket",
+            "Ant-Man",
+            "Nightcrawler",
+            "Mojo",
+            "Colossus",
+            "Bishop",
+            "Captain America",
+            "Super-Skrull",
+            "White Tiger",
+            "Leader",
+            "Onslaught",
+            "Death"
+          ]
+        },
+        {
+          name: "Weregesu",
+          deck: [
+            "Agent 13",
+            "Maria Hill",
+            "Mojo",
+            "Ironheart",
+            "Magik",
+            "Rhino",
+            "Cyclops",
+            "Dracula",
+            "Shuri",
+            "Super-Skrull",
+            "Hobgoblin",
+            "Aero"
+          ]
+        },
+        {
+          name: "Xevo",
+          deck: [
+            "Kingpin",
+            "Dazzler",
+            "Kraven",
+            "Multiple Man",
+            "Black Widow",
+            "Cosmo",
+            "Groot",
+            "Luke Cage",
+            "Polaris",
+            "Rescue",
+            "Sera",
+            "Orka"
+          ]
+        },
+        {
+          name: "Dejwidgakure",
+          deck: [
+            "Wasp",
+            "Howard the Duck",
+            "Baron Mordo",
+            "Rockslide",
+            "Shanna",
+            "Shuri",
+            "Lockjaw",
+            "Typhoid Mary",
+            "Taskmaster",
+            "White Tiger",
+            "Abomination",
+            "Jane Foster Mighty Thor"
+          ]
+        },
+        {
+          name: "Radek",
+          deck: [
+            "Hawkeye",
+            "Mantis",
+            "Star-Lord",
+            "Morph",
+            "Nakia",
+            "Lady Sif",
+            "Jubilee",
+            "Rescue",
+            "Silver Samurai",
+            "Hellcow",
+            "Hela",
+            "Odin"
+          ]
+        }
+      ],
+
+      matches: [
+        { p1: "99iant", p2: "Dawid ak. Void", pts1: 5, pts2: 20 },
+        { p1: "99iant", p2: "kb", pts1: 19, pts2: 6 },
+        { p1: "99iant", p2: "LukeTrustsGod", pts1: 22, pts2: 3 },
+        { p1: "99iant", p2: "Weregesu", pts1: 21, pts2: 4 },
+        { p1: "99iant", p2: "Xevo", pts1: 2, pts2: 23 },
+        { p1: "99iant", p2: "Dejwidgakure", pts1: 0, pts2: 25 },
+        { p1: "99iant", p2: "Radek", pts1: 21, pts2: 4 },
+
+        { p1: "Dawid ak. Void", p2: "kb", pts1: 1, pts2: 24 },
+        { p1: "Dawid ak. Void", p2: "LukeTrustsGod", pts1: 22, pts2: 3 },
+        { p1: "Dawid ak. Void", p2: "Weregesu", pts1: 25, pts2: 0 },
+        { p1: "Dawid ak. Void", p2: "Xevo", pts1: 4, pts2: 21 },
+        { p1: "Dawid ak. Void", p2: "Dejwidgakure", pts1: 6, pts2: 19 },
+        { p1: "Dawid ak. Void", p2: "Radek", pts1: 19, pts2: 6 },
+
+        { p1: "kb", p2: "LukeTrustsGod", pts1: 24, pts2: 1 },
+        { p1: "kb", p2: "Weregesu", pts1: 25, pts2: 0 },
+        { p1: "kb", p2: "Xevo", pts1: 4, pts2: 21 },
+        { p1: "kb", p2: "Dejwidgakure", pts1: 24, pts2: 1 },
+        { p1: "kb", p2: "Radek", pts1: 20, pts2: 5, resultType: "walkover" },
+
+        { p1: "LukeTrustsGod", p2: "Weregesu", pts1: 6, pts2: 19 },
+        { p1: "LukeTrustsGod", p2: "Xevo", pts1: 16, pts2: 9 },
+        { p1: "LukeTrustsGod", p2: "Dejwidgakure", pts1: 0, pts2: 25 },
+        { p1: "LukeTrustsGod", p2: "Radek", pts1: 0, pts2: 25 },
+
+        { p1: "Weregesu", p2: "Xevo", pts1: 4, pts2: 21 },
+        { p1: "Weregesu", p2: "Dejwidgakure", pts1: 0, pts2: 25 },
+        { p1: "Weregesu", p2: "Radek", pts1: 23, pts2: 2 },
+
+        { p1: "Xevo", p2: "Dejwidgakure", pts1: 22, pts2: 3 },
+        { p1: "Xevo", p2: "Radek", pts1: 25, pts2: 0 },
+
+        { p1: "Dejwidgakure", p2: "Radek", pts1: 24, pts2: 1 }
+      ]
+    },
+
+    {
+      id: 6,
+      startDate: "2024-07-07",
+      endDate: "2024-07-20",
+      status: "finished",
+      mode: "Classic + Bany",
+      presetCard: "Arishem",
+      playersCount: 12,
+      winner: "kb",
+      bans: ["Agatha Harkness", "Loki"],
+      scoring: {
+        system: "standard25",
+        singleWalkover: "20:5",
+        doubleWalkover: "0:0"
+      },
+
+      players: [
+        {
+          name: "Budiso",
+          deck: [
+            "Hawkeye",
+            "America Chavez",
+            "Maria Hill",
+            "Mojo",
+            "Angela",
+            "Zabu",
+            "Gambit",
+            "Shanna",
+            "Adam Warlock",
+            "Blink",
+            "Leader",
+            "Arishem"
+          ]
+        },
+        {
+          name: "99iant",
+          deck: [
+            "Hawkeye",
+            "Titania",
+            "Beast",
+            "Okoye",
+            "Scorpion",
+            "Domino",
+            "Hulkbuster",
+            "Black Widow",
+            "Debrii",
+            "Sebastian Shaw",
+            "Odin",
+            "Arishem"
+          ]
+        },
+        {
+          name: "Dawid ak. Void",
+          deck: [
+            "Deadpool",
+            "X-23",
+            "Carnage",
+            "Hulkbuster",
+            "Ravonna Renslayer",
+            "Venom",
+            "Sabretooth",
+            "Viper",
+            "Sentry",
+            "Attuma",
+            "Taskmaster",
+            "Arishem"
+          ]
+        },
+        {
+          name: "Hahke",
+          deck: [
+            "Dagger",
+            "Swarm",
+            "Storm",
+            "Venom",
+            "Nocturne",
+            "Ms. Marvel",
+            "Phoenix Force",
+            "Stegron",
+            "Valkyrie",
+            "Blink",
+            "Leader",
+            "Arishem"
+          ]
+        },
+        {
+          name: "kolo313",
+          deck: [
+            "Agent 13",
+            "Yondu",
+            "Titania",
+            "Invisible Woman",
+            "Gambit",
+            "Killmonger",
+            "Rockslide",
+            "Spider-Man",
+            "Wong",
+            "Hobgoblin",
+            "Gamora",
+            "Arishem"
+          ]
+        },
+        {
+          name: "LukeTrustsGod",
+          deck: [
+            "Spider-Ham",
+            "Mister Sinister",
+            "Ravonna Renslayer",
+            "Green Goblin",
+            "Sebastian Shaw",
+            "Enchantress",
+            "Omega Red",
+            "Sandman",
+            "Spider-Woman",
+            "Vision",
+            "Sasquatch",
+            "Arishem"
+          ]
+        },
+        {
+          name: "Raciatek",
+          deck: [
+            "Bast",
+            "Howard the Duck",
+            "Iceman",
+            "Iron Fist",
+            "Nightcrawler",
+            "Squirrel Girl",
+            "Armor",
+            "Mystique",
+            "Super-Skrull",
+            "Ka-Zar",
+            "Destroyer",
+            "Arishem"
+          ]
+        },
+        {
+          name: "Xevo",
+          deck: [
+            "Nico Minoru",
+            "Havok",
+            "Goose",
+            "Cable",
+            "Sage",
+            "Captain America",
+            "Debrii",
+            "Rhino",
+            "Enchantress",
+            "Black Panther",
+            "Abomination",
+            "Arishem"
+          ]
+        },
+        {
+          name: "Weregesu",
+          deck: [
+            "Kingpin",
+            "Blade",
+            "Colossus",
+            "Quake",
+            "U.S. Agent",
+            "Storm",
+            "Groot",
+            "Moon Knight",
+            "Spider-Man",
+            "Ghost Rider",
+            "Stegron",
+            "Arishem"
+          ]
+        },
+        {
+          name: "kb",
+          deck: [
+            "Rocket Raccoon",
+            "Nightcrawler",
+            "Thena",
+            "U.S. Agent",
+            "Sage",
+            "Elsa Bloodstone",
+            "Hercules",
+            "Nocturne",
+            "Hellcow",
+            "Typhoid Mary",
+            "Orka",
+            "Arishem"
+          ]
+        },
+        {
+          name: "Dejwidgakure",
+          deck: [
+            "Zero",
+            "Titania",
+            "Grand Master",
+            "Star-Lord",
+            "Mister Fantastic",
+            "Colleen Wing",
+            "Stegron",
+            "Iron Man",
+            "Mockingbird",
+            "Onslaught",
+            "Orka",
+            "Arishem"
+          ]
+        },
+        {
+          name: "Waarek",
+          deck: [
+            "Psylocke",
+            "Green Goblin",
+            "Patriot",
+            "Brood",
+            "Mister Fantastic",
+            "Black Swan",
+            "Namor",
+            "Valkyrie",
+            "Stature",
+            "Aero",
+            "Spider-Man 2099",
+            "Arishem"
+          ]
+        }
+      ],
+
+      matches: [
+        { p1: "Budiso", p2: "99iant", pts1: 8, pts2: 17 },
+        { p1: "Budiso", p2: "Dawid ak. Void", pts1: 25, pts2: 0 },
+        { p1: "Budiso", p2: "Hahke", pts1: 0, pts2: 25 },
+        { p1: "Budiso", p2: "kolo313", pts1: 19, pts2: 6 },
+        { p1: "Budiso", p2: "LukeTrustsGod", pts1: 4, pts2: 21 },
+        { p1: "Budiso", p2: "Raciatek", pts1: 20, pts2: 5, resultType: "walkover" },
+        { p1: "Budiso", p2: "Xevo", pts1: 20, pts2: 5, resultType: "walkover" },
+        { p1: "Budiso", p2: "Weregesu", pts1: 4, pts2: 21 },
+        { p1: "Budiso", p2: "kb", pts1: 3, pts2: 22 },
+        { p1: "Budiso", p2: "Dejwidgakure", pts1: 4, pts2: 21 },
+        { p1: "Budiso", p2: "Waarek", pts1: 25, pts2: 0 },
+
+        { p1: "99iant", p2: "Dawid ak. Void", pts1: 21, pts2: 4 },
+        { p1: "99iant", p2: "Hahke", pts1: 25, pts2: 0 },
+        { p1: "99iant", p2: "kolo313", pts1: 6, pts2: 19 },
+        { p1: "99iant", p2: "LukeTrustsGod", pts1: 0, pts2: 25 },
+        { p1: "99iant", p2: "Raciatek", pts1: 24, pts2: 1 },
+        { p1: "99iant", p2: "Xevo", pts1: 19, pts2: 6 },
+        { p1: "99iant", p2: "Weregesu", pts1: 21, pts2: 4 },
+        { p1: "99iant", p2: "kb", pts1: 1, pts2: 24 },
+        { p1: "99iant", p2: "Dejwidgakure", pts1: 1, pts2: 24 },
+        { p1: "99iant", p2: "Waarek", pts1: 0, pts2: 25 },
+
+        { p1: "Dawid ak. Void", p2: "Hahke", pts1: 20, pts2: 5, resultType: "walkover" },
+        { p1: "Dawid ak. Void", p2: "kolo313", pts1: 23, pts2: 2 },
+        { p1: "Dawid ak. Void", p2: "LukeTrustsGod", pts1: 4, pts2: 21 },
+        { p1: "Dawid ak. Void", p2: "Raciatek", pts1: 19, pts2: 6 },
+        { p1: "Dawid ak. Void", p2: "Xevo", pts1: 20, pts2: 5, resultType: "walkover" },
+        { p1: "Dawid ak. Void", p2: "Weregesu", pts1: 6, pts2: 19 },
+        { p1: "Dawid ak. Void", p2: "kb", pts1: 1, pts2: 24 },
+        { p1: "Dawid ak. Void", p2: "Dejwidgakure", pts1: 4, pts2: 21 },
+        { p1: "Dawid ak. Void", p2: "Waarek", pts1: 16, pts2: 9 },
+
+        { p1: "Hahke", p2: "kolo313", pts1: 25, pts2: 0 },
+        { p1: "Hahke", p2: "LukeTrustsGod", pts1: 25, pts2: 0 },
+        { p1: "Hahke", p2: "Raciatek", pts1: 0, pts2: 0, resultType: "doubleWalkover" },
+        { p1: "Hahke", p2: "Xevo", pts1: 0, pts2: 0, resultType: "doubleWalkover" },
+        { p1: "Hahke", p2: "Weregesu", pts1: 4, pts2: 21 },
+        { p1: "Hahke", p2: "kb", pts1: 5, pts2: 20, resultType: "walkover" },
+        { p1: "Hahke", p2: "Dejwidgakure", pts1: 5, pts2: 20, resultType: "walkover" },
+        { p1: "Hahke", p2: "Waarek", pts1: 4, pts2: 21 },
+
+        { p1: "kolo313", p2: "LukeTrustsGod", pts1: 19, pts2: 6 },
+        { p1: "kolo313", p2: "Raciatek", pts1: 0, pts2: 0, resultType: "doubleWalkover" },
+        { p1: "kolo313", p2: "Xevo", pts1: 2, pts2: 23 },
+        { p1: "kolo313", p2: "Weregesu", pts1: 4, pts2: 21 },
+        { p1: "kolo313", p2: "kb", pts1: 2, pts2: 23 },
+        { p1: "kolo313", p2: "Dejwidgakure", pts1: 2, pts2: 23 },
+        { p1: "kolo313", p2: "Waarek", pts1: 3, pts2: 22 },
+
+        { p1: "LukeTrustsGod", p2: "Raciatek", pts1: 6, pts2: 19 },
+        { p1: "LukeTrustsGod", p2: "Xevo", pts1: 20, pts2: 5, resultType: "walkover" },
+        { p1: "LukeTrustsGod", p2: "Weregesu", pts1: 20, pts2: 5 },
+        { p1: "LukeTrustsGod", p2: "kb", pts1: 2, pts2: 23 },
+        { p1: "LukeTrustsGod", p2: "Dejwidgakure", pts1: 19, pts2: 6 },
+        { p1: "LukeTrustsGod", p2: "Waarek", pts1: 21, pts2: 4 },
+
+        { p1: "Raciatek", p2: "Xevo", pts1: 0, pts2: 0, resultType: "doubleWalkover" },
+        { p1: "Raciatek", p2: "Weregesu", pts1: 2, pts2: 23 },
+        { p1: "Raciatek", p2: "kb", pts1: 5, pts2: 20, resultType: "walkover" },
+        { p1: "Raciatek", p2: "Dejwidgakure", pts1: 3, pts2: 22 },
+        { p1: "Raciatek", p2: "Waarek", pts1: 1, pts2: 24 },
+
+        { p1: "Xevo", p2: "Weregesu", pts1: 5, pts2: 20, resultType: "walkover" },
+        { p1: "Xevo", p2: "kb", pts1: 19, pts2: 6 },
+        { p1: "Xevo", p2: "Dejwidgakure", pts1: 5, pts2: 20, resultType: "walkover" },
+        { p1: "Xevo", p2: "Waarek", pts1: 5, pts2: 20, resultType: "walkover" },
+
+        { p1: "Weregesu", p2: "kb", pts1: 1, pts2: 24 },
+        { p1: "Weregesu", p2: "Dejwidgakure", pts1: 4, pts2: 21 },
+        { p1: "Weregesu", p2: "Waarek", pts1: 6, pts2: 19 },
+
+        { p1: "kb", p2: "Dejwidgakure", pts1: 22, pts2: 3 },
+        { p1: "kb", p2: "Waarek", pts1: 23, pts2: 2 },
+
+        { p1: "Dejwidgakure", p2: "Waarek", pts1: 22, pts2: 3 }
+      ]
+    },
+
 	  {
+      id: 7,
+      startDate: "2024-08-31",
+      endDate: null,
+      status: "finished",
+      mode: "Classic + Bany",
+      presetCard: null,
+      playersCount: 8,
+      winner: "Marek",
+      bans: ["Agatha Harkness", "Loki", "Arishem"],
+      scoring: {
+        system: "standard25",
+        singleWalkover: "20:5",
+        doubleWalkover: "10:10"
+      },
+
+      players: [
+        {
+          name: "99iant",
+          deck: ["Okoye","Star-Lord","Lizard","Bishop","Killmonger","Gladiator","Nick Fury","Doctor Octopus","Hellcow","Aero","Alioth","Death"]
+        },
+        {
+          name: "Budiso",
+          deck: ["Kitty Pryde","Star-Lord","Brood","Negasonic Teenage Warhead","Gambit","Dracula","Silver Samurai","Lady Deathstrike","Stature","Vision","Spider-Man 2099","Thanos"]
+        },
+        {
+          name: "Dejwidgakure",
+          deck: ["Echo","Iron Fist","Goose","Medusa","Valentina","Viper","Wong","Absorbing Man","Ms. Marvel","Wiccan","White Tiger","Blink"]
+        },
+        {
+          name: "kb",
+          deck: ["Martyr","Psylocke","Angela","Sentinel","Silver Surfer","Rockslide","Daken","Sebastian Shaw","Deathlok","Captain Marvel","Gwenpool","Vision"]
+        },
+        {
+          name: "Marek",
+          deck: ["Nightcrawler","Dagger","Psylocke","Morph","Negasonic Teenage Warhead","Nocturne","Sabretooth","Ms. Marvel","Iron Lad","Iron Man","Leader","Sasquatch"]
+        },
+        {
+          name: "Supcio",
+          deck: ["America Chavez","Forge","Okoye","Star-Lord","Cyclops","Sauron","Jubilee","High Evolutionary","Gamora","Red Skull","Arnim Zola","Magneto"]
+        },
+        {
+          name: "Dawid ak. Void",
+          deck: ["Blade","Armor","Hulkbuster","Captain America","Deathlok","Wong","Shang-Chi","Miles Morales Spider-Man","Blob","Sasquatch","Thanos","Orka"]
+        },
+        {
+          name: "Waarek",
+          deck: ["Elektra","Daredevil","Dazzler","Sentinel","Green Goblin","Negasonic Teenage Warhead","Nocturne","Captain Marvel","Warpath","Klaw","Ajax","Orka"]
+        }
+      ],
+
+      matches: [
+        { p1: "99iant", p2: "Budiso", pts1: 4, pts2: 21 },
+        { p1: "99iant", p2: "Dejwidgakure", pts1: 0, pts2: 25 },
+        { p1: "99iant", p2: "kb", pts1: 17, pts2: 8 },
+        { p1: "99iant", p2: "Marek", pts1: 0, pts2: 25 },
+        { p1: "99iant", p2: "Supcio", pts1: 7, pts2: 18 },
+        { p1: "99iant", p2: "Dawid ak. Void", pts1: 10, pts2: 10, resultType: "doubleWalkover" },
+        { p1: "99iant", p2: "Waarek", pts1: 25, pts2: 0 },
+
+        { p1: "Budiso", p2: "Dejwidgakure", pts1: 20, pts2: 5, resultType: "walkover" },
+        { p1: "Budiso", p2: "kb", pts1: 5, pts2: 20, resultType: "walkover" },
+        { p1: "Budiso", p2: "Marek", pts1: 2, pts2: 23 },
+        { p1: "Budiso", p2: "Supcio", pts1: 0, pts2: 25 },
+        { p1: "Budiso", p2: "Dawid ak. Void", pts1: 23, pts2: 2 },
+        { p1: "Budiso", p2: "Waarek", pts1: 10, pts2: 10, resultType: "doubleWalkover" },
+
+        { p1: "Dejwidgakure", p2: "kb", pts1: 22, pts2: 3 },
+        { p1: "Dejwidgakure", p2: "Marek", pts1: 22, pts2: 3 },
+        { p1: "Dejwidgakure", p2: "Supcio", pts1: 4, pts2: 21 },
+        { p1: "Dejwidgakure", p2: "Dawid ak. Void", pts1: 21, pts2: 4 },
+        { p1: "Dejwidgakure", p2: "Waarek", pts1: 5, pts2: 20 },
+
+        { p1: "kb", p2: "Marek", pts1: 21, pts2: 4 },
+        { p1: "kb", p2: "Supcio", pts1: 6, pts2: 19 },
+        { p1: "kb", p2: "Dawid ak. Void", pts1: 24, pts2: 1 },
+        { p1: "kb", p2: "Waarek", pts1: 19, pts2: 6 },
+
+        { p1: "Marek", p2: "Supcio", pts1: 21, pts2: 4 },
+        { p1: "Marek", p2: "Dawid ak. Void", pts1: 24, pts2: 1 },
+        { p1: "Marek", p2: "Waarek", pts1: 25, pts2: 0 },
+
+        { p1: "Supcio", p2: "Dawid ak. Void", pts1: 25, pts2: 0 },
+        { p1: "Supcio", p2: "Waarek", pts1: 0, pts2: 25 },
+
+        { p1: "Dawid ak. Void", p2: "Waarek", pts1: 25, pts2: 0 }
+      ]
+    },
+
+    {
+      id: 8,
+      startDate: "2024-09-14",
+      endDate: null,
+      status: "finished",
+      mode: "Classic + Bany",
+      presetCard: null,
+      playersCount: 7,
+      winner: "Jacusinski",
+      bans: ["Agatha Harkness","Loki","Arishem"],
+      scoring: {
+        system: "standard25",
+        singleWalkover: "20:5",
+        doubleWalkover: null
+      },
+
+      players: [
+        { name: "Hardkor", deck: ["Deadpool","Nebula","Echo","Bucky Barnes","Carnage","Wolverine","Angel","Captain America","Absorbing Man","Drax","Nimrod","Skaar"] },
+        { name: "Hahke", deck: ["Sunspot","Angel","Falcon","Mysterio","Ironheart","Strong Guy","Shuri","Absorbing Man","Nick Fury","Symbiote Spider-Man","Namora","She-Hulk"] },
+        { name: "Raciatek", deck: ["Ant-Man","Spider-Ham","Quinjet","Goose","Cable","Mysterio","Hit-Monkey","Sabretooth","Viper","Gladiator","Sentry","Leader"] },
+        { name: "Skaje", deck: ["Kingpin","Psylocke","Shadow King","Angela","Shocker","Red Guardian","Copycat","The Thing","Wiccan","Klaw","Ultron","Orka"] },
+        { name: "Supcio", deck: ["Ant-Man","Zero","Ebony Maw","Dazzler","Kraven","Electro","Magik","Dracula","Jessica Jones","Sera","Ultron","Giganto"] },
+        { name: "Weregesu", deck: ["Spider-Ham","Domino","Hulkbuster","Jeff!","Cassandra Nova","Elsa Bloodstone","Gambit","Thor","Leech","Lockjaw","Black Panther","Hela"] },
+        { name: "Jacusinski", deck: ["Deadpool","Korg","Hydra Bob","Pixie","Armor","Cable","Sage","Sebastian Shaw","Spider-Man","Doctor Octopus","Legion","Sersi"] }
+      ],
+
+      matches: [
+        { p1: "Hardkor", p2: "Hahke", pts1: 20, pts2: 5, resultType: "walkover" },
+        { p1: "Hardkor", p2: "Raciatek", pts1: 23, pts2: 2 },
+        { p1: "Hardkor", p2: "Skaje", pts1: 8, pts2: 17 },
+        { p1: "Hardkor", p2: "Supcio", pts1: 2, pts2: 23 },
+        { p1: "Hardkor", p2: "Weregesu", pts1: 2, pts2: 23 },
+        { p1: "Hardkor", p2: "Jacusinski", pts1: 4, pts2: 21 },
+        { p1: "Hahke", p2: "Raciatek", pts1: 2, pts2: 23 },
+        { p1: "Hahke", p2: "Skaje", pts1: 20, pts2: 5 },
+        { p1: "Hahke", p2: "Supcio", pts1: 0, pts2: 25 },
+        { p1: "Hahke", p2: "Weregesu", pts1: 25, pts2: 0 },
+        { p1: "Hahke", p2: "Jacusinski", pts1: 5, pts2: 20, resultType: "walkover" },
+        { p1: "Raciatek", p2: "Skaje", pts1: 0, pts2: 25 },
+        { p1: "Raciatek", p2: "Supcio", pts1: 25, pts2: 0 },
+        { p1: "Raciatek", p2: "Weregesu", pts1: 20, pts2: 5 },
+        { p1: "Raciatek", p2: "Jacusinski", pts1: 7, pts2: 18 },
+        { p1: "Skaje", p2: "Supcio", pts1: 23, pts2: 2 },
+        { p1: "Skaje", p2: "Weregesu", pts1: 21, pts2: 4 },
+        { p1: "Skaje", p2: "Jacusinski", pts1: 0, pts2: 25 },
+        { p1: "Supcio", p2: "Weregesu", pts1: 25, pts2: 0 },
+        { p1: "Supcio", p2: "Jacusinski", pts1: 1, pts2: 24 },
+        { p1: "Weregesu", p2: "Jacusinski", pts1: 6, pts2: 19 }
+      ]
+    },
+
+    {
+      id: 9,
+      startDate: "2024-09-28",
+      endDate: null,
+      status: "finished",
+      mode: "Classic + Bany",
+      presetCard: null,
+      playersCount: 9,
+      winner: "Jacusinski",
+      bans: ["Agatha Harkness","Loki","Arishem"],
+      scoring: {
+        system: "standard25",
+        singleWalkover: "20:5",
+        doubleWalkover: null
+      },
+
+      players: [
+        { name: "Dejwidgakure", deck: ["Ant-Man","Pixie","Grand Master","Star-Lord","Cloak","Bishop","Rhino","Lockjaw","White Tiger","Black Panther","Odin","Red Hulk"] },
+        { name: "Jacusinski", deck: ["America Chavez","Mantis","Mojo","Jeff!","Swarm","U.S. Agent","Moon Knight","Agent Coulson","Copycat","Cull Obsidian","Stature","Gamora"] },
+        { name: "Weregesu", deck: ["Nebula","Carnage","The Collector","White Widow","Wolverine","Silk","Green Goblin","Rhino","Agent Coulson","White Queen","Abomination","Hulk"] },
+        { name: "m3ti", deck: ["Agent 13","Goose","Falcon","Crystal","Negasonic Teenage Warhead","Copycat","Dracula","Enchantress","Crossbones","Kang","Spider-Woman","Sasquatch"] },
+        { name: "Waarek", deck: ["Rocket Raccoon","Nightcrawler","Daredevil","Shadow King","Invisible Woman","Red Guardian","Ghost","Lady Sif","Drax","Gamora","Doctor Doom","Thanos"] },
+        { name: "Skaje", deck: ["Hawkeye","Howard the Duck","Nico Minoru","Carnage","Jeff!","Copycat","Ghost","Jubilee","Jessica Jones","Nimrod","Blink","Gamora"] },
+        { name: "Raciatek", deck: ["Howard the Duck","Hazmat","White Widow","Domino","Ironheart","Mystique","Speed","Hope Summers","Sebastian Shaw","Absorbing Man","Iron Lad","Iron Man"] },
+        { name: "Supcio", deck: ["Silver Sable","Iceman","Carnage","Forge","Maximus","Rockslide","Daken","Sebastian Shaw","Leech","Warpath","Abomination","The Living Tribunal"] },
+        { name: "Dawid ak. Void", deck: ["M'Baku","Squirrel Girl","Forge","The Collector","Cable","Falcon","Maximus","Mister Fantastic","Wave","Symbiote Spider-Man","Blue Marvel","Doctor Doom"] }
+      ],
+
+      matches: [
+        { p1: "Dejwidgakure", p2: "Jacusinski", pts1: 5, pts2: 20, resultType: "walkover" },
+        { p1: "Dejwidgakure", p2: "Weregesu", pts1: 6, pts2: 19 },
+        { p1: "Dejwidgakure", p2: "m3ti", pts1: 23, pts2: 2 },
+        { p1: "Dejwidgakure", p2: "Waarek", pts1: 21, pts2: 4 },
+        { p1: "Dejwidgakure", p2: "Skaje", pts1: 6, pts2: 19 },
+        { p1: "Dejwidgakure", p2: "Raciatek", pts1: 2, pts2: 23 },
+        { p1: "Dejwidgakure", p2: "Supcio", pts1: 0, pts2: 25 },
+        { p1: "Dejwidgakure", p2: "Dawid ak. Void", pts1: 6, pts2: 19 },
+        { p1: "Jacusinski", p2: "Weregesu", pts1: 23, pts2: 2 },
+        { p1: "Jacusinski", p2: "m3ti", pts1: 25, pts2: 0 },
+        { p1: "Jacusinski", p2: "Waarek", pts1: 21, pts2: 4 },
+        { p1: "Jacusinski", p2: "Skaje", pts1: 25, pts2: 0 },
+        { p1: "Jacusinski", p2: "Raciatek", pts1: 22, pts2: 3 },
+        { p1: "Jacusinski", p2: "Supcio", pts1: 21, pts2: 4 },
+        { p1: "Jacusinski", p2: "Dawid ak. Void", pts1: 25, pts2: 0 },
+        { p1: "Weregesu", p2: "m3ti", pts1: 2, pts2: 23 },
+        { p1: "Weregesu", p2: "Waarek", pts1: 1, pts2: 24 },
+        { p1: "Weregesu", p2: "Skaje", pts1: 9, pts2: 16 },
+        { p1: "Weregesu", p2: "Raciatek", pts1: 4, pts2: 21 },
+        { p1: "Weregesu", p2: "Supcio", pts1: 2, pts2: 23 },
+        { p1: "Weregesu", p2: "Dawid ak. Void", pts1: 18, pts2: 7 },
+        { p1: "m3ti", p2: "Waarek", pts1: 25, pts2: 0 },
+        { p1: "m3ti", p2: "Skaje", pts1: 5, pts2: 20 },
+        { p1: "m3ti", p2: "Raciatek", pts1: 2, pts2: 23 },
+        { p1: "m3ti", p2: "Supcio", pts1: 4, pts2: 21 },
+        { p1: "m3ti", p2: "Dawid ak. Void", pts1: 0, pts2: 25 },
+        { p1: "Waarek", p2: "Skaje", pts1: 16, pts2: 9 },
+        { p1: "Waarek", p2: "Raciatek", pts1: 0, pts2: 25 },
+        { p1: "Waarek", p2: "Supcio", pts1: 1, pts2: 24 },
+        { p1: "Waarek", p2: "Dawid ak. Void", pts1: 0, pts2: 25 },
+        { p1: "Skaje", p2: "Raciatek", pts1: 3, pts2: 22 },
+        { p1: "Skaje", p2: "Supcio", pts1: 0, pts2: 25 },
+        { p1: "Skaje", p2: "Dawid ak. Void", pts1: 5, pts2: 20 },
+        { p1: "Raciatek", p2: "Supcio", pts1: 3, pts2: 22 },
+        { p1: "Raciatek", p2: "Dawid ak. Void", pts1: 3, pts2: 22 },
+        { p1: "Supcio", p2: "Dawid ak. Void", pts1: 6, pts2: 19 }
+      ]
+    },
+
+    {
+      id: 10,
+      startDate: "2024-10-19",
+      endDate: null,
+      status: "finished",
+      mode: "Classic + Bany",
+      presetCard: "Arishem",
+      playersCount: 7,
+      winner: "Hardkor",
+      bans: ["Agatha Harkness","Loki"],
+      scoring: {
+        system: "standard25",
+        singleWalkover: "20:5",
+        doubleWalkover: "10:10"
+      },
+
+      players: [
+        { name: "Raciatek", deck: ["Selene","Titania","Shadow King","Mysterio","Nakia","Red Guardian","Beta Ray Bill","Iron Man","Blue Marvel","Blink","Legion","Arishem"] },
+        { name: "Jacusinski", deck: ["Agony","Elektra","Goose","Mojo","Storm","Shanna","Ms. Marvel","Omega Red","Namor","Sera","Spectrum","Onslaught"] },
+        { name: "Weregesu", deck: ["Wasp","Ant-Man","Misty Knight","Quinjet","Blade","Colossus","Corvus Glaive","High Evolutionary","The Thing","White Queen","Hela","Arishem"] },
+        { name: "m3ti", deck: ["Mantis","Uatu the Watcher","Blade","Shocker","Cloak","Killmonger","Makkari","Super-Skrull","Ghost Rider","Hobgoblin","Galactus","Arishem"] },
+        { name: "Skaje", deck: ["Mantis","Quicksilver","Domino","Hawkeye Kate Bishop","Crystal","Negasonic Teenage Warhead","Cyclops","Viper","Wiccan","Sentry","Blue Marvel","The Living Tribunal"] },
+        { name: "Supcio", deck: ["Ghost-Spider","Human Torch","Iron Fist","Dagger","Doctor Strange","Green Goblin","Deathlok","Mister Negative","Blue Marvel","Valkyrie","Spider-Man 2099","Heimdall"] },
+        { name: "Hardkor", deck: ["Kingpin","Korg","Wolverine","Kraven","Scream","Morph","Magik","Storm","Crossbones","Blink","Abomination","Arishem"] }
+      ],
+
+      matches: [
+        { p1: "Raciatek", p2: "Jacusinski", pts1: 10, pts2: 10, resultType: "doubleWalkover" },
+        { p1: "Raciatek", p2: "Weregesu", pts1: 3, pts2: 22 },
+        { p1: "Raciatek", p2: "m3ti", pts1: 16, pts2: 9 },
+        { p1: "Raciatek", p2: "Skaje", pts1: 8, pts2: 17 },
+        { p1: "Raciatek", p2: "Supcio", pts1: 10, pts2: 10, resultType: "doubleWalkover" },
+        { p1: "Raciatek", p2: "Hardkor", pts1: 10, pts2: 10, resultType: "doubleWalkover" },
+        { p1: "Jacusinski", p2: "Weregesu", pts1: 18, pts2: 7 },
+        { p1: "Jacusinski", p2: "m3ti", pts1: 3, pts2: 22 },
+        { p1: "Jacusinski", p2: "Skaje", pts1: 20, pts2: 5, resultType: "walkover" },
+        { p1: "Jacusinski", p2: "Supcio", pts1: 10, pts2: 10, resultType: "doubleWalkover" },
+        { p1: "Jacusinski", p2: "Hardkor", pts1: 6, pts2: 19 },
+        { p1: "Weregesu", p2: "m3ti", pts1: 25, pts2: 0 },
+        { p1: "Weregesu", p2: "Skaje", pts1: 20, pts2: 5, resultType: "walkover" },
+        { p1: "Weregesu", p2: "Supcio", pts1: 23, pts2: 2 },
+        { p1: "Weregesu", p2: "Hardkor", pts1: 2, pts2: 23 },
+        { p1: "m3ti", p2: "Skaje", pts1: 21, pts2: 4 },
+        { p1: "m3ti", p2: "Supcio", pts1: 20, pts2: 5 },
+        { p1: "m3ti", p2: "Hardkor", pts1: 3, pts2: 22 },
+        { p1: "Skaje", p2: "Supcio", pts1: 5, pts2: 20, resultType: "walkover" },
+        { p1: "Skaje", p2: "Hardkor", pts1: 5, pts2: 20, resultType: "walkover" },
+        { p1: "Supcio", p2: "Hardkor", pts1: 0, pts2: 25 }
+      ]
+    },
+    {
+      id: 11,
+      startDate: "2024-11-16",
+      endDate: null,
+      status: "finished",
+      mode: "Classic + Bany",
+      presetCard: null,
+      playersCount: 6,
+      winner: "John Skrull",
+      bans: ["Agatha Harkness","Loki","Arishem"],
+      scoring: {
+        system: "standard25",
+        singleWalkover: "20:5",
+        doubleWalkover: null
+      },
+
+      players: [
+        { name: "Dejwidgakure", deck: ["Yellowjacket","Zabu","Mister Sinister","Black Swan","Jeff!","Shocker","Brood","Werewolf By Night","Jubilee","Gwenpool","Symbiote Spider-Man","Blink"] },
+        { name: "FizjoRadek", deck: ["Elektra","Howard the Duck","Forge","Baron Mordo","Hawkeye Kate Bishop","Cerebro","Jean Grey","Rescue","Silver Samurai","Vision","Sasquatch","Magneto"] },
+        { name: "John Skrull", deck: ["Wasp","Kitty Pryde","Nebula","Angela","Cable","Ironheart","Nocturne","Ms. Marvel","Phoenix Force","Gilgamesh","Helicarrier","Sasquatch"] },
+        { name: "Polop852", deck: ["The Hood","Uatu the Watcher","Star-Lord","Cable","Mysterio","Bishop","Viper","Sabretooth","Lockjaw","White Tiger","Ronan the Accuser","Ultron"] },
+        { name: "Raciatek", deck: ["Ghost-Spider","Yondu","Doctor Strange","Multiple Man","Okoye","Ironheart","Patriot","Beast","Copycat","Absorbing Man","Hellcow","Spider-Man 2099"] },
+        { name: "Weregesu", deck: ["Black Knight","Blade","The Collector","Scarlet Witch","Moon Knight","Red Guardian","Dracula","Phoenix Force","Stegron","Sentry","Cannonball","Helicarrier"] }
+      ],
+
+      matches: [
+        { p1: "Dejwidgakure", p2: "FizjoRadek", pts1: 5, pts2: 20, resultType: "walkover" },
+        { p1: "Dejwidgakure", p2: "John Skrull", pts1: 4, pts2: 21 },
+        { p1: "Dejwidgakure", p2: "Raciatek", pts1: 23, pts2: 2 },
+        { p1: "Dejwidgakure", p2: "Polop852", pts1: 5, pts2: 20, resultType: "walkover" },
+        { p1: "Dejwidgakure", p2: "Weregesu", pts1: 5, pts2: 20, resultType: "walkover" },
+        { p1: "FizjoRadek", p2: "John Skrull", pts1: 1, pts2: 24 },
+        { p1: "FizjoRadek", p2: "Raciatek", pts1: 4, pts2: 21 },
+        { p1: "FizjoRadek", p2: "Polop852", pts1: 20, pts2: 5 },
+        { p1: "FizjoRadek", p2: "Weregesu", pts1: 25, pts2: 0 },
+        { p1: "John Skrull", p2: "Raciatek", pts1: 7, pts2: 18 },
+        { p1: "John Skrull", p2: "Polop852", pts1: 19, pts2: 6 },
+        { p1: "John Skrull", p2: "Weregesu", pts1: 5, pts2: 20 },
+        { p1: "Raciatek", p2: "Polop852", pts1: 17, pts2: 8 },
+        { p1: "Raciatek", p2: "Weregesu", pts1: 16, pts2: 9 },
+        { p1: "Polop852", p2: "Weregesu", pts1: 18, pts2: 7 }
+      ]
+    },
+
+    {
+      id: 12,
+      startDate: "2024-12-14",
+      endDate: null,
+      status: "finished",
+      mode: "Classic + Bany",
+      presetCard: null,
+      playersCount: 7,
+      winner: "Polop852",
+      bans: ["Agatha Harkness","Loki","Arishem"],
+      scoring: {
+        system: "standard25",
+        singleWalkover: "20:5",
+        doubleWalkover: null
+      },
+
+      players: [
+        { name: "Budiso", deck: ["Elektra","Nico Minoru","Havok","Kraven","Jean Grey","Leech","Silver Samurai","Galacta","War Machine","Blue Marvel","Annihilus","Orka"] },
+        { name: "John Skrull", deck: ["Hawkeye","Grand Master","Shocker","Green Goblin","Luke Cage","Moon Knight","Viper","Ghost Rider","Black Cat","Black Bolt","Stature","Odin"] },
+        { name: "Weregesu", deck: ["Ant-Man","Dagger","Madame Web","Doctor Strange","Captain America","Frigga","Hercules","Mister Negative","Namor","Iron Man","Professor X","Abomination"] },
+        { name: "Polop852", deck: ["Iron Fist","Quinjet","X-23","Mojo","Psylocke","Silk","Venom","Miles Morales Spider-Man","Anti-Venom","Blue Marvel","Adam Warlock","Ultron"] },
+        { name: "Supcio", deck: ["Hawkeye","Star-Lord","Ironheart","Wolfsbane","Sebastian Shaw","Dracula","Shuri","Rockslide","Typhoid Mary","Gamora","Red Skull","Giganto"] },
+        { name: "Raciatek", deck: ["X-23","Toxin","Scorpion","White Widow","Valentina","Colleen Wing","Elsa Bloodstone","Nocturne","Iron Man","White Tiger","Lady Deathstrike","Heimdall"] },
+        { name: "kb", deck: ["Korg","Mantis","Havok","Goose","Ravonna Renslayer","U.S. Agent","Punisher","Miles Morales Spider-Man","Nick Fury","Lady Deathstrike","Knull","Orka"] }
+      ],
+
+      matches: [
+        { p1: "Budiso", p2: "John Skrull", pts1: 0, pts2: 25 },
+        { p1: "Budiso", p2: "Weregesu", pts1: 18, pts2: 7 },
+        { p1: "Budiso", p2: "Polop852", pts1: 5, pts2: 20, resultType: "walkover" },
+        { p1: "Budiso", p2: "Supcio", pts1: 5, pts2: 20, resultType: "walkover" },
+        { p1: "Budiso", p2: "Raciatek", pts1: 5, pts2: 20, resultType: "walkover" },
+        { p1: "Budiso", p2: "kb", pts1: 0, pts2: 25 },
+        { p1: "John Skrull", p2: "Weregesu", pts1: 2, pts2: 23 },
+        { p1: "John Skrull", p2: "Polop852", pts1: 4, pts2: 21 },
+        { p1: "John Skrull", p2: "Supcio", pts1: 8, pts2: 17 },
+        { p1: "John Skrull", p2: "Raciatek", pts1: 21, pts2: 4 },
+        { p1: "John Skrull", p2: "kb", pts1: 19, pts2: 6 },
+        { p1: "Weregesu", p2: "Polop852", pts1: 25, pts2: 0 },
+        { p1: "Weregesu", p2: "Supcio", pts1: 25, pts2: 0 },
+        { p1: "Weregesu", p2: "Raciatek", pts1: 21, pts2: 4 },
+        { p1: "Weregesu", p2: "kb", pts1: 9, pts2: 16 },
+        { p1: "Polop852", p2: "Supcio", pts1: 21, pts2: 4 },
+        { p1: "Polop852", p2: "Raciatek", pts1: 25, pts2: 0 },
+        { p1: "Polop852", p2: "kb", pts1: 25, pts2: 0 },
+        { p1: "Supcio", p2: "Raciatek", pts1: 22, pts2: 3 },
+        { p1: "Supcio", p2: "kb", pts1: 3, pts2: 22 },
+        { p1: "Raciatek", p2: "kb", pts1: 5, pts2: 20 }
+      ]
+    },
+
+    {
+      id: 13,
+      startDate: "2025-01-11",
+      endDate: null,
+      status: "finished",
+      mode: "Classic + Bany",
+      presetCard: null,
+      playersCount: 7,
+      winner: "Supcio",
+      bans: ["Agatha Harkness","Loki","Arishem"],
+      scoring: {
+        system: "standard25",
+        singleWalkover: "20:0",
+        doubleWalkover: "10:10"
+      },
+
+      players: [
+        { name: "kb", deck: ["Kitty Pryde","Maria Hill","Titania","Mister Sinister","Invisible Woman","Makkari","Baron Zemo","Hercules","War Machine","Blue Marvel","Abomination","Gilgamesh"] },
+        { name: "Supcio", deck: ["Korg","Selene","Forge","Hulkbuster","Maximus","Rocket and Groot","Thor","Sword Master","Man-Thing","Typhoid Mary","Black Panther","Gamora"] },
+        { name: "Weregesu", deck: ["Iceman","Cerebro","Dazzler","Mojo","Caiera","Frigga","Wave","Rescue","The Thing","Cull Obsidian","Annihilus","Ultron"] },
+        { name: "Dejwidgakure", deck: ["Wasp","Rocket Raccoon","Echo","Howard the Duck","Angela","Fenris Wolf","Invisible Woman","Jeff!","Rogue","Rocket and Groot","Hope Summers","Ms. Marvel"] },
+        { name: "Polop852", deck: ["Nebula","King Eitri","Mojo","Quake","Werewolf By Night","Captain America","Thor","Absorbing Man","Doctor Octopus","Adam Warlock","Ronan the Accuser","Ultron"] },
+        { name: "Raciatek", deck: ["Nova","Spider-Ham","Cable","Hawkeye Kate Bishop","Victoria Hand","Green Goblin","Mister Fantastic","Speed","Wave","Man-Thing","Black Panther","Legion"] },
+        { name: "Dawid ak. Void", deck: ["Misty Knight","Hazmat","Psylocke","Magik","Debrii","Corvus Glaive","Man-Thing","Doctor Octopus","Typhoid Mary","Annihilus","Black Bolt","Death"] }
+      ],
+
+      matches: [
+        { p1: "kb", p2: "Supcio", pts1: 20, pts2: 5 },
+        { p1: "kb", p2: "Weregesu", pts1: 22, pts2: 3 },
+        { p1: "kb", p2: "Dejwidgakure", pts1: 20, pts2: 0, resultType: "walkover" },
+        { p1: "kb", p2: "Polop852", pts1: 6, pts2: 19 },
+        { p1: "kb", p2: "Raciatek", pts1: 10, pts2: 10, resultType: "doubleWalkover" },
+        { p1: "kb", p2: "Dawid ak. Void", pts1: 20, pts2: 0, resultType: "walkover" },
+        { p1: "Supcio", p2: "Weregesu", pts1: 23, pts2: 2 },
+        { p1: "Supcio", p2: "Dejwidgakure", pts1: 25, pts2: 0 },
+        { p1: "Supcio", p2: "Polop852", pts1: 23, pts2: 2 },
+        { p1: "Supcio", p2: "Raciatek", pts1: 24, pts2: 1 },
+        { p1: "Supcio", p2: "Dawid ak. Void", pts1: 25, pts2: 0 },
+        { p1: "Weregesu", p2: "Dejwidgakure", pts1: 20, pts2: 0, resultType: "walkover" },
+        { p1: "Weregesu", p2: "Polop852", pts1: 2, pts2: 23 },
+        { p1: "Weregesu", p2: "Raciatek", pts1: 23, pts2: 2 },
+        { p1: "Weregesu", p2: "Dawid ak. Void", pts1: 23, pts2: 2 },
+        { p1: "Dejwidgakure", p2: "Polop852", pts1: 6, pts2: 19 },
+        { p1: "Dejwidgakure", p2: "Raciatek", pts1: 0, pts2: 20, resultType: "walkover" },
+        { p1: "Dejwidgakure", p2: "Dawid ak. Void", pts1: 10, pts2: 10, resultType: "doubleWalkover" },
+        { p1: "Polop852", p2: "Raciatek", pts1: 2, pts2: 23 },
+        { p1: "Polop852", p2: "Dawid ak. Void", pts1: 20, pts2: 0, resultType: "walkover" },
+        { p1: "Raciatek", p2: "Dawid ak. Void", pts1: 20, pts2: 0, resultType: "walkover" }
+      ]
+    },
+
+    {
+      id: 14,
+      startDate: "2025-01-25",
+      endDate: "",
+      status: "finished",
+      mode: "Classic + Bany",
+      presetCard: null,
+      playersCount: 5,
+      winner: "Dejwidgakure",
+      bans: [
+        "Agatha Harkness",
+        "Loki",
+        "Arishem"
+      ],
+      scoring: {
+        system: "standard25",
+        singleWalkover: null,
+        doubleWalkover: null
+      },
+
+      players: [
+        { name: "Dejwidgakure", deck: ["Nova","Bucky Barnes","Mister Sinister","Psylocke","Cassandra Nova","Surtur","Shuri","Symbiote Spider-Man","Typhoid Mary","Lady Deathstrike","Ultron","Sasquatch"] },
+        { name: "Hardkor", deck: ["Deadpool","Black Knight","Hawkeye Kate Bishop","Negasonic Teenage Warhead","Hope Summers","Jean Grey","Makkari","Gladiator","Silver Samurai","Storm","Miles Morales Spider-Man","Namor"] },
+        { name: "Raciatek", deck: ["The Hood","Agony","Zabu","Cable","Falcon","Mystique","Bishop","Nakia","Mister Negative","Adam Warlock","Ronan the Accuser","Arnim Zola"] },
+        { name: "Skaje", deck: ["Agent 13","Agony","America Chavez","Bucky Barnes","Agent Coulson","Polaris","Symbiote Spider-Man","Nimrod","Spider-Man 2099","Knull","She-Hulk","Destroyer"] },
+        { name: "Weregesu", deck: ["Quicksilver","Cerebro","Kraven","Scarlet Witch","Lizard","Bishop","Groot","Jean Grey","Shuri","Ka-Zar","Legion","Ultron"] }
+      ],
+
+      matches: [
+        { p1: "Weregesu", p2: "Raciatek", pts1: 6, pts2: 19 },
+        { p1: "Weregesu", p2: "Dejwidgakure", pts1: 0, pts2: 25 },
+        { p1: "Weregesu", p2: "Hardkor", pts1: 7, pts2: 18 },
+        { p1: "Weregesu", p2: "Skaje", pts1: 23, pts2: 2 },
+        { p1: "Raciatek", p2: "Dejwidgakure", pts1: 1, pts2: 24 },
+        { p1: "Raciatek", p2: "Hardkor", pts1: 7, pts2: 18 },
+        { p1: "Raciatek", p2: "Skaje", pts1: 8, pts2: 17 },
+        { p1: "Dejwidgakure", p2: "Hardkor", pts1: 23, pts2: 2 },
+        { p1: "Dejwidgakure", p2: "Skaje", pts1: 22, pts2: 3 },
+        { p1: "Hardkor", p2: "Skaje", pts1: 6, pts2: 19 }
+      ]
+    },
+
+    {
       id: 15,
       startDate: "2025-02-08",
       endDate: "2025-02-22",
-      mode: "Bany",
+      status: "finished",
+      mode: "Classic + Bany",
       presetCard: null,
       playersCount: 8,
       winner: "Supcio",
       bans: [
-        "Arishem",
+        "Agatha Harkness",
         "Loki",
-        "Kang",
+        "Arishem"
       ],
+      scoring: {
+        system: "standard25",
+        singleWalkover: "20:5",
+        doubleWalkover: "10:10"
+      },
 
       players: [
         { name: "Pluton32", deck: ["Quicksilver","Domino","Scarlet Witch","Silver Surfer","Mobius M. Mobius","Negasonic Teenage Warhead","Red Guardian","Makkari","Leech","Stature","Galactus","Red Hulk"] },
-        { name: "Weregesu", deck: ["Hawkeye","Black Knight","Cerebro","Swarm","Colleen Wing","Morphy","Sabretooth","Sword Master","Black Cat","Crossbones","Klaw","Red Hulk"] },
+        { name: "Weregesu", deck: ["Hawkeye","Black Knight","Cerebro","Swarm","Colleen Wing","Morph","Sabretooth","Sword Master","Black Cat","Crossbones","Klaw","Red Hulk"] },
         { name: "Raciatek", deck: ["Echo","King Eitri","Squirrel Girl","Forge","Grand Master","Iron Patriot","Brood","Silver Surfer","Strong Guy","Corvus Glaive","Red Skull","Taskmaster"] },
-		{ name: "Dejwidgakure", deck: ["Ghost-Spider","Human Torch","Iron Fist","Bucky Barnes","Falcon","U.S. Agent","Valentina","Werewolf By Night","Groot","Phoenix Force","Klaw","Destroyer"] },
-        { name: "Polop", deck: ["Mister Sinister","Colossus","Sentinel","Victoria Hand","Silk","Bishop","Storm","Supergiant","Jane Foster Mighty Thor","Mockingbird","Thanos","Death"] },
+        { name: "Dejwidgakure", deck: ["Ghost-Spider","Human Torch","Iron Fist","Bucky Barnes","Falcon","U.S. Agent","Valentina","Werewolf By Night","Groot","Phoenix Force","Klaw","Destroyer"] },
+        { name: "Polop852", deck: ["Mister Sinister","Colossus","Sentinel","Victoria Hand","Silk","Bishop","Storm","Supergiant","Jane Foster Mighty Thor","Mockingbird","Thanos","Death"] },
         { name: "Supcio", deck: ["Zero","Titania","Mirage","Baron Mordo","Cable","Victoria Hand","Maximus","Jean Grey","Man-Thing","Typhoid Mary","Namora","Doctor Doom"] },
-        { name: "Skaje", deck: ["Sunspot","Mantis","Dazzler","Colossus","Daredevil","Iron Fist","Cyclops","Malekith","Crossbones","Cull Obsidian","Gamora","Thanos"] },
-        { name: "Dawid ak. Void", deck: ["Nico Minoru","Bruce Banner","Angela","Spider-Man","Wolfsbane","Luna Snow","Mister Negative","Ka-Zar","Moon Girl","Iron Lad","Black Panther","Arnim Zola"] },
+        { name: "Skaje", deck: ["Sunspot","Mantis","Dazzler","Colossus","Daredevil","Iron Patriot","Cyclops","Malekith","Crossbones","Cull Obsidian","Gamora","Thanos"] },
+        { name: "Dawid ak. Void", deck: ["Nico Minoru","Bruce Banner","Angela","Spider-Man","Wolfsbane","Luna Snow","Mister Negative","Ka-Zar","Moon Girl","Iron Lad","Black Panther","Arnim Zola"] }
       ],
 
       matches: [
-        { p1: "Dejwidgakure", p2: "Raciatek", pts1: 21, pts2: 4 },
-        { p1: "Weregesu", p2: "Raciatek", pts1: 20, pts2: 5 },
-        { p1: "Raciatek", p2: "Pluton32", pts1: 4, pts2: 21 },
-	    { p1: "Raciatek", p2: "Dawid ak. Void", pts1: 20, pts2: 0 },
-	    { p1: "Raciatek", p2: "Supcio", pts1: 5, pts2: 20 },
-	    { p1: "Raciatek", p2: "Skaje", pts1: 6, pts2: 19 },
-	    { p1: "Supcio", p2: "Skaje", pts1: 22, pts2: 3 },
-	    { p1: "Supcio", p2: "Polop", pts1: 2, pts2: 23 },
-		{ p1: "Supcio", p2: "Weregesu", pts1: 24, pts2: 1 },
-		{ p1: "Supcio", p2: "Dejwidgakure", pts1: 20, pts2: 0 },
-		{ p1: "Supcio", p2: "Dawid ak. Void", pts1: 23, pts2: 2 },
-		{ p1: "Supcio", p2: "Pluton32", pts1: 25, pts2: 0 },
-		{ p1: "Skaje", p2: "Polop", pts1: 4, pts2: 21 },
-		{ p1: "Skaje", p2: "Weregesu", pts1: 4, pts2: 21 },
-		{ p1: "Skaje", p2: "Dejwidgakure", pts1: 20, pts2: 0 },
-		{ p1: "Skaje", p2: "Dawid ak. Void", pts1: 20, pts2: 0 },
-		{ p1: "Skaje", p2: "Pluton32", pts1: 19, pts2: 6 },
-		{ p1: "Dawid ak. Void", p2: "Dejwidgakure", pts1: 0, pts2: 0 },
-		{ p1: "Polop", p2: "Dejwidgakure", pts1: 2, pts2: 23 },
-		{ p1: "Dawid ak. Void", p2: "Polop", pts1: 0, pts2: 20 },
-		{ p1: "Pluton32", p2: "Polop", pts1: 4, pts2: 21 },
-		{ p1: "Raciatek", p2: "Polop", pts1: 8, pts2: 17 },
-		{ p1: "Weregesu", p2: "Dejwidgakure", pts1: 20, pts2: 0 },
-		{ p1: "Weregesu", p2: "Dawid ak. Void", pts1: 20, pts2: 0 },
-		{ p1: "Weregesu", p2: "Pluton32", pts1: 9, pts2: 16 },
-		{ p1: "Dejwidgakure", p2: "Pluton32", pts1: 0, pts2: 25 },
-		{ p1: "Dawid ak. Void", p2: "Pluton32", pts1: 0, pts2: 25 },
-]
-},
+        { p1: "Dejwidgakure", p2: "Dawid ak. Void", pts1: 10, pts2: 10, resultType: "doubleWalkover" },
+        { p1: "Dejwidgakure", p2: "Pluton32", pts1: 0, pts2: 25 },
+        { p1: "Dejwidgakure", p2: "Raciatek", pts1: 4, pts2: 21 },
+        { p1: "Dejwidgakure", p2: "Supcio", pts1: 5, pts2: 20, resultType: "walkover" },
+        { p1: "Dejwidgakure", p2: "Skaje", pts1: 5, pts2: 20, resultType: "walkover" },
+        { p1: "Dejwidgakure", p2: "Polop852", pts1: 23, pts2: 2 },
+        { p1: "Dejwidgakure", p2: "Weregesu", pts1: 5, pts2: 20, resultType: "walkover" },
+        { p1: "Dawid ak. Void", p2: "Pluton32", pts1: 0, pts2: 25 },
+        { p1: "Dawid ak. Void", p2: "Raciatek", pts1: 5, pts2: 20, resultType: "walkover" },
+        { p1: "Dawid ak. Void", p2: "Supcio", pts1: 2, pts2: 23 },
+        { p1: "Dawid ak. Void", p2: "Skaje", pts1: 5, pts2: 20, resultType: "walkover" },
+        { p1: "Dawid ak. Void", p2: "Polop852", pts1: 5, pts2: 20, resultType: "walkover" },
+        { p1: "Dawid ak. Void", p2: "Weregesu", pts1: 5, pts2: 20, resultType: "walkover" },
+        { p1: "Pluton32", p2: "Raciatek", pts1: 21, pts2: 4 },
+        { p1: "Pluton32", p2: "Supcio", pts1: 0, pts2: 25 },
+        { p1: "Pluton32", p2: "Skaje", pts1: 6, pts2: 19 },
+        { p1: "Pluton32", p2: "Polop852", pts1: 4, pts2: 21 },
+        { p1: "Pluton32", p2: "Weregesu", pts1: 16, pts2: 9 },
+        { p1: "Raciatek", p2: "Supcio", pts1: 5, pts2: 20 },
+        { p1: "Raciatek", p2: "Skaje", pts1: 6, pts2: 19 },
+        { p1: "Raciatek", p2: "Polop852", pts1: 8, pts2: 17 },
+        { p1: "Raciatek", p2: "Weregesu", pts1: 5, pts2: 20 },
+        { p1: "Supcio", p2: "Skaje", pts1: 22, pts2: 3 },
+        { p1: "Supcio", p2: "Polop852", pts1: 2, pts2: 23 },
+        { p1: "Supcio", p2: "Weregesu", pts1: 24, pts2: 1 },
+        { p1: "Skaje", p2: "Polop852", pts1: 4, pts2: 21 },
+        { p1: "Skaje", p2: "Weregesu", pts1: 4, pts2: 21 },
+        { p1: "Polop852", p2: "Weregesu", pts1: 9, pts2: 16 }
+      ]
+    },
+
     {
       id: 16,
       startDate: "2025-02-22",
-      endDate: "2025-03-5",
-      mode: "Bany",
+      endDate: "2025-03-05",
+      status: "finished",
+      mode: "Classic + Bany",
       presetCard: null,
       playersCount: 5,
       winner: "Weregesu",
       bans: [
-        "Arishem",
+        "Agatha Harkness",
         "Loki",
-        "Kang",
+        "Arishem"
       ],
+      scoring: {
+        system: "standard25",
+        singleWalkover: null,
+        doubleWalkover: null
+      },
 
       players: [
         { name: "Pluton32", deck: ["Black Knight","Squirrel Girl","Zabu","Scorpion","Caiera","Nocturne","Dracula","Silver Samurai","Professor X","Stature","Galactus","Giganto"] },
         { name: "Weregesu", deck: ["Scorn","Ebony Maw","Lasher","Maximus","Silver Surfer","Sebastian Shaw","Baron Zemo","Wave","Drax","Scarlet Spider","Ronan the Accuser","Heimdall"] },
         { name: "Raciatek", deck: ["America Chavez","Mantis","Misty Knight","Forge","Beast","Deathlok","Lockjaw","Beta Ray Bill","Iron Man","Stature","Arnim Zola","Heimdall"] },
-		{ name: "Dejwidgakure", deck: ["Blade","Angela","Sam Wilson Captain America","Captain America","Red Guardian","Shanna","Sword Master","Ka-Zar","Cull Obsidian","Professor X","Heimdall","Red Hulk"] },
-        { name: "Polop852", deck: ["Sunspot","Iceman","Forge","Hulkbuster","Morphy","Black Widow","Baron Zemo","Gladiator","Supergiant","Blink","Gamora","Blob"] },
+        { name: "Dejwidgakure", deck: ["Blade","Angela","Sam Wilson Captain America","Captain America","Red Guardian","Shanna","Sword Master","Ka-Zar","Cull Obsidian","Professor X","Heimdall","Red Hulk"] },
+        { name: "Polop852", deck: ["Sunspot","Iceman","Forge","Hulkbuster","Morph","Black Widow","Baron Zemo","Gladiator","Supergiant","Blink","Gamora","Blob"] }
       ],
 
       matches: [
         { p1: "Dejwidgakure", p2: "Raciatek", pts1: 18, pts2: 7 },
         { p1: "Weregesu", p2: "Raciatek", pts1: 21, pts2: 4 },
         { p1: "Raciatek", p2: "Pluton32", pts1: 17, pts2: 8 },
-		{ p1: "Raciatek", p2: "Polop852", pts1: 2, pts2: 23 },
-		{ p1: "Weregesu", p2: "Pluton32", pts1: 7, pts2: 18 },
-		{ p1: "Weregesu", p2: "Polop852", pts1: 25, pts2: 0 },
-		{ p1: "Polop852", p2: "Pluton32", pts1: 23, pts2: 2 },
-]
-        },
+        { p1: "Raciatek", p2: "Polop852", pts1: 2, pts2: 23 },
+        { p1: "Weregesu", p2: "Pluton32", pts1: 7, pts2: 18 },
+        { p1: "Weregesu", p2: "Polop852", pts1: 25, pts2: 0 },
+        { p1: "Polop852", p2: "Pluton32", pts1: 23, pts2: 2 }
+      ]
+    },
+
     {
       id: 17,
       startDate: "2025-03-22",
-      endDate: "2025-04-4",
-      mode: "Bany",
+      endDate: "2025-04-04",
+      status: "finished",
+      mode: "Classic + Bany",
       presetCard: null,
       playersCount: 3,
       winner: "Supcio",
       bans: [
-        "Arishem",
+        "Agatha Harkness",
         "Loki",
-        "Kang",
+        "Arishem"
       ],
+      scoring: {
+        system: "standard25",
+        singleWalkover: null,
+        doubleWalkover: null
+      },
 
       players: [
         { name: "Supcio", deck: ["Squirrel Girl","Doctor Strange","Patriot","Groot","Rocket and Groot","Beast","Surtur","Doctor Octopus","Ronan the Accuser","Knull","Doctor Doom","Death"] },
         { name: "Weregesu", deck: ["Misty Knight","Scorn","Hazmat","Swarm","Colleen Wing","Cassandra Nova","Debrii","Werewolf By Night","Corvus Glaive","Devil Dinosaur","Nimrod","Abomination"] },
-        { name: "Raciatek", deck: ["Yondu","Hazmat","Shadow King","Armor","Rocket and Groot","Elsa Bloodstone","Jean Grey","Proxima Midnight","Symbiote Spider-Man","Lady Deathstrike","Abomination","Odin"] },
+        { name: "Raciatek", deck: ["Yondu","Hazmat","Shadow King","Armor","Rocket and Groot","Elsa Bloodstone","Jean Grey","Proxima Midnight","Symbiote Spider-Man","Lady Deathstrike","Abomination","Odin"] }
       ],
 
       matches: [
         { p1: "Supcio", p2: "Weregesu", pts1: 22, pts2: 3 },
         { p1: "Supcio", p2: "Raciatek", pts1: 25, pts2: 0 },
-        { p1: "Raciatek", p2: "Weregesu", pts1: 19, pts2: 6 },
-]
-        },
+        { p1: "Raciatek", p2: "Weregesu", pts1: 19, pts2: 6 }
+      ]
+    },
+
     {
       id: 18,
 	 "title": "Comeback Edition",
       startDate: "2026-02-21",
       endDate: "2026-03-06",
+      status: "finished",
       mode: "Bany + Jokery + Save & Steal",
       presetCard: null,
       playersCount: 11,
       winner: "Kmythic",
+      scoring: {
+        system: "standard25",
+        singleWalkover: "20:0",
+        doubleWalkover: "0:0"
+      },
       bans: [
         "Arishem",
         "Shang-Chi",
@@ -724,7 +1713,7 @@ matches:[
         { name: "Pluton32", deck: ["Sauron","Ghost-Spider","Vulture","Merlin","U.S. Agent","Brood","Nocturne","Prodigy","Dracula","Misery","Galactus","The Infinaut"] },
         { name: "Raciatek", deck: ["Agony","Fastball Special","Morbius","Lasher","The First Ghost Rider","Human Torch","Gambit","Silver Surfer First Steps","Cull Obsidian","Legion","Blob","Hulk"] },
         { name: "Supcio", deck: ["Martyr","Domino","Carnage","Mojo","Debrii","Phastos","Sword Master","Sandman","Crossbones","Black Bolt","Hobgoblin","Thanos"] },
-        { name: "Weregesu", deck: ["Araña ","Nico Minoru","Squirrel Girl","Hydra Bob","Mister Sinister","Scarlet Witch","Colossus","Marvel Boy","Copycat","Redwing","Sword Master","Giganto"] },
+        { name: "Weregesu", deck: ["Araña","Nico Minoru","Squirrel Girl","Hydra Bob","Mister Sinister","Scarlet Witch","Colossus","Marvel Boy","Copycat","Redwing","Sword Master","Giganto"] },
         { name: "Matixmgg", deck: ["Vulture","Forge","Lockjaw","Domino","Brood","Human Torch First Steps","Black Widow","Gladiator","Jessica Jones","Laufey","Stardust","Hellion"] },
         { name: "FizjoRadek", deck: ["Elektra","Misty Knight","Victoria Hand","Jennifer Kale","Crystal","Kang","Zombie Scarlet Witch","Fan Fei","Negasonic Teenage Warhead","Anti-Venom","Cosmic Ghost Rider","Ajax"] },
         { name: "Kmythic", deck: ["Forge","Jennifer Kale","Red Shift","Toxie Doxie","Kraglin","Mister Negative","Ghost Rider","Darkhawk","M.O.D.O.K.","Apocalypse","Agatha Harkness","Zombie Galacti"] },
@@ -776,17 +1765,17 @@ matches:[
         { p1: "Pluton32", p2: "Matixmgg", pts1: 2, pts2: 23 },
         { p1: "FizjoRadek", p2: "Pluton32", pts1: 6, pts2: 19 },
         { p1: "Pluton32", p2: "Raciatek", pts1: 1, pts2: 24 },
-        { p1: "Dawid ak. Void", p2: "Supcio", pts1: 20, pts2: 0 },
-        { p1: "Dejwidgakure", p2: "Supcio", pts1: 20, pts2: 0 },
-        { p1: "Kmythic", p2: "Supcio", pts1: 20, pts2: 0 },
-        { p1: "Raciatek", p2: "Supcio", pts1: 20, pts2: 0 },
-        { p1: "Pluton32", p2: "Supcio", pts1: 20, pts2: 0 },
-        { p1: "Maniek", p2: "Supcio", pts1: 23, pts2: 0 },
-        { p1: "Budiso", p2: "Supcio", pts1: 20, pts2: 0 },
-        { p1: "Matixmgg", p2: "Supcio", pts1: 20, pts2: 0 },
-        { p1: "Weregesu", p2: "Supcio", pts1: 20, pts2: 0 },
-        { p1: "FizjoRadek", p2: "Supcio", pts1: 20, pts2: 0 },
-        { p1: "Budiso", p2: "Pluton32", pts1: 0, pts2: 0 }
+        { p1: "Dawid ak. Void", p2: "Supcio", pts1: 20, pts2: 0, resultType: "walkover" },
+        { p1: "Dejwidgakure", p2: "Supcio", pts1: 20, pts2: 0, resultType: "walkover" },
+        { p1: "Kmythic", p2: "Supcio", pts1: 20, pts2: 0, resultType: "walkover" },
+        { p1: "Raciatek", p2: "Supcio", pts1: 20, pts2: 0, resultType: "walkover" },
+        { p1: "Pluton32", p2: "Supcio", pts1: 20, pts2: 0, resultType: "walkover" },
+        { p1: "Maniek", p2: "Supcio", pts1: 23, pts2: 2 },
+        { p1: "Budiso", p2: "Supcio", pts1: 20, pts2: 0, resultType: "walkover" },
+        { p1: "Matixmgg", p2: "Supcio", pts1: 20, pts2: 0, resultType: "walkover" },
+        { p1: "Weregesu", p2: "Supcio", pts1: 20, pts2: 0, resultType: "walkover" },
+        { p1: "FizjoRadek", p2: "Supcio", pts1: 20, pts2: 0, resultType: "walkover" },
+        { p1: "Budiso", p2: "Pluton32", pts1: 0, pts2: 0, resultType: "doubleWalkover" }
         
 ]
 
@@ -796,10 +1785,16 @@ matches:[
 	  title: "Poker Draft Edition",
       startDate: "2026-03-06",
       endDate: "2026-03-20",
+      status: "finished",
       mode: "Poker Draft",
       presetCard: null,
       playersCount: 10,
-      winner: null,
+      winner: "Dejwidgakure",
+      scoring: {
+        system: "standard25",
+        singleWalkover: "20:0",
+        doubleWalkover: "0:0"
+      },
       bans: [],
 
       players: [
@@ -825,15 +1820,15 @@ matches:[
                 {"p1":"Weregesu","p2":"Pluton32","pts1":25,"pts2":0}, {"p1":"Weregesu","p2":"Budiso","pts1":2,"pts2":23},
                 {"p1":"Raciatek","p2":"Pluton32","pts1":21,"pts2":4},{"p1":"Supcio","p2":"Budiso","pts1":20,"pts2":5},{"p1":"Dejwidgakure","p2":"Pluton32","pts1":24,"pts2":1},
                 {"p1":"Dejwidgakure","p2":"Budiso","pts1":25,"pts2":0},{"p1":"Dejwidgakure","p2":"Raciatek","pts1":22,"pts2":3},
-                {"p1":"Dejwidgakure","p2":"Dawid ak. Void","pts1":20,"pts2":0},{"p1":"Budiso","p2":"Dawid ak. Void","pts1":20,"pts2":0},
-                {"p1":"Pluton32","p2":"Dawid ak. Void","pts1":20,"pts2":0},{"p1":"Raciatek","p2":"Dawid ak. Void","pts1":20,"pts2":0},
-                {"p1":"Maniek","p2":"Dawid ak. Void","pts1":20,"pts2":0},{"p1":"Supcio","p2":"Dawid ak. Void","pts1":20,"pts2":0},
-                {"p1":"Jacusinski","p2":"Dawid ak. Void","pts1":20,"pts2":0},{"p1":"Weregesu","p2":"Dawid ak. Void","pts1":20,"pts2":0},
-                {"p1":"Kmythic","p2":"Dawid ak. Void","pts1":20,"pts2":0},{"p1":"Jacusinski","p2":"Raciatek","pts1":2,"pts2":23},
-                {"p1":"Jacusinski","p2":"Kmythic","pts1":2,"pts2":23},{"p1":"Pluton32","p2":"Supcio","pts1":0,"pts2":20},
-                {"p1":"Pluton32","p2":"Budiso","pts1":0,"pts2":20},{"p1":"Pluton32","p2":"Kmythic","pts1":0,"pts2":20},
-                {"p1":"Pluton32","p2":"Jacusinski","pts1":0,"pts2":20},{"p1":"Dejwidgakure","p2":"Supcio","pts1":7,"pts2":18},
-                {"p1":"Dejwidgakure","p2":"Jacusinski","pts1":20,"pts2":0},{"p1":"Budiso","p2":"Jacusinski","pts1":20,"pts2":0}
+                {"p1":"Dejwidgakure","p2":"Dawid ak. Void","pts1":20,"pts2":0, "resultType": "walkover" },{"p1":"Budiso","p2":"Dawid ak. Void","pts1":20,"pts2":0, "resultType": "walkover" },
+                {"p1":"Pluton32","p2":"Dawid ak. Void","pts1":20,"pts2":0, "resultType": "walkover" },{"p1":"Raciatek","p2":"Dawid ak. Void","pts1":20,"pts2":0, "resultType": "walkover" },
+                {"p1":"Maniek","p2":"Dawid ak. Void","pts1":20,"pts2":0, "resultType": "walkover" },{"p1":"Supcio","p2":"Dawid ak. Void","pts1":20,"pts2":0, "resultType": "walkover" },
+                {"p1":"Jacusinski","p2":"Dawid ak. Void","pts1":20,"pts2":0, "resultType": "walkover" },{"p1":"Weregesu","p2":"Dawid ak. Void","pts1":20,"pts2":0, "resultType": "walkover" },
+                {"p1":"Kmythic","p2":"Dawid ak. Void","pts1":20,"pts2":0, "resultType": "walkover" },{"p1":"Jacusinski","p2":"Raciatek","pts1":2,"pts2":23},
+                {"p1":"Jacusinski","p2":"Kmythic","pts1":2,"pts2":23},{"p1":"Pluton32","p2":"Supcio","pts1":0,"pts2":20, "resultType": "walkover" },
+                {"p1":"Pluton32","p2":"Budiso","pts1":0,"pts2":20, "resultType": "walkover" },{"p1":"Pluton32","p2":"Kmythic","pts1":0,"pts2":20, "resultType": "walkover" },
+                {"p1":"Pluton32","p2":"Jacusinski","pts1":0,"pts2":20, "resultType": "walkover" },{"p1":"Dejwidgakure","p2":"Supcio","pts1":7,"pts2":18},
+                {"p1":"Dejwidgakure","p2":"Jacusinski","pts1":20,"pts2":0, "resultType": "walkover" },{"p1":"Budiso","p2":"Jacusinski","pts1":20,"pts2":0, "resultType": "walkover" }
               ]
       },
     
@@ -842,10 +1837,16 @@ matches:[
   "title": "Jubileusz Edition",
   "startDate": "20.03.2026",
   "endDate": "03.04.2026",
+  "status": "finished",
   "mode": "Bany + Custom Paczki + Mulligan",
   "presetCard": null,
   "playersCount": 15,
-  "winner": null,
+  "winner": "Kmythic",
+  "scoring": {
+    "system": "standard25",
+    "singleWalkover": "20:0",
+    "doubleWalkover": "0:0"
+  },
   "bans": [],
   "players": [
     {
@@ -905,7 +1906,7 @@ matches:[
         "Gorr the God Butcher",
         "Doctor Octopus",
         "Thor",
-        "Drax, Avatar of Life",
+        "Drax, Avatar Of Life",
         "Shuri",
         "Zero",
         "Quake",
@@ -1127,18 +2128,18 @@ matches:[
 			    {"p1":"Weregesu","p2":"Budiso","pts1":21,"pts2":4},{"p1":"Skaje","p2":"Raciatek","pts1":19,"pts2":6},{"p1":"Skaje","p2":"Supcio","pts1":20,"pts2":5},
 			    {"p1":"Skaje","p2":"Budiso","pts1":4,"pts2":21},{"p1":"Matixmgg","p2":"Budiso","pts1":25,"pts2":0},{"p1":"Dejwidgakure","p2":"Matixmgg","pts1":23,"pts2":2},
 			    {"p1":"Skaje","p2":"Matixmgg","pts1":24,"pts2":1},{"p1":"Skaje","p2":"Dejwidgakure","pts1":23,"pts2":2},
-			    {"p1":"kolo313","p2":"Supcio","pts1":0,"pts2":20},{"p1":"kolo313","p2":"Skaje","pts1":0,"pts2":20},{"p1":"kolo313","p2":"Matixmgg","pts1":0,"pts2":23},
-			    {"p1":"kolo313","p2":"Kmythic","pts1":0,"pts2":20},{"p1":"kolo313","p2":"Hardkor","pts1":0,"pts2":20},{"p1":"kolo313","p2":"Budiso","pts1":0,"pts2":23},
-			    {"p1":"kolo313","p2":"Weregesu","pts1":0,"pts2":20},{"p1":"kolo313","p2":"Maniek","pts1":0,"pts2":0},{"p1":"kolo313","p2":"Dawid ak. Void","pts1":0,"pts2":0},
-			    {"p1":"Maniek","p2":"Dejwidgakure","pts1":0,"pts2":20},{"p1":"Maniek","p2":"MatiMyHair","pts1":0,"pts2":20},{"p1":"Maniek","p2":"Skaje","pts1":0,"pts2":20},
-			    {"p1":"Maniek","p2":"Matixmgg","pts1":0,"pts2":20},{"p1":"Maniek","p2":"John Skrull","pts1":0,"pts2":20},{"p1":"Maniek","p2":"Jacusinski","pts1":0,"pts2":20},
-			    {"p1":"Maniek","p2":"Hardkor","pts1":0,"pts2":20},{"p1":"Maniek","p2":"Dawid ak. Void","pts1":0,"pts2":0},{"p1":"Maniek","p2":"Budiso","pts1":0,"pts2":20},
-			    {"p1":"Dawid ak. Void","p2":"Weregesu","pts1":0,"pts2":20},{"p1":"Dawid ak. Void","p2":"Skaje","pts1":0,"pts2":20},{"p1":"Dawid ak. Void","p2":"MatiMyHair","pts1":0,"pts2":20},
-			    {"p1":"Dawid ak. Void","p2":"Matixmgg","pts1":0,"pts2":20},{"p1":"Dawid ak. Void","p2":"Kmythic","pts1":0,"pts2":20},{"p1":"Dawid ak. Void","p2":"Jacusinski","pts1":0,"pts2":0},
-			    {"p1":"Dawid ak. Void","p2":"Hardkor","pts1":0,"pts2":20},{"p1":"Dawid ak. Void","p2":"Budiso","pts1":0,"pts2":20},{"p1":"Dawid ak. Void","p2":"Dejwidgakure","pts1":0,"pts2":20},
-			    {"p1":"Jacusinski","p2":"Raciatek","pts1":0,"pts2":20},{"p1":"Jacusinski","p2":"Budiso","pts1":0,"pts2":20},{"p1":"Jacusinski","p2":"Dejwidgakure","pts1":0,"pts2":20},{"p1":"Maniek","p2":"Weregesu","pts1":0,"pts2":20},
-			    {"p1":"Jacusinski","p2":"Supcio","pts1":0,"pts2":20},{"p1":"Jacusinski","p2":"Matixmgg","pts1":0,"pts2":20},{"p1":"Jacusinski","p2":"Kmythic","pts1":0,"pts2":20},
-			    {"p1":"Jacusinski","p2":"John Skrull","pts1":0,"pts2":20},{"p1":"Jacusinski","p2":"Weregesu","pts1":0,"pts2":20},{"p1":"Jacusinski","p2":"MatiMyHair","pts1":0,"pts2":20}]
+			    {"p1":"kolo313","p2":"Supcio","pts1":0,"pts2":20, "resultType": "walkover" },{"p1":"kolo313","p2":"Skaje","pts1":0,"pts2":20, "resultType": "walkover" },{"p1":"kolo313","p2":"Matixmgg","pts1":2,"pts2":23},
+			    {"p1":"kolo313","p2":"Kmythic","pts1":0,"pts2":20, "resultType": "walkover" },{"p1":"kolo313","p2":"Hardkor","pts1":0,"pts2":20, "resultType": "walkover" },{"p1":"kolo313","p2":"Budiso","pts1":2,"pts2":23},
+			    {"p1":"kolo313","p2":"Weregesu","pts1":0,"pts2":20, "resultType": "walkover" },{"p1":"kolo313","p2":"Maniek","pts1":0,"pts2":0, "resultType": "doubleWalkover" },{"p1":"kolo313","p2":"Dawid ak. Void","pts1":0,"pts2":0, "resultType": "doubleWalkover" },
+			    {"p1":"Maniek","p2":"Dejwidgakure","pts1":0,"pts2":20, "resultType": "walkover" },{"p1":"Maniek","p2":"MatiMyHair","pts1":0,"pts2":20, "resultType": "walkover" },{"p1":"Maniek","p2":"Skaje","pts1":0,"pts2":20, "resultType": "walkover" },
+			    {"p1":"Maniek","p2":"Matixmgg","pts1":0,"pts2":20, "resultType": "walkover" },{"p1":"Maniek","p2":"John Skrull","pts1":0,"pts2":20, "resultType": "walkover" },{"p1":"Maniek","p2":"Jacusinski","pts1":0,"pts2":20, "resultType": "walkover" },
+			    {"p1":"Maniek","p2":"Hardkor","pts1":0,"pts2":20, "resultType": "walkover" },{"p1":"Maniek","p2":"Dawid ak. Void","pts1":0,"pts2":0, "resultType": "doubleWalkover" },{"p1":"Maniek","p2":"Budiso","pts1":0,"pts2":20, "resultType": "walkover" },
+			    {"p1":"Dawid ak. Void","p2":"Weregesu","pts1":0,"pts2":20, "resultType": "walkover" },{"p1":"Dawid ak. Void","p2":"Skaje","pts1":0,"pts2":20, "resultType": "walkover" },{"p1":"Dawid ak. Void","p2":"MatiMyHair","pts1":0,"pts2":20, "resultType": "walkover" },
+			    {"p1":"Dawid ak. Void","p2":"Matixmgg","pts1":0,"pts2":20, "resultType": "walkover" },{"p1":"Dawid ak. Void","p2":"Kmythic","pts1":0,"pts2":20, "resultType": "walkover" },{"p1":"Dawid ak. Void","p2":"Jacusinski","pts1":0,"pts2":0, "resultType": "doubleWalkover" },
+			    {"p1":"Dawid ak. Void","p2":"Hardkor","pts1":0,"pts2":20, "resultType": "walkover" },{"p1":"Dawid ak. Void","p2":"Budiso","pts1":0,"pts2":20, "resultType": "walkover" },{"p1":"Dawid ak. Void","p2":"Dejwidgakure","pts1":0,"pts2":20, "resultType": "walkover" },
+			    {"p1":"Jacusinski","p2":"Raciatek","pts1":0,"pts2":20, "resultType": "walkover" },{"p1":"Jacusinski","p2":"Budiso","pts1":0,"pts2":20, "resultType": "walkover" },{"p1":"Jacusinski","p2":"Dejwidgakure","pts1":0,"pts2":20, "resultType": "walkover" },{"p1":"Maniek","p2":"Weregesu","pts1":0,"pts2":20, "resultType": "walkover" },
+			    {"p1":"Jacusinski","p2":"Supcio","pts1":0,"pts2":20, "resultType": "walkover" },{"p1":"Jacusinski","p2":"Matixmgg","pts1":0,"pts2":20, "resultType": "walkover" },{"p1":"Jacusinski","p2":"Kmythic","pts1":0,"pts2":20, "resultType": "walkover" },
+			    {"p1":"Jacusinski","p2":"John Skrull","pts1":0,"pts2":20, "resultType": "walkover" },{"p1":"Jacusinski","p2":"Weregesu","pts1":0,"pts2":20, "resultType": "walkover" },{"p1":"Jacusinski","p2":"MatiMyHair","pts1":0,"pts2":20, "resultType": "walkover" }]
 
 },
 	  {
@@ -1146,10 +2147,16 @@ matches:[
   "id": 21,
   "startDate": "12.04.2026",
   "endDate": "24.04.2026",
+  "status": "finished",
   "mode": "Classic + Bany + Jokery + Custom Paczki + Mulligan",
   "presetCard": null,
   "playersCount": 11,
   "winner": "Dejwidgakure",
+  "scoring": {
+    "system": "standard25",
+    "singleWalkover": "20:0",
+    "doubleWalkover": "0:0"
+  },
   "bans": ["Arishem","Loki"],
   "players": [
     {
@@ -1166,7 +2173,7 @@ matches:[
         "Agamotto",
         "Nicholas Scratch",
         "Luna Snow",
-        "Drax, Avatar of Life"
+        "Drax, Avatar Of Life"
       ]
     },
     {
@@ -1345,20 +2352,20 @@ matches:[
 			   {"p1":"Raciatek","p2":"Kmythic","pts1":19,"pts2":6},{"p1":"MatiMyHair","p2":"Raciatek","pts1":17,"pts2":8},{"p1":"Raciatek","p2":"Maniek","pts1":25,"pts2":0},
 			   {"p1":"Raciatek","p2":"FizjoRadek","pts1":16,"pts2":9},{"p1":"FizjoRadek","p2":"Maniek","pts1":22,"pts2":3},{"p1":"FizjoRadek","p2":"Kmythic","pts1":8,"pts2":17},
 			   {"p1":"MatiMyHair","p2":"Kmythic","pts1":17,"pts2":8},{"p1":"Weregesu","p2":"Kmythic","pts1":25,"pts2":0},{"p1":"Budiso","p2":"Maniek","pts1":21,"pts2":4},
-			   {"p1":"MatiMyHair","p2":"Budiso","pts1":8,"pts2":17},{"p1":"MatiMyHair","p2":"Supcio","pts1":6,"pts2":18},{"p1":"Weregesu","p2":"FizjoRadek","pts1":25,"pts2":0},
+			   {"p1":"MatiMyHair","p2":"Budiso","pts1":8,"pts2":17},{"p1":"MatiMyHair","p2":"Supcio","pts1":7,"pts2":18},{"p1":"Weregesu","p2":"FizjoRadek","pts1":25,"pts2":0},
 			   {"p1":"Dejwidgakure","p2":"Maniek","pts1":25,"pts2":0},{"p1":"Maniek","p2":"Supcio","pts1":4,"pts2":21},{"p1":"MatiMyHair","p2":"FizjoRadek","pts1":23,"pts2":2},
 			   {"p1":"Supcio","p2":"FizjoRadek","pts1":24,"pts2":1},{"p1":"Kmythic","p2":"Supcio","pts1":0,"pts2":25},{"p1":"Matixmgg","p2":"Weregesu","pts1":0,"pts2":25},
 			   {"p1":"Budiso","p2":"Kmythic","pts1":23,"pts2":2},{"p1":"Weregesu","p2":"Supcio","pts1":0,"pts2":25},{"p1":"Dejwidgakure","p2":"Weregesu","pts1":23,"pts2":2},
 			   {"p1":"Budiso","p2":"Supcio","pts1":23,"pts2":2},{"p1":"Dejwidgakure","p2":"Budiso","pts1":24,"pts2":1},{"p1":"FizjoRadek","p2":"Budiso","pts1":20,"pts2":5},
 			   {"p1":"Dejwidgakure","p2":"FizjoRadek","pts1":24,"pts2":1},{"p1":"Matixmgg","p2":"Maniek","pts1":17,"pts2":8},{"p1":"MatiMyHair","p2":"Matixmgg","pts1":19,"pts2":6},
 			   {"p1":"Weregesu","p2":"Raciatek","pts1":21,"pts2":4},{"p1":"Matixmgg","p2":"Dejwidgakure","pts1":1,"pts2":24},{"p1":"Dejwidgakure","p2":"Kmythic","pts1":25,"pts2":0},
-			   {"p1":"BSTHPRO","p2":"Dejwidgakure","pts1":0,"pts2":20},{"p1":"Matixmgg","p2":"BSTHPRO","pts1":20,"pts2":0},{"p1":"BSTHPRO","p2":"Kmythic","pts1":0,"pts2":20},
-			   {"p1":"BSTHPRO","p2":"Weregesu","pts1":0,"pts2":20},{"p1":"Budiso","p2":"BSTHPRO","pts1":20,"pts2":0},{"p1":"BSTHPRO","p2":"MatiMyHair","pts1":0,"pts2":20},
-			   {"p1":"BSTHPRO","p2":"Supcio","pts1":0,"pts2":20},{"p1":"FizjoRadek","p2":"BSTHPRO","pts1":20,"pts2":0},{"p1":"BSTHPRO","p2":"Maniek","pts1":0,"pts2":20},
-			   {"p1":"BSTHPRO","p2":"Raciatek","pts1":0,"pts2":20},{"p1":"Supcio","p2":"Raciatek","pts1":19,"pts2":6},{"p1":"Dejwidgakure","p2":"Supcio","pts1":21,"pts2":4},
+			   {"p1":"BSTHPRO","p2":"Dejwidgakure","pts1":0,"pts2":20, "resultType": "walkover" },{"p1":"Matixmgg","p2":"BSTHPRO","pts1":20,"pts2":0, "resultType": "walkover" },{"p1":"BSTHPRO","p2":"Kmythic","pts1":0,"pts2":20, "resultType": "walkover" },
+			   {"p1":"BSTHPRO","p2":"Weregesu","pts1":0,"pts2":20, "resultType": "walkover" },{"p1":"Budiso","p2":"BSTHPRO","pts1":20,"pts2":0, "resultType": "walkover" },{"p1":"BSTHPRO","p2":"MatiMyHair","pts1":0,"pts2":20, "resultType": "walkover" },
+			   {"p1":"BSTHPRO","p2":"Supcio","pts1":0,"pts2":20, "resultType": "walkover" },{"p1":"FizjoRadek","p2":"BSTHPRO","pts1":20,"pts2":0, "resultType": "walkover" },{"p1":"BSTHPRO","p2":"Maniek","pts1":0,"pts2":20, "resultType": "walkover" },
+			   {"p1":"BSTHPRO","p2":"Raciatek","pts1":0,"pts2":20, "resultType": "walkover" },{"p1":"Supcio","p2":"Raciatek","pts1":19,"pts2":6},{"p1":"Dejwidgakure","p2":"Supcio","pts1":21,"pts2":4},
 			   {"p1":"Matixmgg","p2":"Raciatek","pts1":2,"pts2":23},{"p1":"Matixmgg","p2":"Budiso","pts1":19,"pts2":6},{"p1":"Matixmgg","p2":"Supcio","pts1":1,"pts2":24},
-			   {"p1":"MatiMyHair","p2":"Dejwidgakure","pts1":25,"pts2":0},{"p1":"Dejwidgakure","p2":"Raciatek","pts1":22,"pts2":3},{"p1":"Matixmgg","p2":"FizjoRadek","pts1":0,"pts2":20},
-			   {"p1":"Matixmgg","p2":"Kmythic","pts1":0,"pts2":20}
+			   {"p1":"MatiMyHair","p2":"Dejwidgakure","pts1":25,"pts2":0},{"p1":"Dejwidgakure","p2":"Raciatek","pts1":22,"pts2":3},{"p1":"Matixmgg","p2":"FizjoRadek","pts1":0,"pts2":20, "resultType": "walkover" },
+			   {"p1":"Matixmgg","p2":"Kmythic","pts1":0,"pts2":20, "resultType": "walkover" }
 				
               ]
 
@@ -1368,11 +2375,17 @@ matches:[
 		   "title": "Champions Edition",
   "startDate": "25.04.2026",
   "endDate": "08.05.2026",
+  "status": "finished",
   "mode": "Classic + Bany + Jokery + Mulligan + Championy",
   "presetCard": null,
   "playersCount": 12,
-  "winner": null,
-  "bans": ["Arishem","Loki","Aurora","Fenris Wolf","Quinjet","Fin Fang Foom","Red Guardian","Sera","Shadow King","Star Lord, Master of the Sun","Stardust","Wong"],
+  "winner": "FizjoRadek",
+  "scoring": {
+    "system": "standard25",
+    "singleWalkover": "20:0",
+    "doubleWalkover": "0:0"
+  },
+  "bans": ["Arishem","Loki","Aurora","Fenris Wolf","Quinjet","Fin Fang Foom","Red Guardian","Sera","Shadow King","Star-Lord, Master of the Sun","Stardust","Wong"],
   "players": [
     {
       "name": "SalsaTequilaJr",
@@ -1502,7 +2515,7 @@ matches:[
         "Shocker",
         "Morph",
         "Air-Walker",
-        "RedWing",
+        "Redwing",
         "Moon Girl",
         "Rama-Tut",
         "Omega Red",
@@ -1590,26 +2603,26 @@ matches:[
 			   {"p1":"Weregesu","p2":"Budiso","pts1":25,"pts2":0},{"p1":"FizjoRadek","p2":"Budiso","pts1":25,"pts2":0},{"p1":"Budiso","p2":"Maniek","pts1":21,"pts2":4},
 			   {"p1":"MatiMyHair","p2":"Kmythic","pts1":22,"pts2":3},{"p1":"MatiMyHair","p2":"Budiso","pts1":25,"pts2":0},{"p1":"FizjoRadek","p2":"kamajot","pts1":19,"pts2":6},
 			   {"p1":"kamajot","p2":"Kmythic","pts1":19,"pts2":6},{"p1":"FizjoRadek","p2":"Weregesu","pts1":22,"pts2":3},
-			   {"p1":"MatiMyHair","p2":"Dejwidgakure","pts1":20,"pts2":0},{"p1":"Maniek","p2":"Dejwidgakure","pts1":20,"pts2":0},{"p1":"FizjoRadek","p2":"Dejwidgakure","pts1":20,"pts2":0},
-			   {"p1":"Supcio","p2":"Dejwidgakure","pts1":20,"pts2":0},{"p1":"kamajot","p2":"Dejwidgakure","pts1":20,"pts2":0},{"p1":"Kmythic","p2":"Dejwidgakure","pts1":20,"pts2":0},
-			   {"p1":"Weregesu","p2":"Dejwidgakure","pts1":20,"pts2":0},{"p1":"Budiso","p2":"Dejwidgakure","pts1":20,"pts2":0},{"p1":"SalsaTequilaJr","p2":"Dejwidgakure","pts1":20,"pts2":0},
+			   {"p1":"MatiMyHair","p2":"Dejwidgakure","pts1":20,"pts2":0, "resultType": "walkover" },{"p1":"Maniek","p2":"Dejwidgakure","pts1":20,"pts2":0, "resultType": "walkover" },{"p1":"FizjoRadek","p2":"Dejwidgakure","pts1":20,"pts2":0, "resultType": "walkover" },
+			   {"p1":"Supcio","p2":"Dejwidgakure","pts1":20,"pts2":0, "resultType": "walkover" },{"p1":"kamajot","p2":"Dejwidgakure","pts1":20,"pts2":0, "resultType": "walkover" },{"p1":"Kmythic","p2":"Dejwidgakure","pts1":20,"pts2":0, "resultType": "walkover" },
+			   {"p1":"Weregesu","p2":"Dejwidgakure","pts1":20,"pts2":0, "resultType": "walkover" },{"p1":"Budiso","p2":"Dejwidgakure","pts1":20,"pts2":0, "resultType": "walkover" },{"p1":"SalsaTequilaJr","p2":"Dejwidgakure","pts1":20,"pts2":0, "resultType": "walkover" },
 			   {"p1":"Kmythic","p2":"Budiso","pts1":19,"pts2":6},{"p1":"Supcio","p2":"FizjoRadek","pts1":23,"pts2":2},{"p1":"kamajot","p2":"Budiso","pts1":25,"pts2":0},
 			   {"p1":"Supcio","p2":"Budiso","pts1":25,"pts2":0},{"p1":"SalsaTequilaJr","p2":"Supcio","pts1":23,"pts2":2},{"p1":"SalsaTequilaJr","p2":"kamajot","pts1":20,"pts2":5},
 			   {"p1":"Supcio","p2":"Kmythic","pts1":2,"pts2":23},{"p1":"Weregesu","p2":"Supcio","pts1":25,"pts2":0},{"p1":"SalsaTequilaJr","p2":"FizjoRadek","pts1":3,"pts2":22},
-			   {"p1":"Dawid ak. Void","p2":"MatiMyHair","pts1":0,"pts2":20},
-{"p1":"Dawid ak. Void","p2":"kamajot","pts1":0,"pts2":20},
-{"p1":"Dawid ak. Void","p2":"SalsaTequilaJr","pts1":0,"pts2":20},
-{"p1":"Dawid ak. Void","p2":"Weregesu","pts1":0,"pts2":20},
-{"p1":"Dawid ak. Void","p2":"Kmythic","pts1":0,"pts2":20},
-{"p1":"Dawid ak. Void","p2":"Supcio","pts1":0,"pts2":20},
-{"p1":"Dawid ak. Void","p2":"Polop852","pts1":0,"pts2":20},
-{"p1":"Dawid ak. Void","p2":"Maniek","pts1":0,"pts2":20},
-{"p1":"Dawid ak. Void","p2":"Dejwidgakure","pts1":0,"pts2":20},
-			   {"p1":"Polop852","p2":"Kmythic","pts1":0,"pts2":20},{"p1":"Kmythic","p2":"SalsaTequilaJr","pts1":4,"pts2":21},{"p1":"SalsaTequilaJr","p2":"Budiso","pts1":0,"pts2":20},
-			   { p1:"SalsaTequilaJr", p2:"Polop852", pts1:20, pts2:0 },
-{ p1:"Budiso", p2:"Polop852", pts1:20, pts2:0 },
-{ p1:"kamajot", p2:"Polop852", pts1:20, pts2:0 },
-{ p1:"Supcio", p2:"Polop852", pts1:20, pts2:0 }
+			   {"p1":"Dawid ak. Void","p2":"MatiMyHair","pts1":0,"pts2":20, "resultType": "walkover" },
+{"p1":"Dawid ak. Void","p2":"kamajot","pts1":0,"pts2":20, "resultType": "walkover" },
+{"p1":"Dawid ak. Void","p2":"SalsaTequilaJr","pts1":0,"pts2":20, "resultType": "walkover" },
+{"p1":"Dawid ak. Void","p2":"Weregesu","pts1":0,"pts2":20, "resultType": "walkover" },
+{"p1":"Dawid ak. Void","p2":"Kmythic","pts1":0,"pts2":20, "resultType": "walkover" },
+{"p1":"Dawid ak. Void","p2":"Supcio","pts1":0,"pts2":20, "resultType": "walkover" },
+{"p1":"Dawid ak. Void","p2":"Polop852","pts1":0,"pts2":20, "resultType": "walkover" },
+{"p1":"Dawid ak. Void","p2":"Maniek","pts1":0,"pts2":20, "resultType": "walkover" },
+{"p1":"Dawid ak. Void","p2":"Dejwidgakure","pts1":0,"pts2":20, "resultType": "walkover" },
+			   {"p1":"Polop852","p2":"Kmythic","pts1":0,"pts2":20, "resultType": "walkover" },{"p1":"Kmythic","p2":"SalsaTequilaJr","pts1":4,"pts2":21},{"p1":"SalsaTequilaJr","p2":"Budiso","pts1":0,"pts2":20, "resultType": "walkover" },
+			   { p1:"SalsaTequilaJr", p2:"Polop852", pts1:20, pts2:0, resultType: "walkover" },
+{ p1:"Budiso", p2:"Polop852", pts1:20, pts2:0, resultType: "walkover" },
+{ p1:"kamajot", p2:"Polop852", pts1:20, pts2:0, resultType: "walkover" },
+{ p1:"Supcio", p2:"Polop852", pts1:20, pts2:0, resultType: "walkover" }
 			   
               ]
 
@@ -1622,10 +2635,16 @@ matches:[
 	"title": "Joker Madness Edition",
   "startDate": "17.05.2026",
   "endDate": "29.05.2026",
+  "status": "finished",
   "mode": "Classic + Bany + Jokery + Mulligan",
   "presetCard": null,
   "playersCount": 11,
   "winner": "MatiMyHair",
+  "scoring": {
+    "system": "standard25",
+    "singleWalkover": "20:0",
+    "doubleWalkover": "0:0"
+  },
   "bans": [],
   "players": [
     {
@@ -1837,30 +2856,30 @@ matches:[
   {"p1": "Supcio", "p2": "Weregesu", "pts1": 21, "pts2": 4},
   {"p1": "FizjoRadek", "p2": "Supcio", "pts1": 24, "pts2": 1},
   {"p1": "MatiMyHair", "p2": "Budiso", "pts1": 25, "pts2": 0},
-			  {"p1": "MatiMyHair", "p2": "Sylvan", "pts1": 20, "pts2": 0},
-  {"p1": "Weregesu", "p2": "Sylvan", "pts1": 20, "pts2": 0},
-  {"p1": "kamajot", "p2": "Sylvan", "pts1": 20, "pts2": 0},
-  {"p1": "FizjoRadek", "p2": "Sylvan", "pts1": 20, "pts2": 0},
-  {"p1": "Budiso", "p2": "Sylvan", "pts1": 20, "pts2": 0},
-  {"p1": "Maniek", "p2": "Sylvan", "pts1": 20, "pts2": 0},
-  {"p1": "Dejwidgakure", "p2": "Sylvan", "pts1": 20, "pts2": 0},
-  {"p1": "Supcio", "p2": "Sylvan", "pts1": 20, "pts2": 0},
-  {"p1": "Kmythic", "p2": "Sylvan", "pts1": 20, "pts2": 0},
-  {"p1": "Raciatek", "p2": "Sylvan", "pts1": 20, "pts2": 0},
-			   {"p1": "MatiMyHair", "p2": "Dejwidgakure", "pts1": 20, "pts2": 0},
-  {"p1": "kamajot", "p2": "Dejwidgakure", "pts1": 20, "pts2": 0},
-  {"p1": "FizjoRadek", "p2": "Dejwidgakure", "pts1": 20, "pts2": 0},
-  {"p1": "Raciatek", "p2": "Dejwidgakure", "pts1": 20, "pts2": 0},
-  {"p1": "Weregesu", "p2": "Kmythic", "pts1": 20, "pts2": 0},
-  {"p1": "FizjoRadek", "p2": "Kmythic", "pts1": 20, "pts2": 0},
-  {"p1": "Budiso", "p2": "Kmythic", "pts1": 20, "pts2": 0},
-  {"p1": "Supcio", "p2": "Kmythic", "pts1": 20, "pts2": 0},
-  {"p1": "Raciatek", "p2": "Kmythic", "pts1": 20, "pts2": 0},
-  {"p1": "Dejwidgakure", "p2": "Kmythic", "pts1": 20, "pts2": 0},
+			  {"p1": "MatiMyHair", "p2": "Sylvan", "pts1": 20, "pts2": 0, "resultType": "walkover" },
+  {"p1": "Weregesu", "p2": "Sylvan", "pts1": 20, "pts2": 0, "resultType": "walkover" },
+  {"p1": "kamajot", "p2": "Sylvan", "pts1": 20, "pts2": 0, "resultType": "walkover" },
+  {"p1": "FizjoRadek", "p2": "Sylvan", "pts1": 20, "pts2": 0, "resultType": "walkover" },
+  {"p1": "Budiso", "p2": "Sylvan", "pts1": 20, "pts2": 0, "resultType": "walkover" },
+  {"p1": "Maniek", "p2": "Sylvan", "pts1": 20, "pts2": 0, "resultType": "walkover" },
+  {"p1": "Dejwidgakure", "p2": "Sylvan", "pts1": 20, "pts2": 0, "resultType": "walkover" },
+  {"p1": "Supcio", "p2": "Sylvan", "pts1": 20, "pts2": 0, "resultType": "walkover" },
+  {"p1": "Kmythic", "p2": "Sylvan", "pts1": 20, "pts2": 0, "resultType": "walkover" },
+  {"p1": "Raciatek", "p2": "Sylvan", "pts1": 20, "pts2": 0, "resultType": "walkover" },
+			   {"p1": "MatiMyHair", "p2": "Dejwidgakure", "pts1": 20, "pts2": 0, "resultType": "walkover" },
+  {"p1": "kamajot", "p2": "Dejwidgakure", "pts1": 20, "pts2": 0, "resultType": "walkover" },
+  {"p1": "FizjoRadek", "p2": "Dejwidgakure", "pts1": 20, "pts2": 0, "resultType": "walkover" },
+  {"p1": "Raciatek", "p2": "Dejwidgakure", "pts1": 20, "pts2": 0, "resultType": "walkover" },
+  {"p1": "Weregesu", "p2": "Kmythic", "pts1": 20, "pts2": 0, "resultType": "walkover" },
+  {"p1": "FizjoRadek", "p2": "Kmythic", "pts1": 20, "pts2": 0, "resultType": "walkover" },
+  {"p1": "Budiso", "p2": "Kmythic", "pts1": 20, "pts2": 0, "resultType": "walkover" },
+  {"p1": "Supcio", "p2": "Kmythic", "pts1": 20, "pts2": 0, "resultType": "walkover" },
+  {"p1": "Raciatek", "p2": "Kmythic", "pts1": 20, "pts2": 0, "resultType": "walkover" },
+  {"p1": "Dejwidgakure", "p2": "Kmythic", "pts1": 20, "pts2": 0, "resultType": "walkover" },
 			  {"p1": "kamajot", "p2": "Supcio", "pts1": 25, "pts2": 0},
-			  {"p1": "Budiso", "p2": "Supcio", "pts1": 0, "pts2": 20},
-			  {"p1": "Raciatek", "p2": "Supcio", "pts1": 0, "pts2": 20},
-			  {"p1": "Raciatek", "p2": "kamajot", "pts1": 0, "pts2": 20}
+			  {"p1": "Budiso", "p2": "Supcio", "pts1": 0, "pts2": 20, "resultType": "walkover" },
+			  {"p1": "Raciatek", "p2": "Supcio", "pts1": 0, "pts2": 20, "resultType": "walkover" },
+			  {"p1": "Raciatek", "p2": "kamajot", "pts1": 0, "pts2": 20, "resultType": "walkover" }
 			]
 
 },
@@ -1869,10 +2888,16 @@ matches:[
 	"title": "",
   "startDate": "13.06.2026",
   "endDate": "26.06.2026",
+  "status": "finished",
   "mode": "Classic + Bany + Save & Steal + Mulligan",
   "presetCard": null,
   "playersCount": 8,
   "winner": "Dejwidgakure",
+  "scoring": {
+    "system": "standard25",
+    "singleWalkover": "20:0",
+    "doubleWalkover": "0:0"
+  },
   "bans": ["Arishem","Loki"],
   "players": [
     {
@@ -2016,12 +3041,12 @@ matches:[
 			   {"p1":"Budiso","p2":"Maniek","pts1":23,"pts2":2},{"p1":"Weregesu","p2":"Maniek","pts1":25,"pts2":0},{"p1":"Dejwidgakure","p2":"Maniek","pts1":24,"pts2":1},
 			   {"p1":"Dejwidgakure","p2":"Weregesu","pts1":24,"pts2":1},{"p1":"MatiMyHair","p2":"Maniek","pts1":7,"pts2":18},{"p1":"kamajot","p2":"Maniek","pts1":18,"pts2":7},
 			   {"p1":"kamajot","p2":"Weregesu","pts1":24,"pts2":1},{"p1":"Supcio","p2":"Weregesu","pts1":23,"pts2":2},{"p1":"Raciatek","p2":"Maniek","pts1":22,"pts2":3},
-			   {"p1":"Raciatek","p2":"Weregesu","pts1":2,"pts2":23},{"p1":"Supcio","p2":"Maniek","pts1":0,"pts2":25},{"p1":"MatiMyHair","p2":"Budiso","pts1":20,"pts2":0},
-			   {"p1":"Budiso","p2":"Weregesu","pts1":0,"pts2":20},{"p1":"Supcio","p2":"Budiso","pts1":20,"pts2":0},{"p1":"Raciatek","p2":"Budiso","pts1":20,"pts2":0},
-			   {"p1":"Budiso","p2":"kamajot","pts1":0,"pts2":20},{"p1":"Dejwidgakure","p2":"Budiso","pts1":20,"pts2":0},
+			   {"p1":"Raciatek","p2":"Weregesu","pts1":2,"pts2":23},{"p1":"Supcio","p2":"Maniek","pts1":0,"pts2":25},{"p1":"MatiMyHair","p2":"Budiso","pts1":20,"pts2":0, "resultType": "walkover" },
+			   {"p1":"Budiso","p2":"Weregesu","pts1":0,"pts2":20, "resultType": "walkover" },{"p1":"Supcio","p2":"Budiso","pts1":20,"pts2":0, "resultType": "walkover" },{"p1":"Raciatek","p2":"Budiso","pts1":20,"pts2":0, "resultType": "walkover" },
+			   {"p1":"Budiso","p2":"kamajot","pts1":0,"pts2":20, "resultType": "walkover" },{"p1":"Dejwidgakure","p2":"Budiso","pts1":20,"pts2":0, "resultType": "walkover" },
 			   {"p1":"Supcio","p2":"kamajot","pts1":25,"pts2":0},{"p1":"Supcio","p2":"Raciatek","pts1":21,"pts2":4},{"p1":"Dejwidgakure","p2":"Supcio","pts1":20,"pts2":5},
-			   {"p1":"Dejwidgakure","p2":"MatiMyHair","pts1":21,"pts2":4},{"p1":"MatiMyHair","p2":"Weregesu","pts1":25,"pts2":0},{"p1":"Dejwidgakure","p2":"kamajot","pts1":20,"pts2":0},
-			   {"p1":"MatiMyHair","p2":"kamajot","pts1":20,"pts2":0},{"p1":"MatiMyHair","p2":"Supcio","pts1":0,"pts2":0}
+			   {"p1":"Dejwidgakure","p2":"MatiMyHair","pts1":21,"pts2":4},{"p1":"MatiMyHair","p2":"Weregesu","pts1":25,"pts2":0},{"p1":"Dejwidgakure","p2":"kamajot","pts1":20,"pts2":0, "resultType": "walkover" },
+			   {"p1":"MatiMyHair","p2":"kamajot","pts1":20,"pts2":0, "resultType": "walkover" },{"p1":"MatiMyHair","p2":"Supcio","pts1":0,"pts2":0, "resultType": "doubleWalkover" }
 		
 			]
 
@@ -2034,10 +3059,16 @@ matches:[
   "title": "JUBILEUSZ 25 EDITION",
   "startDate": "04.07.2026",
   "endDate": "17.07.2026",
+  "status": "finished",
   "mode": "Classic + Bany + Custom Paczki + Tematyczne Twisty",
   "presetCard": null,
   "playersCount": 12,
   "winner": "MatiMyHair",
+  "scoring": {
+    "system": "standard25",
+    "singleWalkover": "20:0",
+    "doubleWalkover": "0:0"
+  },
   "bans": [
     "Aurora",
     "Cosmic Ghost Rider",
@@ -2284,12 +3315,12 @@ matches:[
 			  {"p1":"Dejwidgakure","p2":"Kmythic","pts1":22,"pts2":3},{"p1":"FizjoRadek","p2":"Weregesu","pts1":22,"pts2":3},
 			  {"p1":"FizjoRadek","p2":"Matixmgg","pts1":22,"pts2":3},{"p1":"Supcio","p2":"Matixmgg","pts1":25,"pts2":0},
 			  {"p1":"Raciatek","p2":"Weregesu","pts1":18,"pts2":7},{"p1":"Raciatek","p2":"Dejwidgakure","pts1":0,"pts2":25},
-			  {"p1":"Detroj","p2":"Weregesu","pts1":0,"pts2":20},{"p1":"Detroj","p2":"Dejwidgakure","pts1":0,"pts2":20},
-			  {"p1":"Detroj","p2":"MatiMyHair","pts1":0,"pts2":20},{"p1":"Detroj","p2":"I'm Batman","pts1":0,"pts2":20},
-			  {"p1":"Detroj","p2":"FizjoRadek","pts1":0,"pts2":20},{"p1":"Detroj","p2":"Matixmgg","pts1":0,"pts2":20},
-			  {"p1":"Detroj","p2":"Raciatek","pts1":0,"pts2":20},{"p1":"Detroj","p2":"Supcio","pts1":0,"pts2":20},
+			  {"p1":"Detroj","p2":"Weregesu","pts1":0,"pts2":20, "resultType": "walkover" },{"p1":"Detroj","p2":"Dejwidgakure","pts1":0,"pts2":20, "resultType": "walkover" },
+			  {"p1":"Detroj","p2":"MatiMyHair","pts1":0,"pts2":20, "resultType": "walkover" },{"p1":"Detroj","p2":"I'm Batman","pts1":0,"pts2":20, "resultType": "walkover" },
+			  {"p1":"Detroj","p2":"FizjoRadek","pts1":0,"pts2":20, "resultType": "walkover" },{"p1":"Detroj","p2":"Matixmgg","pts1":0,"pts2":20, "resultType": "walkover" },
+			  {"p1":"Detroj","p2":"Raciatek","pts1":0,"pts2":20, "resultType": "walkover" },{"p1":"Detroj","p2":"Supcio","pts1":0,"pts2":20, "resultType": "walkover" },
 			  {"p1":"Dejwidgakure","p2":"MatiMyHair","pts1":4,"pts2":21},
-			  {"p1":"Raciatek","p2":"Matixmgg","pts1":20,"pts2":0}
+			  {"p1":"Raciatek","p2":"Matixmgg","pts1":20,"pts2":0, "resultType": "walkover" }
 			  
 		
 			 
@@ -2302,10 +3333,16 @@ matches:[
   "title": "",
   "startDate": "20.07.2026",
   "endDate": "",
+  "status": "finished",
   "mode": "Classic + Jokery + Custom Paczki + Mulligany",
   "presetCard": null,
   "playersCount": 11,
   "winner": "Qrls",
+  "scoring": {
+    "system": "standard25",
+    "singleWalkover": "20:0",
+    "doubleWalkover": "0:0"
+  },
   "bans": [
     "Arishem",
     "Aurora",
@@ -2532,9 +3569,9 @@ matches:[
 			  {"p1":"Dejwidgakure","p2":"Kmythic","pts1":5,"pts2":20}, {"p1":"Budiso","p2":"Dejwidgakure","pts1":1,"pts2":24},
 			  {"p1":"Budiso","p2":"MatiMyHair","pts1":0,"pts2":25}, {"p1":"MatiMyHair","p2":"Kmythic","pts1":20,"pts2":5},
 			  {"p1":"Matixmgg","p2":"Kmythic","pts1":24,"pts2":1}, {"p1":"Matixmgg","p2":"Supcio","pts1":0,"pts2":25},
-			  {"p1":"Matixmgg","p2":"Dejwidgakure","pts1":0,"pts2":20}, {"p1":"Matixmgg","p2":"wodolot","pts1":0,"pts2":0},
-			  {"p1":"Weregesu","p2":"Dejwidgakure","pts1":0,"pts2":25}, {"p1":"Budiso","p2":"wodolot","pts1":0,"pts2":0},
-			  {"p1":"Matixmgg","p2":"Budiso","pts1":0,"pts2":20}, {"p1":"wodolot","p2":"Dejwidgakure","pts1":0,"pts2":0}
+			  {"p1":"Matixmgg","p2":"Dejwidgakure","pts1":0,"pts2":20, "resultType": "walkover" }, {"p1":"Matixmgg","p2":"wodolot","pts1":0,"pts2":0, "resultType": "doubleWalkover" },
+			  {"p1":"Weregesu","p2":"Dejwidgakure","pts1":0,"pts2":25}, {"p1":"Budiso","p2":"wodolot","pts1":0,"pts2":0, "resultType": "doubleWalkover" },
+			  {"p1":"Matixmgg","p2":"Budiso","pts1":0,"pts2":20, "resultType": "walkover" }, {"p1":"wodolot","p2":"Dejwidgakure","pts1":0,"pts2":0, "resultType": "doubleWalkover" }
 			  
 			  
 			 
@@ -2547,14 +3584,20 @@ matches:[
 	  
 {
 	"id": 27,
-  "title": "",
+  "title": "Wielki Draft Supermocy!",
   "startDate": "02.08.2026",
   "endDate": "",
-  "mode": "Wielki Draft Supermocy",
+  "status": "active",
+  "mode": "Classic + Bany + Jokery + Supermoce + Mulligany",
   "presetCard": null,
   "playersCount": 13,
   "winner": "",
-  "bans": [],
+  "scoring": {
+    "system": "standard25",
+    "singleWalkover": "20:0",
+    "doubleWalkover": "0:0"
+  },
+  "bans": ["Arishem","Loki","Thanos","Lin Lie Iron Fist","Shadow King","Gladiator","Scorpion Brand New Day","Zombie Power Man","Negasonic Teenage Warhead","Isca the Unbeaten"],
   "players": [
     {
       "name": "Dawid ak. Void",
