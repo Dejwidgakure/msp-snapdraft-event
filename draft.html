@@ -968,6 +968,7 @@ nav{
 }
 
 </style>
+<link rel="stylesheet" href="card-tooltips.css?v=40.1">
 
 <style id="msp-navbar-canon-index2-exact">
 /* MSP SNAPDRAFT NAVBAR — exact index(2) navbar + minimal conflict guard */
@@ -1798,6 +1799,249 @@ nav{
     background-position:0 0, 0 0;
 }
 
+/* =========================================================
+   WIELKA AKTUALIZACJA STRONY — KRONIKI DRAFTOWE
+   Finalne nadpisania ograniczone do tej podstrony.
+   ========================================================= */
+body{
+    background:
+        linear-gradient(rgba(3,7,24,.42),rgba(3,5,19,.78)),
+        radial-gradient(circle at 50% 8%,rgba(0,240,255,.13),transparent 32%),
+        url("assets/cosmic-bg.png") center/cover fixed no-repeat,
+        #050816 !important;
+}
+
+body::before{
+    background:
+        linear-gradient(135deg,rgba(0,240,255,.05),transparent 36%,rgba(150,73,255,.08)),
+        url("assets/cosmictool.png") center/980px repeat !important;
+    opacity:.18 !important;
+    animation:chroniclesCosmicDrift 32s linear infinite !important;
+}
+
+@keyframes chroniclesCosmicDrift{
+    from{background-position:center,0 0}
+    to{background-position:center,180px 240px}
+}
+
+.draft-title .title-core{
+    background:
+        linear-gradient(105deg,rgba(255,255,255,.78),rgba(118,238,255,.82) 20%,rgba(207,157,255,.88) 48%,rgba(255,255,255,.82) 72%,rgba(82,226,255,.78)),
+        url("assets/galaxytool.png") center/360px repeat !important;
+    background-size:260% 100%,360px !important;
+    -webkit-background-clip:text !important;
+    background-clip:text !important;
+    animation:chroniclesTitleNebula 10s linear infinite !important;
+    filter:
+        drop-shadow(0 0 8px rgba(3,8,24,.96))
+        drop-shadow(0 0 16px var(--draft-accent))
+        drop-shadow(0 0 38px var(--draft-accent-soft)) !important;
+}
+
+@keyframes chroniclesTitleNebula{
+    from{background-position:0 50%,0 0}
+    to{background-position:100% 50%,360px 180px}
+}
+
+.section-card{
+    border-color:rgba(83,226,255,.42) !important;
+    background:
+        linear-gradient(145deg,rgba(5,13,39,.90),rgba(12,8,43,.84)),
+        url("assets/cosmictool.png") center/760px repeat !important;
+    box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,.035),
+        inset 0 0 34px rgba(0,240,255,.045),
+        0 0 28px rgba(0,240,255,.20),
+        0 0 68px rgba(132,75,255,.12),
+        0 22px 50px rgba(0,0,0,.30) !important;
+}
+
+.table-wrap{
+    border-color:rgba(64,226,255,.34) !important;
+    box-shadow:
+        inset 0 0 28px rgba(0,240,255,.055),
+        0 0 20px rgba(0,240,255,.10) !important;
+}
+
+.table-wrap th{
+    color:#eefdff !important;
+    border-bottom:1px solid rgba(104,237,255,.42) !important;
+    text-shadow:0 0 8px rgba(0,240,255,.70),0 0 18px rgba(139,92,246,.36) !important;
+}
+
+.table-wrap td{
+    border-bottom-color:rgba(91,220,255,.18) !important;
+    text-shadow:0 1px 0 rgba(0,0,0,.8),0 0 8px rgba(0,240,255,.08);
+}
+
+.table-wrap tbody tr:hover{
+    background:linear-gradient(90deg,rgba(0,240,255,.10),rgba(139,92,246,.10)) !important;
+    box-shadow:inset 0 0 18px rgba(0,240,255,.08);
+}
+
+.meta-winner.is-leader{
+    border-left-color:rgba(0,240,255,.54) !important;
+}
+
+.meta-winner.is-leader::before{
+    background:linear-gradient(to bottom,transparent,#00f0ff,transparent) !important;
+    box-shadow:0 0 18px rgba(0,240,255,.88) !important;
+}
+
+.meta-winner.is-leader::after{
+    background-image:
+        radial-gradient(circle,rgba(126,244,255,.92) 0 1.4px,transparent 2.2px),
+        radial-gradient(circle,rgba(151,100,255,.72) 0 1.1px,transparent 2px) !important;
+    filter:drop-shadow(0 0 6px rgba(0,240,255,.46)) !important;
+}
+
+.meta-winner.is-leader .meta-label{
+    color:#9ff8ff !important;
+}
+
+.meta-winner.is-leader .meta-value{
+    color:#dffeff !important;
+    text-shadow:0 0 10px rgba(0,240,255,.72),0 0 27px rgba(139,92,246,.35) !important;
+}
+
+.podium-bg{
+    opacity:.52 !important;
+    filter:blur(2px) saturate(.92) brightness(.72) !important;
+}
+
+.podium-first .podium-bg{
+    filter:blur(2px) sepia(.42) saturate(1.35) brightness(.68) !important;
+}
+
+.podium-second .podium-bg{
+    filter:blur(2px) grayscale(.48) saturate(.78) brightness(.70) contrast(1.08) !important;
+}
+
+.podium-third .podium-bg{
+    filter:blur(2px) sepia(.62) hue-rotate(330deg) saturate(1.25) brightness(.62) !important;
+}
+
+.podium-first .podium-overlay{
+    background:linear-gradient(180deg,rgba(255,224,112,.25),rgba(115,69,2,.54) 52%,rgba(12,8,25,.82)) !important;
+}
+
+.podium-second .podium-overlay{
+    background:linear-gradient(180deg,rgba(230,239,255,.22),rgba(74,84,116,.54) 52%,rgba(8,12,31,.84)) !important;
+}
+
+.podium-third .podium-overlay{
+    background:linear-gradient(180deg,rgba(230,157,103,.25),rgba(104,48,20,.57) 52%,rgba(20,8,14,.84)) !important;
+}
+
+.podium-name,
+.podium-points,
+.podium-balance,
+.legend-rank{
+    position:relative;
+    z-index:3;
+    text-shadow:
+        0 2px 2px rgba(0,0,0,.96),
+        0 0 8px rgba(0,0,0,.95),
+        0 0 17px currentColor !important;
+}
+
+.player-modal{
+    width:min(520px,calc(100vw - 28px)) !important;
+    background:
+        linear-gradient(rgba(5,12,36,.90),rgba(8,9,32,.94)),
+        url("assets/prompt-bg.png") center/cover no-repeat !important;
+    border-color:rgba(91,230,255,.52) !important;
+    box-shadow:
+        inset 0 0 34px rgba(0,240,255,.08),
+        0 0 34px rgba(0,240,255,.28),
+        0 0 72px rgba(139,92,246,.20),
+        0 28px 70px rgba(0,0,0,.52) !important;
+}
+
+.player-modal-header,
+.player-modal-footer{
+    background:linear-gradient(90deg,rgba(4,16,43,.84),rgba(27,10,53,.78)) !important;
+}
+
+.forecast-board{
+    grid-column:1/-1;
+    padding:12px;
+    border-radius:16px;
+    border:1px solid rgba(100,231,255,.22);
+    background:rgba(3,8,26,.62);
+    box-shadow:inset 0 0 22px rgba(0,240,255,.045);
+}
+
+.forecast-title{
+    margin-bottom:9px;
+    color:#a9f6ff;
+    font:800 11px/1.35 'Orbitron',sans-serif;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    text-align:center;
+}
+
+.forecast-row{
+    display:grid;
+    grid-template-columns:38px minmax(90px,1fr) auto;
+    align-items:center;
+    gap:7px;
+    padding:6px 7px;
+    border-radius:10px;
+    font-size:14px;
+}
+
+.forecast-row:nth-child(even){
+    background:rgba(255,255,255,.035);
+}
+
+.forecast-row.is-current{
+    background:linear-gradient(90deg,rgba(0,240,255,.12),rgba(139,92,246,.12));
+    outline:1px solid rgba(105,235,255,.23);
+}
+
+.forecast-row small{
+    grid-column:2/-1;
+    margin-top:-4px;
+    color:#9db2cf;
+    font-size:11px;
+}
+
+.forecast-place{
+    color:#ffe998;
+    font:800 12px 'Orbitron',sans-serif;
+}
+
+@media (max-width:820px){
+    body{
+        background-attachment:scroll !important;
+    }
+
+    .section-card{
+        backdrop-filter:blur(7px);
+    }
+
+    .draft-title .title-core{
+        background-size:220% 100%,280px !important;
+    }
+
+    .podium-bg{
+        background-position:center top !important;
+    }
+}
+
+@media (max-width:480px){
+    .player-modal{
+        width:calc(100vw - 16px) !important;
+        max-height:92vh !important;
+        border-radius:20px !important;
+    }
+
+    .forecast-row{
+        grid-template-columns:34px minmax(0,1fr) auto;
+    }
+}
+
 </style>
 </head>
 <body>
@@ -1957,7 +2201,17 @@ nav{
 </div>
 
 <script src="cards.js"></script>
+<script src="tags.js"></script>
+<script>
+window.MSP_CARD_TOOLTIP_OPTIONS={
+  backgroundImage:"assets/cosmic_tlo.png",
+  collectionUrlTemplate:"card-stats.html?card={card}",
+  collectionLabel:"Sprawdź statystyki karty w Kolekcji Kart Wszechświata"
+};
+</script>
+<script src="card-tooltips.js?v=40.1"></script>
 <script src="database.js"></script>
+<script src="draft-stats-engine.js"></script>
 <script>
 let activePlayer = null;
 
@@ -1994,73 +2248,31 @@ function sanitizeName(name){
   return name.toLowerCase().replace(/ /g,'').replace(/\./g,'');
 }
 
+function escapeCardAttribute(value){
+  return String(value || '').replace(/[&"<>'`]/g,char=>({
+    '&':'&amp;',
+    '"':'&quot;',
+    '<':'&lt;',
+    '>':'&gt;',
+    "'":'&#039;',
+    '`':'&#096;'
+  }[char]));
+}
+
 function getDeckImagePath(name, draftId){
   return `assets/decks/${sanitizeName(name)}_${draftId}.jpg`;
 }
 
 function getUnplayedMatches(draft){
-  const played = new Set(draft.matches.map(m => [m.p1, m.p2].sort().join('-')));
-  const missing = [];
-  for(let i=0;i<draft.players.length;i++){
-    for(let j=i+1;j<draft.players.length;j++){
-      const p1 = draft.players[i].name;
-      const p2 = draft.players[j].name;
-      const key = [p1,p2].sort().join('-');
-      if(!played.has(key)) missing.push({p1,p2});
-    }
-  }
-  return missing;
+  return DraftStatsEngine.getUnplayedMatches(draft);
 }
 
 function getDraftRanking(d){
-  const local = {};
-  d.players.forEach(p=>{
-    local[p.name] = {name:p.name, total:0, wins:0, losses:0, winPoints:0, lossPoints:0};
-  });
-  (d.matches || []).forEach(m=>{
-    if(!local[m.p1]) local[m.p1] = {name:m.p1,total:0,wins:0,losses:0,winPoints:0,lossPoints:0};
-    if(!local[m.p2]) local[m.p2] = {name:m.p2,total:0,wins:0,losses:0,winPoints:0,lossPoints:0};
-    const isDoubleWalkover = (m.pts1 === 0 && m.pts2 === 0);
-    if(isDoubleWalkover){
-      local[m.p1].losses++;
-      local[m.p2].losses++;
-    }else if(m.pts1 > m.pts2){
-      local[m.p1].wins++; local[m.p2].losses++;
-      local[m.p1].winPoints += m.pts1; local[m.p2].lossPoints += m.pts2;
-    }else if(m.pts2 > m.pts1){
-      local[m.p2].wins++; local[m.p1].losses++;
-      local[m.p2].winPoints += m.pts2; local[m.p1].lossPoints += m.pts1;
-    }
-    local[m.p1].total += Number(m.pts1 || 0);
-    local[m.p2].total += Number(m.pts2 || 0);
-  });
-  return Object.values(local).sort((a,b)=>b.total-a.total || b.wins-a.wins || a.name.localeCompare(b.name));
+  return DraftStatsEngine.calculateDraftRanking(d);
 }
 
-function buildLegendRanks(){
-  const legendPointsByPlace = [7,4,3,2,1];
-  const all = {};
-  (database.drafts || []).forEach(d=>{
-    getDraftRanking(d).slice(0,5).forEach((p,idx)=>{
-      if(!all[p.name]) all[p.name] = {name:p.name, legend:0, draftPoints:0, drafts:0};
-      all[p.name].legend += legendPointsByPlace[idx] || 0;
-    });
-    (d.players || []).forEach(p=>{
-      if(!all[p.name]) all[p.name] = {name:p.name, legend:0, draftPoints:0, drafts:0};
-      all[p.name].drafts++;
-    });
-    getDraftRanking(d).forEach(p=>{
-      if(!all[p.name]) all[p.name] = {name:p.name, legend:0, draftPoints:0, drafts:0};
-      all[p.name].draftPoints += p.total;
-    });
-  });
-  const sorted = Object.values(all).sort((a,b)=>b.legend-a.legend || b.draftPoints-a.draftPoints || b.drafts-a.drafts || a.name.localeCompare(b.name));
-  const ranks = {};
-  sorted.forEach((p,idx)=>{ ranks[p.name] = idx + 1; });
-  return ranks;
-}
-
-const legendRanks = buildLegendRanks();
+const legendStandings = DraftStatsEngine.calculateLegendStandings(database.drafts || []);
+const legendRanks = legendStandings.rankByName;
 
 function legendBadge(rank){
   return rank ? 'RANGA LEGEND #' + rank : 'RANGA LEGEND —';
@@ -2084,6 +2296,12 @@ if(!draft){
   throw new Error('Draft not found');
 }
 
+const draftIsFinished = DraftStatsEngine.isDraftFinished(draft);
+const draftValidation = DraftStatsEngine.validateDraft(draft);
+if(draftValidation.warnings.length){
+  console.warn(`[DraftStatsEngine] DRAFT ${draft.id} validation warnings:`, draftValidation.warnings);
+}
+
 const palette = titlePalettes[draft.id % titlePalettes.length];
 document.documentElement.style.setProperty('--title-a', palette[0]);
 document.documentElement.style.setProperty('--title-b', palette[1]);
@@ -2103,20 +2321,26 @@ if(draft.title && draft.title.trim()){
 
 function renderMeta(){
   const grid = document.getElementById('metaGrid');
-  const rankingReady = Array.isArray(ranking) && ranking.length;
-  const leaderName = rankingReady ? ranking[0].name : null;
-  const winnerValue = leaderName || draft.winner || 'Jeszcze nie wyłoniono';
-  const winnerLabel = draft.winner ? 'Zwycięzca' : 'Aktualny lider';
+  const leaderName = DraftStatsEngine.getDraftLeader(draft);
+  const winnerName = DraftStatsEngine.getDraftWinner(draft);
+  const headlineName = draftIsFinished ? winnerName : leaderName;
+  const winnerValue = headlineName || 'Jeszcze nie wyłoniono';
+  const winnerLabel = draftIsFinished ? 'Zwycięzca draftu' : 'Aktualny lider';
 
   const cards = [
     {label:'Tryb', value:draft.mode || '-'},
     {label:'Termin', value:(draft.startDate || '-') + (draft.endDate ? ` – ${draft.endDate}` : '')},
     {label:'Liczba graczy', value:String(draft.players.length)},
-    {label:winnerLabel, value:winnerValue, winner:true}
+    {
+      label:winnerLabel,
+      value:winnerValue,
+      winner:true,
+      statusClass:draftIsFinished ? 'is-winner' : 'is-leader'
+    }
   ];
 
   grid.innerHTML = cards.map(card => `
-    <div class="meta-card ${card.winner ? 'meta-winner' : ''}">
+    <div class="meta-card ${card.winner ? 'meta-winner' : ''} ${card.statusClass || ''}">
       <div class="meta-label">${card.label}</div>
       <div class="meta-value">${card.value}</div>
     </div>
@@ -2163,46 +2387,26 @@ function buildNavigation(){
 }
 buildNavigation();
 
+const calculatedStats = DraftStatsEngine.calculateDraftStats(draft);
 const stats = {};
-draft.players.forEach((p,i)=>{
-  stats[p.name] = {
-    wins:0,
-    losses:0,
-    total:0,
-    winPoints:0,
-    lossPoints:0,
-    color:playerColors[i % playerColors.length]
-  };
+Object.entries(calculatedStats.byName).forEach(([name, playerStat], fallbackIndex)=>{
+  const playerIndex = draft.players.findIndex(player=>player.name===name);
+  const colorIndex = playerIndex >= 0 ? playerIndex : fallbackIndex;
+  stats[name] = {...playerStat, color:playerColors[colorIndex % playerColors.length]};
 });
 
-draft.matches.forEach(m=>{
-  const isDoubleWalkover = (m.pts1 === 0 && m.pts2 === 0);
-  if(isDoubleWalkover){
-    stats[m.p1].losses++;
-    stats[m.p2].losses++;
-  }else if(m.pts1 > m.pts2){
-    stats[m.p1].wins++;
-    stats[m.p2].losses++;
-    stats[m.p1].winPoints += m.pts1;
-    stats[m.p2].lossPoints += m.pts2;
-  }else if(m.pts2 > m.pts1){
-    stats[m.p2].wins++;
-    stats[m.p1].losses++;
-    stats[m.p2].winPoints += m.pts2;
-    stats[m.p1].lossPoints += m.pts1;
-  }
-  stats[m.p1].total += m.pts1;
-  stats[m.p2].total += m.pts2;
-});
-
-let ranking = Object.keys(stats).map(name => ({name, ...stats[name]}));
-ranking.sort((a,b)=>b.total-a.total || b.wins-a.wins || a.name.localeCompare(b.name));
+let ranking = calculatedStats.ranking.map(player=>stats[player.name]);
 renderMeta();
 
-if(ranking.length){
-  const winnerImg = getDeckImagePath(ranking[0].name, draft.id);
+if(ranking.length && draftIsFinished){
+  const officialWinner = DraftStatsEngine.getDraftWinner(draft);
+  const winnerImg = officialWinner ? getDeckImagePath(officialWinner, draft.id) : null;
   const bg = document.getElementById('winnerBg');
-  bg.style.backgroundImage = `url('${winnerImg}')`;
+  if(winnerImg) bg.style.backgroundImage = `url('${winnerImg}')`;
+  else bg.style.display = 'none';
+}else{
+  const bg = document.getElementById('winnerBg');
+  bg.style.display = 'none';
 }
 
 function renderRanking(){
@@ -2266,9 +2470,10 @@ function renderResults(){
     draft.matches.forEach(m=>{
       const p1Color = stats[m.p1]?.color || '#fff';
       const p2Color = stats[m.p2]?.color || '#fff';
-      const isDoubleWalkover = (m.pts1 === 0 && m.pts2 === 0);
-      const isWalkover = (m.pts1 === 20 && m.pts2 === 0) || (m.pts2 === 20 && m.pts1 === 0);
-      const note = isDoubleWalkover ? '<span class="result-note">(podwójny walkower)</span>' : (isWalkover ? '<span class="result-note">(walkower)</span>' : '');
+      const matchType = DraftStatsEngine.getMatchType(m, draft);
+      const note = matchType === DraftStatsEngine.MATCH_TYPES.DOUBLE_WALKOVER
+        ? '<span class="result-note">(podwójny walkower)</span>'
+        : (matchType === DraftStatsEngine.MATCH_TYPES.WALKOVER ? '<span class="result-note">(walkower)</span>' : '');
       items.push(`
         <div class="result-item">
           <span style="color:${p1Color};font-weight:700">${m.p1}</span>
@@ -2322,21 +2527,13 @@ function renderStats(){
   addStat('🏆 Najwięcej zwycięstw', `${winLeaders.join(', ') || '-'} (${maxWins})`);
 
   const cleanWins = {};
-  draft.players.forEach(p=>cleanWins[p.name]=0);
-  draft.matches.forEach(m=>{
-    if(m.pts1>m.pts2 && m.pts2===0) cleanWins[m.p1]++;
-    if(m.pts2>m.pts1 && m.pts1===0) cleanWins[m.p2]++;
-  });
+  ranking.forEach(player=>cleanWins[player.name]=player.cleanWins);
   const maxClean = Math.max(...Object.values(cleanWins), 0);
   const cleanLeaders = Object.keys(cleanWins).filter(n=>cleanWins[n]===maxClean).sort().slice(0,5);
   addStat('🔥 Najwięcej wygranych do 0', `${cleanLeaders.join(', ') || '-'} (${maxClean})`);
 
   const lossPointsStat = {};
-  draft.players.forEach(p=>lossPointsStat[p.name]=0);
-  draft.matches.forEach(m=>{
-    if(m.pts1>m.pts2) lossPointsStat[m.p2]+=m.pts2;
-    else if(m.pts2>m.pts1) lossPointsStat[m.p1]+=m.pts1;
-  });
+  ranking.forEach(player=>lossPointsStat[player.name]=player.lossPoints);
   const maxLoss = Math.max(...Object.values(lossPointsStat), 0);
   const lossLeaders = Object.keys(lossPointsStat).filter(n=>lossPointsStat[n]===maxLoss).sort().slice(0,5);
   addStat('💀 Najwięcej pkt z porażek', `${lossLeaders.join(', ') || '-'} (${maxLoss})`);
@@ -2384,7 +2581,7 @@ function renderDecks(){
           </div>
 
           <div class="cards-grid">
-            ${sorted.map(c=>`<div class="card-tile" style="color:${color}; box-shadow:inset 0 0 10px rgba(255,255,255,.02), 0 0 10px ${color}20;">${c}</div>`).join('')}
+            ${sorted.map(c=>`<div class="card-tile" data-card-name="${escapeCardAttribute(c)}" tabindex="0" style="color:${color}; box-shadow:inset 0 0 10px rgba(255,255,255,.02), 0 0 10px ${color}20;">${c}</div>`).join('')}
           </div>
 
           <img class="deck-image" src="${imagePath}" alt="Deck ${p.name}" onerror="this.style.display='none'">
@@ -2427,30 +2624,44 @@ function openPlayerModal(name){
   const lastMatches = playerMatches.slice(-5);
   let form = '';
   lastMatches.forEach(m=>{
-    const isWin = (m.p1===name && m.pts1>m.pts2) || (m.p2===name && m.pts2>m.pts1);
+    const isWin = DraftStatsEngine.getPlayerOutcome(m, draft, name) === 'win';
     form += isWin ? '🟢' : '🔴';
   });
 
   let streak = 0;
   for(let i=playerMatches.length-1;i>=0;i--){
     const m = playerMatches[i];
-    const isWin = (m.p1===name && m.pts1>m.pts2) || (m.p2===name && m.pts2>m.pts1);
+    const isWin = DraftStatsEngine.getPlayerOutcome(m, draft, name) === 'win';
     if(isWin) streak++; else break;
   }
 
-  let momentum = '⚪ Neutralny';
-  let momentumColor = '#cfd8e5';
-  if(streak >= 3){ momentum = '🔥 HOT'; momentumColor = '#ff4fd8'; }
-  else if(streak === 2){ momentum = '⚡ Rośnie'; momentumColor = '#00f0ff'; }
-  else if(streak === 1){ momentum = '🟢 Plus'; momentumColor = '#4ade80'; }
-  else if(playerMatches.length){ momentum = '❄️ Spadek'; momentumColor = '#cbd5e1'; }
+  let streakLabel = '⚪ Brak serii';
+  let streakColor = '#cfd8e5';
+  if(streak >= 3){ streakLabel = `🔥 ${streak} wygrane z rzędu`; streakColor = '#ff4fd8'; }
+  else if(streak === 2){ streakLabel = '⚡ 2 wygrane z rzędu'; streakColor = '#00f0ff'; }
+  else if(streak === 1){ streakLabel = '🟢 Ostatni mecz wygrany'; streakColor = '#4ade80'; }
+  else if(playerMatches.length){ streakLabel = '❄️ Ostatni mecz przegrany'; streakColor = '#cbd5e1'; }
 
   const totalMatches = playerMatches.length;
   const avgPoints = totalMatches ? (player.total / totalMatches).toFixed(1) : '0.0';
-  const remaining = (draft.players.length - 1) - totalMatches;
-  const predicted = Math.round(player.total + (Number(avgPoints) * remaining));
-  const simulated = ranking.map(p=> p.name===name ? {...p, total:predicted} : {...p}).sort((a,b)=>b.total-a.total);
-  const predictedPlace = simulated.findIndex(p=>p.name===name)+1;
+  const forecast = ranking.map(rankedPlayer=>{
+    const playedMatches = rankedPlayer.wins + rankedPlayer.losses;
+    const remainingMatches = Math.max(0, (draft.players.length - 1) - playedMatches);
+    const pointsPerMatch = playedMatches ? rankedPlayer.total / playedMatches : 0;
+    return {
+      ...rankedPlayer,
+      projectedTotal: Math.round(rankedPlayer.total + pointsPerMatch * remainingMatches),
+      remainingMatches
+    };
+  }).sort((a,b)=>
+    b.projectedTotal-a.projectedTotal ||
+    b.total-a.total ||
+    b.wins-a.wins ||
+    a.name.localeCompare(b.name)
+  );
+  const selectedForecast = forecast.find(entry=>entry.name===name);
+  const predicted = selectedForecast?.projectedTotal ?? player.total;
+  const predictedPlace = forecast.findIndex(entry=>entry.name===name)+1;
 
   const infoItems = [
     ['Pozycja', ranking.indexOf(player)+1],
@@ -2460,9 +2671,21 @@ function openPlayerModal(name){
     ['Prognoza', predicted],
     ['Prog. miejsce', predictedPlace],
     ['Forma', form || '-'],
-    ['Momentum', `<span style="color:${momentumColor}">${momentum}</span>`]
+    ['Seria', `<span style="color:${streakColor}">${streakLabel}</span>`]
   ];
-  document.getElementById('playerInfo').innerHTML = infoItems.map(([label,val])=>`<div class="player-info-box"><span>${label}</span><b>${val}</b></div>`).join('');
+  document.getElementById('playerInfo').innerHTML =
+    infoItems.map(([label,val])=>`<div class="player-info-box"><span>${label}</span><b>${val}</b></div>`).join('') +
+    `<div class="forecast-board">
+      <div class="forecast-title">Prognozowana tabela przy utrzymaniu obecnej średniej</div>
+      ${forecast.map((entry,index)=>`
+        <div class="forecast-row ${entry.name===name ? 'is-current' : ''}">
+          <span class="forecast-place">#${index+1}</span>
+          <b style="color:${entry.color}">${entry.name}</b>
+          <span>${entry.projectedTotal} pkt</span>
+          <small>${entry.remainingMatches ? `${entry.remainingMatches} mecz. do rozegrania` : 'komplet meczów'}</small>
+        </div>
+      `).join('')}
+    </div>`;
 
   const fullPlayer = draft.players.find(p=>p.name===name);
   const imagePath = getDeckImagePath(fullPlayer.name, draft.id);
