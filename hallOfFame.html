@@ -2321,6 +2321,105 @@ body::after{
     }
 }
 
+/* =========================================================
+   WIELKA AKTUALIZACJA STRONY — SALA CHWAŁY
+   Finalne, lokalne nadpisania bez ingerencji w inne podstrony.
+   ========================================================= */
+/* Desktop: kafelki dokładnie według kanonu Przewodnika.
+   Lokalny CSS Sali Chwały wcześniej ściskał HOME i ARCHIWUM. */
+@media (min-width:901px){
+    .msp-nav .nav-link{
+        display:inline-flex !important;
+        align-items:center !important;
+        justify-content:center !important;
+        min-height:31px !important;
+        padding:5px 9px !important;
+        border-radius:999px !important;
+        color:#f1fdff !important;
+        font-size:11.4px !important;
+        font-weight:800 !important;
+        line-height:.96 !important;
+        white-space:normal !important;
+        text-align:center !important;
+        max-width:158px !important;
+        text-decoration:none !important;
+        overflow:visible !important;
+        transform:scale(1.034);
+        transform-origin:center;
+    }
+
+    .msp-nav .nav-link span{
+        display:block !important;
+        max-width:150px !important;
+        max-height:none !important;
+        white-space:normal !important;
+        overflow:visible !important;
+        text-overflow:clip !important;
+        text-wrap:balance !important;
+        line-height:1.02 !important;
+        font-size:inherit !important;
+    }
+
+    .msp-nav .nav-link:hover{
+        transform:translateY(-1px) scale(1.034) !important;
+    }
+}
+
+.golden-decks{
+    background:
+        linear-gradient(135deg,rgba(64,35,3,.88),rgba(18,10,34,.82) 44%,rgba(93,55,7,.78)),
+        url("assets/galaxytool.png") center/520px repeat !important;
+    border-color:rgba(255,216,105,.88) !important;
+    box-shadow:
+        inset 0 0 46px rgba(255,215,90,.18),
+        0 0 0 1px rgba(255,244,196,.12),
+        0 0 38px rgba(255,202,64,.34),
+        0 0 74px rgba(161,102,255,.18),
+        0 24px 58px rgba(0,0,0,.42) !important;
+}
+
+.golden-decks::before{
+    opacity:.72 !important;
+    filter:sepia(.28) saturate(1.45) brightness(1.08);
+}
+
+.golden-decks .deck-card{
+    background:
+        linear-gradient(155deg,rgba(30,18,5,.78),rgba(12,9,28,.82)),
+        url("assets/galaxytool.png") center/420px repeat !important;
+    border-color:rgba(255,218,108,.72) !important;
+}
+
+.golden-decks .deck-info h3{
+    color:#fff0ad !important;
+    text-shadow:0 0 10px rgba(255,216,83,.58),0 2px 0 #2b1700 !important;
+}
+
+.ranking-section > .hof-section-title::after{
+    content:"GŁÓWNY RANKING LEGEND";
+    margin-left:auto;
+    padding:6px 11px;
+    border:1px solid rgba(255,216,105,.38);
+    border-radius:999px;
+    color:#ffe89d;
+    background:rgba(72,42,7,.38);
+    font:800 11px/1 'Orbitron',sans-serif;
+    letter-spacing:.08em;
+    text-shadow:0 0 10px rgba(255,216,105,.42);
+}
+
+@media (max-width:700px){
+    .ranking-section > .hof-section-title::after{
+        width:100%;
+        margin:5px 0 0;
+        text-align:center;
+    }
+
+    .golden-decks{
+        padding:14px !important;
+    }
+}
+
 </style>
 </head>
 <body>
@@ -2351,26 +2450,26 @@ body::after{
         </div>
 
         <nav class="nav-links" aria-label="Nawigacja MSP SnapDraft">
-            <a class="nav-link home" href="index.html">
-                <span>Kosmiczne Centrum<br>Draftu</span><i class="diamond d1"></i><i class="diamond d2"></i><i class="diamond d3"></i>
+            <a class="nav-link" href="index.html">
+                <span>Kosmiczne&nbsp;Centrum<br>Draftowe</span><i class="diamond d1"></i><i class="diamond d2"></i><i class="diamond d3"></i>
             </a>
             <a class="nav-link" href="przewodnik.html">
-                <span>Przewodnik SnapDraft</span><i class="diamond d1"></i><i class="diamond d2"></i><i class="diamond d3"></i>
+                <span>Przewodnik<br>SnapDraft</span><i class="diamond d1"></i><i class="diamond d2"></i><i class="diamond d3"></i>
             </a>
             <a class="nav-link" href="draft.html">
-                <span>Kroniki Draftowe</span><i class="diamond d1"></i><i class="diamond d2"></i><i class="diamond d3"></i>
+                <span>Kroniki<br>Draftowe</span><i class="diamond d1"></i><i class="diamond d2"></i><i class="diamond d3"></i>
             </a>
             <a class="nav-link" href="player-lobby.html">
-                <span>Galaktyczna Baza Wojowników</span><i class="diamond d1"></i><i class="diamond d2"></i><i class="diamond d3"></i>
+                <span>Galaktyczna&nbsp;Baza<br>Wojowników</span><i class="diamond d1"></i><i class="diamond d2"></i><i class="diamond d3"></i>
             </a>
             <a class="nav-link" href="cards.html">
-                <span>Kolekcja Kart Wszechświata</span><i class="diamond d1"></i><i class="diamond d2"></i><i class="diamond d3"></i>
+                <span>Kolekcja&nbsp;Kart<br>Wszechświata</span><i class="diamond d1"></i><i class="diamond d2"></i><i class="diamond d3"></i>
             </a>
-            <a class="nav-link stats" href="stats.html">
-                <span>Gwiezdne Archiwum Danych</span><i class="diamond d1"></i><i class="diamond d2"></i><i class="diamond d3"></i>
+            <a class="nav-link" href="stats.html">
+                <span>Gwiezdne&nbsp;Archiwum<br>Danych</span><i class="diamond d1"></i><i class="diamond d2"></i><i class="diamond d3"></i>
             </a>
             <a class="nav-link arena" href="PROGRAM-DRAFT/snap-draft.html">
-                <span>Arena Draftu</span><i class="diamond d1"></i><i class="diamond d2"></i><i class="diamond d3"></i>
+                <span>Arena<br>Draftu</span><i class="diamond d1"></i><i class="diamond d2"></i><i class="diamond d3"></i>
             </a>
         </nav>
     </div>
@@ -2381,7 +2480,7 @@ body::after{
         <section class="hof-hero">
             <div class="legend-diamond" aria-hidden="true"></div>
             <h1 class="hof-title"><span class="hof-word sala">SALA</span> <span class="hof-word chwala">CHWAŁY</span></h1>
-            <p class="hof-subtitle">główny ranking ligi draftowej Marvel Snap Polska.</p>
+            <p class="hof-subtitle">główny Ranking Legend ligi draftowej Marvel Snap Polska.</p>
         </section>
 
 
@@ -2394,7 +2493,7 @@ body::after{
         </section>
 
         <section class="ranking-section" aria-labelledby="ranking-title">
-            <h2 class="hof-section-title" id="ranking-title"><span class="star">✦</span> Tabela rankingowa</h2>
+            <h2 class="hof-section-title" id="ranking-title"><span class="star">✦</span> Ranking Legend</h2>
             <div class="hof-panel ranking-panel">
                 <div class="table-wrap">
                     <table id="rankingTable">
@@ -2502,6 +2601,40 @@ body::after{
         return database.drafts;
     }
 
+    function isDraftFinished(draft){
+        const players = (draft?.players || [])
+            .map(player => String(player?.name || "").trim())
+            .filter(Boolean);
+        if (players.length < 2) return false;
+
+        const expectedPairs = new Set();
+        for (let first = 0; first < players.length; first++) {
+            for (let second = first + 1; second < players.length; second++) {
+                expectedPairs.add([players[first], players[second]].sort().join("::"));
+            }
+        }
+
+        const resolvedPairs = new Set();
+        (draft.matches || []).forEach(match => {
+            const p1 = String(match?.p1 || "").trim();
+            const p2 = String(match?.p2 || "").trim();
+            if (!p1 || !p2 || p1 === p2) return;
+            if (!Number.isFinite(Number(match.pts1)) || !Number.isFinite(Number(match.pts2))) return;
+            resolvedPairs.add([p1, p2].sort().join("::"));
+        });
+
+        const fullRoundRobin = expectedPairs.size > 0 &&
+            [...expectedPairs].every(pairKey => resolvedPairs.has(pairKey));
+        if (fullRoundRobin) return true;
+
+        // Starsze wpisy bazy nie zawsze mają kompletny terminarz.
+        // Zachowujemy ich ręcznie zapisanych zwycięzców, ale nigdy nie
+        // używamy tego skrótu dla najnowszej, aktualnie rozgrywanej edycji.
+        const latestDraftId = Math.max(...getDrafts().map(item => Number(item?.id) || 0), 0);
+        return Number(draft?.id) !== latestDraftId &&
+            Boolean(String(draft?.winner || "").trim());
+    }
+
     function createDraftPlayer(name){
         return {
             name,
@@ -2602,7 +2735,8 @@ body::after{
     function calculateHallOfFame(){
         const players = {};
         const goldenDecks = [];
-        const drafts = getDrafts();
+        // Ranking Legend i Złote Decki obejmują wyłącznie zakończone edycje.
+        const drafts = getDrafts().filter(isDraftFinished);
 
         drafts.forEach((draft, index) => {
             const draftId = draft.id ?? (index + 1);
@@ -2641,17 +2775,7 @@ body::after{
                 if (place === 5) hallPlayer.fifth++;
             });
 
-            // Złote Decki pokazują tylko DOKOŃCZONE drafty:
-            // musi istnieć lista meczów, musi być przynajmniej 1 mecz
-            // i żaden mecz nie może zostać jako 0-0 (nierozegrany / podwójny walkower oznacza, że draft nie jest ukończony do tej sekcji).
-            const hasMatches = Array.isArray(draft.matches) && draft.matches.length > 0;
-
-const allMatchesResolved = hasMatches && draft.matches.every(match => {
-    return Number.isFinite(Number(match.pts1)) &&
-           Number.isFinite(Number(match.pts2));
-});
-
-            if (ranking[0] && allMatchesResolved) {
+            if (ranking[0]) {
                 goldenDecks.push({
                     draftId,
                     title: draft.title || "",
