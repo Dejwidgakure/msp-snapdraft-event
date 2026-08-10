@@ -386,10 +386,12 @@
       fifth:0,
       drafts:0,
       draftPoints:0,
+      avgDraftPoints:0,
       wins:0,
       losses:0,
       matches:0,
       winRate:0,
+      balance:0,
       eligibleForRank:false,
       rank:null
     };
@@ -441,7 +443,9 @@
       const decidedMatches = player.wins + player.losses;
       return {
         ...player,
+        avgDraftPoints:player.drafts ? player.draftPoints / player.drafts : 0,
         winRate:decidedMatches ? player.wins / decidedMatches : 0,
+        balance:player.wins - player.losses,
         eligibleForRank:player.drafts >= MIN_LEGEND_DRAFTS,
         rank:null
       };
