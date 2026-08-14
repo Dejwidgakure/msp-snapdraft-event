@@ -3855,8 +3855,13 @@ matches:[
 	{"p1":"Weregesu","p2":"Qrls","pts1":17,"pts2":8},{"p1":"Matixmgg","p2":"Weregesu","pts1":6,"pts2":19},
 	{"p1":"MatiMyHair","p2":"FizjoRadek","pts1":22,"pts2":3},{"p1":"Weregesu","p2":"troyak","pts1":21,"pts2":4},
 	{"p1":"MatiMyHair","p2":"Dejwidgakure","pts1":25,"pts2":0},{"p1":"Weregesu","p2":"Dejwidgakure","pts1":2,"pts2":23},
-	{"p1":"Qrls","p2":"Matixmgg","pts1":21,"pts2":4}
-
+	{"p1":"Qrls","p2":"Matixmgg","pts1":21,"pts2":4},{"p1":"Kmythic","p2":"Matixmgg","pts1":17,"pts2":8},
+	{"p1":"Matixmgg","p2":"Budiso","pts1":20,"pts2":0, "resultType": "walkover" },{"p1":"Weregesu","p2":"Budiso","pts1":20,"pts2":0, "resultType": "walkover" },
+	{"p1":"MatiMyHair","p2":"Budiso","pts1":20,"pts2":0, "resultType": "walkover" },{"p1":"Dawid ak. Void","p2":"Budiso","pts1":0,"pts2":20, "resultType": "walkover" },
+	{"p1":"Dawid ak. Void","p2":"Dejwidgakure","pts1":0,"pts2":20, "resultType": "walkover" },{"p1":"Dawid ak. Void","p2":"FizjoRadek","pts1":0,"pts2":20, "resultType": "walkover" },
+	{"p1":"Dawid ak. Void","p2":"Supcio","pts1":0,"pts2":20, "resultType": "walkover" },{"p1":"Dawid ak. Void","p2":"Matixmgg","pts1":0,"pts2":20, "resultType": "walkover" },
+	{"p1":"Dawid ak. Void","p2":"I'm Batman","pts1":0,"pts2":20, "resultType": "walkover" },{"p1":"Dawid ak. Void","p2":"MatiMyHair","pts1":0,"pts2":20, "resultType": "walkover" },
+	{"p1":"Dawid ak. Void","p2":"Qrls","pts1":0,"pts2":20, "resultType": "walkover" },{"p1":"Dawid ak. Void","p2":"Weregesu","pts1":0,"pts2":20, "resultType": "walkover" }
 
 
 	
