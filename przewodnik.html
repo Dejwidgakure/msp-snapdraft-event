@@ -389,6 +389,32 @@ li{
     font-size:15px;
     letter-spacing:1px;
 }
+.feature-card-link{
+    display:block;
+    color:#dffaff;
+    text-decoration:none;
+    cursor:pointer;
+    transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease,background .2s ease;
+}
+.feature-card-link:hover{
+    transform:translateY(-3px);
+    border-color:rgba(181,124,255,.65);
+    background:
+        radial-gradient(circle at 88% 12%,rgba(255,0,255,.12),transparent 35%),
+        radial-gradient(circle at 12% 88%,rgba(0,240,255,.12),transparent 35%),
+        rgba(0,0,35,.54);
+    box-shadow:0 0 24px rgba(125,60,255,.22),0 0 34px rgba(0,240,255,.12);
+}
+.feature-card-cta{
+    display:block;
+    margin-top:12px;
+    color:#8ff7ff;
+    font-family:'Orbitron',sans-serif;
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:.7px;
+    text-transform:uppercase;
+}
 .final-cta{
     text-align:center;
     padding:44px 32px;
@@ -1532,6 +1558,11 @@ li{
             <div class="feature-card"><b>Poker Draft</b>Osobny tryb, który całkowicie zmienia sposób draftowania. Zamiast klasycznego otwierania paczek pojawia się system licytacji.</div>
             <div class="feature-card"><b>Save & Steal</b>Tryb, w którym na końcu draftu gracze chronią jedną ze swoich kart i kradną jedną kartę przeciwnikowi.</div>
             <div class="feature-card"><b>Przelosowania</b>Dodatkowa opcja pozwalająca w określonych sytuacjach zmienić układ lub elementy draftu.</div>
+            <a class="feature-card feature-card-link superpowers-feature-card" href="supermoce.html">
+                <b>⚡ Supermoce</b>
+                Specjalne zdolności bohaterów, które w unikalny sposób zmieniają przebieg draftu. Zobacz oficjalny Kodeks wszystkich dostępnych Supermocy.
+                <span class="feature-card-cta">Otwórz Kodeks Supermocy →</span>
+            </a>
         </div>
         <p>Tryby można łączyć, aktywować i dezaktywować zależnie od pomysłu na daną edycję. Dzięki temu każdy draft może mieć własny klimat, własne zasady i własne niespodzianki.</p>
 
