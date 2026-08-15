@@ -3868,7 +3868,271 @@ matches:[
 	  
 	
   ]
-}
+},
+	  {
+  "id": 28,
+  "title": "",
+  "startDate": "14.08.2026",
+  "endDate": "",
+  "mode": "Tryb Supermocy + Bany + Jokery",
+  "presetCard": null,
+  "playersCount": 14,
+  "winner": "",
+  "bans": [
+    "Arishem",
+    "Loki",
+    "Cosmo",
+    "Negasonic Teenage Warhead",
+    "Fin Fang Foom",
+    "Arnim Zola",
+    "Aurora",
+    "Man-Spider",
+    "Juggernaut",
+    "Galactus",
+    "Boomerang"
+  ],
+  "players": [
+    {
+      "name": "FizjoRadek",
+      "deck": [
+        "Star-Lord, Master of the Sun",
+        "Hellcow",
+        "Apocalypse",
+        "Colonel America",
+        "Morgan le Fay",
+        "Morbius",
+        "Firelord",
+        "Miek",
+        "The First Ghost Rider",
+        "Lady Sif",
+        "Scorn",
+        "Ghost-Spider"
+      ]
+    },
+    {
+      "name": "Kmythic",
+      "deck": [
+        "H.E.R.B.I.E.",
+        "Mary Jane",
+        "Nico Minoru",
+        "Fantomex",
+        "Dormammu",
+        "Agamotto",
+        "Swarm",
+        "Kid Omega",
+        "The Hunger",
+        "Misery",
+        "Valentina",
+        "Drax, Avatar Of Life"
+      ]
+    },
+    {
+      "name": "Dejwidgakure",
+      "deck": [
+        "Namorita",
+        "Quicksand",
+        "Infinity Ultron",
+        "Spider-Man 2099",
+        "Isca the Unbeaten",
+        "Jim Hammond Human Torch",
+        "Captain Carter",
+        "Superior Spider-Man",
+        "Sparky",
+        "Medusa",
+        "Prodigy",
+        "Shadow King"
+      ]
+    },
+    {
+      "name": "Pluton32",
+      "deck": [
+        "Phoenix Force",
+        "Air-Walker",
+        "Nico Minoru",
+        "Adamantium Infusion",
+        "Eson",
+        "Miek",
+        "H.E.R.B.I.E.",
+        "Archangel Horseman of Death",
+        "Weapon X Wolverine",
+        "Master Mold",
+        "Black Bolt",
+        "Doctor Octopus"
+      ]
+    },
+    {
+      "name": "Dawid ak. Void",
+      "deck": [
+        "Angela",
+        "Black Cat",
+        "Galacta",
+        "Angel",
+        "Nico Minoru",
+        "Mojo",
+        "Gwenpool",
+        "Mirage",
+        "Nebula",
+        "Warpath",
+        "Nocturne",
+        "Shou-Lao the Undying"
+      ]
+    },
+    {
+      "name": "Budiso",
+      "deck": [
+        "Ms. Marvel",
+        "Polaris Horseman of Pestilence",
+        "Rocket and Groot",
+        "Misery",
+        "Orka",
+        "Luke Cage",
+        "Polaris",
+        "Agent Venom",
+        "White Queen",
+        "Wolfsbane",
+        "Merlin",
+        "Iron Patriot"
+      ]
+    },
+    {
+      "name": "I'm Batman",
+      "deck": [
+        "Cannonball",
+        "Attuma",
+        "The Thing First Steps",
+        "Deathlok",
+        "Knull",
+        "Headpool",
+        "Bucky Barnes",
+        "Wade Wilson",
+        "Sub-Mariner",
+        "Apocalypse",
+        "Gambit",
+        "Havok"
+      ]
+    },
+    {
+      "name": "Maniek",
+      "deck": [
+        "Squirrel Girl",
+        "Caiera",
+        "Moira X",
+        "Bastion",
+        "Dormammu",
+        "Daken",
+        "Mister Sinister",
+        "Angel",
+        "White Tiger",
+        "Shocker",
+        "Mockingbird",
+        "Selene"
+      ]
+    },
+    {
+      "name": "MatiMyHair",
+      "deck": [
+        "Shou-Lao the Undying",
+        "Sunspot",
+        "H.E.R.B.I.E.",
+        "Headpool",
+        "Merlin",
+        "Prowler",
+        "Mother Askani",
+        "Agony",
+        "Madame Web",
+        "Caiera",
+        "Human Torch First Steps",
+        "Daken"
+      ]
+    },
+    {
+      "name": "Supcio",
+      "deck": [
+        "Maximus",
+        "Sword Master",
+        "Hellcow",
+        "Iceman",
+        "Dragon Lord",
+        "The Living Tribunal",
+        "Gamora",
+        "Luna Snow",
+        "Maria Hill",
+        "The Infinaut",
+        "Isca the Unbeaten",
+        "Caiera"
+      ]
+    },
+    {
+      "name": "Weregesu",
+      "deck": [
+        "Shang-Chi, Master of the Rings",
+        "Spider Sense",
+        "Khonshu",
+        "Brood",
+        "Infinity Ultron",
+        "Nico Minoru",
+        "Bastion",
+        "Maverick",
+        "Mirage",
+        "Vulture",
+        "Techno-Organic Virus",
+        "Iron Fist"
+      ]
+    },
+    {
+      "name": "siwkerss",
+      "deck": [
+        "Rocket Raccoon",
+        "Namor",
+        "Drax",
+        "Agony",
+        "Gambit",
+        "Iron Man",
+        "Nakia",
+        "Man-Thing",
+        "The Living Tribunal",
+        "Iron Lad",
+        "Odin",
+        "Agent 13"
+      ]
+    },
+    {
+      "name": "Matixmgg",
+      "deck": [
+        "Merlin",
+        "Mother Askani",
+        "Enchantress",
+        "Hydra Stomper",
+        "Iron Lad",
+        "The Hood",
+        "Gladiator",
+        "Mad Thinker",
+        "Mockingbird",
+        "Odin",
+        "Captain Carter",
+        "Scorpion Brand New Day"
+      ]
+    },
+    {
+      "name": "troyak",
+      "deck": [
+        "Selene",
+        "Man-Thing",
+        "Hulk",
+        "Maximus",
+        "Scorpion Brand New Day",
+        "Esme Cuckoo",
+        "Isca the Unbeaten",
+        "Scarlet Witch",
+        "Cassandra Nova",
+        "Crystal",
+        "Cable",
+        "Polaris Horseman of Pestilence"
+      ]
+    }
+  ],
+  "matches": []
+},
 	
 	  
 
