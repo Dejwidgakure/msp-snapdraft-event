@@ -3873,11 +3873,12 @@ matches:[
   "id": 28,
   "title": "",
   "startDate": "14.08.2026",
-  "endDate": "",
+  "endDate": "28.08.2026",
+  "status": "finished",
   "mode": "Tryb Supermocy + Bany + Jokery",
   "presetCard": null,
-  "playersCount": 14,
-  "winner": "",
+  "playersCount": 13,
+  "winner": "Dawid ak. Void",
   "bans": [
     "Arishem",
     "Loki",
@@ -3924,23 +3925,6 @@ matches:[
         "Misery",
         "Valentina",
         "Drax, Avatar Of Life"
-      ]
-    },
-    {
-      "name": "Dejwidgakure",
-      "deck": [
-        "Namorita",
-        "Quicksand",
-        "Infinity Ultron",
-        "Spider-Man 2099",
-        "Isca the Unbeaten",
-        "Jim Hammond Human Torch",
-        "Captain Carter",
-        "Superior Spider-Man",
-        "Sparky",
-        "Medusa",
-        "Prodigy",
-        "Shadow King"
       ]
     },
     {
@@ -4131,58 +4115,504 @@ matches:[
       ]
     }
   ],
-  "matches": [{"p1":"Dawid ak. Void","p2":"troyak","pts1":25,"pts2":0},
-  {"p1":"troyak","p2":"Budiso","pts1":21,"pts2":4},
-  {"p1":"Pluton32","p2":"troyak","pts1":19,"pts2":6},
-  {"p1":"I'm Batman","p2":"Dejwidgakure","pts1":19,"pts2":6},
-  {"p1":"I'm Batman","p2":"siwkerss","pts1":23,"pts2":2},
-  {"p1":"troyak","p2":"I'm Batman","pts1":17,"pts2":8},
-  {"p1":"Dawid ak. Void","p2":"I'm Batman","pts1":19,"pts2":6},
-  {"p1":"troyak","p2":"Maniek","pts1":25,"pts2":0},
-  {"p1":"I'm Batman","p2":"Kmythic","pts1":20,"pts2":5},
-  {"p1":"troyak","p2":"Kmythic","pts1":21,"pts2":4},
-  {"p1":"Dejwidgakure","p2":"troyak","pts1":19,"pts2":6},
-  {"p1":"Dawid ak. Void","p2":"Matixmgg","pts1":19,"pts2":6},
-  {"p1":"Dawid ak. Void","p2":"siwkerss","pts1":24,"pts2":1},
-  {"p1":"troyak","p2":"siwkerss","pts1":23,"pts2":2},
-  {"p1":"Dawid ak. Void","p2":"Maniek","pts1":25,"pts2":0},
-  {"p1":"Dawid ak. Void","p2":"Weregesu","pts1":20,"pts2":5},
-  {"p1":"troyak","p2":"Weregesu","pts1":21,"pts2":4},
-  {"p1":"siwkerss","p2":"Weregesu","pts1":19,"pts2":6},
-  {"p1":"siwkerss","p2":"Maniek","pts1":25,"pts2":0},
-  {"p1":"Dejwidgakure","p2":"Maniek","pts1":25,"pts2":0},
-  {"p1":"siwkerss","p2":"Dejwidgakure","pts1":21,"pts2":4},
-  {"p1":"Budiso","p2":"siwkerss","pts1":17,"pts2":8},
-  {"p1":"FizjoRadek","p2":"troyak","pts1":23,"pts2":2},
-  {"p1":"FizjoRadek","p2":"Maniek","pts1":23,"pts2":2},
-  {"p1":"Dawid ak. Void","p2":"FizjoRadek","pts1":20,"pts2":5},
-  {"p1":"siwkerss","p2":"FizjoRadek","pts1":23,"pts2":2},
-  {"p1":"Maniek","p2":"Supcio","pts1":20,"pts2":5},
-  {"p1":"troyak","p2":"Supcio","pts1":20,"pts2":5},
-  {"p1":"Dawid ak. Void","p2":"Supcio","pts1":25,"pts2":0},
-  {"p1":"Budiso","p2":"Maniek","pts1":17,"pts2":8},
-  {"p1":"Dawid ak. Void","p2":"Budiso","pts1":25,"pts2":0},
-  {"p1":"Dawid ak. Void","p2":"MatiMyHair","pts1":21,"pts2":4},
-  {"p1":"I'm Batman","p2":"Maniek","pts1":25,"pts2":0},
-  {"p1":"MatiMyHair","p2":"siwkerss","pts1":17,"pts2":8},
-  {"p1":"I'm Batman","p2":"Weregesu","pts1":20,"pts2":5},
-  {"p1":"Weregesu","p2":"FizjoRadek","pts1":23,"pts2":2},
-  {"p1":"I'm Batman","p2":"FizjoRadek","pts1":19,"pts2":6},
-  {"p1":"Maniek","p2":"Weregesu","pts1":22,"pts2":3},
+  "matches": [
+        {
+          "p1": "Dawid ak. Void",
+          "p2": "troyak",
+          "pts1": 25,
+          "pts2": 0
+        },
+        {
+          "p1": "troyak",
+          "p2": "Budiso",
+          "pts1": 21,
+          "pts2": 4
+        },
+        {
+          "p1": "Pluton32",
+          "p2": "troyak",
+          "pts1": 19,
+          "pts2": 6
+        },
+        {
+          "p1": "I'm Batman",
+          "p2": "siwkerss",
+          "pts1": 23,
+          "pts2": 2
+        },
+        {
+          "p1": "troyak",
+          "p2": "I'm Batman",
+          "pts1": 17,
+          "pts2": 8
+        },
+        {
+          "p1": "Dawid ak. Void",
+          "p2": "I'm Batman",
+          "pts1": 19,
+          "pts2": 6
+        },
+        {
+          "p1": "troyak",
+          "p2": "Maniek",
+          "pts1": 25,
+          "pts2": 0
+        },
+        {
+          "p1": "I'm Batman",
+          "p2": "Kmythic",
+          "pts1": 20,
+          "pts2": 5
+        },
+        {
+          "p1": "troyak",
+          "p2": "Kmythic",
+          "pts1": 21,
+          "pts2": 4
+        },
+        {
+          "p1": "Dawid ak. Void",
+          "p2": "Matixmgg",
+          "pts1": 19,
+          "pts2": 6
+        },
+        {
+          "p1": "Dawid ak. Void",
+          "p2": "siwkerss",
+          "pts1": 24,
+          "pts2": 1
+        },
+        {
+          "p1": "troyak",
+          "p2": "siwkerss",
+          "pts1": 23,
+          "pts2": 2
+        },
+        {
+          "p1": "Dawid ak. Void",
+          "p2": "Maniek",
+          "pts1": 25,
+          "pts2": 0
+        },
+        {
+          "p1": "Dawid ak. Void",
+          "p2": "Weregesu",
+          "pts1": 20,
+          "pts2": 5
+        },
+        {
+          "p1": "troyak",
+          "p2": "Weregesu",
+          "pts1": 21,
+          "pts2": 4
+        },
+        {
+          "p1": "siwkerss",
+          "p2": "Weregesu",
+          "pts1": 19,
+          "pts2": 6
+        },
+        {
+          "p1": "siwkerss",
+          "p2": "Maniek",
+          "pts1": 25,
+          "pts2": 0
+        },
+        {
+          "p1": "Budiso",
+          "p2": "siwkerss",
+          "pts1": 17,
+          "pts2": 8
+        },
+        {
+          "p1": "FizjoRadek",
+          "p2": "troyak",
+          "pts1": 23,
+          "pts2": 2
+        },
+        {
+          "p1": "FizjoRadek",
+          "p2": "Maniek",
+          "pts1": 23,
+          "pts2": 2
+        },
+        {
+          "p1": "Dawid ak. Void",
+          "p2": "FizjoRadek",
+          "pts1": 20,
+          "pts2": 5
+        },
+        {
+          "p1": "siwkerss",
+          "p2": "FizjoRadek",
+          "pts1": 23,
+          "pts2": 2
+        },
+        {
+          "p1": "Maniek",
+          "p2": "Supcio",
+          "pts1": 20,
+          "pts2": 5
+        },
+        {
+          "p1": "troyak",
+          "p2": "Supcio",
+          "pts1": 20,
+          "pts2": 5
+        },
+        {
+          "p1": "Dawid ak. Void",
+          "p2": "Supcio",
+          "pts1": 25,
+          "pts2": 0
+        },
+        {
+          "p1": "Budiso",
+          "p2": "Maniek",
+          "pts1": 17,
+          "pts2": 8
+        },
+        {
+          "p1": "Dawid ak. Void",
+          "p2": "Budiso",
+          "pts1": 25,
+          "pts2": 0
+        },
+        {
+          "p1": "Dawid ak. Void",
+          "p2": "MatiMyHair",
+          "pts1": 21,
+          "pts2": 4
+        },
+        {
+          "p1": "I'm Batman",
+          "p2": "Maniek",
+          "pts1": 25,
+          "pts2": 0
+        },
+        {
+          "p1": "MatiMyHair",
+          "p2": "siwkerss",
+          "pts1": 17,
+          "pts2": 8
+        },
+        {
+          "p1": "I'm Batman",
+          "p2": "Weregesu",
+          "pts1": 20,
+          "pts2": 5
+        },
+        {
+          "p1": "Weregesu",
+          "p2": "FizjoRadek",
+          "pts1": 23,
+          "pts2": 2
+        },
+        {
+          "p1": "I'm Batman",
+          "p2": "FizjoRadek",
+          "pts1": 19,
+          "pts2": 6
+        },
+        {
+          "p1": "Maniek",
+          "p2": "Weregesu",
+          "pts1": 22,
+          "pts2": 3
+        },
+        {
+          "p1": "Budiso",
+          "p2": "Kmythic",
+          "pts1": 20,
+          "pts2": 0,
+          "resultType": "walkover"
+        },
+        {
+          "p1": "Dawid ak. Void",
+          "p2": "Kmythic",
+          "pts1": 20,
+          "pts2": 0,
+          "resultType": "walkover"
+        },
+        {
+          "p1": "FizjoRadek",
+          "p2": "Kmythic",
+          "pts1": 20,
+          "pts2": 0,
+          "resultType": "walkover"
+        },
+        {
+          "p1": "Maniek",
+          "p2": "Kmythic",
+          "pts1": 20,
+          "pts2": 0,
+          "resultType": "walkover"
+        },
+        {
+          "p1": "MatiMyHair",
+          "p2": "Kmythic",
+          "pts1": 20,
+          "pts2": 0,
+          "resultType": "walkover"
+        },
+        {
+          "p1": "Matixmgg",
+          "p2": "Kmythic",
+          "pts1": 20,
+          "pts2": 0,
+          "resultType": "walkover"
+        },
+        {
+          "p1": "Pluton32",
+          "p2": "Kmythic",
+          "pts1": 20,
+          "pts2": 0,
+          "resultType": "walkover"
+        },
+        {
+          "p1": "siwkerss",
+          "p2": "Kmythic",
+          "pts1": 20,
+          "pts2": 0,
+          "resultType": "walkover"
+        },
+        {
+          "p1": "Supcio",
+          "p2": "Kmythic",
+          "pts1": 20,
+          "pts2": 0,
+          "resultType": "walkover"
+        },
+        {
+          "p1": "Weregesu",
+          "p2": "Kmythic",
+          "pts1": 20,
+          "pts2": 0,
+          "resultType": "walkover"
+        },
+        {
+          "p1": "Pluton32",
+          "p2": "I'm Batman",
+          "pts1": 22,
+          "pts2": 3
+        },
+        {
+          "p1": "Pluton32",
+          "p2": "Dawid ak. Void",
+          "pts1": 18,
+          "pts2": 7
+        },
+        {
+          "p1": "I'm Batman",
+          "p2": "Budiso",
+          "pts1": 21,
+          "pts2": 4
+        },
+        {
+          "p1": "Weregesu",
+          "p2": "Budiso",
+          "pts1": 23,
+          "pts2": 2
+        },
+        {
+          "p1": "Maniek",
+          "p2": "MatiMyHair",
+          "pts1": 23,
+          "pts2": 2
+        },
+        {
+          "p1": "MatiMyHair",
+          "p2": "troyak",
+          "pts1": 23,
+          "pts2": 2
+        },
+        {
+          "p1": "I'm Batman",
+          "p2": "Matixmgg",
+          "pts1": 21,
+          "pts2": 4
+        },
+        {
+          "p1": "Matixmgg",
+          "p2": "Maniek",
+          "pts1": 23,
+          "pts2": 2
+        },
+        {
+          "p1": "Matixmgg",
+          "p2": "Weregesu",
+          "pts1": 17,
+          "pts2": 8
+        },
+        {
+          "p1": "MatiMyHair",
+          "p2": "I'm Batman",
+          "pts1": 25,
+          "pts2": 0
+        },
+        {
+          "p1": "Matixmgg",
+          "p2": "troyak",
+          "pts1": 23,
+          "pts2": 2
+        },
+        {
+          "p1": "MatiMyHair",
+          "p2": "Matixmgg",
+          "pts1": 23,
+          "pts2": 2
+        },
+        {
+          "p1": "Budiso",
+          "p2": "Pluton32",
+          "pts1": 16,
+          "pts2": 9
+        },
+        {
+          "p1": "Supcio",
+          "p2": "I'm Batman",
+          "pts1": 24,
+          "pts2": 1
+        },
+        {
+          "p1": "Supcio",
+          "p2": "Weregesu",
+          "pts1": 21,
+          "pts2": 4
+        },
+        {
+          "p1": "siwkerss",
+          "p2": "Supcio",
+          "pts1": 21,
+          "pts2": 4
+        },
+        {
+          "p1": "siwkerss",
+          "p2": "Matixmgg",
+          "pts1": 25,
+          "pts2": 0
+        },
+        {
+          "p1": "MatiMyHair",
+          "p2": "Weregesu",
+          "pts1": 24,
+          "pts2": 1
+        },
+        {
+          "p1": "Matixmgg",
+          "p2": "Budiso",
+          "pts1": 20,
+          "pts2": 0,
+          "resultType": "walkover"
+        },
+        {
+          "p1": "FizjoRadek",
+          "p2": "Budiso",
+          "pts1": 20,
+          "pts2": 0,
+          "resultType": "walkover"
+        },
+        {
+          "p1": "Supcio",
+          "p2": "Budiso",
+          "pts1": 20,
+          "pts2": 0,
+          "resultType": "walkover"
+        },
+        {
+          "p1": "MatiMyHair",
+          "p2": "Budiso",
+          "pts1": 20,
+          "pts2": 0,
+          "resultType": "walkover"
+        },
+        {
+          "p1": "siwkerss",
+          "p2": "Pluton32",
+          "pts1": 20,
+          "pts2": 0,
+          "resultType": "walkover"
+        },
+        {
+          "p1": "Maniek",
+          "p2": "Pluton32",
+          "pts1": 20,
+          "pts2": 0,
+          "resultType": "walkover"
+        },
+        {
+          "p1": "Matixmgg",
+          "p2": "Pluton32",
+          "pts1": 20,
+          "pts2": 0,
+          "resultType": "walkover"
+        },
+        {
+          "p1": "Weregesu",
+          "p2": "Pluton32",
+          "pts1": 20,
+          "pts2": 0,
+          "resultType": "walkover"
+        },
+        {
+          "p1": "FizjoRadek",
+          "p2": "Pluton32",
+          "pts1": 20,
+          "pts2": 0,
+          "resultType": "walkover"
+        },
+        {
+          "p1": "Supcio",
+          "p2": "Pluton32",
+          "pts1": 20,
+          "pts2": 0,
+          "resultType": "walkover"
+        },
+        {
+          "p1": "MatiMyHair",
+          "p2": "Pluton32",
+          "pts1": 20,
+          "pts2": 0,
+          "resultType": "walkover"
+        },
+        {
+          "p1": "Matixmgg",
+          "p2": "FizjoRadek",
+          "pts1": 20,
+          "pts2": 0,
+          "resultType": "walkover"
+        },
+        {
+          "p1": "Supcio",
+          "p2": "FizjoRadek",
+          "pts1": 20,
+          "pts2": 0,
+          "resultType": "walkover"
+        },
+        {
+          "p1": "MatiMyHair",
+          "p2": "FizjoRadek",
+          "pts1": 20,
+          "pts2": 0,
+          "resultType": "walkover"
+        },
+        {
+          "p1": "MatiMyHair",
+          "p2": "Supcio",
+          "pts1": 20,
+          "pts2": 0,
+          "resultType": "walkover"
+        },
+        {
+          "p1": "Supcio",
+          "p2": "Matixmgg",
+          "pts1": 0,
+          "pts2": 0,
+          "resultType": "doubleWalkover"
+        }
+      ],
 
-  {"p1":"Budiso","p2":"Kmythic","pts1":20,"pts2":0,"resultType":"walkover"},
-  {"p1":"Dawid ak. Void","p2":"Kmythic","pts1":20,"pts2":0,"resultType":"walkover"},
-  {"p1":"Dejwidgakure","p2":"Kmythic","pts1":20,"pts2":0,"resultType":"walkover"},
-  {"p1":"FizjoRadek","p2":"Kmythic","pts1":20,"pts2":0,"resultType":"walkover"},
-  {"p1":"Maniek","p2":"Kmythic","pts1":20,"pts2":0,"resultType":"walkover"},
-  {"p1":"MatiMyHair","p2":"Kmythic","pts1":20,"pts2":0,"resultType":"walkover"},
-  {"p1":"Matixmgg","p2":"Kmythic","pts1":20,"pts2":0,"resultType":"walkover"},
-  {"p1":"Pluton32","p2":"Kmythic","pts1":20,"pts2":0,"resultType":"walkover"},
-  {"p1":"siwkerss","p2":"Kmythic","pts1":20,"pts2":0,"resultType":"walkover"},
-  {"p1":"Supcio","p2":"Kmythic","pts1":20,"pts2":0,"resultType":"walkover"},
-  {"p1":"Weregesu","p2":"Kmythic","pts1":20,"pts2":0,"resultType":"walkover"}
-]
-},
+}
 	
 	  
 
